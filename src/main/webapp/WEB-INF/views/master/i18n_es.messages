@@ -62,7 +62,7 @@ master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.authenticated #######################################################
-master.menu.authenticated = Authenticated
+master.menu.authenticated = Autenticado
 master.menu.manager = Manager
 master.menu.manager.list-Workplans = Lista de mis planes de trabajo
 master.menu.manager.create-Workplans = Crear nuevo Plan de trabajo

@@ -103,6 +103,20 @@
 		</property>
 		<property name="user" ref="juanUserAccount"/>
 	</bean>
+
+ <bean name="task7" class="acme.entities.tasks.Task">
+        <property name="title" value="Testing task"/>
+        <property name="description" value="Never before was this easy to test your tasks"/>
+        <property name="isPublic" value="true"/>
+        <property name="executionPeriod">
+            <bean class="acme.datatypes.ExecutionPeriod">
+                <property name="startDateTime" value="2021/03/10 23:59"/>
+                <property name="finishDateTime" value="2021/04/13 23:59"/>
+            </bean>
+        </property>
+        <property name="user" ref="juanUserAccount"/>
+    </bean>
+
 	<bean name="task5" class="acme.entities.tasks.Task">
 		<property name="title" value="Task" />
 		<property name="description" value="The best starter" />
