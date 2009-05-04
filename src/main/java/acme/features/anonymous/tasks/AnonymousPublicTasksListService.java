@@ -1,7 +1,6 @@
 package acme.features.anonymous.tasks;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +32,7 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		model.setAttribute("workload", entity.getWorkloadHours());
 		request.unbind(entity, model, "title", "description", "isPublic");
 	}
 

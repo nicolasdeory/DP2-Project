@@ -20,11 +20,15 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	@Autowired
 	protected AnonymousPublicTasksListService listPublicTasksService;
 
+	@Autowired
+	protected AnonymousTaskShowService showTaskService;
+
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listPublicTasksService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showTaskService);
 	}
 
 }
