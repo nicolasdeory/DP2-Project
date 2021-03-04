@@ -1,0 +1,28 @@
+# CHANGELOG.txt
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+Year 2020
+
+2.19   A brand-new framework is available!  The change log is restarted since this version is totally new.
+2.19.1 Fixed many minor problems with Clever-Cloud deployment.
+2.19.2 Fixed problem when signing out in a Clever-Cloud deployment.
+2.19.3 Fixed bug: the delete workflow didn't invoke the validate method.
+2.19.4 Fixed small bugs in custom tags.
+2.19.5 Added support for datatypes in the user space and PERFORM workflows. 
+2.19.6 Added basic support for JUnit testing.
+2.19.7 Added support for HTTPS when deploying to Clever Cloud.
+2.19.8 Fixed minor problems with LocalisedDoubleFormatter, ConversionConfiguration, and acme:message.
+2.19.9 Fixed some problems with conversion service to prevent default non-localised converters and minor index reporting problem with database populator.  
+2.19.a Fixed minor problem to allow for testing via JUnit.
+2.19.b Improved database connection strings. Apps now accept a "debug" param to show debugging info even if the request didn't originate from localhost.
+
+Year 2021
+
+21.1   The version scheme was changed. Many improvements to profiles, population, launcher, error handling, and testing support.

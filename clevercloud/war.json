@@ -1,0 +1,15 @@
+{
+   "build": {
+        "type": "maven",
+        "goal": "clean compile package"
+   },
+   "deploy": {
+        "container": "TOMCAT8",
+        "war": [{
+            "file": "target/Starter-Project-21.1.war",
+            "context": "/",
+            "port": 443
+        }]
+    }
+}
+
