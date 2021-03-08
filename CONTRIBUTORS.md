@@ -5,3 +5,4 @@
 - José Luis Alonso Rocha (joseluisalro20@gmail.com)
 - José Montiel Nieves (esoj.nieves@gmail.com)
 - Fernando Rabasco Ledesma (frabascol@gmail.com)
+- Pedro Alonso Pontiga (pedropontiga@gmail.com)
