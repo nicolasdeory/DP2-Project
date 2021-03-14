@@ -18,10 +18,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	
-	<name>Starter Project</name>
-	<description>This is the Starter Project for the students of Design &amp; Testing.</description>
+	<name>Acme One</name>
+	<description>This is my first project in D&amp;T.</description>
 
-	<artifactId>Starter-Project</artifactId>
+	<artifactId>Acme-One</artifactId>
 	<packaging>war</packaging>
 
 	<parent>

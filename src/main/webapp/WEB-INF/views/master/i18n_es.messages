@@ -16,8 +16,7 @@ master.banner.background = #FFE97F
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme Stater!  Nunca antes ha sido tan sencillo desarrollar un \
-	proyecto y hacerlo funcionar.
+	Bienvenidos a Acme One! Tu primer proyecto en D&T.
 
 # master.menu #################################################################
 

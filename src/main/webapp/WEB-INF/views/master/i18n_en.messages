@@ -16,8 +16,7 @@ master.banner.background = #FFE97F
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Starter Project! Never before has it bee easier to get your \
-	project up and running!
+	Welcome to Acme One! Your first project in D&T
 
 # master.menu #################################################################
 
