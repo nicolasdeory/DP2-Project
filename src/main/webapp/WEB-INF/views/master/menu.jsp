@@ -24,7 +24,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.nieves.favourite-link" action="http://github.com/JSnow11/"/>	
 			<acme:menu-suboption code="master.menu.anonymous.fernando.favourite-link" action="https://github.com/ferrabled/"/>
 			<acme:menu-suboption code="master.menu.anonymous.joseluis.favourite-link" action="https://github.com/josaloroc"/>
-			<acme:menu-suboption code="master.menu.anonymous.ignacio.favourite-link" action="ignacionavarro.eu"/>
+			<acme:menu-suboption code="master.menu.anonymous.ignacio.favourite-link" action="http://ignacionavarro.eu"/>
 			<acme:menu-suboption code="master.menu.anonymous.nicolas.favourite-link" action="http://github.com/nicolasdeory/"/>
 		</acme:menu-option>
 
