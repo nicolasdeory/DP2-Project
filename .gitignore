@@ -29,7 +29,5 @@ nbdist/
 mvnw
 
 mvnw\.cmd
-
-starter-project.log
-
-*.log
+/bin/
+*.log
