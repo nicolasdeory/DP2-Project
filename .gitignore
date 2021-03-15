@@ -31,3 +31,5 @@ mvnw
 mvnw\.cmd
 
 starter-project.log
+
+*.log
