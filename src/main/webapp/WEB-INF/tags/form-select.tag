@@ -1,7 +1,7 @@
 <%--
 - form-select.tag
 -
-- Copyright (c) 2012-2021 Rafael Corchuelo.
+- Copyright (C) 2012-2021 Rafael Corchuelo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -27,7 +27,7 @@
 	<label for="${path}">
 		<acme:message code="${code}"/>
 	</label>
-	<select id="${path}" name="${path}" class="selectpicker show-tick">
+	<select id="${path}" name="${path}" class="form-control selectpicker show-tick">
   		<jsp:doBody/>
 	</select>		
 	<acme:form-errors path="${path}"/>			

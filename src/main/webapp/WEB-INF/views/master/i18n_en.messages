@@ -78,7 +78,7 @@ master.footer.label.spanish = Spanish
 
 # master.company ##############################################################
 
-master.company.title = La compañía
+master.company.title = The company
 master.company.text = \
 	Starter Project, Inc. is a fictitious fictitious company that provides a \
 	starter project for the students of the Design and Testing subject of the \

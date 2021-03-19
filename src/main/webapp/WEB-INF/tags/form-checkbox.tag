@@ -1,7 +1,7 @@
 <%--
 - form-checkbox.tag
 -
-- Copyright (c) 2012-2021 Rafael Corchuelo.
+- Copyright (C) 2012-2021 Rafael Corchuelo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -31,10 +31,11 @@
 			</jstl:if>
 			<jstl:if test="${readonly}">
 				disabled
-			</jstl:if>/> 
-		<input id="${path}" name="${path}" type="hidden" value="<jstl:out value="${requestScope[path]}"/>"/> 
+			</jstl:if>
+		/> 
+		<input id="${path}" name="${path}" type="hidden" value="<jstl:out value="${requestScope[path] ? true : false}"/>"/> 
 		<label for="${path}$proxy"> 
-			<acme:message	code="${code}"/>
+			<acme:message code="${code}"/>
 		</label>
 	</div>
 	<acme:form-errors path="${path}"/>
