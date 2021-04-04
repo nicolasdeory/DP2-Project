@@ -4,11 +4,10 @@ import java.beans.Transient;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
@@ -23,37 +22,37 @@ import lombok.Setter;
 @Setter
 public class Task extends DomainEntity {
 
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
+    // Attributes -------------------------------------------------------------
     @NotNull
     @NotEmpty
     @NotBlank
-	@Size(min = 1, max = 80)
-    protected String            title;
+    @Size(min = 1, max = 80)
+    protected String title;
 
     @NotNull
-    protected Boolean       isPublic;
+    protected Boolean isPublic;
 
     @NotNull
     @Valid
-    protected ExecutionPeriod               executionPeriod;
+    protected ExecutionPeriod executionPeriod;
 
     @NotNull
     @NotEmpty
-	@NotBlank
-	@Size(min = 1, max = 500)
-	protected String			description;
-	
-	@URL
-	protected String			link;
+    @NotBlank
+    @Size(min = 1, max = 500)
+    protected String description;
 
-	// Derived attributes -----------------------------------------------------
+    @URL
+    protected String link;
+
+    // Derived attributes -----------------------------------------------------
     @Transient
-    public Double  getWorkloadHours(){
-        return this.executionPeriod.getWorkloadHours() ;
+    public Double getWorkloadHours() {
+        return this.executionPeriod.getWorkloadHours();
     }
 
     @Transient
@@ -62,7 +61,7 @@ public class Task extends DomainEntity {
         return now.after(this.executionPeriod.getFinishDateTime());
     }
 
-	// Relationships ----------------------------------------------------------
-    //TODO: user
-    //TODO: workplans
+    // Relationships ----------------------------------------------------------
+    // TODO: user
+    // TODO: workplans
 }

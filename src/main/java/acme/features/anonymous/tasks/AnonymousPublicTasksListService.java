@@ -1,17 +1,16 @@
 package acme.features.anonymous.tasks;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
-import acme.framework.entities.Authenticated;
-import acme.framework.entities.Task;
-import acme.framework.entities.UserRole;
-import acme.framework.services.AbstractCreateService;
+import acme.entities.tasks.Task;
+import acme.framework.services.AbstractListService;
 
 @Service
 public class AnonymousPublicTasksListService implements AbstractListService<Anonymous, Task> {
@@ -21,7 +20,6 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 	@Autowired
 	protected AnonymousTaskRepository repository;
 
-
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
@@ -30,26 +28,16 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 	}
 
 	@Override
-	public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors);
-	}
-
-	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
 		// TODO
 	}
 
-    @Override
-	public Collection<Task> findPublicNonFinishedTasks(final Request<Task> request) {
+	@Override
+	public Collection<Task> findMany(Request<Task> request) {
 		assert request != null;
 		Collection<Task> result;
 		result = this.repository.findPublicTasks();
 
-		return result.stream().filter(task -> task.getIsFinished());
+		return result.stream().filter(task -> !task.isFinished()).collect(Collectors.toList());
 	}
-
 }

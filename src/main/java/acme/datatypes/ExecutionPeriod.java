@@ -13,10 +13,13 @@
 package acme.datatypes;
 
 import java.beans.Transient;
+import java.util.Date;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import acme.framework.datatypes.DomainDatatype;
 import lombok.Getter;
@@ -31,22 +34,22 @@ public class ExecutionPeriod extends DomainDatatype {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Future
 	@NotNull
-	protected Date				startDateTime;
+	protected Date startDateTime;
 
 	@Future
 	@NotNull
-	protected Date				finishDateTime;
+	protected Date finishDateTime;
 
 	// Derived attributes -----------------------------------------------------
 
-    @Transient
-    public Double  getWorkloadHours(){
-        return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600) ;
-    }
+	@Transient
+	public Double getWorkloadHours() {
+		return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600.0);
+	}
 }
