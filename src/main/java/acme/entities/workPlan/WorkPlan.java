@@ -2,6 +2,7 @@
 package acme.entities.workPlan;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Length;
 
 import acme.framework.entities.DomainEntity;
+import acme.framework.entities.UserAccount;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -50,7 +52,8 @@ public class WorkPlan extends DomainEntity {
 	@ManyToMany
 	protected List<Task> tasks;*/
 	
-	
+	@ManyToOne
+	protected UserAccount user;
 	
 
 }

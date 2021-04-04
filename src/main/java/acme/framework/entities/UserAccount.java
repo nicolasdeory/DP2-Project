@@ -15,6 +15,7 @@ package acme.framework.entities;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,6 +28,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.UserIdentity;
+import acme.entities.workPlan.WorkPlan;
 import acme.framework.helpers.PasswordHelper;
 import acme.framework.helpers.StringHelper;
 import lombok.Getter;
@@ -173,4 +175,10 @@ public class UserAccount extends DomainEntity {
 
 	// Other methods ----------------------------------------------------------
 
+	
+	
+	//RELATIONS
+	
+	@OneToMany
+	protected List<WorkPlan> workplans;
 }
