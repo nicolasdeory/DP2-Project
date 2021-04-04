@@ -1,4 +1,4 @@
-package acme.features.anonymous.tasks;
+package acme.features.administrator.tasks;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import acme.entities.tasks.Task;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AnonymousTaskRepository extends AbstractRepository {
+public interface AdministratorTaskRepository extends AbstractRepository {
 
 	@Query("select task from Task task where task.isPublic = true ORDER BY task.getWorkload DESC")
 	Collection<Task> findPublicTasks();
