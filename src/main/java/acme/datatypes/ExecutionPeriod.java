@@ -30,7 +30,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ExecutionPeriod extends DomainDatatype {
+public class ExecutionPeriod extends DomainDatatype implements Comparable<ExecutionPeriod> {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -51,5 +51,11 @@ public class ExecutionPeriod extends DomainDatatype {
 	@Transient
 	public Double getWorkloadHours() {
 		return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600.0);
+	}
+
+	@Override
+	public int compareTo(ExecutionPeriod o) {
+		double diff = this.getWorkloadHours() - o.getWorkloadHours();
+		return diff < 0 ? -1 : (diff > 0 ? 1 : 0);
 	}
 }

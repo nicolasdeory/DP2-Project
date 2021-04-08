@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Administrator;
 import acme.entities.tasks.Task;
 
 @Controller
-@RequestMapping("/anonymous/tasks/")
-public class AdministratorTaskController extends AbstractController<Anonymous, Task> {
+@RequestMapping("/administrator/tasks/")
+public class AdministratorTaskController extends AbstractController<Administrator, Task> {
 
     // Internal state ---------------------------------------------------------
 

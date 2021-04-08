@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Administrator;
 import acme.entities.tasks.Task;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AdministratorListPublicFinishedTasksService implements AbstractListService<Anonymous, Task> {
+public class AdministratorListPublicFinishedTasksService implements AbstractListService<Administrator, Task> {
 
     // Internal state ---------------------------------------------------------
 
