@@ -2,7 +2,6 @@
 package acme.features.anonymous.workPlan;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,7 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "description", "isPublic","executionPeriod");
+		request.unbind(entity, model, "title", "description", "isPublic", "executionPeriod");
 
 	}
 
@@ -40,7 +39,7 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 		assert request != null;
 		Collection<WorkPlan> result;
 		result = this.repository.findAnonymousPublicWorkPlan();
-		return result.stream().filter(x->!x.isFinished()).collect(Collectors.toList());
+		return result;
 	}
 
 }
