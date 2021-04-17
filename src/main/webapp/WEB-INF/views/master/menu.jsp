@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.list-publicWorkplans" action="/anonymous/work-plan/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-publicTasks" action="/anonymous/tasks/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
