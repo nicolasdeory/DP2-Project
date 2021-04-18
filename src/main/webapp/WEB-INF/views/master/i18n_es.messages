@@ -56,6 +56,12 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.list-Workplans = Lista de plan de trabajo
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

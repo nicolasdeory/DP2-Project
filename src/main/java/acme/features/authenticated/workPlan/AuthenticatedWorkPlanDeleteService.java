@@ -1,6 +1,7 @@
 package acme.features.authenticated.workPlan;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.Errors;
@@ -9,6 +10,7 @@ import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractDeleteService;
 
+@Service
 public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService<Authenticated, WorkPlan>{
 
 	@Autowired

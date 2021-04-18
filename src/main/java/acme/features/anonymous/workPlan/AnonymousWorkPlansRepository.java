@@ -11,7 +11,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnonymousWorkPlansRepository extends AbstractRepository {
 	
-	@Query("select workplan from WorkPlan workplan where workplan.isPublic = true and workplan.isFinished= false order by workplan.executionPeriod.finishDateTime")
+	@Query("select workplan from WorkPlan workplan")
 	Collection<WorkPlan> findAnonymousPublicWorkPlan();
 	
 }

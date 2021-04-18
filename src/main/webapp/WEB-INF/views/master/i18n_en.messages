@@ -55,6 +55,12 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list-Workplans = WorkPlans List
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account

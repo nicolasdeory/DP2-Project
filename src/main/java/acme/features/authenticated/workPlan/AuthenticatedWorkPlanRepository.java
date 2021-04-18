@@ -10,7 +10,7 @@ import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuthenticatedWorkPlanRepository extends AbstractRepository {
-	@Query("select workplan from WorkPlan workplan where workplan.isFinished = false and workplan.user.id = ?1")
+	@Query("select workplan from WorkPlan workplan where workplan.user.id = ?1")
 	Collection<WorkPlan> findAuthenticatedPublicWorkPlan(Integer id);
 	
 	@Query("select workplan from WorkPlan workplan where workplan.id = ?1")
