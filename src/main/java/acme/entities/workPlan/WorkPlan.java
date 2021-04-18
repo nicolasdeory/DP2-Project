@@ -1,8 +1,6 @@
 
 package acme.entities.workPlan;
 
-import java.beans.Transient;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -42,19 +40,10 @@ public class WorkPlan extends DomainEntity {
 	@NotNull
 	protected Boolean			isPublic;
 
-	// Derived attributes -----------------------------------------------------
-
-
-	@Transient
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
-
-
 	@NotNull
 	@Valid
 	protected ExecutionPeriod	executionPeriod;
+	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 
