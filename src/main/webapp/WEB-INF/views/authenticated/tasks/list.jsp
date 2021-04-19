@@ -15,11 +15,11 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<h1><acme:message code="anonymous.taks.list"/></h1>
+<h1><acme:message code="authenticated.taks.list"/></h1>
 <acme:list readonly="true">
-	<acme:list-column code="anonymous.tasks.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="anonymous.tasks.list.label.description" path="description" width="20%"/>
-	<acme:list-column code="anonymous.tasks.list.label.is-public" path="isPublic" width="20%"/>
-	<acme:list-column code="anonymous.tasks.list.label.start-date-time" path="startDateTime" width="20%"/>
-	<acme:list-column code="anonymous.tasks.list.label.finish-date-time" path="finishDateTime" width="20%"/>
+	<acme:list-column code="authenticated.tasks.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="authenticated.tasks.list.label.description" path="description" width="20%"/>
+	<acme:list-column code="authenticated.tasks.list.label.is-public" path="isPublic" width="20%"/>
+	<acme:list-column code="authenticated.tasks.list.label.start-date-time" path="startDateTime" width="20%"/>
+	<acme:list-column code="authenticated.tasks.list.label.finish-date-time" path="finishDateTime" width="20%"/>
 </acme:list>

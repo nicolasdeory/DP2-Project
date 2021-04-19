@@ -1,0 +1,9 @@
+master.menu.authenticated.list-publicTasks= Public Tasks
+authenticated.taks.list= Public Finished Tasks
+
+authenticated.tasks.list.label.title = Title
+authenticated.tasks.list.label.description = Description
+authenticated.tasks.list.label.is-public = Public
+authenticated.tasks.list.label.start-date-time=Start
+authenticated.tasks.list.label.finish-date-time=Finish
+authenticated.tasks.list.label.workload=Workload

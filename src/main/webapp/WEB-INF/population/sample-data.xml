@@ -92,4 +92,44 @@
 		<property name="user" ref="JohnUserAccount">
 		</property>
 	</bean>
+	<bean name="task4" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="false" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/1/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="task5" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="false" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2021/4/19 19:18" />
+				<property name="finishDateTime" value="2021/4/19 19:18" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+
+	<bean name="task6" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter finished" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2021/4/19 19:18" />
+				<property name="finishDateTime" value="2021/4/19 19:18" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
 </beans>
