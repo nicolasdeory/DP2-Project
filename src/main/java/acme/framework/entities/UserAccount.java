@@ -28,6 +28,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.UserIdentity;
+import acme.entities.tasks.Task;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.helpers.PasswordHelper;
 import acme.framework.helpers.StringHelper;
@@ -91,7 +92,14 @@ public class UserAccount extends DomainEntity {
 	@NotEmpty
 	@OneToMany(mappedBy = "userAccount")
 	protected Collection<@Valid UserRole> roles;
-
+	
+	@Valid
+	@OneToMany
+	protected List<Task> tasks;
+	
+	@Valid
+	@OneToMany
+	protected List<WorkPlan> workPlans;
 
 	@Transient
 	public boolean hasRole(final UserRole role) {

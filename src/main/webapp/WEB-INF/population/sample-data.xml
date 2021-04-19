@@ -18,5 +18,54 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+	
+	<bean name="juanUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="juan21" />
+		<property name="password" value="1234" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Juan" />
+				<property name="surname" value="Martin" />
+				<property name="email" value="martin.doe@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="juanAuthenticated" />
+			</list>
+		</property>
+	</bean>
+	<bean class="acme.framework.entities.Authenticated" name="juanAuthenticated">
 
+		<property name="userAccount" ref="juanUserAccount"/>
+
+	</bean>
+	<!-- WorkPlans -->
+	<bean name="workplan1" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One" />
+		<property name="description" value="Second Deliverable DP2" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2040/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount">
+		</property>
+	</bean>
+	<bean name="workplan2" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 2" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount">
+		</property>
+	</bean>
 </beans>
