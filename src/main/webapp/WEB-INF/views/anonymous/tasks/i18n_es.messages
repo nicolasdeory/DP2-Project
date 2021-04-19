@@ -1,5 +1,10 @@
-master.menu.anonymous.list-publicTasks= Public Tasks
+anonymous.taks.list= Tareas Públicas
 
 anonymous.tasks.list.label.title = Titulo
 anonymous.tasks.list.label.description = Descripcion
 anonymous.tasks.list.label.is-public = Publica
+
+
+anonymous.workplan.list.label.start-date-time=Inicio
+anonymous.workplan.list.label.finish-date-time=Fin
+anonymous.tasks.list.label.workload=Carga de trabajo

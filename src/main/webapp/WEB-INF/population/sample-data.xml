@@ -19,4 +19,77 @@
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
 
+	<bean name="JohnUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="john21" />
+		<property name="password" value="1234" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="John" />
+				<property name="surname" value="Martin" />
+				<property name="email" value="john.doe@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="johnAuthenticated" />
+			</list>
+		</property>
+	</bean>
+	<bean class="acme.framework.entities.Authenticated" name="johnAuthenticated">
+		<property name="userAccount" ref="JohnUserAccount"/>
+	</bean>
+	<!-- WorkPlans -->
+	<bean name="wp1" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Plan test" />
+		<property name="description" value="Second tests" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2040/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="task1" class="acme.entities.tasks.Task">
+		<property name="title" value="ToDo task" />
+		<property name="description" value="The best task ever" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="task2" class="acme.entities.tasks.Task">
+		<property name="title" value="ToDo task 2 test" />
+		<property name="description" value="The best task but not ever" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/12 15:59" />
+				<property name="finishDateTime" value="2023/7/7 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="task3" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/1/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
 </beans>
