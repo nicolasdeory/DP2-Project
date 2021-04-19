@@ -30,31 +30,30 @@ public class Task extends DomainEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 	@NotNull
 	@NotEmpty
 	@NotBlank
 	@Size(min = 1, max = 80)
-	protected String			title;
+	protected String title;
 
 	@NotNull
-	protected Boolean			isPublic;
+	protected Boolean isPublic;
 
 	@NotNull
 	@Valid
-	protected ExecutionPeriod	executionPeriod;
+	protected ExecutionPeriod executionPeriod;
 
 	@NotNull
 	@NotEmpty
 	@NotBlank
 	@Size(min = 1, max = 500)
-	protected String			description;
+	protected String description;
 
 	@URL
-	protected String			link;
-
+	protected String link;
 
 	// Derived attributes -----------------------------------------------------
 	@Transient
@@ -68,13 +67,12 @@ public class Task extends DomainEntity {
 		return now.after(this.executionPeriod.getFinishDateTime());
 	}
 
-
 	// Relationships ----------------------------------------------------------
 	@Valid
 	@ManyToOne
-	protected UserAccount		user;
+	protected UserAccount user;
 
 	@Valid
 	@ManyToMany
-	protected List<WorkPlan>	workPlans;
+	protected List<WorkPlan> workPlans;
 }
