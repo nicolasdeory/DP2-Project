@@ -19,13 +19,8 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.pedro.favourite-link" action="https://github.com/pedalopon"/>
-			<acme:menu-suboption code="master.menu.anonymous.nieves.favourite-link" action="http://github.com/JSnow11/"/>	
-			<acme:menu-suboption code="master.menu.anonymous.fernando.favourite-link" action="https://github.com/ferrabled/"/>
-			<acme:menu-suboption code="master.menu.anonymous.joseluis.favourite-link" action="https://github.com/josaloroc"/>
-			<acme:menu-suboption code="master.menu.anonymous.ignacio.favourite-link" action="http://ignacionavarro.eu"/>
-			<acme:menu-suboption code="master.menu.anonymous.nicolas.favourite-link" action="http://github.com/nicolasdeory/"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-publicWorkplans" action="/anonymous/work-plan/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-publicTasks" action="/anonymous/task/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
