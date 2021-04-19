@@ -1,0 +1,419 @@
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121): Schema-validation: missing table [spam_parameters]
+INFO [acme.Launcher] Starting Launcher using Java 11.0.5 on DESKTOP-PBOQBAP with PID 22044 (E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project\target\classes started by Nico in E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 2.817 seconds (JVM running for 3.425)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWordSex ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamWordSex.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWordSex = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 11.0.5 on DESKTOP-PBOQBAP with PID 16372 (E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project\target\classes started by Nico in E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 2.811 seconds (JVM running for 3.418)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'spamParametersController' method 
+acme.features.spam.SpamParametersController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
+to {[GET, POST] [/authenticated/provider/{endpoint}]}: There is already 'authenticatedProviderController' bean method
+acme.features.authenticated.provider.AuthenticatedProviderController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'spamParametersController' method 
+acme.features.spam.SpamParametersController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
+to {[GET, POST] [/authenticated/provider/{endpoint}]}: There is already 'authenticatedProviderController' bean method
+acme.features.authenticated.provider.AuthenticatedProviderController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
+at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:644): Ambiguous mapping. Cannot map 'spamParametersController' method 
+acme.features.spam.SpamParametersController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
+to {[GET, POST] [/authenticated/provider/{endpoint}]}: There is already 'authenticatedProviderController' bean method
+acme.features.authenticated.provider.AuthenticatedProviderController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [105] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [101] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost]] at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+at org.hibernate.collection.internal.AbstractPersistentCollection.throwLazyInitializationException(AbstractPersistentCollection.java:606): failed to lazily initialize a collection of role: acme.features.spam.SpamParameters.keywords, could not initialize proxy - no Session
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [109] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [109] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [112] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [112] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [111] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [112] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [105] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [111] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [110] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [109] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point not available
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [114] milliseconds.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.apache.tiles.template.DefaultAttributeResolver.computeAttribute(DefaultAttributeResolver.java:50): Attribute 'body' not found.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.template.DefaultAttributeResolver.computeAttribute(DefaultAttributeResolver.java:50): Attribute 'body' not found.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: ServletException including path '/WEB-INF/views/framework/page.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): ServletException including path '/WEB-INF/views/framework/page.jsp'.
+org.apache.tiles.template.DefaultAttributeResolver.computeAttribute(DefaultAttributeResolver.java:50): Attribute 'body' not found.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [112] milliseconds.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: Cannot render an attribute that is not a string, toString returns: null
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: Cannot render an attribute that is not a string, toString returns: null
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: Cannot render an attribute that is not a string, toString returns: null
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: Cannot render an attribute that is not a string, toString returns: null
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: Cannot render an attribute that is not a string, toString returns: null
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:255): Cannot render an attribute that is not a string, toString returns: null
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [109] milliseconds.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;framework&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path './form.jsp'.
+at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;framework&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Starter-Project].[dispatcherServlet]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;framework&#47;form.jsp] not found
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path './form.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path './form.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path './form.jsp'.
+org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;framework&#47;form.jsp] not found
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [117] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [102] milliseconds.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
