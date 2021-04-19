@@ -18,7 +18,7 @@ public class Dashboard implements Serializable {
 	Integer numberOfPrivateTasks;
 	Integer numberOfFinishedTasks;
 	Integer numberOfNonFinishedTasks;
-	
+//	
 //	Double averageOfTaskExecutionPeriods;
 //	Double deviationOfTaskExecutionPeriods;
 //	Integer minOfTaskExecutionPeriods;
