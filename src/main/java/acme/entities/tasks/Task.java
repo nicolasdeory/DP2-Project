@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -73,6 +74,6 @@ public class Task extends DomainEntity {
 	protected UserAccount user;
 
 	@Valid
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<WorkPlan> workPlans;
 }

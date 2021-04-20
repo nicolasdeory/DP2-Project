@@ -11,7 +11,10 @@
 
 master.menu.anonymous.list-publicWorkplans= Lista publica de plan de trabajo
  
-anonymous.workplan.list.label.title = Titulo
-anonymous.workplan.list.label.description = Descripcion
-anonymous.workplan.list.label.start-date-time=Fecha inicio
-anonymous.workplan.list.label.finish-date-time=Fecha fin
+anonymous.workplan.label.title = Titulo
+anonymous.workplan.label.description = Descripcion
+anonymous.workplan.label.start-date-time=Fecha inicio
+anonymous.workplan.label.finish-date-time=Fecha fin
+anonymous.workplan.label.WorkloadHours=Carga de trabajo
+anonymous.workplan.label.task=Tareas
+anonymous.workplan.button.return=Volver

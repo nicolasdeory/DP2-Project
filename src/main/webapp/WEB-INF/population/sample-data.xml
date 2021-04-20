@@ -41,6 +41,43 @@
 		<property name="userAccount" ref="juanUserAccount"/>
 
 	</bean>
+	<!-- Tasks -->
+	<bean name="task1" class="acme.entities.tasks.Task">
+		<property name="title" value="Mantenimiento" />
+		<property name="description" value="Second Deliverable DP2" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2025/12/11 23:59" />
+				<property name="finishDateTime" value="2026/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workplan1"/>
+				<ref bean="workplan2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="task2" class="acme.entities.tasks.Task">
+		<property name="title" value="Mantenimiento2" />
+		<property name="description" value="Second Deliverable DP2" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2027/12/11 23:59" />
+				<property name="finishDateTime" value="2028/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workplan1"/>
+				<ref bean="workplan2"/>
+			</list>
+		</property>
+	</bean>
 	<!-- WorkPlans -->
 	<bean name="workplan1" class="acme.entities.workPlan.WorkPlan">
 		<property name="title" value="Acme One" />
@@ -52,7 +89,12 @@
 				<property name="finishDateTime" value="2040/12/11 23:59" />
 			</bean>
 		</property>
-		<property name="user" ref="juanUserAccount">
+		<property name="user" ref="juanUserAccount"></property>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
 		</property>
 	</bean>
 	<bean name="workplan2" class="acme.entities.workPlan.WorkPlan">
@@ -65,7 +107,12 @@
 				<property name="finishDateTime" value="2023/2/5 10:59" />
 			</bean>
 		</property>
-		<property name="user" ref="juanUserAccount">
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
 		</property>
 	</bean>
 </beans>
