@@ -53,6 +53,45 @@
 		<property name="user" ref="JohnUserAccount">
 		</property>
 	</bean>
+	<bean name="wp2" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Plan test 2" />
+		<property name="description" value="Third tests" />
+		<property name="isPublic" value="false" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2033/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="wp3" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Plan test 3" />
+		<property name="description" value="Fourth tests" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2034/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
+	<bean name="wp4" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Plan test 4" />
+		<property name="description" value="Fifth tests" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2035/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="JohnUserAccount">
+		</property>
+	</bean>
 	<bean name="task1" class="acme.entities.tasks.Task">
 		<property name="title" value="ToDo task" />
 		<property name="description" value="The best task ever" />
@@ -99,7 +138,7 @@
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
 				<property name="startDateTime" value="2022/1/11 15:59" />
-				<property name="finishDateTime" value="2023/2/5 10:59" />
+				<property name="finishDateTime" value="2022/1/11 16:01" />
 			</bean>
 		</property>
 		<property name="user" ref="JohnUserAccount">

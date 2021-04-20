@@ -106,6 +106,14 @@
 		<td>
 			<acme:print value="${maxOfTaskWorkloads}"/>
 		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfWorkPlans"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfWorkPlans}"/>
+		</td>
 	</tr>	
 	<tr>
 		<th scope="row">
@@ -115,6 +123,14 @@
 			<acme:print value="${numberOfPublicWorkPlans}"/>
 		</td>
 	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPrivateWorkPlans"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfPrivateWorkPlans}"/>
+		</td>
+	</tr>
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.numberOfFinishedWorkPlans"/>
@@ -130,21 +146,54 @@
 		<td>
 			<acme:print value="${numberOfNonFinishedWorkPlans}"/>
 		</td>
-	</tr>	
+	</tr>
+	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.averageOfWorkPlanPeriods"/>
+			<acme:message code="administrator.dashboard.form.label.numberOfPublishedWorkPlans"/>
 		</th>
 		<td>
-			<acme:print value="${deviationOfWorkPlanPeriods}"/>
+			<acme:print value="${numberOfPublishedWorkPlans}"/>
 		</td>
 	</tr>	
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.minOfWorkPlanPeriods"/>
+			<acme:message code="administrator.dashboard.form.label.numberOfNonPublishedWorkPlans"/>
 		</th>
 		<td>
-			<acme:print value="${minOfWorkPlanPeriods}"/>
+			<acme:print value="${numberOfNonPublishedWorkPlans}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods"/>
+		</th>
+		<td>
+			<acme:print value="${averageOfWorkPlanExecutionPeriods}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods"/>
+		</th>
+		<td>
+			<acme:print value="${deviationOfWorkPlanExecutionPeriods}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods"/>
+		</th>
+		<td>
+			<acme:print value="${minOfWorkPlanExecutionPeriods}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods"/>
+		</th>
+		<td>
+			<acme:print value="${maxOfWorkPlanExecutionPeriods}"/>
 		</td>
 	</tr>	
 	<tr>
@@ -179,30 +228,7 @@
 			<acme:print value="${maxOfWorkplanWorkloads}"/>
 		</td>
 	</tr>	
-	<tr>
-		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfWorkPlans"/>
-		</th>
-		<td>
-			<acme:print value="${numberOfWorkPlans}"/>
-		</td>
-	</tr>	
-	<tr>
-		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublishedWorkPlan"/>
-		</th>
-		<td>
-			<acme:print value="${numberOfPublishedWorkPlan}"/>
-		</td>
-	</tr>	
-	<tr>
-		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfNonPublishedWorkPlans"/>
-		</th>
-		<td>
-			<acme:print value="${numberOfNonPublishedWorkPlans}"/>
-		</td>
-	</tr>										
+										
 </table>
 <h2>
 	<acme:message code="administrator.dashboard.form.title.application-statuses"/>

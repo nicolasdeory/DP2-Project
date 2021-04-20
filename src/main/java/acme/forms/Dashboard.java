@@ -18,36 +18,36 @@ public class Dashboard implements Serializable {
 	Integer numberOfPrivateTasks;
 	Integer numberOfFinishedTasks;
 	Integer numberOfNonFinishedTasks;
-//	
-//	Double averageOfTaskExecutionPeriods;
-//	Double deviationOfTaskExecutionPeriods;
-//	Integer minOfTaskExecutionPeriods;
-//	Integer maxOfTaskExecutionPeriods;
-//	
-//	Double averageOfTaskWorkloads;
-//	Double deviationOfTaskWorkloads;
-//	Integer minOfTaskWorkloads;
-//	Integer maxOfTaskWorkloads;
-//	
-//	Integer numberOfPublicWorkPlans;
-//	Integer numberOfPrivateWorkPlans;
-//	
-//	Integer numberOfFinishedWorkPlans;
-//	Integer numberOfNonFinishedWorkPlans;
-//	
-//	Double averageOfWorkPlanPeriods;
-//	Double deviationOfWorkPlanPeriods;
-//	Integer minOfWorkPlanPeriods;
-//	Integer maxOfWorkPlanPeriods;
-//	
-//	Double averageOfWorkplanWorkloads;
-//	Double deviationOfWorkplanWorkloads;
-//	Integer minOfWorkplanWorkloads;
-//	Integer maxOfWorkplanWorkloads;
-//	
-//	Integer numberOfWorkPlans;
+	
+	Double averageOfTaskExecutionPeriods;
+	Double deviationOfTaskExecutionPeriods;
+	Double minOfTaskExecutionPeriods;
+	Double maxOfTaskExecutionPeriods;
+	
+	Double averageOfTaskWorkloads;
+	Double deviationOfTaskWorkloads;
+	Double minOfTaskWorkloads;
+	Double maxOfTaskWorkloads;
+	
+	Integer numberOfPublicWorkPlans;
+	Integer numberOfPrivateWorkPlans;	
+	Integer numberOfFinishedWorkPlans;
+	Integer numberOfNonFinishedWorkPlans;
+	Integer numberOfWorkPlans;
 //	Integer numberOfPublishedWorkPlans;
 //	Integer numberOfNonPublishedWorkPlans;
+//	
+	Double averageOfWorkPlanExecutionPeriods;
+	Double deviationOfWorkPlanExecutionPeriods;
+	Double minOfWorkPlanExecutionPeriods;
+	Double maxOfWorkPlanExecutionPeriods;
+	
+	Double averageOfWorkplanWorkloads;
+	Double deviationOfWorkplanWorkloads;
+	Double minOfWorkplanWorkloads;
+	Double maxOfWorkplanWorkloads;
+	
+
 
 	
 

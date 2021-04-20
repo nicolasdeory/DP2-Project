@@ -8,10 +8,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository{
 
-	@Query("select count(t) from Task t where t.isPublic='True'")
+	@Query("select count(t) from Task t where t.isPublic=True")
 	Integer numberOfPublicTasks();
 	
-	@Query("select count(t) from Task t where t.isPublic='False'")
+	@Query("select count(t) from Task t where t.isPublic=False")
 	Integer numberOfPrivateTasks();
 	
 	@Query("select count(t) from Task t where t.executionPeriod.finishDateTime < CURRENT_TIMESTAMP")
@@ -19,18 +19,18 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 
 	@Query("select count(t) from Task t where t.executionPeriod.finishDateTime > CURRENT_TIMESTAMP")
 	Integer numberOfNonFinishedTasks();
-//	
-//	@Query()
-//	Double averageOfTaskExecutionPeriods();
-//	
-//	@Query()
-//	Double deviationOfTaskExecutionPeriods();
-//	
-//	@Query()
-//	Integer minOfTaskExecutionPeriods();
-//	
-//	@Query()
-//	Integer maxOfTaskExecutionPeriods();
+	
+	@Query("select avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)) from Task t")
+	Double averageOfTaskExecutionPeriods();
+	
+	@Query("select stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)) from Task t")
+	Double deviationOfTaskExecutionPeriods();
+	
+	@Query("select min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime))from Task t")
+	Double minOfTaskExecutionPeriods();
+	
+	@Query("select max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)) from Task t")
+	Double maxOfTaskExecutionPeriods();
 //	
 //	@Query()
 //	Double averageOfTaskWorkloads();
@@ -43,30 +43,39 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 //	
 //	@Query()
 //	Integer maxOfTaskWorkloads();
+
+	@Query("select count(w) from WorkPlan w")
+	Integer numberOfWorkPlans();
+	
+	@Query("select count(w) from WorkPlan w where w.isPublic=True")
+	Integer numberOfPublicWorkPlans();
+	
+	@Query("select count(w) from WorkPlan w where w.isPublic=False")
+	Integer numberOfPrivateWorkPlans();
+	
+	@Query("select count(w) from WorkPlan w where w.executionPeriod.finishDateTime < CURRENT_TIMESTAMP")
+	Integer numberOfFinishedWorkPlans();
+	
+	@Query("select count(w) from WorkPlan w where w.executionPeriod.finishDateTime > CURRENT_TIMESTAMP")
+	Integer numberOfNonFinishedWorkPlans();
+	
+//	@Query()
+//	Integer numberOfPublishedWorkPlans();
 //	
 //	@Query()
-//	Integer numberOfPublicWorkPlans();
+//	Integer numberOfNonPublishedWorkPlans();
 //	
-//	@Query()
-//	Integer numberOfPrivateWorkPlans();
-//	
-//	@Query()
-//	Integer numberOfFinishedWorkPlans();
-//	
-//	@Query()
-//	Integer numberOfNonFinishedWorkPlans();
-//	
-//	@Query()
-//	Double averageOfWorkPlanPeriods();
-//	
-//	@Query()
-//	Double deviationOfWorkPlanPeriods();
-//	
-//	@Query()
-//	Integer minOfWorkPlanPeriods();
-//	
-//	@Query()
-//	Integer maxOfWorkPlanPeriods();
+	@Query("select avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)) from WorkPlan w")
+	Double averageOfWorkPlanExecutionPeriods();
+	
+	@Query("select stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)) from WorkPlan w")
+	Double deviationOfWorkPlanExecutionPeriods();
+	
+	@Query("select min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)) from WorkPlan w")
+	Double minOfWorkPlanExecutionPeriods();
+	
+	@Query("select max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)) from WorkPlan w")
+	Double maxOfWorkPlanExecutionPeriods();
 //	
 //	@Query()
 //	Double averageOfWorkplanWorkloads();
@@ -79,15 +88,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 //	
 //	@Query()
 //	Integer maxOfWorkplanWorkloads();
-//	
-//	@Query()
-//	Integer numberOfWorkPlans();
-//	
-//	@Query()
-//	Integer numberOfPublishedWorkPlans();
-//	
-//	@Query()
-//	Integer numberOfNonPublishedWorkPlans();
+
 	
 	
 }

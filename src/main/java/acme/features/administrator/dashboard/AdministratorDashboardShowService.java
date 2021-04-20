@@ -37,7 +37,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 //			"deviationOfWorkPlanPeriods","minOfWorkPlanPeriods","maxOfWorkPlanPeriods","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads",
 //			" minOfWorkplanWorkloads","maxOfWorkplanWorkloads","numberOfWorkPlans","numberOfPublishedWorkPlans","numberOfNonPublishedWorkPlans");
 		
-		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks");
+		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks","numberOfPublicWorkPlans","numberOfPrivateWorkPlans",
+			"numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","numberOfWorkPlans","averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriods","minOfTaskExecutionPeriods","maxOfTaskExecutionPeriods",
+			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods");
 	}
 
 	@Override
@@ -50,93 +52,105 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		Integer numberOfFinishedTasks;
 		Integer numberOfNonFinishedTasks;
-//		
-//		final Double averageOfTaskExecutionPeriods;
-//		final Double deviationOfTaskExecutionPeriods;
-//		final Integer minOfTaskExecutionPeriods;
-//		final Integer maxOfTaskExecutionPeriods;
+		
+		Double averageOfTaskExecutionPeriods;
+		Double deviationOfTaskExecutionPeriods;
+		Double minOfTaskExecutionPeriods;
+		Double maxOfTaskExecutionPeriods;
 //		
 //		final Double averageOfTaskWorkloads;
 //		final Double deviationOfTaskWorkloads;
 //		final Integer minOfTaskWorkloads;
-//		final Integer maxOfTaskWorkloads;
+//		Integer maxOfTaskWorkloads;
 //		
-//		final Integer numberOfPublicWorkPlans;
-//		final Integer numberOfPrivateWorkPlans;
+		Integer numberOfPublicWorkPlans;
+		Integer numberOfPrivateWorkPlans;		
+		Integer numberOfFinishedWorkPlans;
+		Integer numberOfNonFinishedWorkPlans;
+		Integer numberOfWorkPlans;
+//		final Integer numberOfPublishedWorkPlans;
+//		final Integer numberOfNonPublishedWorkPlans;
 //		
-//		final Integer numberOfFinishedWorkPlans;
-//		final Integer numberOfNonFinishedWorkPlans;
-//		
-//		final Double averageOfWorkPlanPeriods;
-//		final Double deviationOfWorkPlanPeriods;
-//		final Integer minOfWorkPlanPeriods;
-//		final Integer maxOfWorkPlanPeriods;
+		Double averageOfWorkPlanExecutionPeriods;
+		Double deviationOfWorkPlanExecutionPeriods;
+		Double minOfWorkPlanExecutionPeriods;
+		Double maxOfWorkPlanExecutionPeriods;
 //		
 //		final Double averageOfWorkplanWorkloads;
 //		final Double deviationOfWorkplanWorkloads;
 //		final Integer minOfWorkplanWorkloads;
 //		final Integer maxOfWorkplanWorkloads;
 //		
-//		final Integer numberOfWorkPlans;
-//		final Integer numberOfPublishedWorkPlans;
-//		final Integer numberOfNonPublishedWorkPlans;
+
 		
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
 		numberOfFinishedTasks = this.repository.numberOfFinishedTasks();
 		numberOfNonFinishedTasks = this.repository.numberOfNonFinishedTasks();
-//		averageOfTaskExecutionPeriods = this.repository.averageOfTaskExecutionPeriods();
-//		deviationOfTaskExecutionPeriods = this.repository.deviationOfTaskExecutionPeriods();
-//		minOfTaskExecutionPeriods = this.repository.minOfTaskExecutionPeriods();
-//		maxOfTaskExecutionPeriods = this.repository.maxOfTaskExecutionPeriods();
+		
+		averageOfTaskExecutionPeriods = this.repository.averageOfTaskExecutionPeriods();
+		deviationOfTaskExecutionPeriods = this.repository.deviationOfTaskExecutionPeriods();
+		minOfTaskExecutionPeriods = this.repository.minOfTaskExecutionPeriods();
+		maxOfTaskExecutionPeriods = this.repository.maxOfTaskExecutionPeriods();
+//		
 //		averageOfTaskWorkloads = this.repository.averageOfTaskWorkloads();
 //		deviationOfTaskWorkloads = this.repository.deviationOfTaskWorkloads();
 //		minOfTaskWorkloads = this.repository.minOfTaskWorkloads();
 //		maxOfTaskWorkloads = this.repository.maxOfTaskWorkloads();
-//		numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
-//		numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
-//		numberOfFinishedWorkPlans = this.repository.numberOfFinishedWorkPlans();
-//		numberOfNonFinishedWorkPlans = this.repository.numberOfNonFinishedWorkPlans();
-//		averageOfWorkPlanPeriods = this.repository.averageOfWorkPlanPeriods();
-//		deviationOfWorkPlanPeriods = this.repository.deviationOfWorkPlanPeriods();
-//		minOfWorkPlanPeriods = this.repository.minOfWorkPlanPeriods();
-//		maxOfWorkPlanPeriods = this.repository.maxOfWorkPlanPeriods();
+		
+		numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
+		numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
+		numberOfFinishedWorkPlans = this.repository.numberOfFinishedWorkPlans();
+		numberOfNonFinishedWorkPlans = this.repository.numberOfNonFinishedWorkPlans();
+		numberOfWorkPlans = this.repository.numberOfWorkPlans();
+//		numberOfPublishedWorkPlans = this.repository.numberOfPublishedWorkPlans();
+//		numberOfNonPublishedWorkPlans = this.repository.numberOfNonPublishedWorkPlans();
+		
+		averageOfWorkPlanExecutionPeriods = this.repository.averageOfWorkPlanExecutionPeriods();
+		deviationOfWorkPlanExecutionPeriods = this.repository.deviationOfWorkPlanExecutionPeriods();
+		minOfWorkPlanExecutionPeriods = this.repository.minOfWorkPlanExecutionPeriods();
+		maxOfWorkPlanExecutionPeriods = this.repository.maxOfWorkPlanExecutionPeriods();
+		
 //		averageOfWorkplanWorkloads = this.repository.averageOfWorkplanWorkloads();
 //		deviationOfWorkplanWorkloads = this.repository.deviationOfWorkplanWorkloads();
 //		minOfWorkplanWorkloads = this.repository.minOfWorkplanWorkloads();
 //		maxOfWorkplanWorkloads = this.repository.maxOfWorkplanWorkloads();
-//		numberOfWorkPlans = this.repository.numberOfWorkPlans();
-//		numberOfPublishedWorkPlans = this.repository.numberOfPublishedWorkPlans();
-//		numberOfNonPublishedWorkPlans = this.repository.numberOfNonPublishedWorkPlans();
+
 		
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
 		result.setNumberOfPrivateTasks(numberOfPrivateTasks);
 		result.setNumberOfFinishedTasks(numberOfFinishedTasks);
 		result.setNumberOfNonFinishedTasks(numberOfNonFinishedTasks);
-//		result.setAverageOfTaskExecutionPeriods(averageOfTaskExecutionPeriods);
-//		result.setDeviationOfTaskExecutionPeriods(deviationOfTaskExecutionPeriods);
-//		result.setMinOfTaskExecutionPeriods(minOfTaskExecutionPeriods);
-//		result.setMaxOfTaskExecutionPeriods(maxOfTaskExecutionPeriods);
+		
+		result.setAverageOfTaskExecutionPeriods(averageOfTaskExecutionPeriods);
+		result.setDeviationOfTaskExecutionPeriods(deviationOfTaskExecutionPeriods);
+		result.setMinOfTaskExecutionPeriods(minOfTaskExecutionPeriods);
+		result.setMaxOfTaskExecutionPeriods(maxOfTaskExecutionPeriods);
+		
 //		result.setAverageOfTaskWorkloads(averageOfTaskWorkloads);
 //		result.setDeviationOfTaskWorkloads(deviationOfTaskWorkloads);
 //		result.setMinOfTaskWorkloads(minOfTaskWorkloads);
 //		result.setMaxOfTaskWorkloads(maxOfTaskWorkloads);
-//		result.setNumberOfPublicWorkPlans(numberOfPublicWorkPlans);
-//		result.setNumberOfPrivateWorkPlans(numberOfPrivateWorkPlans);
-//		result.setNumberOfFinishedWorkPlans(numberOfFinishedWorkPlans);
-//		result.setNumberOfNonFinishedWorkPlans(numberOfNonFinishedWorkPlans);
-//		result.setAverageOfWorkPlanPeriods(averageOfWorkPlanPeriods);
-//		result.setDeviationOfWorkPlanPeriods(deviationOfWorkPlanPeriods);
-//		result.setMinOfWorkPlanPeriods(minOfWorkPlanPeriods);
-//		result.setMaxOfWorkPlanPeriods(maxOfWorkPlanPeriods);
+		
+		result.setNumberOfPublicWorkPlans(numberOfPublicWorkPlans);
+		result.setNumberOfPrivateWorkPlans(numberOfPrivateWorkPlans);
+		result.setNumberOfFinishedWorkPlans(numberOfFinishedWorkPlans);
+		result.setNumberOfNonFinishedWorkPlans(numberOfNonFinishedWorkPlans);
+		result.setNumberOfWorkPlans(numberOfWorkPlans);
+//		result.setNumberOfPublishedWorkPlans(numberOfPublishedWorkPlans);
+//		result.setNumberOfNonPublishedWorkPlans(numberOfNonPublishedWorkPlans);
+		
+		result.setAverageOfWorkPlanExecutionPeriods(averageOfWorkPlanExecutionPeriods);
+		result.setDeviationOfWorkPlanExecutionPeriods(deviationOfWorkPlanExecutionPeriods);
+		result.setMinOfWorkPlanExecutionPeriods(minOfWorkPlanExecutionPeriods);
+		result.setMaxOfWorkPlanExecutionPeriods(maxOfWorkPlanExecutionPeriods);
+		
 //		result.setAverageOfWorkplanWorkloads(averageOfWorkplanWorkloads);
 //		result.setDeviationOfWorkplanWorkloads(deviationOfWorkplanWorkloads);
 //		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 //		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
-//		result.setNumberOfWorkPlans(numberOfWorkPlans);
-//		result.setNumberOfPublishedWorkPlans(numberOfPublishedWorkPlans);
-//		result.setNumberOfNonPublishedWorkPlans(numberOfNonPublishedWorkPlans);
+
 		return result;
 	}
 
