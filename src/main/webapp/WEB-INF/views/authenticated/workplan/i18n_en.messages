@@ -11,10 +11,10 @@
 
 master.menu.authenticated.list-Workplans= My Workplans List
  
-authenticated.workplan.list.label.title = Title
-authenticated.workplan.list.label.description = Description
-authenticated.workplan.list.label.start-date-time=Starter date
-authenticated.workplan.list.label.finish-date-time=Finish date
+authenticated.workplan.label.title = Title
+authenticated.workplan.label.description = Description
+authenticated.workplan.label.start-date-time=Starter date
+authenticated.workplan.label.finish-date-time=Finish date
 authenticated.workplan.label.WorkloadHours=Workload
 authenticated.workplan.label.task=Tasks
 authenticated.workplan.button.return=Return

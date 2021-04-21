@@ -30,7 +30,9 @@ public class AuthenticatedWorkPlanListService implements AbstractListService<Aut
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "title","description","isPublic");
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title"); 
+		model.setAttribute("workload", entity.getWorkloadHours()); 
 
 		
 	}

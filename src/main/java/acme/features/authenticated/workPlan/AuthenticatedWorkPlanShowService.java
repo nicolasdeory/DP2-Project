@@ -28,8 +28,11 @@ public class AuthenticatedWorkPlanShowService implements AbstractShowService<Aut
 		assert entity != null;
 		assert model != null;
 		
-		//TODO
-		request.unbind(entity, model, "title","description","isPublic");
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
+		request.unbind(entity, model, "title","description","tasks");
+		model.setAttribute("workload", entity.getWorkloadHours()); 
+
+		
 		
 	}
 
