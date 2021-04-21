@@ -29,15 +29,15 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		// TODO
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+		request.unbind(entity, model, "title", "description", "isPublic", "executionPeriod");
 	}
 
 	@Override
 	public Collection<Task> findMany(Request<Task> request) {
 		assert request != null;
-		Collection<Task> result;
-		result = this.repository.findPublicTasks();
-
-		return result.stream().filter(task -> !task.isFinished()).collect(Collectors.toList());
+		return this.repository.findNoFinishedAndPublicTasks();
 	}
 }

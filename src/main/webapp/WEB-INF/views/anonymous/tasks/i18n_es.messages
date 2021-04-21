@@ -1,0 +1,5 @@
+master.menu.anonymous.list-publicTasks= Public Tasks
+
+anonymous.tasks.list.label.title = Titulo
+anonymous.tasks.list.label.description = Descripcion
+anonymous.tasks.list.label.is-public = Publica

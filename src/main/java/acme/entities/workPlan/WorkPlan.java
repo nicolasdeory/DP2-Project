@@ -2,10 +2,9 @@
 package acme.entities.workPlan;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -43,12 +42,15 @@ public class WorkPlan extends DomainEntity {
 	@NotNull
 	@Valid
 	protected ExecutionPeriod	executionPeriod;
-	// Derived attributes -----------------------------------------------------
 
+	// Derived attributes -----------------------------------------------------
+	public Double getWorkloadHours() {
+		return this.tasks.stream().collect(Collectors.summarizingDouble(x->x.getWorkloadHours())).getSum();
+	}
 	// Relationships ----------------------------------------------------------
 
 	@Valid
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<Task>		tasks;
 
 	@Valid

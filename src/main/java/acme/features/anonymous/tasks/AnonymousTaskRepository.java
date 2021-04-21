@@ -11,7 +11,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnonymousTaskRepository extends AbstractRepository {
 
-	@Query("select task from Task task where task.isPublic = true ORDER BY task.executionPeriod DESC")
-	Collection<Task> findPublicTasks();
+	@Query("select task from Task task where task.isPublic = true AND task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod")
+	Collection<Task> findNoFinishedAndPublicTasks();
 
 }

@@ -14,15 +14,9 @@
 
 <tiles-definitions>
 
-	<definition name="anonymous/work-plan/form" extends="master">
-		<put-attribute name="body" type="template" value="../anonymous/workplan/form.jsp" />
-	</definition>
-
-	<definition name="anonymous/work-plan/list" extends="master">
+	<definition name="anonymous/task/list" extends="master">
 		<put-attribute name="body" type="template"
-			value="../anonymous/workplan/list.jsp" />
+			value="../anonymous/tasks/list.jsp" />
 	</definition>
-
-
 
 </tiles-definitions>
