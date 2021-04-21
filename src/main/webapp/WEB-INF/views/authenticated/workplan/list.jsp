@@ -18,5 +18,7 @@
 <acme:list readonly="true">
 	<acme:list-column code="authenticated.workplan.list.label.title" path="title" width="20%"/>
 	<acme:list-column code="authenticated.workplan.list.label.description" path="description" width="20%"/>
-	<acme:list-column code="authenticated.workplan.list.label.is-public" path="isPublic" width="20%"/>
+<acme:list-column code="authenticated.workplan.list.label.start-date-time" path="startDateTime" width="20%"/>
+	<acme:list-column code="authenticated.workplan.list.label.finish-date-time" path="finishDateTime" width="20%"/>
+
 </acme:list>

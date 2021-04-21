@@ -23,4 +23,10 @@
 			value="../authenticated/workplan/list.jsp" /> 
 	</definition> 
 	
+	
+	<definition name="authenticated/work-plan/form" extends="master"> 
+		<put-attribute name="body" type="template" 
+			value="../authenticated/workplan/form.jsp" /> 
+	</definition> 
+	
 </tiles-definitions>

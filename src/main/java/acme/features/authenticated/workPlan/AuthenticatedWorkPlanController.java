@@ -13,7 +13,7 @@ import acme.framework.entities.Authenticated;
 
 
 @Controller
-@RequestMapping("/authenticated/workplan/")
+@RequestMapping("/authenticated/work-plan/")
 public class AuthenticatedWorkPlanController extends AbstractController<Authenticated, WorkPlan>{
 
 	

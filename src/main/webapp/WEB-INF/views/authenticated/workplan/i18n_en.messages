@@ -9,8 +9,12 @@
 # they accept any liabilities with respect to them.
 
 
-master.menu.administrator.list-Workplans= Workplans list
+master.menu.authenticated.list-Workplans= My Workplans List
  
 authenticated.workplan.list.label.title = Title
 authenticated.workplan.list.label.description = Description
-authenticated.workplan.list.label.is-public = Public
+authenticated.workplan.list.label.start-date-time=Starter date
+authenticated.workplan.list.label.finish-date-time=Finish date
+authenticated.workplan.label.WorkloadHours=Workload
+authenticated.workplan.label.task=Tasks
+authenticated.workplan.button.return=Return

@@ -38,8 +38,8 @@ public class AuthenticatedWorkPlanListService implements AbstractListService<Aut
 	@Override
 	public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
 		Collection<WorkPlan> result;
-		final Integer userId = Integer.valueOf(request.getServletRequest().getAttribute("userId").toString());
-		result = this.repository.findAuthenticatedPublicWorkPlan(userId);
+		final Integer userId = Integer.valueOf(request.getPrincipal().getAccountId());
+		result = this.repository.findAuthenticatedOwnWorkPlan(userId);
 		return result;
 	}
 
