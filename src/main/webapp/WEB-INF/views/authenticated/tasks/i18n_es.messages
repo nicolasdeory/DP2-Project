@@ -1,5 +1,6 @@
 master.menu.anonymous.list-publicTasks= Tareas Públicas
 anonymous.taks.list= Tareas Públicas Terminadas
+authenticated.taks.ownList = Mis Tareas
 
 anonymous.tasks.list.label.title = Titulo
 anonymous.tasks.list.label.description = Descripción
@@ -9,3 +10,6 @@ anonymous.tasks.list.label.is-public = Publica
 anonymous.tasks.list.label.start-date-time=Inicio
 anonymous.tasks.list.label.finish-date-time=Fin
 anonymous.tasks.list.label.workload=Carga de trabajo
+
+authenticated.tasks.label.workPlan= Plan de trabajo
+authenticated.tasks.button.return=Return
