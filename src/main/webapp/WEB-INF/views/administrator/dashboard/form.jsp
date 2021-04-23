@@ -237,3 +237,46 @@
 <div>
 	<canvas id="canvas"></canvas>
 </div> 
+<script type="text/javascript">
+	$(document).ready(function() {
+		var data = {
+			labels : [
+					"TOTAL", "PUBLISHED", "NOT PUBLISHED"
+			],
+			datasets : [
+				{
+					data : [
+						<jstl:out value="${numberOfWorkPlans}"/>, 
+						<jstl:out value="${numberOfPublicWorkPlans}"/>, 
+						<jstl:out value="${numberOfPrivateWorkPlans}"/>
+					]
+				}
+			]
+		};
+		var options = {
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							suggestedMin : 0.0,
+							suggestedMax : 1.0
+						}
+					}
+				]
+			},
+			legend : {
+				display : false
+			}
+		};
+	
+		var canvas, context;
+	
+		canvas = document.getElementById("canvas");
+		context = canvas.getContext("2d");
+		new Chart(context, {
+			type : "bar",
+			data : data,
+			options : options
+		});
+	});
+</script>
