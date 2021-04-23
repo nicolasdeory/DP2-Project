@@ -1,6 +1,8 @@
 
 package acme.entities.workPlan;
 
+import java.beans.Transient;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,14 +49,19 @@ public class WorkPlan extends DomainEntity {
 	public Double getWorkloadHours() {
 		return this.tasks.stream().collect(Collectors.summarizingDouble(x->x.getWorkloadHours())).getSum();
 	}
+
+	public Boolean isFinished() {
+		final Date now = new Date();
+		return now.after(this.executionPeriod.getFinishDateTime());
+	}
 	// Relationships ----------------------------------------------------------
 
 	@Valid
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	protected List<Task>		tasks;
 
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	protected UserAccount		user;
 
 }

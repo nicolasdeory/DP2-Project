@@ -39,9 +39,11 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		//TODO
-		request.unbind(entity, model, "title","description","isPublic");
+
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title","description","tasks","isPublic");
+		model.setAttribute("workload", entity.getWorkloadHours());
+		model.setAttribute("isFinished",entity.isFinished());
 		
 	}
 
@@ -62,8 +64,8 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
 	public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
-		assert errors != null;		
-		
+		assert errors != null;
+
 		//TODO
 	}
 
@@ -71,7 +73,6 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
 	public void update(final Request<WorkPlan> request, final WorkPlan entity) {
 		assert request != null;
 		assert entity != null;
-		
 		this.repository.save(entity);
 	}
 

@@ -1,5 +1,6 @@
 package acme.features.authenticated.workPlan;
 
+import acme.entities.tasks.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,9 +40,11 @@ public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		//TODO
-		request.unbind(entity, model, "title","description","isPublic");		
+
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title","description","tasks");
+		model.setAttribute("workload", entity.getWorkloadHours());
+		model.setAttribute("isFinished",entity.isFinished());
 	}
 
 	@Override
@@ -69,8 +72,12 @@ public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService
 	public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
 		assert request != null;
 		assert entity != null;
-		
-		
+		for (Task task:entity.getTasks()){
+			task.getWorkPlans().remove(entity);
+			this.repository.save(task);
+		}
+		entity.getTasks().clear();
+
 		this.repository.delete(entity);
 	}
 

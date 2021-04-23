@@ -42,7 +42,7 @@
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.authenticated.list-Workplans" action="/authenticated/work-plan/list"/>
-           
+			<acme:menu-suboption code="master.menu.authenticated.create-Workplans" action="/authenticated/work-plan/create"/>
         </acme:menu-option>
 			
 		

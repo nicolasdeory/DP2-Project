@@ -19,9 +19,13 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.workplan.label.title" path="title"/>
 	<acme:form-textbox code="authenticated.workplan.label.description" path="description"/>
-	<acme:form-textbox code="authenticated.workplan.label.WorkloadHours" path="workload"/>
-	<acme:form-textbox code="authenticated.workplan.label.start-date-time" path="startDateTime" />
-	<acme:form-textbox code="authenticated.workplan.label.finish-date-time" path="finishDateTime"/>
+	<acme:form-checkbox code="authenticated.workplan.label.description" path="isPublic"/>
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="authenticated.workplan.label.WorkloadHours" path="workload" readonly="true"/>
+	</jstl:if>
+
+	<acme:form-moment code="authenticated.workplan.label.start-date-time" path="startDateTime" />
+	<acme:form-moment code="authenticated.workplan.label.finish-date-time" path="finishDateTime"/>
 	<div class="form-group">
 		<label for="tasks">
 			<acme:message code="authenticated.workplan.label.task" />
@@ -32,5 +36,10 @@
 			</c:forEach>
 		</select>
 	</div>
-  	<acme:form-return code="authenticated.workplan.button.return"/>
+	<acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.workplan.button.update" action="/authenticated/work-plan/update"/>
+	<acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.workplan.button.delete" action="/authenticated/work-plan/delete"/>
+	<acme:form-submit test="${command == 'create'}" code="authenticated.workplan.button.create" action="/authenticated/work-plan/create"/>
+	<acme:form-submit test="${command == 'update'}" code="authenticated.workplan.button.update" action="/authenticated/work-plan/update"/>
+	<acme:form-submit test="${command == 'delete'}" code="authenticated.workplan.button.delete" action="/authenticated/work-plan/delete"/>
+	<acme:form-return code="authenticated.workplan.button.return"/>
 </acme:form>

@@ -1,5 +1,7 @@
 package acme.features.authenticated.workPlan;
 
+import acme.datatypes.ExecutionPeriod;
+import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,8 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractCreateService;
+
+import java.util.Date;
 
 @Service
 public class AuthenticatedWorkPlanCreateService implements AbstractCreateService<Authenticated, WorkPlan>{
@@ -28,8 +32,11 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		ExecutionPeriod executionPeriod=new ExecutionPeriod();
 		request.bind(entity, errors);
+		request.bind(executionPeriod,errors);
+		entity.setExecutionPeriod(executionPeriod);
+
 		
 		
 	}
@@ -39,9 +46,9 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		//TODO
-		request.unbind(entity, model, "title","description","isPublic");
+
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title","description","tasks","isPublic");
 		
 	}
 
@@ -51,6 +58,8 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
 
 		WorkPlan workPlan;
 		workPlan = new WorkPlan();
+		workPlan.setExecutionPeriod(new ExecutionPeriod());
+
 		
 		return workPlan;
 	}
@@ -68,7 +77,8 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
 	public void create(final Request<WorkPlan> request, final WorkPlan entity) {
 		assert request != null;
 		assert entity != null;
-		
+		UserAccount user= repository.findUserById(request.getPrincipal().getAccountId());
+		entity.setUser(user);
 		this.repository.save(entity);
 	}
 

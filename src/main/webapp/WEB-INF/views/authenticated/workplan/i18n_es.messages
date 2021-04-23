@@ -17,4 +17,7 @@ authenticated.workplan.label.start-date-time= Fecha inicio
 authenticated.workplan.label.finish-date-time= Fecha fin
 authenticated.workplan.label.WorkloadHours=Carga de trabajo
 authenticated.workplan.label.task=Tareas
+authenticated.workplan.button.update=Actualizar
+authenticated.workplan.button.delete=Borrar
+authenticated.workplan.button.create=Crear
 authenticated.workplan.button.return=Volver
