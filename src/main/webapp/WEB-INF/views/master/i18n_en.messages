@@ -59,7 +59,8 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Authenticated
-master.menu.authenticated.list-Workplans = WorkPlans List
+master.menu.authenticated.list-Workplans = My Workplans List
+master.menu.authenticated.create-Workplans = Create new Workplan
 
 
 # master.menu.user-account ####################################################

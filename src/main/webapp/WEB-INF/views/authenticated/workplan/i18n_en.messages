@@ -13,6 +13,7 @@ master.menu.authenticated.list-Workplans= My Workplans List
  
 authenticated.workplan.label.title = Title
 authenticated.workplan.label.description = Description
+authenticated.workplan.label.isPublic = Public Workplan
 authenticated.workplan.label.start-date-time=Starter date
 authenticated.workplan.label.finish-date-time=Finish date
 authenticated.workplan.label.WorkloadHours=Workload

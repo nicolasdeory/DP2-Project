@@ -60,7 +60,8 @@ master.menu.consumer.favourite-link = Enlace favorito
 # master.menu.authenticated #######################################################
 
 master.menu.authenticated = Autentificado
-master.menu.authenticated.list-Workplans = Lista de plan de trabajo
+master.menu.authenticated.list-Workplans = Lista de mis planes de trabajo
+master.menu.authenticated.create-Workplans = Crear nuevo Plan de trabajo
 
 
 # master.menu.user-account ####################################################

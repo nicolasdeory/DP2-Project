@@ -19,7 +19,7 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.workplan.label.title" path="title"/>
 	<acme:form-textbox code="authenticated.workplan.label.description" path="description"/>
-	<acme:form-checkbox code="authenticated.workplan.label.description" path="isPublic"/>
+	<acme:form-checkbox code="authenticated.workplan.label.isPublic" path="isPublic"/>
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textbox code="authenticated.workplan.label.WorkloadHours" path="workload" readonly="true"/>
 	</jstl:if>

@@ -13,6 +13,7 @@ master.menu.authenticated.list-Workplans= Lista de mis planes de trabajo
  
 authenticated.workplan.label.title = Título
 authenticated.workplan.label.description = Descripción
+authenticated.workplan.label.isPublic = Plan de trabajo público
 authenticated.workplan.label.start-date-time= Fecha inicio
 authenticated.workplan.label.finish-date-time= Fecha fin
 authenticated.workplan.label.WorkloadHours=Carga de trabajo
