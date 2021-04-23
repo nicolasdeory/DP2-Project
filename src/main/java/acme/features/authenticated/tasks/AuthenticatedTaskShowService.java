@@ -30,7 +30,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		
 		//revisar
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
-		request.unbind(entity, model, "title","isPublic","executionPeriod", "description", "link");
+		request.unbind(entity, model, "title","isPublic", "description", "link");
 		model.setAttribute("workload", entity.getWorkloadHours()); 
 		
 	}

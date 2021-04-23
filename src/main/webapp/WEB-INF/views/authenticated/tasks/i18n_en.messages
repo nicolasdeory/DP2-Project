@@ -8,5 +8,16 @@ authenticated.tasks.list.label.is-public = Public
 authenticated.tasks.list.label.start-date-time=Start
 authenticated.tasks.list.label.finish-date-time=Finish
 authenticated.tasks.list.label.workload=Workload
+
+authenticated.tasks.label.title = Title
+authenticated.tasks.label.description = Description
+authenticated.tasks.label.is-public = Public Task
+authenticated.tasks.label.start-date-time = Start date
+authenticated.tasks.label.finish-date-time = End date
+
 authenticated.tasks.label.workPlan= WorkPlans
 authenticated.tasks.button.return=Return
+authenticated.tasks.button.submit = Enviar
+
+authenticated.tasks.label.is-public.false = No
+authenticated.tasks.label.is-public.true = Yes

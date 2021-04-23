@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
-import acme.entities.tasks.Task;
 
 @Controller
 @RequestMapping("/authenticated/task/")
@@ -18,13 +18,19 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
     // Internal state ---------------------------------------------------------
 
     @Autowired
-    protected AuthenticatedListPublicFinishedTasksService listPublicTasksService;
+    protected AuthenticatedTaskListService taskListService;
+    
+    @Autowired
+    protected AuthenticatedTaskShowService showTaskService;
 
     // Constructors -----------------------------------------------------------
 
     @PostConstruct
     protected void initialise() {
-        super.addBasicCommand(BasicCommand.LIST, this.listPublicTasksService);
+        super.addBasicCommand(BasicCommand.LIST, this.taskListService);
+        super.addBasicCommand(BasicCommand.SHOW, this.showTaskService);
     }
 
+    
+    
 }

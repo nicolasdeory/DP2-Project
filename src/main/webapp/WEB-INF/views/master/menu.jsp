@@ -41,7 +41,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
-			<acme:menu-suboption code="master.menu.authenticated.list-ownTasks" action="/authenticated/task/ownList"/>
+			<acme:menu-suboption code="master.menu.authenticated.list-ownTasks" action="/authenticated/task/list"/>
         </acme:menu-option>
 	</acme:menu-left>
 

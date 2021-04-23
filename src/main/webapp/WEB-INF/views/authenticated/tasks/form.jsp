@@ -19,18 +19,20 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.tasks.label.title" path="title"/>
 	<acme:form-textbox code="authenticated.tasks.label.description" path="description"/>
-	<acme:form-textbox code="authenticated.tasks.label.is-public" path="isPublic"/>
-	<acme:form-textbox code="authenticated.tasks.label.start-date-time" path="startDateTime" />
-	<acme:form-textbox code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
+	<acme:form-checkbox code="authenticated.tasks.label.is-public" path="isPublic"/>
+	
+	<acme:form-moment code="authenticated.tasks.label.start-date-time" path="startDateTime" />
+	<acme:form-moment code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
 	<div class="form-group">
 		<label for="workPlans">
 			<acme:message code="authenticated.tasks.label.workPlan" />
 		</label>
-		<select id="workplans" size="6" class="form-control">
+		 <acme:form-select code="" path="workPlan">
 			<c:forEach items="${workPlans}" var="wp">
-				<option><c:out value="${wp.title}"/></option>
+				<acme:form-option code="" value="${wp.title}"/>
 			</c:forEach>
-		</select>
+		</acme:form-select>
 	</div>
+	<acme:form-submit code="authenticated.tasks.button.submit" action=""/>
   	<acme:form-return code="authenticated.tasks.button.return"/>
 </acme:form>
