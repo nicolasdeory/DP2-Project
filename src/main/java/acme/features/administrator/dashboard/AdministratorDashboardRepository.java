@@ -31,18 +31,18 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	
 	@Query("select max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)) from Task t")
 	Double maxOfTaskExecutionPeriods();
-//	
-//	@Query()
-//	Double averageOfTaskWorkloads();
-//
-//	@Query()
-//	Double deviationOfTaskWorkloads();
-//	
-//	@Query()
-//	Integer minOfTaskWorkloads();
-//	
-//	@Query()
-//	Integer maxOfTaskWorkloads();
+	
+	@Query("select (avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
+	Double averageOfTaskWorkloads();
+
+	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
+	Double deviationOfTaskWorkloads();
+	
+	@Query("select (min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
+	Double minOfTaskWorkloads();
+	
+	@Query("select (max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
+	Double maxOfTaskWorkloads();
 
 	@Query("select count(w) from WorkPlan w")
 	Integer numberOfWorkPlans();
@@ -76,18 +76,18 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	
 	@Query("select max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)) from WorkPlan w")
 	Double maxOfWorkPlanExecutionPeriods();
-//	
-//	@Query()
-//	Double averageOfWorkplanWorkloads();
-//	
-//	@Query()
-//	Double deviationOfWorkplanWorkloads();
-//	
-//	@Query()
-//	Integer minOfWorkplanWorkloads();
-//	
-//	@Query()
-//	Integer maxOfWorkplanWorkloads();
+	
+	@Query("select (avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
+	Double averageOfWorkplanWorkloads();
+	
+	@Query("select (stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
+	Double deviationOfWorkplanWorkloads();
+	
+	@Query("select (min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
+	Double minOfWorkplanWorkloads();
+	
+	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
+	Double maxOfWorkplanWorkloads();
 
 	
 	

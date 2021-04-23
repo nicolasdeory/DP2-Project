@@ -30,16 +30,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert entity != null;
 		assert model != null;
 		
-//		request.unbind(entity, model,"numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks",
-//			"averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriod","minOfTaskExecutionPeriods"," maxOfTaskExecutionPeriods",
-//			"averageOfTaskWorkloads","deviationOfTaskWorkloads"," minOfTaskWorkloads","maxOfTaskWorkloads","numberOfPublicWorkPlans",
-//			"numberOfPrivateWorkPlans","numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","averageOfWorkPlanPeriods",
-//			"deviationOfWorkPlanPeriods","minOfWorkPlanPeriods","maxOfWorkPlanPeriods","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads",
-//			" minOfWorkplanWorkloads","maxOfWorkplanWorkloads","numberOfWorkPlans","numberOfPublishedWorkPlans","numberOfNonPublishedWorkPlans");
 		
 		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks","numberOfPublicWorkPlans","numberOfPrivateWorkPlans",
 			"numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","numberOfWorkPlans","averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriods","minOfTaskExecutionPeriods","maxOfTaskExecutionPeriods",
-			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods");
+			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods","averageOfTaskWorkloads","deviationOfTaskWorkloads",
+			"minOfTaskWorkloads","maxOfTaskWorkloads","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads","minOfWorkplanWorkloads","maxOfWorkplanWorkloads");
 	}
 
 	@Override
@@ -57,30 +52,30 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double deviationOfTaskExecutionPeriods;
 		Double minOfTaskExecutionPeriods;
 		Double maxOfTaskExecutionPeriods;
-//		
-//		final Double averageOfTaskWorkloads;
-//		final Double deviationOfTaskWorkloads;
-//		final Integer minOfTaskWorkloads;
-//		Integer maxOfTaskWorkloads;
-//		
+		
+		Double averageOfTaskWorkloads;
+		Double deviationOfTaskWorkloads;
+		Double minOfTaskWorkloads;
+		Double maxOfTaskWorkloads;
+		
 		Integer numberOfPublicWorkPlans;
 		Integer numberOfPrivateWorkPlans;		
 		Integer numberOfFinishedWorkPlans;
 		Integer numberOfNonFinishedWorkPlans;
 		Integer numberOfWorkPlans;
-//		final Integer numberOfPublishedWorkPlans;
-//		final Integer numberOfNonPublishedWorkPlans;
-//		
+//		Integer numberOfPublishedWorkPlans;
+//		Integer numberOfNonPublishedWorkPlans;
+		
 		Double averageOfWorkPlanExecutionPeriods;
 		Double deviationOfWorkPlanExecutionPeriods;
 		Double minOfWorkPlanExecutionPeriods;
 		Double maxOfWorkPlanExecutionPeriods;
-//		
-//		final Double averageOfWorkplanWorkloads;
-//		final Double deviationOfWorkplanWorkloads;
-//		final Integer minOfWorkplanWorkloads;
-//		final Integer maxOfWorkplanWorkloads;
-//		
+		
+		Double averageOfWorkplanWorkloads;
+		Double deviationOfWorkplanWorkloads;
+		Double minOfWorkplanWorkloads;
+		Double maxOfWorkplanWorkloads;
+		
 
 		
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
@@ -92,11 +87,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		deviationOfTaskExecutionPeriods = this.repository.deviationOfTaskExecutionPeriods();
 		minOfTaskExecutionPeriods = this.repository.minOfTaskExecutionPeriods();
 		maxOfTaskExecutionPeriods = this.repository.maxOfTaskExecutionPeriods();
-//		
-//		averageOfTaskWorkloads = this.repository.averageOfTaskWorkloads();
-//		deviationOfTaskWorkloads = this.repository.deviationOfTaskWorkloads();
-//		minOfTaskWorkloads = this.repository.minOfTaskWorkloads();
-//		maxOfTaskWorkloads = this.repository.maxOfTaskWorkloads();
+		
+		averageOfTaskWorkloads = this.repository.averageOfTaskWorkloads();
+		deviationOfTaskWorkloads = this.repository.deviationOfTaskWorkloads();
+		minOfTaskWorkloads = this.repository.minOfTaskWorkloads();
+		maxOfTaskWorkloads = this.repository.maxOfTaskWorkloads();
 		
 		numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
 		numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
@@ -111,10 +106,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		minOfWorkPlanExecutionPeriods = this.repository.minOfWorkPlanExecutionPeriods();
 		maxOfWorkPlanExecutionPeriods = this.repository.maxOfWorkPlanExecutionPeriods();
 		
-//		averageOfWorkplanWorkloads = this.repository.averageOfWorkplanWorkloads();
-//		deviationOfWorkplanWorkloads = this.repository.deviationOfWorkplanWorkloads();
-//		minOfWorkplanWorkloads = this.repository.minOfWorkplanWorkloads();
-//		maxOfWorkplanWorkloads = this.repository.maxOfWorkplanWorkloads();
+		averageOfWorkplanWorkloads = this.repository.averageOfWorkplanWorkloads();
+		deviationOfWorkplanWorkloads = this.repository.deviationOfWorkplanWorkloads();
+		minOfWorkplanWorkloads = this.repository.minOfWorkplanWorkloads();
+		maxOfWorkplanWorkloads = this.repository.maxOfWorkplanWorkloads();
 
 		
 		result = new Dashboard();
@@ -128,10 +123,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfTaskExecutionPeriods(minOfTaskExecutionPeriods);
 		result.setMaxOfTaskExecutionPeriods(maxOfTaskExecutionPeriods);
 		
-//		result.setAverageOfTaskWorkloads(averageOfTaskWorkloads);
-//		result.setDeviationOfTaskWorkloads(deviationOfTaskWorkloads);
-//		result.setMinOfTaskWorkloads(minOfTaskWorkloads);
-//		result.setMaxOfTaskWorkloads(maxOfTaskWorkloads);
+		result.setAverageOfTaskWorkloads(averageOfTaskWorkloads);
+		result.setDeviationOfTaskWorkloads(deviationOfTaskWorkloads);
+		result.setMinOfTaskWorkloads(minOfTaskWorkloads);
+		result.setMaxOfTaskWorkloads(maxOfTaskWorkloads);
 		
 		result.setNumberOfPublicWorkPlans(numberOfPublicWorkPlans);
 		result.setNumberOfPrivateWorkPlans(numberOfPrivateWorkPlans);
@@ -146,10 +141,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkPlanExecutionPeriods(minOfWorkPlanExecutionPeriods);
 		result.setMaxOfWorkPlanExecutionPeriods(maxOfWorkPlanExecutionPeriods);
 		
-//		result.setAverageOfWorkplanWorkloads(averageOfWorkplanWorkloads);
-//		result.setDeviationOfWorkplanWorkloads(deviationOfWorkplanWorkloads);
-//		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
-//		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
+		result.setAverageOfWorkplanWorkloads(averageOfWorkplanWorkloads);
+		result.setDeviationOfWorkplanWorkloads(deviationOfWorkplanWorkloads);
+		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
+		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
 		return result;
 	}
