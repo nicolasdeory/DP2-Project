@@ -147,23 +147,7 @@
 			<acme:print value="${numberOfNonFinishedWorkPlans}"/>
 		</td>
 	</tr>
-	
-	<tr>
-		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublishedWorkPlans"/>
-		</th>
-		<td>
-			<acme:print value="${numberOfPublishedWorkPlans}"/>
-		</td>
-	</tr>	
-	<tr>
-		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfNonPublishedWorkPlans"/>
-		</th>
-		<td>
-			<acme:print value="${numberOfNonPublishedWorkPlans}"/>
-		</td>
-	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods"/>
@@ -249,7 +233,8 @@
 						<jstl:out value="${numberOfWorkPlans}"/>, 
 						<jstl:out value="${numberOfPublicWorkPlans}"/>, 
 						<jstl:out value="${numberOfPrivateWorkPlans}"/>
-					]
+					],
+					backgroundColor: ["black", "blue", "red"],
 				}
 			]
 		};
