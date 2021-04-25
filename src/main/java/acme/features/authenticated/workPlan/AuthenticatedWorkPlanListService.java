@@ -2,6 +2,8 @@ package acme.features.authenticated.workPlan;
 
 import java.util.Collection;
 
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,8 +22,8 @@ public class AuthenticatedWorkPlanListService implements AbstractListService<Aut
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-		
 		return true;
+		
 	}
 
 	@Override

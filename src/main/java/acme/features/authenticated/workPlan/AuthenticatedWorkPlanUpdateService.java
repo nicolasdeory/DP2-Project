@@ -1,5 +1,7 @@
 package acme.features.authenticated.workPlan;
 
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,22 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
+		boolean result;
+		int workplanId;
+		WorkPlan workPlan;
+		UserAccount userAccount;
+		Principal principal;
 
-		return true;
+		workplanId = request.getModel().getInteger("id");
+		workPlan = this.repository.findOneWorkPlanById(workplanId);
+		userAccount = workPlan.getUser();
+		principal = request.getPrincipal();
+		if(userAccount.getId()==principal.getAccountId()){
+			return true;
+		}else{
+			return false;
+		}
+
 	}
 
 	@Override
