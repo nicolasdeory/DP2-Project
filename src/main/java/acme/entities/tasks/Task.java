@@ -75,4 +75,5 @@ public class Task extends DomainEntity {
 	@Valid
 	@ManyToMany
 	protected List<WorkPlan> workPlans;
+	
 }
