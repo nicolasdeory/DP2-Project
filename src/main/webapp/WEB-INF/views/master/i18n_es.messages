@@ -38,6 +38,7 @@ master.menu.anonymous.ignacio.favourite-link = Link de Ignacio Navarro
 master.menu.anonymous.nicolas.favourite-link = Link de Nicolás de Ory
 master.menu.anonymous.list-shouts = Ver los shouts
 master.menu.anonymous.create-shout = ¡Escribir un shout!
+master.menu.anonymous.list-publicWorkplans= Planes de trabajo públicos
 
 
 # master.menu.administrator ###################################################
