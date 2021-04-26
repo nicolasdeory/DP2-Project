@@ -1,0 +1,24 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.authenticated.list-Workplans= Lista de mis planes de trabajo
+ 
+authenticated.workplan.label.title = Título
+authenticated.workplan.label.description = Descripción
+authenticated.workplan.label.isPublic = Plan de trabajo público
+authenticated.workplan.label.start-date-time= Fecha inicio
+authenticated.workplan.label.finish-date-time= Fecha fin
+authenticated.workplan.label.WorkloadHours=Carga de trabajo
+authenticated.workplan.label.task=Tareas
+authenticated.workplan.button.update=Actualizar
+authenticated.workplan.button.delete=Borrar
+authenticated.workplan.button.create=Crear
+authenticated.workplan.button.return=Volver

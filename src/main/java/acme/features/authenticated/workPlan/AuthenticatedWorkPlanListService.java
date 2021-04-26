@@ -1,29 +1,29 @@
-
-package acme.features.anonymous.workPlan;
+package acme.features.authenticated.workPlan;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousPublicWorkPlanListService implements AbstractListService<Anonymous, WorkPlan> {
+public class AuthenticatedWorkPlanListService implements AbstractListService<Authenticated,WorkPlan>{
 
 	@Autowired
-	protected AnonymousWorkPlanRepository repository;
-
-
+	protected AuthenticatedWorkPlanRepository repository;
+	
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
 		return true;
+		
 	}
 
 	@Override
@@ -31,17 +31,19 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		request.unbind(entity, model, "title");
-		model.setAttribute("workload", entity.getWorkloadHours());
+		request.unbind(entity, model, "title"); 
+		model.setAttribute("workload", entity.getWorkloadHours()); 
 
+		
 	}
 
 	@Override
 	public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
-		assert request != null;
 		Collection<WorkPlan> result;
-		result = this.repository.findAnonymousPublicWorkPlan();
+		final Integer userId = Integer.valueOf(request.getPrincipal().getAccountId());
+		result = this.repository.findAuthenticatedOwnWorkPlan(userId);
 		return result;
 	}
 

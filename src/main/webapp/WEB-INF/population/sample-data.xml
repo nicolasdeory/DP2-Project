@@ -18,107 +18,67 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
-
-	<bean name="JohnUserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="john21" />
+	
+	<bean name="juanUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="juan21" />
 		<property name="password" value="1234" />
 		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
-				<property name="name" value="John" />
+				<property name="name" value="Juan" />
 				<property name="surname" value="Martin" />
-				<property name="email" value="john.doe@acme.com" />
+				<property name="email" value="martin.doe@acme.com" />
 			</bean>
 		</property>
 		<property name="roles">
 			<list>
-				<ref bean="johnAuthenticated" />
+				<ref bean="juanAuthenticated" />
 			</list>
 		</property>
 	</bean>
-	<bean class="acme.framework.entities.Authenticated" name="johnAuthenticated">
-		<property name="userAccount" ref="JohnUserAccount"/>
+	<bean class="acme.framework.entities.Authenticated" name="juanAuthenticated">
+
+		<property name="userAccount" ref="juanUserAccount"/>
+
 	</bean>
-	<!-- WorkPlans -->
-	<bean name="wp1" class="acme.entities.workPlan.WorkPlan">
-		<property name="title" value="Plan test" />
-		<property name="description" value="Second tests" />
-		<property name="isPublic" value="true" />
-		<property name="executionPeriod">
-			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2030/12/11 23:59" />
-				<property name="finishDateTime" value="2040/12/11 23:59" />
-			</bean>
-		</property>
-		<property name="user" ref="JohnUserAccount">
-		</property>
-	</bean>
-	<bean name="wp2" class="acme.entities.workPlan.WorkPlan">
-		<property name="title" value="Plan test 2" />
-		<property name="description" value="Third tests" />
-		<property name="isPublic" value="false" />
-		<property name="executionPeriod">
-			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2030/12/11 23:59" />
-				<property name="finishDateTime" value="2033/12/11 23:59" />
-			</bean>
-		</property>
-		<property name="user" ref="JohnUserAccount">
-		</property>
-	</bean>
-	<bean name="wp3" class="acme.entities.workPlan.WorkPlan">
-		<property name="title" value="Plan test 3" />
-		<property name="description" value="Fourth tests" />
-		<property name="isPublic" value="true" />
-		<property name="executionPeriod">
-			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2030/12/11 23:59" />
-				<property name="finishDateTime" value="2034/12/11 23:59" />
-			</bean>
-		</property>
-		<property name="user" ref="JohnUserAccount">
-		</property>
-	</bean>
-	<bean name="wp4" class="acme.entities.workPlan.WorkPlan">
-		<property name="title" value="Plan test 4" />
-		<property name="description" value="Fifth tests" />
-		<property name="isPublic" value="true" />
-		<property name="executionPeriod">
-			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2030/12/11 23:59" />
-				<property name="finishDateTime" value="2035/12/11 23:59" />
-			</bean>
-		</property>
-		<property name="user" ref="JohnUserAccount">
-		</property>
-	</bean>
+	<!-- Tasks -->
 	<bean name="task1" class="acme.entities.tasks.Task">
-		<property name="title" value="ToDo task" />
-		<property name="description" value="The best task ever" />
+		<property name="title" value="Mantenimiento" />
+		<property name="description" value="Second Deliverable DP2" />
 		<property name="isPublic" value="true" />
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2022/6/11 15:59" />
-				<property name="finishDateTime" value="2023/2/5 10:59" />
+				<property name="startDateTime" value="2025/12/11 23:59" />
+				<property name="finishDateTime" value="2026/12/11 23:59" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workplan1"/>
+				<ref bean="workplan2"/>
+			</list>
 		</property>
 	</bean>
 	<bean name="task2" class="acme.entities.tasks.Task">
-		<property name="title" value="ToDo task 2 test" />
-		<property name="description" value="The best task but not ever" />
+		<property name="title" value="Mantenimiento2" />
+		<property name="description" value="Second Deliverable DP2" />
 		<property name="isPublic" value="true" />
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
-				<property name="startDateTime" value="2022/6/12 15:59" />
-				<property name="finishDateTime" value="2023/7/7 10:59" />
+				<property name="startDateTime" value="2027/12/11 23:59" />
+				<property name="finishDateTime" value="2028/12/11 23:59" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workplan1"/>
+				<ref bean="workplan2"/>
+			</list>
 		</property>
 	</bean>
-	<bean name="task3" class="acme.entities.tasks.Task">
+    <bean name="task3" class="acme.entities.tasks.Task">
 		<property name="title" value="Task" />
 		<property name="description" value="The best starter" />
 		<property name="isPublic" value="true" />
@@ -128,7 +88,7 @@
 				<property name="finishDateTime" value="2023/2/5 10:59" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount">
 		</property>
 	</bean>
 	<bean name="task4" class="acme.entities.tasks.Task">
@@ -141,7 +101,7 @@
 				<property name="finishDateTime" value="2022/1/11 16:01" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount"/>
 		</property>
 	</bean>
 	<bean name="task5" class="acme.entities.tasks.Task">
@@ -154,7 +114,7 @@
 				<property name="finishDateTime" value="2023/4/20 19:19" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount"/>
 		</property>
 	</bean>
 
@@ -168,7 +128,170 @@
 				<property name="finishDateTime" value="2023/4/20 19:19" />
 			</bean>
 		</property>
-		<property name="user" ref="JohnUserAccount">
+		<property name="user" ref="juanUserAccount"/>
+		</property>
+	</bean>
+	<!-- WorkPlans -->
+	<bean name="workplan1" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One" />
+		<property name="description" value="Second Deliverable DP2" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2030/12/11 23:59" />
+				<property name="finishDateTime" value="2040/12/11 23:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"></property>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan2" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 2" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan3" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 3" />
+		<property name="description" value="The best starter 3" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan4" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 4" />
+		<property name="description" value="The best starter 4" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan5" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 5" />
+		<property name="description" value="The best starter 5" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan6" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 6" />
+		<property name="description" value="The best starter 6" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan7" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 7" />
+		<property name="description" value="The best starter 7" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/6/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan8" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 8" />
+		<property name="description" value="The best starter 8" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2024/6/11 15:59" />
+				<property name="finishDateTime" value="2025/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
+		</property>
+	</bean>
+	<bean name="workplan9" class="acme.entities.workPlan.WorkPlan">
+		<property name="title" value="Acme One 9" />
+		<property name="description" value="The best starter 9" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2025/6/11 15:59" />
+				<property name="finishDateTime" value="2028/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task1"/>
+				<ref bean="task2"/>
+			</list>
 		</property>
 	</bean>
 </beans>
