@@ -102,7 +102,6 @@
 			</bean>
 		</property>
 		<property name="user" ref="juanUserAccount"/>
-		</property>
 	</bean>
 	<bean name="task5" class="acme.entities.tasks.Task">
 		<property name="title" value="Task" />
@@ -115,7 +114,6 @@
 			</bean>
 		</property>
 		<property name="user" ref="juanUserAccount"/>
-		</property>
 	</bean>
 
 	<bean name="task6" class="acme.entities.tasks.Task">
@@ -129,7 +127,6 @@
 			</bean>
 		</property>
 		<property name="user" ref="juanUserAccount"/>
-		</property>
 	</bean>
 	<!-- WorkPlans -->
 	<bean name="workplan1" class="acme.entities.workPlan.WorkPlan">

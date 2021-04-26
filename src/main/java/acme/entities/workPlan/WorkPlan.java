@@ -59,11 +59,6 @@ public class WorkPlan extends DomainEntity {
 	public Double getWorkloadHours() {
 		return this.tasks.stream().collect(Collectors.summarizingDouble(x->x.getWorkloadHours())).getSum();
 	}
-
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
 	// Relationships ----------------------------------------------------------
 
 	@Valid
