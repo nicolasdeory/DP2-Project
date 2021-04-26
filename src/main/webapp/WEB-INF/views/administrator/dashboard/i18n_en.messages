@@ -46,5 +46,5 @@ administrator.dashboard.form.label.minOfWorkplanWorkloads = Minimum of Workplan 
 administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan workload
 
 
-administrator.dashboard.form.title.application-statuses = Application statuses
+administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
