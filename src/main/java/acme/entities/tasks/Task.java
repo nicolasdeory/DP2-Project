@@ -27,51 +27,51 @@ import lombok.Setter;
 @Setter
 public class Task extends DomainEntity {
 
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@Size(min = 1, max = 80)
-	protected String title;
+    // Attributes -------------------------------------------------------------
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @Size(min = 1, max = 80)
+    protected String title;
 
-	@NotNull
-	protected Boolean isPublic;
+    @NotNull
+    protected Boolean isPublic;
 
-	@NotNull
-	@Valid
-	protected ExecutionPeriod executionPeriod;
+    @NotNull
+    @Valid
+    protected ExecutionPeriod executionPeriod;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@Size(min = 1, max = 500)
-	protected String description;
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @Size(min = 1, max = 500)
+    protected String description;
 
-	@URL
-	protected String link;
+    @URL
+    protected String link;
 
-	// Derived attributes -----------------------------------------------------
-	@Transient
-	public Double getWorkloadHours() {
-		return this.executionPeriod.getWorkloadHours();
-	}
+    // Derived attributes -----------------------------------------------------
+    @Transient
+    public Double getWorkloadHours() {
+        return this.executionPeriod.getWorkloadHours();
+    }
 
-	@Transient
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
+    @Transient
+    public Boolean isFinished() {
+        final Date now = new Date();
+        return now.after(this.executionPeriod.getFinishDateTime());
+    }
 
-	// Relationships ----------------------------------------------------------
-	@Valid
-	@ManyToOne
-	protected UserAccount user;
+    // Relationships ----------------------------------------------------------
+    @Valid
+    @ManyToOne
+    protected UserAccount user;
 
-	@Valid
-	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	protected List<WorkPlan> workPlans;
+    @Valid
+    @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    protected List<WorkPlan> workPlans;
 }

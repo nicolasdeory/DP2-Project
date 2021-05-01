@@ -1,5 +1,6 @@
 package acme.features.authenticated.workPlan;
 
+import acme.entities.tasks.Task;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,57 +12,62 @@ import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
-public class AuthenticatedWorkPlanShowService implements AbstractShowService<Authenticated, WorkPlan>{
+public class AuthenticatedWorkPlanShowService implements AbstractShowService<Authenticated, WorkPlan> {
 
-	@Autowired
-	protected AuthenticatedWorkPlanRepository repository;
+    @Autowired
+    protected AuthenticatedWorkPlanRepository repository;
 
-	@Override
-	public boolean authorise(final Request<WorkPlan> request) {
-		assert request != null;
-		boolean result;
-		int workplanId;
-		WorkPlan workPlan;
-		UserAccount userAccount;
-		Principal principal;
+    @Override
+    public boolean authorise(final Request<WorkPlan> request) {
+        assert request != null;
+        boolean result;
+        int workplanId;
+        WorkPlan workPlan;
+        UserAccount userAccount;
+        Principal principal;
 
-		workplanId = request.getModel().getInteger("id");
-		workPlan = this.repository.findOneWorkPlanById(workplanId);
-		userAccount = workPlan.getUser();
-		principal = request.getPrincipal();
-		if(workPlan.getIsPublic()||userAccount.getId()==principal.getAccountId()){
-			return true;
-		}else{
-			return false;
-		}
-	}
+        workplanId = request.getModel().getInteger("id");
+        workPlan = this.repository.findOneWorkPlanById(workplanId);
+        userAccount = workPlan.getUser();
+        principal = request.getPrincipal();
+        if (workPlan.getIsPublic() || userAccount.getId() == principal.getAccountId()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	@Override
-	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-		
-		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
-		request.unbind(entity, model, "title","description","tasks","isPublic");
-		model.setAttribute("workload", entity.getWorkloadHours());
-		model.setAttribute("isFinished",entity.isFinished());
+    @Override
+    public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
+        assert request != null;
+        assert entity != null;
+        assert model != null;
 
-		
-		
-	}
+        request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+        request.unbind(entity, model, "title", "description", "tasks", "isPublic");
+        model.setAttribute("workload", entity.getWorkloadHours());
+        model.setAttribute("isFinished", entity.isFinished());
+        List<Task> userTask = repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        userTask.removeAll(entity.getTasks());
+        model.setAttribute("userTask", userTask);
 
-	@Override
-	public WorkPlan findOne(final Request<WorkPlan> request) {
-		assert request != null;
 
-		WorkPlan workPlan;
-		int id;
-		
-		id = request.getModel().getInteger("id");
-		workPlan = this.repository.findOneWorkPlanById(id);
-		
-		return workPlan;
-	}
+    }
+
+    @Override
+    public WorkPlan findOne(final Request<WorkPlan> request) {
+        assert request != null;
+
+        WorkPlan workPlan;
+        int id;
+
+        id = request.getModel().getInteger("id");
+        workPlan = this.repository.findOneWorkPlanById(id);
+
+        return workPlan;
+    }
 }

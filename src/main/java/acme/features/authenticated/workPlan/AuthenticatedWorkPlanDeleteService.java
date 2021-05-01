@@ -14,86 +14,86 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService<Authenticated, WorkPlan>{
+public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService<Authenticated, WorkPlan> {
 
-	@Autowired
-	protected AuthenticatedWorkPlanRepository repository;
-	
-	
-	@Override
-	public boolean authorise(final Request<WorkPlan> request) {
-		assert request != null;
-		boolean result;
-		int workplanId;
-		WorkPlan workPlan;
-		UserAccount userAccount;
-		Principal principal;
+    @Autowired
+    protected AuthenticatedWorkPlanRepository repository;
 
-		workplanId = request.getModel().getInteger("id");
-		workPlan = this.repository.findOneWorkPlanById(workplanId);
-		userAccount = workPlan.getUser();
-		principal = request.getPrincipal();
-		if(userAccount.getId()==principal.getAccountId()){
-			return true;
-		}else{
-			return false;
-		}
-	}
 
-	@Override
-	public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+    @Override
+    public boolean authorise(final Request<WorkPlan> request) {
+        assert request != null;
+        boolean result;
+        int workplanId;
+        WorkPlan workPlan;
+        UserAccount userAccount;
+        Principal principal;
 
-		request.bind(entity, errors);
-		
-	}
+        workplanId = request.getModel().getInteger("id");
+        workPlan = this.repository.findOneWorkPlanById(workplanId);
+        userAccount = workPlan.getUser();
+        principal = request.getPrincipal();
+        if (userAccount.getId() == principal.getAccountId()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	@Override
-	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+    @Override
+    public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
+        assert request != null;
+        assert entity != null;
+        assert errors != null;
 
-		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		request.unbind(entity, model, "title","description","tasks");
-		model.setAttribute("workload", entity.getWorkloadHours());
-		model.setAttribute("isFinished",entity.isFinished());
-	}
+        request.bind(entity, errors);
 
-	@Override
-	public WorkPlan findOne(final Request<WorkPlan> request) {
-		assert request != null;
-		
-		WorkPlan workPlan;
-		int id;
-		
-		id = request.getModel().getInteger("id");
-		workPlan = this.repository.findOneWorkPlanById(id);
-		return workPlan;
-	}
+    }
 
-	@Override
-	public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;		
-		
-		//TODO
-	}
+    @Override
+    public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
+        assert request != null;
+        assert entity != null;
+        assert model != null;
 
-	@Override
-	public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
-		assert request != null;
-		assert entity != null;
-		for (Task task:entity.getTasks()){
-			task.getWorkPlans().remove(entity);
-			this.repository.save(task);
-		}
-		entity.getTasks().clear();
+        request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+        request.unbind(entity, model, "title", "description", "tasks");
+        model.setAttribute("workload", entity.getWorkloadHours());
+        model.setAttribute("isFinished", entity.isFinished());
+    }
 
-		this.repository.delete(entity);
-	}
+    @Override
+    public WorkPlan findOne(final Request<WorkPlan> request) {
+        assert request != null;
+
+        WorkPlan workPlan;
+        int id;
+
+        id = request.getModel().getInteger("id");
+        workPlan = this.repository.findOneWorkPlanById(id);
+        return workPlan;
+    }
+
+    @Override
+    public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
+        assert request != null;
+        assert entity != null;
+        assert errors != null;
+
+        //TODO
+    }
+
+    @Override
+    public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
+        assert request != null;
+        assert entity != null;
+        for (Task task : entity.getTasks()) {
+            task.getWorkPlans().remove(entity);
+            this.repository.save(task);
+        }
+        entity.getTasks().clear();
+
+        this.repository.delete(entity);
+    }
 
 }

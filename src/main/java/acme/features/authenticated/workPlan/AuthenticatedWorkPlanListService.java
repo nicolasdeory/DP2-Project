@@ -1,6 +1,8 @@
 package acme.features.authenticated.workPlan;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
@@ -14,37 +16,34 @@ import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedWorkPlanListService implements AbstractListService<Authenticated,WorkPlan>{
+public class AuthenticatedWorkPlanListService implements AbstractListService<Authenticated, WorkPlan> {
 
-	@Autowired
-	protected AuthenticatedWorkPlanRepository repository;
-	
-	@Override
-	public boolean authorise(final Request<WorkPlan> request) {
-		assert request != null;
-		return true;
-		
-	}
+    @Autowired
+    protected AuthenticatedWorkPlanRepository repository;
 
-	@Override
-	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
-		
-		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		request.unbind(entity, model, "title"); 
-		model.setAttribute("workload", entity.getWorkloadHours()); 
+    @Override
+    public boolean authorise(final Request<WorkPlan> request) {
+        assert request != null;
+        return true;
 
-		
-	}
+    }
 
-	@Override
-	public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
-		Collection<WorkPlan> result;
-		final Integer userId = Integer.valueOf(request.getPrincipal().getAccountId());
-		result = this.repository.findAuthenticatedOwnWorkPlan(userId);
-		return result;
-	}
+    @Override
+    public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
+        assert request != null;
+        assert entity != null;
+        assert model != null;
+        request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+        request.unbind(entity, model, "title");
+        model.setAttribute("workload", entity.getWorkloadHours());
+    }
+
+    @Override
+    public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
+        Collection<WorkPlan> result;
+        final Integer userId = Integer.valueOf(request.getPrincipal().getAccountId());
+        result = this.repository.findAuthenticatedOwnWorkPlan(userId);
+        return result;
+    }
 
 }

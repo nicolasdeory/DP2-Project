@@ -22,3 +22,6 @@ authenticated.workplan.button.update=Actualizar
 authenticated.workplan.button.delete=Borrar
 authenticated.workplan.button.create=Crear
 authenticated.workplan.button.return=Volver
+
+authenticated.workplan.error.startDate=La fecha inicio de una tarea no puede estar antes que la fecha inicio del plan de trabajo
+authenticated.workplan.error.finishDate=La fecha fin de una tarea no puede ser posterior a la fecha fin del plan de trabajo

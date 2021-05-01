@@ -22,3 +22,7 @@ authenticated.workplan.button.update=Update
 authenticated.workplan.button.delete=Delete
 authenticated.workplan.button.create=Create
 authenticated.workplan.button.return=Return
+
+
+authenticated.workplan.error.startDate=The start date of a task mustn't be before workplan start date
+authenticated.workplan.error.finishDate=The finish date of a task mustn't be after workplan finish date

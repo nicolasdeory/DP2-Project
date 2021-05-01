@@ -1,7 +1,7 @@
 
 package acme.entities.workPlan;
 
-import java.beans.Transient;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,43 +25,46 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WorkPlan extends DomainEntity {
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotBlank
-	@Length(min = 5, max = 80)
-	protected String			title;
+    // Attributes -------------------------------------------------------------
+    @NotBlank
+    @Length(min = 1, max = 80)
+    protected String title;
 
-	@NotBlank
-	@Size(min = 1, max = 500)
-	protected String			description;
+    @NotBlank
+    @Size(min = 1, max = 500)
+    protected String description;
 
-	@NotNull
-	protected Boolean			isPublic;
+    @NotNull
+    protected Boolean isPublic;
 
-	@NotNull
-	@Valid
-	protected ExecutionPeriod	executionPeriod;
+    @NotNull
+    @Valid
+    protected ExecutionPeriod executionPeriod;
 
-	// Derived attributes -----------------------------------------------------
-	public Double getWorkloadHours() {
-		return this.tasks.stream().collect(Collectors.summarizingDouble(x->x.getWorkloadHours())).getSum();
-	}
+    // Derived attributes -----------------------------------------------------
+    public Double getWorkloadHours() {
+        return this.tasks.stream().collect(Collectors.summarizingDouble(x -> x.getWorkloadHours())).getSum();
+    }
 
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
-	// Relationships ----------------------------------------------------------
+    @Transient
+    List<String> newTasksId;
 
-	@Valid
-	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-	protected List<Task>		tasks;
+    public Boolean isFinished() {
+        final Date now = new Date();
+        return now.after(this.executionPeriod.getFinishDateTime());
+    }
+    // Relationships ----------------------------------------------------------
 
-	@Valid
-	@ManyToOne(optional = false)
-	protected UserAccount		user;
+    @Valid
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    protected List<Task> tasks;
+
+    @Valid
+    @ManyToOne(optional = false)
+    protected UserAccount user;
 
 }
