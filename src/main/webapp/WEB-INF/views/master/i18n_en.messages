@@ -35,12 +35,15 @@ master.menu.anonymous.fernando.favourite-link = Fernando Rabasco's Link
 master.menu.anonymous.joseluis.favourite-link = Jose Luis Alonso Favourite Link
 master.menu.anonymous.ignacio.favourite-link = Ignacio Navarro's Link
 master.menu.anonymous.nicolas.favourite-link = Nicolás de Ory's Link
+master.menu.anonymous.list-shouts = List shouts
+master.menu.anonymous.create-shout = Shout!
 master.menu.anonymous.list-publicWorkplans= Public Workplans list
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.spam-parameters = Spam parameters
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
@@ -91,7 +94,7 @@ master.company.text = \
 	Starter Project, Inc. is a fictitious fictitious company that provides a \
 	starter project for the students of the Design and Testing subject of the \
 	Software Engineering Curriculum of the University of Sevilla.
-master.company.name = Starter Project, Inc.
+master.company.name = Acme One, Inc.
 master.company.address = Number Street, City, State, Country
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com

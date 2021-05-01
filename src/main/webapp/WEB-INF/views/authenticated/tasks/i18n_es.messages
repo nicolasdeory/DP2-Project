@@ -1,10 +1,10 @@
-anonymous.taks.list= Tareas Públicas
-master.menu.anonymous.list-publicTasks= Public Tasks
-
+master.menu.anonymous.list-publicTasks= Tareas Públicas
+anonymous.taks.list= Tareas Públicas Terminadas
 
 anonymous.tasks.list.label.title = Titulo
-anonymous.tasks.list.label.description = Descripcion
+anonymous.tasks.list.label.description = Descripción
 anonymous.tasks.list.label.is-public = Publica
+
 
 anonymous.tasks.list.label.start-date-time=Inicio
 anonymous.tasks.list.label.finish-date-time=Fin

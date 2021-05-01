@@ -78,6 +78,56 @@
 			</list>
 		</property>
 	</bean>
+    <bean name="task3" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/1/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount">
+		</property>
+	</bean>
+	<bean name="task4" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="false" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/1/11 15:59" />
+				<property name="finishDateTime" value="2022/1/11 16:01" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+	</bean>
+	<bean name="task5" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="false" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2023/4/19 19:18" />
+				<property name="finishDateTime" value="2023/4/20 19:19" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+	</bean>
+
+	<bean name="task6" class="acme.entities.tasks.Task">
+		<property name="title" value="Task" />
+		<property name="description" value="The best starter finished" />
+		<property name="isPublic" value="true" />
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2023/4/19 19:18" />
+				<property name="finishDateTime" value="2023/4/20 19:19" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount"/>
+	</bean>
 	<!-- WorkPlans -->
 	<bean name="workplan1" class="acme.entities.workPlan.WorkPlan">
 		<property name="title" value="Acme One" />

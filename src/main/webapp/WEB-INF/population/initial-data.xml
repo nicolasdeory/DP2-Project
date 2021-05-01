@@ -72,5 +72,21 @@
 	<bean name="administratorAuthenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
-	
+
+
+<!-- SPAM PARAMETERS -->
+	<bean name="spamParameters" class="acme.features.spam.SpamParameters">
+		<property name="keywords">
+			<list>
+				<value>sex</value>
+				<value>hard core</value>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>nigeria</value>
+				<value>you've won</value>
+				<value>million dollar</value>
+			</list>
+		</property>
+		<property name="threshold" value="0.1" />
+	</bean>
 </beans>

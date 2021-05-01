@@ -11,6 +11,9 @@
 
 master.menu.anonymous.list-publicWorkplans= Lista publica de plan de trabajo
  
+anonymous.workplan.list.label.title = Titulo
+anonymous.workplan.list.label.description = Descripcion
+anonymous.workplan.list.label.is-public = Publico
 anonymous.workplan.label.title = Titulo
 anonymous.workplan.label.description = Descripcion
 anonymous.workplan.label.start-date-time=Fecha inicio
