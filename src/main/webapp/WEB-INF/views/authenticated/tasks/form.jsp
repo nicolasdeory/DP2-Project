@@ -21,18 +21,24 @@
 	<acme:form-textbox code="authenticated.tasks.label.description" path="description"/>
 	<acme:form-checkbox code="authenticated.tasks.label.is-public" path="isPublic"/>
 	
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="authenticated.tasks.label.WorkloadHours" path="workload" readonly ="true"/>
+	</jstl:if>
 	<acme:form-moment code="authenticated.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
 	<div class="form-group">
 		<label for="workPlans">
 			<acme:message code="authenticated.tasks.label.workPlan" />
 		</label>
-		 <acme:form-select code="" path="workPlan">
+		 <select id="workplans" size="6" class="form-control">
 			<c:forEach items="${workPlans}" var="wp">
 				<acme:form-option code="" value="${wp.title}"/>
 			</c:forEach>
-		</acme:form-select>
+		</select>
 	</div>
-	<acme:form-submit code="authenticated.tasks.button.submit" action=""/>
-  	<acme:form-return code="authenticated.tasks.button.return"/>
+	
+    
+    <acme:form-submit code="authenticated.tasks.button.update" action="/authenticated/task/update"/>
+    <acme:form-submit code="authenticated.tasks.button.delete" action="/authenticated/task/delete"/>
+    <acme:form-return code="authenticated.tasks.button.return"/>
 </acme:form>

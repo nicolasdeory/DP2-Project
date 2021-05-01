@@ -9,16 +9,17 @@ authenticated.tasks.list.label.start-date-time=Inicio
 authenticated.tasks.list.label.finish-date-time=Fin
 authenticated.tasks.list.label.workload=Carga de trabajo
 
-
 authenticated.tasks.label.title = Título
 authenticated.tasks.label.description = Descripción
+authenticated.tasks.label.WorkloadHours = Carga de trabajo
 authenticated.tasks.label.is-public = Tarea pública
 authenticated.tasks.label.start-date-time = Fecha de inicio
 authenticated.tasks.label.finish-date-time = Fecha de fin
 
 authenticated.tasks.label.workPlan= Plan de trabajo
-authenticated.tasks.button.return=Return
-authenticated.tasks.button.submit = Submit
+authenticated.tasks.button.return= Volver
+authenticated.tasks.button.update = Actualizar
+authenticated.tasks.button.delete = Borrar
 
 authenticated.tasks.label.is-public.false = No
 authenticated.tasks.label.is-public.true = Si

@@ -23,12 +23,23 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
     @Autowired
     protected AuthenticatedTaskShowService showTaskService;
 
+    @Autowired
+    protected AuthenticatedTaskUpdateService updateTaskService;
+    
+    @Autowired
+    protected AuthenticatedTaskCreateService createTaskService;
+    
+    @Autowired
+    protected AuthenticatedTaskDeleteService deleteTaskService;
     // Constructors -----------------------------------------------------------
 
     @PostConstruct
     protected void initialise() {
         super.addBasicCommand(BasicCommand.LIST, this.taskListService);
         super.addBasicCommand(BasicCommand.SHOW, this.showTaskService);
+        super.addBasicCommand(BasicCommand.UPDATE, this.updateTaskService);
+        super.addBasicCommand(BasicCommand.CREATE, this.createTaskService);
+        super.addBasicCommand(BasicCommand.DELETE, this.deleteTaskService);
     }
 
     
