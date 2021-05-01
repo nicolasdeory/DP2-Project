@@ -12,7 +12,13 @@
 
 package acme.features.anonymous.shout;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,10 +61,19 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		assert request != null;
 
 		Collection<Shout> result;
+		
+		final Date noOlderThanOneMonth = Date.valueOf(LocalDate.now().minusMonths(1));
+		
+		result = this.repository.findMany(noOlderThanOneMonth);
 
-		result = this.repository.findMany();
-
-		return result;
+		final List<Shout> resultList = result.stream().collect(Collectors.toList());
+		
+		Collections.sort(resultList, Comparator.comparing(Shout::getMoment).reversed());
+		
+		final Collection<Shout> finalResult = resultList;
+		
+		return finalResult;
 	}
 
+	
 }
