@@ -16,6 +16,7 @@ import java.util.Date;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -38,10 +39,12 @@ public class ExecutionPeriod extends DomainDatatype implements Comparable<Execut
 
 	// Attributes -------------------------------------------------------------
 
+	@Valid
 	@Future
 	@NotNull
 	protected Date startDateTime;
 
+	@Valid
 	@Future
 	@NotNull
 	protected Date finishDateTime;

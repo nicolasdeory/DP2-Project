@@ -1,5 +1,6 @@
 package acme.features.authenticated.workPlan;
 
+import acme.datatypes.ExecutionPeriod;
 import acme.entities.tasks.Task;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
@@ -49,8 +50,25 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         assert entity != null;
         assert errors != null;
 
+        ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
+        if(request.getModel().hasAttribute("startDateTime")){
+            try{
+                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
+            }
+            catch(Exception e){
+                errors.add("startDateTime","authenticated.workplan.error.startDateTime.format");
+            }
+        }
+        if(request.getModel().hasAttribute("finishDateTime")){
+            try{
+                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
+            }catch(Exception e){
+                errors.add("finishDateTime","authenticated.workplan.error.finishDate.format");
+            }
 
+        }
+        entity.setExecutionPeriod(executionPeriod);
 
     }
 
@@ -87,15 +105,41 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         assert request != null;
         assert entity != null;
         assert errors != null;
-        for (String taskId : entity.getNewTasksId()) {
-            Integer id = Integer.valueOf(taskId);
-            Task t = repository.findOneTaskById(id);
-            if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
+        Date now=new Date(System.currentTimeMillis());
+        if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
+            if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
                 errors.add("startDateTime", "authenticated.workplan.error.startDate");
             }
-            if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
+            if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
                 errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
             }
+        }else{
+            if(entity.getExecutionPeriod().getStartDateTime()==null){
+                errors.add("startDateTime", "authenticated.workplan.error.startDate.format");
+            }
+            if(entity.getExecutionPeriod().getFinishDateTime()==null){
+                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.format");
+            }
+
+        }
+
+        List<String> newTask = new ArrayList<>();
+        newTask=entity.getNewTasksId();
+        if(newTask!=null&&!errors.hasErrors()){
+            for (String taskId : newTask) {
+                Integer id = Integer.valueOf(taskId);
+                Task t = repository.findOneTaskById(id);
+                if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
+                    errors.add("startDateTime", "authenticated.workplan.error.startDate");
+                }
+                if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
+                    errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+                }
+            }
+
+        }
+        if(errors.hasErrors()){
+            unbind(request,entity,request.getModel());
         }
     }
 
