@@ -222,8 +222,8 @@ contain &gt;</panel_attributes>
     <coordinates>
       <x>572</x>
       <y>819</y>
-      <w>468</w>
-      <h>169</h>
+      <w>546</w>
+      <h>195</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Task
@@ -232,6 +232,8 @@ Task
 + description: String {NotBlank, NotNull, NotBlank, Length(1, 500)
 + isPublic: boolean
 + link: String {URL}
++ / WorkloadHours : Double
++ / Finished: boolean
 
 
 
@@ -242,14 +244,17 @@ Task
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>559</x>
+      <x>546</x>
       <y>260</y>
-      <w>442</w>
-      <h>91</h>
+      <w>455</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Domain Entity
 --
++ id : int
++ version : int
++ / Transient : boolean
 
 bg=yellow</panel_attributes>
     <additional_attributes/>
@@ -258,24 +263,24 @@ bg=yellow</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>832</x>
-      <y>338</y>
+      <y>377</y>
       <w>39</w>
-      <h>169</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>637</x>
-      <y>338</y>
+      <y>377</y>
       <w>39</w>
-      <h>507</h>
+      <h>468</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-
 layer=0</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;370.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;340.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -352,8 +357,8 @@ WorkPlan
 + title: String {NotBlank, Length(5, 80)}
 + description: String {NotBlank, Length(5, 500)}
 + isPublic: boolean
-+ /Workload : Double
-+ /Finished : Boolean
++ / WorkloadHours : Double
++ / Finished : boolean
 
 
 
@@ -385,16 +390,16 @@ layer=4</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1027</x>
+      <x>1105</x>
       <y>598</y>
-      <w>663</w>
+      <w>585</w>
       <h>364</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1
 is created by &gt;</panel_attributes>
-    <additional_attributes>10.0;250.0;150.0;250.0;150.0;10.0;490.0;10.0</additional_attributes>
+    <additional_attributes>10.0;250.0;90.0;250.0;90.0;10.0;430.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
