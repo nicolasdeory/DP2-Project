@@ -16,11 +16,8 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface ManagerWorkPlanRepository extends AbstractRepository {
-    //@Query("select workplan from WorkPlan workplan where workplan.isPublic = true and workplan.executionPeriod.finishDateTime>=CURRENT_DATE order by workplan.executionPeriod")
-    //Collection<WorkPlan> findAuthenticatedPublicWorkPlan();
 
-    //and workplan.executionPeriod.finishDateTime>=CURRENT_DATE order by workplan.executionPeriod
-    @Query("select workplan from WorkPlan workplan where workplan.user.id = ?1 and workplan.executionPeriod.finishDateTime>=CURRENT_DATE order by workplan.executionPeriod")
+    @Query("select workplan from WorkPlan workplan where workplan.user.id = ?1 order by workplan.executionPeriod")
     Collection<WorkPlan> findAuthenticatedOwnWorkPlan(Integer id);
 
     @Query("select workplan from WorkPlan workplan where workplan.id = ?1")
@@ -28,12 +25,6 @@ public interface ManagerWorkPlanRepository extends AbstractRepository {
 
     @Query("select task from Task task where task.id = ?1")
     Task findOneTaskById(Integer id);
-
-    @Query("select task.executionPeriod.startDateTime from Task task left join task.workPlans w where w.id = ?1 order by task.executionPeriod.startDateTime")
-    Date findFirstStartDate(Integer id);
-
-    @Query("select task.executionPeriod.finishDateTime from Task task left join task.workPlans w where w.id = ?1 order by task.executionPeriod.finishDateTime DESC ")
-    Date findLastFinishDate(Integer id);
 
     @Query("select user from UserAccount user where user.id =?1")
     UserAccount findUserById(Integer id);

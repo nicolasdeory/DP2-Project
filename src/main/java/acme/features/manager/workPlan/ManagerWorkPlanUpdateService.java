@@ -62,14 +62,14 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
             catch(final Exception e){
-                errors.add("startDateTime","manager.workplan.error.startDateTime.format");
+                errors.state(request,false,"startDateTime","manager.workplan.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
             }catch(final Exception e){
-                errors.add("finishDateTime","manager.workplan.error.finishDate.format");
+                errors.state(request,false,"finishDateTime","manager.workplan.error.finishDate.format");
             }
 
         }
@@ -113,21 +113,22 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
         final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "manager.workplan.error.startDate");
+                errors.state(request,false,"startDateTime", "manager.workplan.error.startDate");
+
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "manager.workplan.error.finishDate");
+                errors.state(request,false,"finishDateTime", "manager.workplan.error.finishDate");
             }
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.add("startDateTime","manager.workplan.error.startDate.after");
-                errors.add("finishDateTime","manager.workplan.error.finishDate.before");
+                errors.state(request,false,"startDateTime","manager.workplan.error.startDate.after");
+                errors.state(request,false,"finishDateTime","manager.workplan.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "manager.workplan.error.startDate.empty");
+                errors.state(request,false,"startDateTime", "manager.workplan.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "manager.workplan.error.finishDate.empty");
+                errors.state(request,false,"finishDateTime", "manager.workplan.error.finishDate.empty");
             }
 
         }
@@ -139,10 +140,12 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
                 final Integer id = Integer.valueOf(taskId);
                 final Task t = this.repository.findOneTaskById(id);
                 if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.add("startDateTime", "manager.workplan.error.startDate.task");
+                    errors.state(request,false,"startDateTime", "manager.workplan.error.startDate.task");
+                    break;
                 }
                 if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.add("finishDateTime", "manager.workplan.error.finishDate.task");
+                    errors.state(request,false,"finishDateTime", "manager.workplan.error.finishDate.task");
+                    break;
                 }
             }
 

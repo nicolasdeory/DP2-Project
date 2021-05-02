@@ -52,10 +52,10 @@
                     <c:out value="${task.title}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.startDateTime}"/>
+                    <acme:print value="${task.executionPeriod.startDateTime}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.finishDateTime}"/>
+                    <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}" checked="true">
@@ -69,10 +69,10 @@
                     <c:out value="${task.title}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.startDateTime}"/>
+                    <acme:print value="${task.executionPeriod.startDateTime}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.finishDateTime}"/>
+                    <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}">

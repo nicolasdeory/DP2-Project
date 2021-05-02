@@ -42,9 +42,9 @@ acme.validation.length = Length must be between {0} and {1}
 acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
 
-authenticated.workplan.error.startDate.task.=Start date must not be before now
-authenticated.workplan.error.finishDate.task.=Finish date must not be before now
-authenticated.workplan.error.startDate.empty.=Start date cant be empty
-authenticated.workplan.error.finishDate.empty.=Finish date cant be empty
-authenticated.workplan.error.startDate.format.=Start Date format is wrong
-authenticated.workplan.error.finishDate.format.=Finish Date format is wrong
+manager.workplan.error.startDate.task=Start date must not be before now
+manager.workplan.error.finishDate.task=Finish date must not be before now
+manager.workplan.error.startDate.empty=Start date cant be empty
+manager.workplan.error.finishDate.empty=Finish date cant be empty
+manager.workplan.error.startDate.format=Start Date format is wrong
+manager.workplan.error.finishDate.format=Finish Date format is wrong
