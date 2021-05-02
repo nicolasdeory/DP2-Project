@@ -59,11 +59,11 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
-# master.menu.authenticated #######################################################
+# master.menu.manager #######################################################
 
-master.menu.authenticated = Authenticated
-master.menu.authenticated.list-Workplans = My Workplans List
-master.menu.authenticated.create-Workplans = Create new Workplan
+master.menu.manager = Manager
+master.menu.manager.list-Workplans = My Workplans List
+master.menu.manager.create-Workplans = Create new Workplan
 
 
 # master.menu.user-account ####################################################
@@ -74,6 +74,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.manager = Manager data
+master.menu.user-account.become-manager = Become a manager
 
 # master.footer ###############################################################
 

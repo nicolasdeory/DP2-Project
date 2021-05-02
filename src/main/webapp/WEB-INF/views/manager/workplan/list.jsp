@@ -16,9 +16,9 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.workplan.label.title" path="title" width="20%"/>
-	<acme:list-column code="authenticated.workplan.label.WorkloadHours" path="workload" width="20%"/>
-	<acme:list-column code="authenticated.workplan.label.start-date-time" path="startDateTime" width="20%"/>
-	<acme:list-column code="authenticated.workplan.label.finish-date-time" path="finishDateTime" width="20%"/>
+	<acme:list-column code="manager.workplan.label.title" path="title" width="20%"/>
+	<acme:list-column code="manager.workplan.label.WorkloadHours" path="workload" width="20%"/>
+	<acme:list-column code="manager.workplan.label.start-date-time" path="startDateTime" width="20%"/>
+	<acme:list-column code="manager.workplan.label.finish-date-time" path="finishDateTime" width="20%"/>
 
 </acme:list>

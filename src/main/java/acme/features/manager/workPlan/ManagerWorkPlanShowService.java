@@ -1,30 +1,30 @@
-package acme.features.authenticated.workPlan;
-
-import acme.entities.tasks.Task;
-import acme.framework.entities.Principal;
-import acme.framework.entities.UserAccount;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import acme.entities.workPlan.WorkPlan;
-import acme.framework.components.Model;
-import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractShowService;
+package acme.features.manager.workPlan;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.entities.roles.Manager;
+import acme.entities.tasks.Task;
+import acme.entities.workPlan.WorkPlan;
+import acme.framework.components.Model;
+import acme.framework.components.Request;
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
+import acme.framework.services.AbstractShowService;
+
 @Service
-public class AuthenticatedWorkPlanShowService implements AbstractShowService<Authenticated, WorkPlan> {
+public class ManagerWorkPlanShowService implements AbstractShowService<Manager, WorkPlan> {
 
     @Autowired
-    protected AuthenticatedWorkPlanRepository repository;
+    protected ManagerWorkPlanRepository repository;
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         assert request != null;
-        boolean result;
+        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -51,7 +51,7 @@ public class AuthenticatedWorkPlanShowService implements AbstractShowService<Aut
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        List<Task> userTask = repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         userTask.removeAll(entity.getTasks());
         model.setAttribute("userTask", userTask);
 

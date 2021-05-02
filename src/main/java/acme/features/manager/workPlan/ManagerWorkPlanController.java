@@ -1,4 +1,4 @@
-package acme.features.authenticated.workPlan;
+package acme.features.manager.workPlan;
 
 import javax.annotation.PostConstruct;
 
@@ -6,33 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.entities.roles.Manager;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
 
 
 @Controller
-@RequestMapping("/authenticated/work-plan/")
-public class AuthenticatedWorkPlanController extends AbstractController<Authenticated, WorkPlan>{
+@RequestMapping("/manager/work-plan/")
+public class ManagerWorkPlanController extends AbstractController<Manager, WorkPlan>{
 
 	
 	// Internal state ---------------------------------------------------------
 	
 	@Autowired
-	protected AuthenticatedWorkPlanCreateService createService;
+	protected ManagerWorkPlanCreateService createService;
 	
 	@Autowired
-	protected AuthenticatedWorkPlanDeleteService deleteService;
+	protected ManagerWorkPlanDeleteService deleteService;
 		
 	@Autowired
-	protected AuthenticatedWorkPlanListService listService;
+	protected ManagerWorkPlanListService listService;
 	
 	@Autowired
-	protected AuthenticatedWorkPlanShowService showService;
+	protected ManagerWorkPlanShowService showService;
 		
 	@Autowired
-	protected AuthenticatedWorkPlanUpdateService updateService;
+	protected ManagerWorkPlanUpdateService updateService;
 	
 	
 	// Constructors -----------------------------------------------------------

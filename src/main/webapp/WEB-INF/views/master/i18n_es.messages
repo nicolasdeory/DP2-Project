@@ -63,9 +63,9 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 # master.menu.authenticated #######################################################
 
-master.menu.authenticated = Autentificado
-master.menu.authenticated.list-Workplans = Lista de mis planes de trabajo
-master.menu.authenticated.create-Workplans = Crear nuevo Plan de trabajo
+master.menu.manager = Manager
+master.menu.manager.list-Workplans = Lista de mis planes de trabajo
+master.menu.manager.create-Workplans = Crear nuevo Plan de trabajo
 
 
 # master.menu.user-account ####################################################
@@ -76,6 +76,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.manager = Datos de manager
+master.menu.user-account.become-manager = Hazte manager
 
 ﻿# master.footer ###############################################################
 

@@ -1,4 +1,4 @@
-package acme.features.authenticated.workPlan;
+package acme.features.manager.workPlan;
 
 import java.util.Collection;
 import java.util.Date;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Propagation;
 import javax.transaction.Transactional;
 
 @Repository
-public interface AuthenticatedWorkPlanRepository extends AbstractRepository {
+public interface ManagerWorkPlanRepository extends AbstractRepository {
     //@Query("select workplan from WorkPlan workplan where workplan.isPublic = true and workplan.executionPeriod.finishDateTime>=CURRENT_DATE order by workplan.executionPeriod")
     //Collection<WorkPlan> findAuthenticatedPublicWorkPlan();
 

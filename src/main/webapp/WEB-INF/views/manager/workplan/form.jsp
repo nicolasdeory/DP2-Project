@@ -17,33 +17,33 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <acme:form>
-    <acme:form-textbox code="authenticated.workplan.label.title" path="title"/>
-    <acme:form-textbox code="authenticated.workplan.label.description" path="description"/>
-    <acme:form-checkbox code="authenticated.workplan.label.isPublic" path="isPublic"/>
+    <acme:form-textbox code="manager.workplan.label.title" path="title"/>
+    <acme:form-textbox code="manager.workplan.label.description" path="description"/>
+    <acme:form-checkbox code="manager.workplan.label.isPublic" path="isPublic"/>
     <jstl:if test="${command != 'create'}">
-        <acme:form-textbox code="authenticated.workplan.label.WorkloadHours" path="workload" readonly="true"/>
+        <acme:form-textbox code="manager.workplan.label.WorkloadHours" path="workload" readonly="true"/>
     </jstl:if>
 
-    <acme:form-moment code="authenticated.workplan.label.start-date-time" path="startDateTime"/>
-    <acme:form-moment code="authenticated.workplan.label.finish-date-time" path="finishDateTime"/>
+    <acme:form-moment code="manager.workplan.label.start-date-time" path="startDateTime"/>
+    <acme:form-moment code="manager.workplan.label.finish-date-time" path="finishDateTime"/>
 
     <label for="tasks">
-        <acme:message code="authenticated.workplan.label.task"/>
+        <acme:message code="manager.workplan.label.task"/>
     </label>
     <div style="max-height: 40vmin; overflow-y: auto">
     <table class="table table-striped" >
         <tr>
             <th>
-                <acme:message code="authenticated.workplan.label.title"/>
+                <acme:message code="manager.workplan.label.title"/>
             </th>
             <th>
-                <acme:message code="authenticated.workplan.label.start-date-time"/>
+                <acme:message code="manager.workplan.label.start-date-time"/>
             </th>
             <th>
-                <acme:message code="authenticated.workplan.label.finish-date-time"/>
+                <acme:message code="manager.workplan.label.finish-date-time"/>
             </th>
             <th>
-                <acme:message code="authenticated.workplan.label.add"/>
+                <acme:message code="manager.workplan.label.add"/>
             </th>
         </tr>
         <c:forEach items="${tasks}" var="task">
@@ -83,17 +83,17 @@
     </table>
     </div>
     <br>
-    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.workplan.button.update"
-                      action="/authenticated/work-plan/update"/>
-    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.workplan.button.delete"
-                      action="/authenticated/work-plan/delete"/>
-    <acme:form-submit test="${command == 'create'}" code="authenticated.workplan.button.create"
-                      action="/authenticated/work-plan/create"/>
-    <acme:form-submit test="${command == 'update'}" code="authenticated.workplan.button.update"
-                      action="/authenticated/work-plan/update"/>
-    <acme:form-submit test="${command == 'delete'||command == 'update'}" code="authenticated.workplan.button.delete"
-                      action="/authenticated/work-plan/delete"/>
-    <acme:form-return code="authenticated.workplan.button.return"/>
+    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="manager.workplan.button.update"
+                      action="/manager/work-plan/update"/>
+    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="manager.workplan.button.delete"
+                      action="/manager/work-plan/delete"/>
+    <acme:form-submit test="${command == 'create'}" code="manager.workplan.button.create"
+                      action="/manager/work-plan/create"/>
+    <acme:form-submit test="${command == 'update'}" code="manager.workplan.button.update"
+                      action="/manager/work-plan/update"/>
+    <acme:form-submit test="${command == 'delete'||command == 'update'}" code="manager.workplan.button.delete"
+                      action="/manager/work-plan/delete"/>
+    <acme:form-return code="manager.workplan.button.return"/>
 </acme:form>
 
 <script src="webapp/META-INF/resources/workPlanCreateForm.js"></script>

@@ -18,15 +18,15 @@
 
 <tiles-definitions>
 
-	<definition name="authenticated/work-plan/list" extends="master"> 
+	<definition name="manager/work-plan/list" extends="master"> 
 		<put-attribute name="body" type="template" 
-			value="../authenticated/workplan/list.jsp" /> 
+			value="../manager/workplan/list.jsp" /> 
 	</definition> 
 	
 	
-	<definition name="authenticated/work-plan/form" extends="master"> 
+	<definition name="manager/work-plan/form" extends="master"> 
 		<put-attribute name="body" type="template" 
-			value="../authenticated/workplan/form.jsp" /> 
+			value="../manager/workplan/form.jsp" /> 
 	</definition> 
 	
 </tiles-definitions>

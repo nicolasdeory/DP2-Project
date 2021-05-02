@@ -1,0 +1,33 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.manager.list-Workplans= Lista de mis planes de trabajo
+ 
+manager.workplan.label.title = Título
+manager.workplan.label.description = Descripción
+manager.workplan.label.isPublic = Plan de trabajo público
+manager.workplan.label.start-date-time= Fecha inicio
+manager.workplan.label.finish-date-time= Fecha fin
+manager.workplan.label.WorkloadHours=Carga de trabajo
+manager.workplan.label.task=Tareas
+manager.workplan.button.update=Actualizar
+manager.workplan.button.delete=Borrar
+manager.workplan.button.create=Crear
+manager.workplan.button.return=Volver
+manager.workplan.label.add=Añadir tarea al plan de trabajo
+
+
+manager.workplan.error.startDate.task=La fecha de inicio debe ser posterior a la fecha de hoy
+manager.workplan.error.finishDate.task=La fecha de fin debe ser posterior a la fecha de hoy
+manager.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
+manager.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
+manager.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
+manager.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto

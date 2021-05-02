@@ -1,30 +1,28 @@
-package acme.features.authenticated.workPlan;
+package acme.features.manager.workPlan;
 
-import acme.datatypes.ExecutionPeriod;
-import acme.entities.tasks.Task;
-import acme.framework.entities.UserAccount;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import acme.entities.workPlan.WorkPlan;
-import acme.framework.components.Errors;
-import acme.framework.components.Model;
-import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
-import acme.framework.services.AbstractCreateService;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import acme.datatypes.ExecutionPeriod;
+import acme.entities.roles.Manager;
+import acme.entities.tasks.Task;
+import acme.entities.workPlan.WorkPlan;
+import acme.framework.components.Errors;
+import acme.framework.components.Model;
+import acme.framework.components.Request;
+import acme.framework.entities.UserAccount;
+import acme.framework.services.AbstractCreateService;
+
 @Service
-public class AuthenticatedWorkPlanCreateService implements AbstractCreateService<Authenticated, WorkPlan> {
+public class ManagerWorkPlanCreateService implements AbstractCreateService<Manager, WorkPlan> {
 
     @Autowired
-    protected AuthenticatedWorkPlanRepository repository;
+    protected ManagerWorkPlanRepository repository;
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
@@ -38,21 +36,21 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
         assert request != null;
         assert entity != null;
         assert errors != null;
-        ExecutionPeriod executionPeriod = new ExecutionPeriod();
+        final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
         if(request.getModel().hasAttribute("startDateTime")){
             try{
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
-            catch(Exception e){
-                errors.add("startDateTime","authenticated.workplan.error.startDateTime.format");
+            catch(final Exception e){
+                errors.add("startDateTime","manager.workplan.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
-            }catch(Exception e){
-                errors.add("finishDateTime","authenticated.workplan.error.finishDate.format");
+            }catch(final Exception e){
+                errors.add("finishDateTime","manager.workplan.error.finishDate.format");
             }
 
         }
@@ -69,7 +67,7 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
-        List<Task> userTask = repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         model.setAttribute("userTask", userTask);
 
     }
@@ -91,20 +89,20 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
         assert request != null;
         assert entity != null;
         assert errors != null;
-        Date now=new Date(System.currentTimeMillis());
+        final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate");
+                errors.add("startDateTime", "manager.workplan.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+                errors.add("finishDateTime", "manager.workplan.error.finishDate");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate.empty");
+                errors.add("startDateTime", "manager.workplan.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.empty");
+                errors.add("finishDateTime", "manager.workplan.error.finishDate.empty");
             }
 
         }
@@ -112,20 +110,20 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
         List<String> newTask = new ArrayList<>();
         newTask=entity.getNewTasksId();
         if(newTask!=null&&!errors.hasErrors()){
-            for (String taskId : newTask) {
-                Integer id = Integer.valueOf(taskId);
-                Task t = repository.findOneTaskById(id);
+            for (final String taskId : newTask) {
+                final Integer id = Integer.valueOf(taskId);
+                final Task t = this.repository.findOneTaskById(id);
                 if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.add("startDateTime", "authenticated.workplan.error.startDate.task");
+                    errors.add("startDateTime", "manager.workplan.error.startDate.task");
                 }
                 if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.add("finishDateTime", "authenticated.workplan.error.finishDate.task");
+                    errors.add("finishDateTime", "manager.workplan.error.finishDate.task");
                 }
             }
 
         }
         if(errors.hasErrors()){
-            unbind(request,entity,request.getModel());
+            this.unbind(request,entity,request.getModel());
         }
 
 
@@ -136,13 +134,13 @@ public class AuthenticatedWorkPlanCreateService implements AbstractCreateService
     public void create(final Request<WorkPlan> request, final WorkPlan entity) {
         assert request != null;
         assert entity != null;
-        UserAccount user = repository.findUserById(request.getPrincipal().getAccountId());
+        final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
         entity.setUser(user);
         entity.setTasks(new ArrayList<>());
         if(entity.getNewTasksId()!=null){
-            for (String taskId : entity.getNewTasksId()) {
-                Integer id = Integer.valueOf(taskId);
-                Task t = repository.findOneTaskById(id);
+            for (final String taskId : entity.getNewTasksId()) {
+                final Integer id = Integer.valueOf(taskId);
+                final Task t = this.repository.findOneTaskById(id);
                 t.getWorkPlans().add(entity);
                 entity.getTasks().add(t);
 

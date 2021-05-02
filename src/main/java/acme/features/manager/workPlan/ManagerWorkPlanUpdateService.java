@@ -1,32 +1,37 @@
-package acme.features.authenticated.workPlan;
+package acme.features.manager.workPlan;
 
-import acme.datatypes.ExecutionPeriod;
-import acme.entities.tasks.Task;
-import acme.framework.entities.Principal;
-import acme.framework.entities.UserAccount;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.ExecutionPeriod;
+import acme.entities.roles.Manager;
+import acme.entities.tasks.Task;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 
-import java.util.*;
-import java.util.stream.Collectors;
-
 @Service
-public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService<Authenticated, WorkPlan> {
+public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manager, WorkPlan> {
 
     @Autowired
-    protected AuthenticatedWorkPlanRepository repository;
+    protected ManagerWorkPlanRepository repository;
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         assert request != null;
-        boolean result;
+        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -50,21 +55,21 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         assert entity != null;
         assert errors != null;
 
-        ExecutionPeriod executionPeriod = new ExecutionPeriod();
+        final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
         if(request.getModel().hasAttribute("startDateTime")){
             try{
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
-            catch(Exception e){
-                errors.add("startDateTime","authenticated.workplan.error.startDateTime.format");
+            catch(final Exception e){
+                errors.add("startDateTime","manager.workplan.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
-            }catch(Exception e){
-                errors.add("finishDateTime","authenticated.workplan.error.finishDate.format");
+            }catch(final Exception e){
+                errors.add("finishDateTime","manager.workplan.error.finishDate.format");
             }
 
         }
@@ -82,7 +87,7 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        List<Task> userTask = repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         userTask.removeAll(entity.getTasks());
         model.setAttribute("userTask", userTask);
     }
@@ -105,20 +110,20 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         assert request != null;
         assert entity != null;
         assert errors != null;
-        Date now=new Date(System.currentTimeMillis());
+        final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate");
+                errors.add("startDateTime", "manager.workplan.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+                errors.add("finishDateTime", "manager.workplan.error.finishDate");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate.empty");
+                errors.add("startDateTime", "manager.workplan.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.empty");
+                errors.add("finishDateTime", "manager.workplan.error.finishDate.empty");
             }
 
         }
@@ -126,20 +131,20 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
         List<String> newTask = new ArrayList<>();
         newTask=entity.getNewTasksId();
         if(newTask!=null&&!errors.hasErrors()){
-            for (String taskId : newTask) {
-                Integer id = Integer.valueOf(taskId);
-                Task t = repository.findOneTaskById(id);
+            for (final String taskId : newTask) {
+                final Integer id = Integer.valueOf(taskId);
+                final Task t = this.repository.findOneTaskById(id);
                 if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.add("startDateTime", "authenticated.workplan.error.startDate.task");
+                    errors.add("startDateTime", "manager.workplan.error.startDate.task");
                 }
                 if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.add("finishDateTime", "authenticated.workplan.error.finishDate.task");
+                    errors.add("finishDateTime", "manager.workplan.error.finishDate.task");
                 }
             }
 
         }
         if(errors.hasErrors()){
-            unbind(request,entity,request.getModel());
+            this.unbind(request,entity,request.getModel());
         }
     }
 
@@ -147,22 +152,22 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
     public void update(final Request<WorkPlan> request, final WorkPlan entity) {
         assert request != null;
         assert entity != null;
-        List<Task> tasks = entity.getTasks();
+        final List<Task> tasks = entity.getTasks();
         if (entity.getNewTasksId() == null || entity.getNewTasksId().size() == 0) {
             tasks.clear();
         } else {
-            Set<Integer> newTaskIdStrings = entity.getNewTasksId().stream()
+            final Set<Integer> newTaskIdStrings = entity.getNewTasksId().stream()
                     .map(x -> Integer.valueOf(x))
                     .collect(Collectors.toSet());
 
-            Map<Integer, Task> idTask = new HashMap<>();
-            for (Task t : tasks) {
+            final Map<Integer, Task> idTask = new HashMap<>();
+            for (final Task t : tasks) {
                 idTask.put(t.getId(), t);
             }
 
-            for (Integer taskId : idTask.keySet()) {
+            for (final Integer taskId : idTask.keySet()) {
                 if (!newTaskIdStrings.contains(taskId)) {
-                    Task task = idTask.get(taskId);
+                    final Task task = idTask.get(taskId);
                     tasks.remove(task);
 
                 } else {
@@ -171,10 +176,10 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
                 }
             }
 
-            for (Integer taskId : newTaskIdStrings) {
+            for (final Integer taskId : newTaskIdStrings) {
                 if (!idTask.keySet().contains(taskId)) {
                     // podría optimizarse si JPA permitiera añadir un ManyToMany por id, sin tener que traerse el objeto
-                    Task taskToAdd = repository.findOneTaskById(taskId);
+                    final Task taskToAdd = this.repository.findOneTaskById(taskId);
                     tasks.add(taskToAdd);
                 }
             }

@@ -1,29 +1,29 @@
-package acme.features.authenticated.workPlan;
+package acme.features.manager.workPlan;
 
-import acme.entities.tasks.Task;
-import acme.framework.entities.Principal;
-import acme.framework.entities.UserAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
+import acme.entities.tasks.Task;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService<Authenticated, WorkPlan> {
+public class ManagerWorkPlanDeleteService implements AbstractDeleteService<Manager, WorkPlan> {
 
     @Autowired
-    protected AuthenticatedWorkPlanRepository repository;
+    protected ManagerWorkPlanRepository repository;
 
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         assert request != null;
-        boolean result;
+        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -87,7 +87,7 @@ public class AuthenticatedWorkPlanDeleteService implements AbstractDeleteService
     public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
         assert request != null;
         assert entity != null;
-        for (Task task : entity.getTasks()) {
+        for (final Task task : entity.getTasks()) {
             task.getWorkPlans().remove(entity);
             this.repository.save(task);
         }
