@@ -1,6 +1,5 @@
 package acme.features.manager.task;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,24 +51,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
         request.bind(entity, errors);
         if(request.getModel().hasAttribute("startDateTime")){
             try{
-            	final SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-            	final Date date = DateFor.parse(request.getModel().getAttribute("startDateTime", String.class));
-                executionPeriod.setStartDateTime(date);
+                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
             catch(final Exception e){
-                errors.add("startDateTime","manager.tasks.error.startDateTime.format");
+                errors.add("startDateTime","authenticated.tasks.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
-            	final SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-            	final Date date = DateFor.parse(request.getModel().getAttribute("finishDateTime", String.class));
-                executionPeriod.setFinishDateTime(date);
+                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
             }catch(final Exception e){
-                errors.add("finishDateTime","manager.tasks.error.finishDate.format");
+                errors.add("finishDateTime","authenticated.tasks.error.finishDate.format");
             }
 
         }
+        
         entity.setExecutionPeriod(executionPeriod);
 		
 	}
