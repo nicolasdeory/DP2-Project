@@ -1,6 +1,6 @@
 package acme.features.manager.task;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +11,7 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -65,8 +66,6 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
 		request.unbind(entity, model, "title","isPublic", "description", "link");
-//		final List<WorkPlan> userWorkPlans = this.repository.findWorkPlans().stream().collect(Collectors.toList());
-//		model.setAttribute("userWorkplans", userWorkPlans);
 		
 	}
 
@@ -91,22 +90,25 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate");
+                errors.add("startDateTime", "authenticated.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+                errors.add("finishDateTime", "authenticated.tasks.error.finishDate");
+            }
+            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
+                errors.add("startDateTime","manager.tasks.error.startDate.after");
+                errors.add("finishDateTime","manager.tasks.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate.empty");
+                errors.add("startDateTime", "authenticated.tasks.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.empty");
+                errors.add("finishDateTime", "authenticated.tasks.error.finishDate.empty");
             }
             
 	}
         
-        //queda validar el workplan
         
 	}
 
@@ -115,9 +117,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		
-//		final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
-//		entity.setUser(user);
-//		entity.setWorkPlans(new ArrayList<>());
+		final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
+		entity.setUser(user);
 		
 		
 		this.repository.save(entity);

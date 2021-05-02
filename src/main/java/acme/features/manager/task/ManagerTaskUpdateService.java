@@ -1,6 +1,7 @@
 package acme.features.manager.task;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,17 +52,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
         request.bind(entity, errors);
         if(request.getModel().hasAttribute("startDateTime")){
             try{
-                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
+            	final SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            	final Date date = DateFor.parse(request.getModel().getAttribute("startDateTime", String.class));
+                executionPeriod.setStartDateTime(date);
             }
             catch(final Exception e){
-                errors.add("startDateTime","manager.workplan.error.startDateTime.format");
+                errors.add("startDateTime","manager.tasks.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
-                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
+            	final SimpleDateFormat DateFor = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+            	final Date date = DateFor.parse(request.getModel().getAttribute("finishDateTime", String.class));
+                executionPeriod.setFinishDateTime(date);
             }catch(final Exception e){
-                errors.add("finishDateTime","manager.workplan.error.finishDate.format");
+                errors.add("finishDateTime","manager.tasks.error.finishDate.format");
             }
 
         }
@@ -102,17 +107,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "manager.workplan.error.startDate");
+                errors.add("startDateTime", "manager.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "manager.workplan.error.finishDate");
+                errors.add("finishDateTime", "manager.tasks.error.finishDate");
+            }
+            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
+                errors.add("startDateTime","manager.tasks.error.startDate.after");
+                errors.add("finishDateTime","manager.tasks.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "manager.workplan.error.startDate.empty");
+                errors.add("startDateTime", "manager.tasks.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "manager.workplan.error.finishDate.empty");
+                errors.add("finishDateTime", "manager.tasks.error.finishDate.empty");
             }
 
         }

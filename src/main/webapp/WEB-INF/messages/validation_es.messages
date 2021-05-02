@@ -48,3 +48,12 @@ authenticated.workplan.error.startDate.empty=La fecha de inicio no debe estar va
 authenticated.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
 authenticated.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
 authenticated.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto
+
+manager.tasks.error.startDate = Start date error
+manager.tasks.error.finishDate = Finish date error
+
+manager.tasks.error.finishDate.format = Please, check finish date format and try again
+manager.tasks.error.startDateTime.format = Please, check start date format and try again
+
+manager.tasks.error.startDate.empty = Start date can not be empty
+manager.tasks.error.finishDate.empty = Finish date can not be empty

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.tasks.Task;
 import acme.entities.workPlan.WorkPlan;
+import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -23,4 +24,8 @@ public interface ManagerTaskRepository extends AbstractRepository {
 	
 	@Query("select workplan from WorkPlan workplan")
 	Collection<WorkPlan> findWorkPlans();
+	
+	@Query("select user from UserAccount user where user.id =?1")
+	UserAccount findUserById(Integer id);
+	
 }

@@ -48,3 +48,15 @@ authenticated.workplan.error.startDate.empty.=Start date cant be empty
 authenticated.workplan.error.finishDate.empty.=Finish date cant be empty
 authenticated.workplan.error.startDate.format.=Start Date format is wrong
 authenticated.workplan.error.finishDate.format.=Finish Date format is wrong
+
+
+manager.tasks.error.startDate = Start date error
+manager.tasks.error.finishDate = Finish date error
+
+manager.tasks.error.finishDate.format = Please, check finish date format and try again
+manager.tasks.error.startDateTime.format = Please, check start date format and try again
+
+manager.tasks.error.startDate.empty = Start date can not be empty
+manager.tasks.error.finishDate.empty = Finish date can not be empty
+manager.tasks.error.finishDate.before = Finish date can not be before start date
+manager.tasks.error.startDate.after = Start date can not be after finish date

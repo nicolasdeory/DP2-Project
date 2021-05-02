@@ -31,7 +31,6 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         assert request != null;
-        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -117,6 +116,10 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
                 errors.add("finishDateTime", "manager.workplan.error.finishDate");
+            }
+            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
+                errors.add("startDateTime","manager.workplan.error.startDate.after");
+                errors.add("finishDateTime","manager.workplan.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
