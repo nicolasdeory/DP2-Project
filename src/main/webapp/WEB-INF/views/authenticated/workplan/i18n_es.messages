@@ -22,6 +22,12 @@ authenticated.workplan.button.update=Actualizar
 authenticated.workplan.button.delete=Borrar
 authenticated.workplan.button.create=Crear
 authenticated.workplan.button.return=Volver
+authenticated.workplan.label.add=Añadir tarea al plan de trabajo
 
-authenticated.workplan.error.startDate=La fecha inicio de una tarea no puede estar antes que la fecha inicio del plan de trabajo
-authenticated.workplan.error.finishDate=La fecha fin de una tarea no puede ser posterior a la fecha fin del plan de trabajo
+
+authenticated.workplan.error.startDate.task=La fecha de inicio debe ser posterior a la fecha de hoy
+authenticated.workplan.error.finishDate.task=La fecha de fin debe ser posterior a la fecha de hoy
+authenticated.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
+authenticated.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
+authenticated.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
+authenticated.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto

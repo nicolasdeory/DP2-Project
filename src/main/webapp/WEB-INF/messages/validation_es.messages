@@ -41,3 +41,10 @@ acme.validation.pattern = Debe encajar en el patrón "{0}"
 acme.validation.length = La longitud debe ser entre {0} y {1}
 acme.validation.range = Debe estar entre {0} y {1}
 acme.validation.script = El script "{0}" debe devolver true
+
+authenticated.workplan.error.startDate.task=La fecha de inicio debe ser posterior a la fecha de hoy
+authenticated.workplan.error.finishDate.task=La fecha de fin debe ser posterior a la fecha de hoy
+authenticated.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
+authenticated.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
+authenticated.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
+authenticated.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto

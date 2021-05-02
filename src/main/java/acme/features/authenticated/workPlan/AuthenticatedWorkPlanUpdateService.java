@@ -115,10 +115,10 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "authenticated.workplan.error.startDate.format");
+                errors.add("startDateTime", "authenticated.workplan.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.format");
+                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.empty");
             }
 
         }
@@ -130,10 +130,10 @@ public class AuthenticatedWorkPlanUpdateService implements AbstractUpdateService
                 Integer id = Integer.valueOf(taskId);
                 Task t = repository.findOneTaskById(id);
                 if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.add("startDateTime", "authenticated.workplan.error.startDate");
+                    errors.add("startDateTime", "authenticated.workplan.error.startDate.task");
                 }
                 if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+                    errors.add("finishDateTime", "authenticated.workplan.error.finishDate.task");
                 }
             }
 

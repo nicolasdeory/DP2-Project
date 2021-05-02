@@ -22,7 +22,12 @@ authenticated.workplan.button.update=Update
 authenticated.workplan.button.delete=Delete
 authenticated.workplan.button.create=Create
 authenticated.workplan.button.return=Return
+authenticated.workplan.label.add=Add task to the workplan
 
 
-authenticated.workplan.error.startDate=The start date of a task mustn't be before workplan start date
-authenticated.workplan.error.finishDate=The finish date of a task mustn't be after workplan finish date
+authenticated.workplan.error.startDate.task=Start date must not be before now
+authenticated.workplan.error.finishDate.task=Finish date must not be before now
+authenticated.workplan.error.startDate.empty=Start date cant be empty
+authenticated.workplan.error.finishDate.empty=Finish date cant be empty
+authenticated.workplan.error.startDate.format=Start Date format is wrong
+authenticated.workplan.error.finishDate.format=Finish Date format is wrong

@@ -30,7 +30,8 @@
     <label for="tasks">
         <acme:message code="authenticated.workplan.label.task"/>
     </label>
-    <table class="table table-striped">
+    <div style="max-height: 40vmin; overflow-y: auto">
+    <table class="table table-striped" >
         <tr>
             <th>
                 <acme:message code="authenticated.workplan.label.title"/>
@@ -80,6 +81,7 @@
         </c:forEach>
 
     </table>
+    </div>
     <br>
     <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.workplan.button.update"
                       action="/authenticated/work-plan/update"/>
@@ -93,3 +95,5 @@
                       action="/authenticated/work-plan/delete"/>
     <acme:form-return code="authenticated.workplan.button.return"/>
 </acme:form>
+
+<script src="webapp/META-INF/resources/workPlanCreateForm.js"></script>
