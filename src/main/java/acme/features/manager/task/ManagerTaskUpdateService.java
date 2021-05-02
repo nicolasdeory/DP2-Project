@@ -54,14 +54,14 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
             catch(final Exception e){
-                errors.add("startDateTime","authenticated.tasks.error.startDateTime.format");
+                errors.state(request, false,"startDateTime","authenticated.tasks.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
             }catch(final Exception e){
-                errors.add("finishDateTime","authenticated.tasks.error.finishDate.format");
+                errors.state(request, false, "finishDateTime","authenticated.tasks.error.finishDate.format");
             }
 
         }
@@ -103,21 +103,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.add("startDateTime", "manager.tasks.error.startDate");
+                errors.state(request, false, "startDateTime", "manager.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.add("finishDateTime", "manager.tasks.error.finishDate");
+                errors.state(request, false, "finishDateTime", "manager.tasks.error.finishDate");
             }
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.add("startDateTime","manager.tasks.error.startDate.after");
-                errors.add("finishDateTime","manager.tasks.error.finishDate.before");
+                errors.state(request, false, "startDateTime","manager.tasks.error.startDate.after");
+                errors.state(request, false, "finishDateTime","manager.tasks.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.add("startDateTime", "manager.tasks.error.startDate.empty");
+                errors.state(request, false, "startDateTime", "manager.tasks.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.add("finishDateTime", "manager.tasks.error.finishDate.empty");
+            	 errors.state(request, false, "finishDateTime", "manager.tasks.error.finishDate.empty");
             }
 
         }
