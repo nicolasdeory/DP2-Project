@@ -97,6 +97,10 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
                 errors.add("finishDateTime", "manager.workplan.error.finishDate");
             }
+            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
+                errors.add("startDateTime","manager.workplan.error.startDate.after");
+                errors.add("finishDateTime","manager.workplan.error.finishDate.before");
+            }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
                 errors.add("startDateTime", "manager.workplan.error.startDate.empty");

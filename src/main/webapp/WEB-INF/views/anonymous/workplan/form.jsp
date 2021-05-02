@@ -22,15 +22,38 @@
 	<acme:form-textbox code="anonymous.workplan.label.WorkloadHours" path="workload"/>
 	<acme:form-textbox code="anonymous.workplan.label.start-date-time" path="startDateTime" />
 	<acme:form-textbox code="anonymous.workplan.label.finish-date-time" path="finishDateTime"/>
-	<div class="form-group">
-		<label for="tasks">
-			<acme:message code="anonymous.workplan.label.task" />
-		</label>
-		<select id="tasks" size="6" class="form-control">
+	<label for="tasks">
+		<acme:message code="anonymous.workplan.label.task"/>
+	</label>
+	<div style="max-height: 40vmin; overflow-y: auto">
+		<table class="table table-striped" >
+			<tr>
+				<th>
+					<acme:message code="anonymous.workplan.label.title"/>
+				</th>
+				<th>
+					<acme:message code="anonymous.workplan.label.start-date-time"/>
+				</th>
+				<th>
+					<acme:message code="anonymous.workplan.label.finish-date-time"/>
+				</th>
+			</tr>
 			<c:forEach items="${tasks}" var="task">
-				<option><c:out value="${task.title}"/></option>
+				<tr>
+					<td>
+						<c:out value="${task.title}"/>
+					</td>
+					<td>
+						<c:out value="${task.executionPeriod.startDateTime}"/>
+					</td>
+					<td>
+						<c:out value="${task.executionPeriod.finishDateTime}"/>
+					</td>
+				</tr>
 			</c:forEach>
-		</select>
+		</table>
 	</div>
+	<br>
+
   	<acme:form-return code="anonymous.workplan.button.return"/>
 </acme:form>
