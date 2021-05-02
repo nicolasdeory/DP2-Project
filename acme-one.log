@@ -1,6 +1,23 @@
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 99308 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on PORTATIL-INB with PID 12620 (C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project\target\classes started by Igna in C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 6.217 seconds (JVM running for 6.696)
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on PORTATIL-INB with PID 18688 (C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project\target\classes started by Igna in C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 6.976 seconds (JVM running for 7.57)
 INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
 INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
 INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
@@ -23,260 +40,9 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUser
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-WARN [org.hibernate.orm.connections.pooling] HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 18025 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on PORTATIL-INB with PID 7308 (C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project\target\classes started by Igna in C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 5.686 seconds (JVM running for 6.12)
-INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] line 1:75: unexpected token: task
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:864): unexpected token: task
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643): Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93): Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.isFinished ORDER BY task.executionPeriod DESC]
-at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74): unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.isFinished ORDER BY task.executionPeriod DESC]
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] line 1:75: unexpected token: task
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:864): unexpected token: task
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643): Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93): Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod DESC]
-at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74): unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod DESC]
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasksByWorkPlanId(java.lang.Integer)!
-ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643): Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasksByWorkPlanId(java.lang.Integer)!
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasksByWorkPlanId(java.lang.Integer)!
-at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93): Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasksByWorkPlanId(java.lang.Integer)!
-at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.QueryException: could not resolve property: workplan of: acme.entities.tasks.Task [select task from acme.entities.tasks.Task task where task.workplan = ?1 AND task.isPublic = true AND task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod]
-at org.hibernate.QueryException.generateQueryException(QueryException.java:120): could not resolve property: workplan of: acme.entities.tasks.Task [select task from acme.entities.tasks.Task task where task.workplan = ?1 AND task.isPublic = true AND task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod]
-at org.hibernate.persister.entity.AbstractPropertyMapping.propertyException(AbstractPropertyMapping.java:77): could not resolve property: workplan of: acme.entities.tasks.Task
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] line 1:75: unexpected token: task
-ERROR [org.hibernate.hql.internal.ast.ErrorTracker] at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:864): unexpected token: task
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643): Error creating bean with name 'anonymousPublicTasksListService': Unsatisfied dependency expressed through field 'repository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'anonymousTaskRepository' defined in acme.features.anonymous.tasks.AnonymousTaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(SimpleJpaQuery.java:93): Validation failed for query for method public abstract java.util.Collection acme.features.anonymous.tasks.AnonymousTaskRepository.findNoFinishedAndPublicTasks()!
-at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod]
-at org.hibernate.hql.internal.ast.QuerySyntaxException.convert(QuerySyntaxException.java:74): unexpected token: task near line 1, column 75 [select task from acme.entities.tasks.Task task where task.isPublic = true task.executionPeriod.finishDateTime>=CURRENT_DATE ORDER BY task.executionPeriod]
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.features.anonymous.tasks.AnonymousPublicTasksListService.findMany(AnonymousPublicTasksListService.java:41): Unresolved compilation problem: 
-	The method findNoFinishedAndPublicTasksByWorkPlanId(int) is undefined for the type AnonymousTaskRepository
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/task/list.jsp'.
-at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/master/panic HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../anonymous/task/list.jsp'.
-org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../anonymous/task/list.jsp'.
-org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/task/list.jsp'.
-org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/task/list.jsp'.
-at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/master/panic HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../anonymous/task/list.jsp'.
-org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../anonymous/task/list.jsp'.
-org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/task/list.jsp'.
-org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;anonymous&#47;task&#47;list.jsp] not found
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 9208 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 6.389 seconds (JVM running for 6.968)
+INFO [acme.Launcher] Started Launcher in 6.379 seconds (JVM running for 6.958)
 INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
 INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
 INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
@@ -300,38 +66,17 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdmi
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
 INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
 INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for JohnUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for johnAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for wp1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task1.
 INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting JohnUserAccount = acme.framework.entities.UserAccount{id=6, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting johnAuthenticated = acme.framework.entities.Authenticated{id=7, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting wp1 = acme.entities.workPlan.WorkPlan{id=8, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'authenticatedTaskController' method 
-acme.features.authenticated.tasks.AuthenticatedTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
-to {[GET, POST] [/administrator/tasks/{endpoint}]}: There is already 'administratorTaskController' bean method
-acme.features.administrator.tasks.AdministratorTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
-ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'authenticatedTaskController' method 
-acme.features.authenticated.tasks.AuthenticatedTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
-to {[GET, POST] [/administrator/tasks/{endpoint}]}: There is already 'administratorTaskController' bean method
-acme.features.administrator.tasks.AdministratorTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
-at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:644): Ambiguous mapping. Cannot map 'authenticatedTaskController' method 
-acme.features.authenticated.tasks.AuthenticatedTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale)
-to {[GET, POST] [/administrator/tasks/{endpoint}]}: There is already 'administratorTaskController' bean method
-acme.features.administrator.tasks.AdministratorTaskController#handleRequest(String, Map, HttpServletRequest, HttpServletResponse, Locale) mapped.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
 WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
 ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
 APPLICATION FAILED TO START
@@ -340,307 +85,12 @@ Description:
 Web server failed to start. Port 8080 was already in use.
 Action:
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+<<<<<<< HEAD
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 15350 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 6.779 seconds (JVM running for 7.22)
-INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] SQL Error: 1146, SQLState: 42S02
-ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] Table 'Acme-One.user_account' doesn't exist
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
-com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'Acme-One.user_account' doesn't exist
-ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for JohnUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for johnAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for wp1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task2.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task3.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting JohnUserAccount = acme.framework.entities.UserAccount{id=6, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting johnAuthenticated = acme.framework.entities.Authenticated{id=7, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting wp1 = acme.entities.workPlan.WorkPlan{id=8, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Starter-Project/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 16297 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 6.831 seconds (JVM running for 7.299)
-INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... FAILED
-INFO [acme.framework.utilities.DatabasePopulator] Violated constraints on entity task5: executionPeriod.finishDateTime : Must be in the future
-, executionPeriod.startDateTime : Must be in the future
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 16497 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 7.201 seconds (JVM running for 7.746)
-INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for JohnUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for johnAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for wp1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task2.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task3.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task4.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task5.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting JohnUserAccount = acme.framework.entities.UserAccount{id=6, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting johnAuthenticated = acme.framework.entities.Authenticated{id=7, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting wp1 = acme.entities.workPlan.WorkPlan{id=8, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 16800 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 7.137 seconds (JVM running for 7.62)
-INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for JohnUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for johnAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for wp1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task1.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task2.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task3.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task4.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task5.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for task6.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting JohnUserAccount = acme.framework.entities.UserAccount{id=6, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting johnAuthenticated = acme.framework.entities.Authenticated{id=7, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting wp1 = acme.entities.workPlan.WorkPlan{id=8, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
-ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
-INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 17619 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
-INFO [acme.Launcher] The following profiles are active: development,populator
-INFO [acme.Launcher] Started Launcher in 6.898 seconds (JVM running for 7.402)
-INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
-INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
-INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
-INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
-INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
-INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
-INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
-INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
-WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
-ERROR [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] ***************************
-APPLICATION FAILED TO START
-***************************
-Description:
-Web server failed to start. Port 8080 was already in use.
-Action:
-Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+=======
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 17904 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
 INFO [acme.Launcher] Started Launcher in 7.39 seconds (JVM running for 7.916)
@@ -699,6 +149,396 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.enti
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 14048 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 12156 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 16524 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 5.758 seconds (JVM running for 6.484)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 2664 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.943 seconds (JVM running for 5.458)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... FAILED
+INFO [acme.framework.utilities.DatabasePopulator] Violated constraints on entity task5: executionPeriod.finishDateTime : Must be in the future
+, executionPeriod.startDateTime : Must be in the future
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 11856 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 5.027 seconds (JVM running for 5.571)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 16976 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.97 seconds (JVM running for 5.492)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... FAILED
+INFO [acme.framework.utilities.DatabasePopulator] Violated constraints on entity task5: executionPeriod.finishDateTime : Must be in the future
+, executionPeriod.startDateTime : Must be in the future
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 8804 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.979 seconds (JVM running for 5.491)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... FAILED
+INFO [acme.framework.utilities.DatabasePopulator] Violated constraints on entity task5: executionPeriod.startDateTime : Must be in the future
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 12512 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.974 seconds (JVM running for 5.489)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating JohnUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating johnAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating wp1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for JohnUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for johnAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for wp1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for task6.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting JohnUserAccount = acme.framework.entities.UserAccount{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting johnAuthenticated = acme.framework.entities.Authenticated{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting wp1 = acme.entities.workPlan.WorkPlan{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+>>>>>>> Task-028
+INFO [acme.Launcher] Starting Launcher using Java 11.0.5 on DESKTOP-PBOQBAP with PID 21072 (E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project\target\classes started by Nico in E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Starting Launcher using Java 11.0.5 on DESKTOP-PBOQBAP with PID 18088 (E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project\target\classes started by Nico in E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 3.498 seconds (JVM running for 4.138)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 11.0.5 on DESKTOP-PBOQBAP with PID 27052 (E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project\target\classes started by Nico in E:\Documentos\Proyectos de Programacion\Java IDEA\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 3.375 seconds (JVM running for 4.021)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan7 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan8 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan9 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for juanUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for juanAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for task1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for workplan1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for workplan2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workplan3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workplan4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workplan5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workplan6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workplan7.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workplan8.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for workplan9.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanAuthenticated = acme.framework.entities.Authenticated{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan1 = acme.entities.workPlan.WorkPlan{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan2 = acme.entities.workPlan.WorkPlan{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan3 = acme.entities.workPlan.WorkPlan{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan4 = acme.entities.workPlan.WorkPlan{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan5 = acme.entities.workPlan.WorkPlan{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan6 = acme.entities.workPlan.WorkPlan{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan7 = acme.entities.workPlan.WorkPlan{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan8 = acme.entities.workPlan.WorkPlan{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan9 = acme.entities.workPlan.WorkPlan{id=23, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+<<<<<<< HEAD
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on PORTATIL-INB with PID 11788 (C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project\target\classes started by Igna in C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
@@ -1154,11 +994,18 @@ at org.springframework.data.jpa.repository.query.SimpleJpaQuery.validateQuery(Si
 at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:138): org.hibernate.QueryException: Unable to resolve path [user.id], unexpected token [user] [select user from acme.framework.entities.UserAccount where user.id =?1]
 at org.hibernate.QueryException.generateQueryException(QueryException.java:120): Unable to resolve path [user.id], unexpected token [user] [select user from acme.framework.entities.UserAccount where user.id =?1]
 at org.hibernate.hql.internal.ast.tree.IdentNode.resolveAsNakedComponentPropertyRefLHS(IdentNode.java:292): Unable to resolve path [user.id], unexpected token [user]
+=======
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point no disponible
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): End-point no disponible
+>>>>>>> Task-027
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+<<<<<<< HEAD
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
@@ -1200,3 +1047,430 @@ ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lan
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+=======
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [spam_parameters]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121): Schema-validation: missing table [spam_parameters]
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on LAPTOP-8I701U3S with PID 16148 (C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project\target\classes started by pedro in C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.858 seconds (JVM running for 5.663)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on LAPTOP-8I701U3S with PID 3380 (C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project\target\classes started by pedro in C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.571 seconds (JVM running for 5.343)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan7 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan8 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan9 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for juanUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for juanAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for task1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for workplan1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for workplan2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workplan3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workplan4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workplan5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workplan6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workplan7.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workplan8.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for workplan9.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanAuthenticated = acme.framework.entities.Authenticated{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan1 = acme.entities.workPlan.WorkPlan{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan2 = acme.entities.workPlan.WorkPlan{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan3 = acme.entities.workPlan.WorkPlan{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan4 = acme.entities.workPlan.WorkPlan{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan5 = acme.entities.workPlan.WorkPlan{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan6 = acme.entities.workPlan.WorkPlan{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan7 = acme.entities.workPlan.WorkPlan{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan8 = acme.entities.workPlan.WorkPlan{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan9 = acme.entities.workPlan.WorkPlan{id=23, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:331): Found shared references to a collection: acme.entities.tasks.Task.workPlans; nested exception is org.hibernate.HibernateException: Found shared references to a collection: acme.entities.tasks.Task.workPlans
+org.hibernate.engine.internal.Collections.processReachableCollection(Collections.java:188): Found shared references to a collection: acme.entities.tasks.Task.workPlans
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): JSPException including path '../authenticated/workplan/form.jsp'.
+at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:61): JSPException including path '../authenticated/workplan/form.jsp'.
+at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576): The class 'java.lang.String' does not have the property 'title'.
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.NullPointerException
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value '123321123231'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [123321123231]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:223): Parse attempt failed for value [123321123231]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:59): Invalid value
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'dfsdffsfsd'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [dfsdffsfsd]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:223): Parse attempt failed for value [dfsdffsfsd]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:59): Invalid value
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'gfhfhgf'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [gfhfhgf]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:223): Parse attempt failed for value [gfhfhgf]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:59): Invalid value
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'edsfsdf'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [edsfsdf]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:223): Parse attempt failed for value [edsfsdf]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:59): Invalid value
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47): Failed to convert from type [java.lang.String] to type [java.util.Date] for value 'dfffds'; nested exception is java.lang.IllegalArgumentException: Parse attempt failed for value [dfffds]
+org.springframework.format.support.FormattingConversionService$ParserConverter.convert(FormattingConversionService.java:223): Parse attempt failed for value [dfffds]
+acme.framework.utilities.LocalisedDateFormatter.parse(LocalisedDateFormatter.java:59): Invalid value
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:331): Found shared references to a collection: acme.entities.tasks.Task.workPlans; nested exception is org.hibernate.HibernateException: Found shared references to a collection: acme.entities.tasks.Task.workPlans
+org.hibernate.engine.internal.Collections.processReachableCollection(Collections.java:188): Found shared references to a collection: acme.entities.tasks.Task.workPlans
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+WARN [org.springframework.web.servlet.resource.ResourceHttpRequestHandler] Path with "WEB-INF" or "META-INF": [webapp/META-INF/resources/workPlanCreateForm.js]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [manager]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [manager]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [manager]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [manager]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121): Schema-validation: missing table [manager]
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on LAPTOP-8I701U3S with PID 2608 (C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project\target\classes started by pedro in C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.998 seconds (JVM running for 5.857)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on LAPTOP-8I701U3S with PID 10004 (C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project\target\classes started by pedro in C:\WorkSpaces\Workspace-21.1\Projects\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.845 seconds (JVM running for 5.635)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating juanAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan1 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan2 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan3 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan4 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan5 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan6 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan7 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan8 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workplan9 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for juanUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for juanAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for task1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for workplan1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for workplan2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workplan3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workplan4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workplan5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workplan6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workplan7.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workplan8.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for workplan9.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanAuthenticated = acme.framework.entities.Authenticated{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan1 = acme.entities.workPlan.WorkPlan{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan2 = acme.entities.workPlan.WorkPlan{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan3 = acme.entities.workPlan.WorkPlan{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan4 = acme.entities.workPlan.WorkPlan{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan5 = acme.entities.workPlan.WorkPlan{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan6 = acme.entities.workPlan.WorkPlan{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan7 = acme.entities.workPlan.WorkPlan{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan8 = acme.entities.workPlan.WorkPlan{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan9 = acme.entities.workPlan.WorkPlan{id=23, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 404
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../authenticated/manager/form.jsp'.
+at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../authenticated/manager/form.jsp'.
+at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-One].[dispatcherServlet]] at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../authenticated/manager/form.jsp'.
+org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:406): JSP file [&#47;WEB-INF&#47;views&#47;authenticated&#47;manager&#47;form.jsp] not found
+>>>>>>> Task-027

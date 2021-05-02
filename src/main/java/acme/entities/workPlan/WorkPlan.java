@@ -1,13 +1,12 @@
 
 package acme.entities.workPlan;
 
-import java.beans.Transient;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,44 +25,46 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WorkPlan extends DomainEntity {
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotBlank
-	@Length(min = 5, max = 80)
-	protected String			title;
+    // Attributes -------------------------------------------------------------
+    @NotBlank
+    @Length(min = 1, max = 80)
+    protected String title;
 
-	@NotBlank
-	@Size(min = 1, max = 500)
-	protected String			description;
+    @NotBlank
+    @Size(min = 1, max = 500)
+    protected String description;
 
-	@NotNull
-	protected Boolean			isPublic;
+    @NotNull
+    protected Boolean isPublic;
 
-	// Derived attributes -----------------------------------------------------
+    @NotNull
+    @Valid
+    protected ExecutionPeriod executionPeriod;
 
+    // Derived attributes -----------------------------------------------------
+    public Double getWorkloadHours() {
+        return this.tasks.stream().collect(Collectors.summarizingDouble(x -> x.getWorkloadHours())).getSum();
+    }
 
-	@Transient
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
+    @Transient
+    List<String> newTasksId;
 
+    public Boolean isFinished() {
+        final Date now = new Date();
+        return now.after(this.executionPeriod.getFinishDateTime());
+    }
+    // Relationships ----------------------------------------------------------
 
-	@NotNull
-	@Valid
-	protected ExecutionPeriod	executionPeriod;
+    @Valid
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    protected List<Task> tasks;
 
-	// Relationships ----------------------------------------------------------
-
-	@Valid
-	@ManyToMany
-	protected List<Task>		tasks;
-
-	@Valid
-	@ManyToOne
-	protected UserAccount		user;
+    @Valid
+    @ManyToOne(optional = false)
+    protected UserAccount user;
 
 }

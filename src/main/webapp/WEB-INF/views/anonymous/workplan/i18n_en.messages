@@ -14,4 +14,10 @@ master.menu.anonymous.list-publicWorkplans= Public Workplans list
 anonymous.workplan.list.label.title = Title
 anonymous.workplan.list.label.description = Description
 anonymous.workplan.list.label.is-public = Public
-
+anonymous.workplan.label.title = Title
+anonymous.workplan.label.description = Description
+anonymous.workplan.label.start-date-time=Starter date
+anonymous.workplan.label.finish-date-time=Finish date
+anonymous.workplan.label.WorkloadHours=Workload
+anonymous.workplan.label.task=Tasks
+anonymous.workplan.button.return=Return
