@@ -1,20 +1,20 @@
-package acme.features.authenticated.tasks;
+package acme.features.manager.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AuthenticatedTaskDeleteService implements AbstractDeleteService<Authenticated, Task>{
+public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, Task>{
 
 	@Autowired
-	protected AuthenticatedTaskRepository repository;
+	protected ManagerTaskRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Task> request) {

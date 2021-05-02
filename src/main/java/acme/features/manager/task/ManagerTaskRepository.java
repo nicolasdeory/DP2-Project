@@ -1,4 +1,4 @@
-package acme.features.authenticated.tasks;
+package acme.features.manager.task;
 
 import java.util.Collection;
 
@@ -10,7 +10,7 @@ import acme.entities.workPlan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedTaskRepository extends AbstractRepository {
+public interface ManagerTaskRepository extends AbstractRepository {
 
 	@Query("select task from Task task where task.isPublic = true AND task.executionPeriod.finishDateTime<CURRENT_TIMESTAMP ORDER BY task.executionPeriod")
 	Collection<Task> findPublicAndFinishedTasks();

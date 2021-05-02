@@ -9,6 +9,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.entities.tasks.Task;
+import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -17,7 +18,7 @@ public class AuthenticatedListPublicFinishedTasksService implements AbstractList
     // Internal state ---------------------------------------------------------
 
     @Autowired
-    protected AuthenticatedTaskRepository repository;
+    protected ManagerTaskRepository repository;
 
     @Override
     public boolean authorise(final Request<Task> request) {

@@ -1,4 +1,4 @@
-package acme.features.authenticated.tasks;
+package acme.features.manager.task;
 
 import javax.annotation.PostConstruct;
 
@@ -6,31 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/task/")
-public class AuthenticatedTaskController extends AbstractController<Authenticated, Task> {
+@RequestMapping("/manager/task/")
+public class ManagerTaskController extends AbstractController<Manager, Task> {
 
     // Internal state ---------------------------------------------------------
 
     @Autowired
-    protected AuthenticatedTaskListService taskListService;
+    protected ManagerTaskListService taskListService;
     
     @Autowired
-    protected AuthenticatedTaskShowService showTaskService;
+    protected ManagerTaskShowService showTaskService;
 
     @Autowired
-    protected AuthenticatedTaskUpdateService updateTaskService;
+    protected ManagerTaskUpdateService updateTaskService;
     
     @Autowired
-    protected AuthenticatedTaskCreateService createTaskService;
+    protected ManagerTaskCreateService createTaskService;
     
     @Autowired
-    protected AuthenticatedTaskDeleteService deleteTaskService;
+    protected ManagerTaskDeleteService deleteTaskService;
     // Constructors -----------------------------------------------------------
 
     @PostConstruct

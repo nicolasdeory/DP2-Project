@@ -49,8 +49,8 @@
 			<acme:menu-suboption code="master.menu.manager.list-Workplans" action="/manager/work-plan/list"/>
 			<acme:menu-suboption code="master.menu.manager.create-Workplans" action="/manager/work-plan/create"/>
             <acme:menu-separator/>
-            <acme:menu-suboption code="master.menu.manager.list-ownTasks" action="/authenticated/task/list"/>
-			<acme:menu-suboption code="master.menu.manager.create" action="/authenticated/task/create"/>
+            <acme:menu-suboption code="master.menu.manager.list-ownTasks" action="/manager/task/list"/>
+			<acme:menu-suboption code="master.menu.manager.create" action="/manager/task/create"/>
         </acme:menu-option>
 			
 		
