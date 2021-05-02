@@ -39,7 +39,10 @@ public class AuthenticatedTaskDeleteService implements AbstractDeleteService<Aut
 		assert entity != null;
 		assert model != null;
 		
+		request.unbind(entity.getExecutionPeriod(), model,"startDateTime", "endDateTime");
 		request.unbind(entity, model, "title","isPublic","executionPeriod", "description", "link");
+		model.setAttribute("workload", entity.getWorkloadHours());
+		model.setAttribute("isFinished", entity.isFinished());
 		
 	}
 

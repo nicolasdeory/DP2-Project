@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.tasks.Task;
+import acme.entities.workPlan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -19,4 +20,7 @@ public interface AuthenticatedTaskRepository extends AbstractRepository {
 
 	@Query("select task from Task task where task.user.id = ?1 and task.executionPeriod.finishDateTime>=CURRENT_DATE order by task.executionPeriod")
 	Collection<Task> findAuthenticatedOwnTasks(Integer id);
+	
+	@Query("select workplan from WorkPlan workplan")
+	Collection<WorkPlan> findWorkPlans();
 }

@@ -24,21 +24,20 @@
 	<jstl:if test="${command != 'create'}">
 		<acme:form-textbox code="authenticated.tasks.label.WorkloadHours" path="workload" readonly ="true"/>
 	</jstl:if>
+	
 	<acme:form-moment code="authenticated.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
-	<div class="form-group">
-		<label for="workPlans">
-			<acme:message code="authenticated.tasks.label.workPlan" />
-		</label>
-		 <select id="workplans" size="6" class="form-control">
-			<c:forEach items="${workPlans}" var="wp">
-				<acme:form-option code="" value="${wp.title}"/>
-			</c:forEach>
-		</select>
-	</div>
 	
     
-    <acme:form-submit code="authenticated.tasks.button.update" action="/authenticated/task/update"/>
-    <acme:form-submit code="authenticated.tasks.button.delete" action="/authenticated/task/delete"/>
+    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.tasks.button.update"
+                      action="/authenticated/task/update"/>
+    <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="authenticated.tasks.button.delete"
+                      action="/authenticated/task/delete"/>
+    <acme:form-submit test="${command == 'create'}" code="authenticated.tasks.button.create"
+                      action="/authenticated/task/create"/>
+    <acme:form-submit test="${command == 'update'}" code="authenticated.tasks.button.update"
+                      action="/authenticated/task/update"/>
+    <acme:form-submit test="${command == 'delete'||command == 'update'}" code="authenticated.tasks.button.delete"
+                      action="/authenticated/task/delete"/>
     <acme:form-return code="authenticated.tasks.button.return"/>
 </acme:form>

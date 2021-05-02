@@ -1,8 +1,11 @@
 package acme.features.authenticated.tasks;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.datatypes.ExecutionPeriod;
 import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -28,8 +31,27 @@ public class AuthenticatedTaskCreateService implements AbstractCreateService<Aut
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		final ExecutionPeriod executionPeriod = new ExecutionPeriod();
 
 		request.bind(entity, errors);
+		
+		if(request.getModel().hasAttribute("startDateTime")){
+            try{
+                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
+            }
+            catch(final Exception e){
+                errors.add("startDateTime","authenticated.tasks.error.startDateTime.format");
+            }
+        }
+        if(request.getModel().hasAttribute("finishDateTime")){
+            try{
+                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
+            }catch(final Exception e){
+                errors.add("finishDateTime","authenticated.tasks.error.finishDate.format");
+            }
+
+        }
+        entity.setExecutionPeriod(executionPeriod);
 		
 	}
 
@@ -40,7 +62,11 @@ public class AuthenticatedTaskCreateService implements AbstractCreateService<Aut
 		assert model != null;
 		
 		//revisar
-		request.unbind(entity, model, "title","isPublic","executionPeriod", "description", "link");
+		
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
+		request.unbind(entity, model, "title","isPublic", "description", "link");
+//		final List<WorkPlan> userWorkPlans = this.repository.findWorkPlans().stream().collect(Collectors.toList());
+//		model.setAttribute("userWorkplans", userWorkPlans);
 		
 	}
 
@@ -50,6 +76,7 @@ public class AuthenticatedTaskCreateService implements AbstractCreateService<Aut
 
 		Task task;
 		task = new Task();
+		task.setExecutionPeriod(new ExecutionPeriod());
 		
 		return task;
 	}
@@ -59,12 +86,39 @@ public class AuthenticatedTaskCreateService implements AbstractCreateService<Aut
 		assert request != null;
 		assert entity != null;
 		assert errors != null;	
+		
+		final Date now=new Date(System.currentTimeMillis());
+		
+        if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
+            if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
+                errors.add("startDateTime", "authenticated.workplan.error.startDate");
+            }
+            if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
+                errors.add("finishDateTime", "authenticated.workplan.error.finishDate");
+            }
+        }else{
+            if(entity.getExecutionPeriod().getStartDateTime()==null){
+                errors.add("startDateTime", "authenticated.workplan.error.startDate.empty");
+            }
+            if(entity.getExecutionPeriod().getFinishDateTime()==null){
+                errors.add("finishDateTime", "authenticated.workplan.error.finishDate.empty");
+            }
+            
+	}
+        
+        //queda validar el workplan
+        
 	}
 
 	@Override
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		
+//		final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
+//		entity.setUser(user);
+//		entity.setWorkPlans(new ArrayList<>());
+		
 		
 		this.repository.save(entity);
 		
