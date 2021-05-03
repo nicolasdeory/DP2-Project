@@ -52,10 +52,10 @@
                     <c:out value="${task.title}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.startDateTime}"/>
+                    <acme:print value="${task.executionPeriod.startDateTime}"/>
                 </td>
                 <td>
-                    <c:out value="${task.executionPeriod.finishDateTime}"/>
+                    <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}" checked="true">
@@ -68,11 +68,11 @@
                 <td>
                     <c:out value="${task.title}"/>
                 </td>
-                <td>
-                    <c:out value="${task.executionPeriod.startDateTime}"/>
+                <td id="startDateTime${task.id}" date="${task.executionPeriod.startDateTime}">
+                    <acme:print value="${task.executionPeriod.startDateTime}"/>
                 </td>
-                <td>
-                    <c:out value="${task.executionPeriod.finishDateTime}"/>
+                <td id="finishDateTime${task.id}" date="${task.executionPeriod.finishDateTime}">
+                    <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}">
@@ -96,4 +96,8 @@
     <acme:form-return code="manager.workplan.button.return"/>
 </acme:form>
 
-<script src="webapp/META-INF/resources/workPlanCreateForm.js"></script>
+<c:if test="${command == 'create'}">
+<script type="text/javascript" src="workPlanCreateForm.js"></script>
+</c:if>
+
+

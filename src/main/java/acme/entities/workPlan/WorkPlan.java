@@ -55,7 +55,12 @@ public class WorkPlan extends DomainEntity {
 
     public Boolean isFinished() {
         final Date now = new Date();
-        return now.after(this.executionPeriod.getFinishDateTime());
+        if(this.executionPeriod.getFinishDateTime()!=null){
+            return now.after(this.executionPeriod.getFinishDateTime());
+        }else{
+            return null;
+        }
+
     }
     // Relationships ----------------------------------------------------------
 
