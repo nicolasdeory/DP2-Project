@@ -11,7 +11,7 @@ $(document).ready(() => {
         let liststart = [];
         let listfinish = [];
 
-        $('input:checked').each(function() {
+        $('input:checked:not(input[name="isPublic$proxy"])').each(function() {
         	const id = $(this).val();
             const start = new Date($("#startDateTime"+id).attr('date'));
             const end= new Date($("#finishDateTime"+id).attr('date'));
