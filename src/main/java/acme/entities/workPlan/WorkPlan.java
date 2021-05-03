@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.ExecutionPeriod;
@@ -31,10 +32,12 @@ public class WorkPlan extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 	@NotBlank
+	@NotSpamConstraint
 	@Length(min = 5, max = 80)
 	protected String			title;
 
 	@NotBlank
+	@NotSpamConstraint
 	@Size(min = 1, max = 500)
 	protected String			description;
 

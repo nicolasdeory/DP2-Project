@@ -41,3 +41,5 @@ acme.validation.pattern = Must match pattern "{0}"
 acme.validation.length = Length must be between {0} and {1}
 acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
+
+acme.features.spam.isSpam = This text has been detected to contain spam. Try rephrasing it

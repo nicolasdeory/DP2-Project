@@ -10,13 +10,13 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #FFE97F 
+master.banner.background = linear-gradient(90deg, rgba(255,233,127,1) 0%, rgba(199,232,179,1) 100%);
 
 ﻿# master.welcome ##############################################################
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme One! Tu primer proyecto en D&T.
+	Bienvenidos a Acme Planner! Tu primer proyecto en D&T.
 
 # master.menu #################################################################
 
@@ -96,7 +96,7 @@ master.company.text = \
 	Starter Project, Inc. es una compañía fictícia que proporciona un proyecto \
 	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
 	en Ingeniería del Software de la Universidad de Sevilla.
-master.company.name = Acme One, Inc.
+master.company.name = Acme Planner, Inc.
 master.company.address = Calle, número, Ciudad, Estado, País
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com

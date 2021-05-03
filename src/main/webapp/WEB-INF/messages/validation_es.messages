@@ -41,3 +41,5 @@ acme.validation.pattern = Debe encajar en el patrón "{0}"
 acme.validation.length = La longitud debe ser entre {0} y {1}
 acme.validation.range = Debe estar entre {0} y {1}
 acme.validation.script = El script "{0}" debe devolver true
+
+acme.features.spam.isSpam = Se ha detectado spam. Intente reescribir el texto

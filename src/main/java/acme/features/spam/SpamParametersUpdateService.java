@@ -23,6 +23,7 @@ import acme.framework.services.AbstractUpdateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -83,11 +84,8 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		assert request != null;
 		assert entity != null;
 
-		String kw = (String)request.getModel().get(0).get("newKeyword");
-		if (kw != null && kw.length() > 0)
-		{
-			entity.keywords.add(kw);
-		}
+		Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
+		entity.setKeywords(set.stream().sorted().collect(Collectors.toList()));
 
 		this.repository.save(entity);
 	}

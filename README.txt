@@ -8,4 +8,4 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is Acme One, our first project in D&T
+This is Acme Planner, our first project in D&T
