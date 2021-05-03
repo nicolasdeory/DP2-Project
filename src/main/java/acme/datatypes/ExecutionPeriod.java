@@ -54,6 +54,9 @@ public class ExecutionPeriod extends DomainDatatype implements Comparable<Execut
 
 	public Double getWorkloadHours() {
 		return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600.0);
+		/*LocalDateTime finish=finishDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		LocalDateTime start=startDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		return Duration.between(start, finish).toHours()+Duration.between(start, finish).toMinutes()*0.01;*/
 	}
 
 	@Override

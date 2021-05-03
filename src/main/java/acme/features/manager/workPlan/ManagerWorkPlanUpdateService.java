@@ -111,7 +111,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
         assert errors != null;
         final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
-            if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
+            if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
                 errors.state(request,false,"startDateTime", "manager.workplan.error.startDate");
 
             }
@@ -121,10 +121,6 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
                 errors.state(request,false,"startDateTime","manager.workplan.error.startDate.after");
                 errors.state(request,false,"finishDateTime","manager.workplan.error.finishDate.before");
-            }
-            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.add("startDateTime","manager.workplan.error.startDate.after");
-                errors.add("finishDateTime","manager.workplan.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){

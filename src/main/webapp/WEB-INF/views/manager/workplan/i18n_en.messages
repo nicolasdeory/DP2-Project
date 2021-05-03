@@ -16,7 +16,7 @@ manager.workplan.label.description = Description
 manager.workplan.label.isPublic = Public Workplan
 manager.workplan.label.start-date-time=Starter date
 manager.workplan.label.finish-date-time=Finish date
-manager.workplan.label.WorkloadHours=Workload
+manager.workplan.label.WorkloadHours=Workload (h)
 manager.workplan.label.task=Tasks
 manager.workplan.button.update=Update
 manager.workplan.button.delete=Delete
@@ -25,8 +25,12 @@ manager.workplan.button.return=Return
 manager.workplan.label.add=Add task to the workplan
 
 
-manager.workplan.error.startDate.task=Start date must not be before now
-manager.workplan.error.finishDate.task=Finish date must not be before now
+manager.workplan.error.startDate.task=Task start date must not be before workplan starter date
+manager.workplan.error.finishDate.task=Task finish date must not be after workplan finish date
+manager.workplan.error.startDate=Start date must not be before now
+manager.workplan.error.finishDate=Finish date must not be before now
+manager.workplan.error.startDate.after=Starter date must not be after finish date
+manager.workplan.error.finishDate.before=Finish date must not be before starter date
 manager.workplan.error.startDate.empty=Start date cant be empty
 manager.workplan.error.finishDate.empty=Finish date cant be empty
 manager.workplan.error.startDate.format=Start Date format is wrong

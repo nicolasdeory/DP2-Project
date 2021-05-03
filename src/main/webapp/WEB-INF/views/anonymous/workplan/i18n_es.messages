@@ -18,6 +18,6 @@ anonymous.workplan.label.title = Titulo
 anonymous.workplan.label.description = Descripcion
 anonymous.workplan.label.start-date-time=Fecha inicio
 anonymous.workplan.label.finish-date-time=Fecha fin
-anonymous.workplan.label.WorkloadHours=Carga de trabajo
+anonymous.workplan.label.WorkloadHours=Carga de trabajo (h)
 anonymous.workplan.label.task=Tareas
 anonymous.workplan.button.return=Volver

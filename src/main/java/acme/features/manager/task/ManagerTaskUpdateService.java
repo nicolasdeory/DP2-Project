@@ -102,7 +102,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		
 		final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
-            if(!errors.hasErrors("startDateTime")&&entity.getExecutionPeriod().getStartDateTime().before(now) ){
+            if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
                 errors.state(request, false, "startDateTime", "manager.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){

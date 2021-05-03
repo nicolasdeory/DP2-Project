@@ -16,7 +16,7 @@ manager.workplan.label.description = Descripción
 manager.workplan.label.isPublic = Plan de trabajo público
 manager.workplan.label.start-date-time= Fecha inicio
 manager.workplan.label.finish-date-time= Fecha fin
-manager.workplan.label.WorkloadHours=Carga de trabajo
+manager.workplan.label.WorkloadHours=Carga de trabajo (h)
 manager.workplan.label.task=Tareas
 manager.workplan.button.update=Actualizar
 manager.workplan.button.delete=Borrar
@@ -24,9 +24,12 @@ manager.workplan.button.create=Crear
 manager.workplan.button.return=Volver
 manager.workplan.label.add=Añadir tarea al plan de trabajo
 
-
-manager.workplan.error.startDate.task=La fecha de inicio debe ser posterior a la fecha de hoy
-manager.workplan.error.finishDate.task=La fecha de fin debe ser posterior a la fecha de hoy
+manager.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
+manager.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo
+manager.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
+manager.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
+manager.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin
+manager.workplan.error.finishDate.before=La fecha de fin no debe estar antes de la fecha de inicio
 manager.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
 manager.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
 manager.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto

@@ -42,10 +42,13 @@ acme.validation.length = La longitud debe ser entre {0} y {1}
 acme.validation.range = Debe estar entre {0} y {1}
 acme.validation.script = El script "{0}" debe devolver true
 
-manager.workplan.error.startDate.task=La fecha de inicio debe ser posterior a la fecha de hoy
-manager.workplan.error.finishDate.task=La fecha de fin debe ser posterior a la fecha de hoy
+manager.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
+manager.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo
+manager.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
+manager.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
+manager.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin
+manager.workplan.error.finishDate.before=La fecha de fin no debe estar antes de la fecha de inicio
 manager.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
 manager.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
 manager.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
 manager.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto
-acme.features.spam.isSpam = Se ha detectado spam. Intente reescribir el texto
