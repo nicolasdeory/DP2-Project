@@ -1,0 +1,51 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.title.show = Panel de indicadores
+
+administrator.dashboard.form.title.general-indicators = Indicadores generales
+
+administrator.dashboard.form.label.numberOfPublicTasks = Número de tareas públicas
+administrator.dashboard.form.label.numberOfPrivateTasks =  Número de tareas privadas
+administrator.dashboard.form.label.numberOfFinishedTasks = Número de tareas finalizadas
+administrator.dashboard.form.label.numberOfNonFinishedTasks = Número de tareas no finalizadas
+
+administrator.dashboard.form.label.averageOfTaskExecutionPeriods = Media del período de ejecución de tareas
+administrator.dashboard.form.label.deviationOfTaskExecutionPeriods = Desviación del período de ejecución de tareas
+administrator.dashboard.form.label.minOfTaskExecutionPeriods = Mínimo del período de ejecución de tareas
+administrator.dashboard.form.label.maxOfTaskExecutionPeriods = Máximo del período de ejecución de tareas
+
+administrator.dashboard.form.label.averageOfTaskWorkloads = Media de carga de trabajo de tareas
+administrator.dashboard.form.label.deviationOfTaskWorkloads = Desviación de carga de trabajo de tareas
+administrator.dashboard.form.label.minOfTaskWorkloads = Mínimo de carga de trabajo de tareas
+administrator.dashboard.form.label.maxOfTaskWorkloads = Máximo de carga de trabajo de tareas
+
+administrator.dashboard.form.label.numberOfWorkPlans = Número de planes de trabajo
+administrator.dashboard.form.label.numberOfPublicWorkPlans = Número de planes de trabajo públicos
+administrator.dashboard.form.label.numberOfPrivateWorkPlans = Número de planes de trabajo privados
+administrator.dashboard.form.label.numberOfFinishedWorkPlans = Número de planes de trabajo acabados
+administrator.dashboard.form.label.numberOfNonFinishedWorkPlans = Número de planes de trabajo no acabados
+administrator.dashboard.form.label.numberOfPublishedWorkPlans = Número de planes de trabajo publicados
+administrator.dashboard.form.label.numberOfNonPublishedWorkPlans = Número de planes de trabajo no publicados
+
+administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods = Media del período de planes de trabajo
+administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods = Desviación del período de planes de trabajo
+administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods = Mínimo del período de ejecución planes de trabajo
+administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods = Máximo del período de ejecución planes de trabajo
+
+administrator.dashboard.form.label.averageOfWorkplanWorkloads = Media de carga de trabajo de planes de trabajo
+administrator.dashboard.form.label.deviationOfWorkplanWorkloads = Desviación de carga de trabajo de planes de trabajo
+administrator.dashboard.form.label.minOfWorkplanWorkloads = Mínimo de carga de de trabajo de planes de trabajo
+administrator.dashboard.form.label.maxOfWorkplanWorkloads = Máximo de carga de de trabajo de planes de trabajo
+
+
+
+administrator.dashboard.form.title.chart-workplans = Desglose de workplans por visibilidad
+

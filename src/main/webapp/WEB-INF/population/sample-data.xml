@@ -18,7 +18,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+	
+	<bean name="juanUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="juan21" />
+		<property name="password" value="1234" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Juan" />
+				<property name="surname" value="Martin" />
+				<property name="email" value="martin.doe@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="juanAuthenticated" />
+			</list>
+		</property>
+	</bean>
+	<bean class="acme.framework.entities.Authenticated" name="juanAuthenticated">
 
+		<property name="userAccount" ref="juanUserAccount"/>
+	</bean>
 	<bean id="Shout00" class="acme.entities.shouts.Shout">
 		<property name="moment" value="2021/02/13 19:39"/>
 		<property name="author" value="John Doe"/>

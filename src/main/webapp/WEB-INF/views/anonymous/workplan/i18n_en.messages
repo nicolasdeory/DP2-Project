@@ -1,0 +1,23 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.anonymous.list-publicWorkplans= Public Workplans list
+ 
+anonymous.workplan.list.label.title = Title
+anonymous.workplan.list.label.description = Description
+anonymous.workplan.list.label.is-public = Public
+anonymous.workplan.label.title = Title
+anonymous.workplan.label.description = Description
+anonymous.workplan.label.start-date-time=Starter date
+anonymous.workplan.label.finish-date-time=Finish date
+anonymous.workplan.label.WorkloadHours=Workload
+anonymous.workplan.label.task=Tasks
+anonymous.workplan.button.return=Return

@@ -38,6 +38,7 @@ master.menu.anonymous.ignacio.favourite-link = Link de Ignacio Navarro
 master.menu.anonymous.nicolas.favourite-link = Link de Nicolás de Ory
 master.menu.anonymous.list-shouts = Ver los shouts
 master.menu.anonymous.create-shout = ¡Escribir un shout!
+master.menu.anonymous.list-publicWorkplans= Planes de trabajo públicos
 
 
 # master.menu.administrator ###################################################
@@ -45,6 +46,7 @@ master.menu.anonymous.create-shout = ¡Escribir un shout!
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.spam-parameters = Parámetros de spam
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shutdown = Parar el sistema
@@ -59,6 +61,13 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.authenticated #######################################################
+
+master.menu.manager = Manager
+master.menu.manager.list-Workplans = Lista de mis planes de trabajo
+master.menu.manager.create-Workplans = Crear nuevo Plan de trabajo
+master.menu.manager.create = Crear tarea
+master.menu.manager.list-ownTasks = Mis tareas
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
@@ -67,6 +76,8 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.manager = Datos de manager
+master.menu.user-account.become-manager = Hazte manager
 
 ﻿# master.footer ###############################################################
 
@@ -87,7 +98,7 @@ master.company.text = \
 	Starter Project, Inc. es una compañía fictícia que proporciona un proyecto \
 	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
 	en Ingeniería del Software de la Universidad de Sevilla.
-master.company.name = Starter Project, Inc.
+master.company.name = Acme One, Inc.
 master.company.address = Calle, número, Ciudad, Estado, País
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
