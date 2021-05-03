@@ -291,4 +291,24 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="Shout00" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="author" value="John Doe"/>
+		<property name="text" value="I'm happy!"/>
+		<property name="info"><null/></property>
+	</bean>
+	
+	<bean id="Shout01" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/04/13 11:11"/>
+		<property name="author" value="Ignacio"/>
+		<property name="text" value="Funciona!!"/>
+		<property name="info"><null/></property>
+	</bean>
+	
+	<bean id="Shout02" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/05/01 02:22"/>
+		<property name="author" value="Fernando"/>
+		<property name="text" value="Let's goo"/>
+		<property name="info"><null/></property>
+	</bean>
 </beans>
