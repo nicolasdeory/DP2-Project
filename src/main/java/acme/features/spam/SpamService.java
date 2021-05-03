@@ -41,6 +41,9 @@ public class SpamService {
 
 	public boolean isStringSpam(String str)
 	{
+		if (str == null)
+			return false;
+
 		SpamParameters spamParameters = spamParametersRepository.findAllSpamParameters()
 				.stream().findFirst().get();
 		List<String> spamWords = spamParameters.keywords;
