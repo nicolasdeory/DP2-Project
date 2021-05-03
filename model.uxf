@@ -332,21 +332,21 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
+      <x>736</x>
       <y>320</y>
-      <w>328</w>
+      <w>304</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1
 is created by &gt;</panel_attributes>
-    <additional_attributes>10.0;20.0;390.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;360.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
+      <x>480</x>
       <y>296</y>
       <w>264</w>
       <h>104</h>
@@ -370,11 +370,11 @@ layer=4</panel_attributes>
     <coordinates>
       <x>264</x>
       <y>336</y>
-      <w>208</w>
+      <w>232</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -399,7 +399,7 @@ layer=4</panel_attributes>
 m1=0..n
 m2=1
 is created by &gt;</panel_attributes>
-    <additional_attributes>10.0;250.0;90.0;250.0;90.0;10.0;430.0;10.0</additional_attributes>
+    <additional_attributes>10.0;250.0;150.0;250.0;150.0;10.0;430.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -452,5 +452,42 @@ Manager
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>210.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>664</x>
+      <y>664</y>
+      <w>128</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>WorkPlans and Tasks
+can only be created
+by UserAccounts with
+Manager Role.
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>392</y>
+      <w>24</w>
+      <h>288</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>608</x>
+      <y>616</y>
+      <w>72</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0;70.0;100.0</additional_attributes>
   </element>
 </diagram>
