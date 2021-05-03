@@ -17,15 +17,15 @@ administrator.dashboard.form.label.numberOfPrivateTasks =  Number of private tas
 administrator.dashboard.form.label.numberOfFinishedTasks = Number of finished tasks
 administrator.dashboard.form.label.numberOfNonFinishedTasks = Number of non-finished tasks
 
-administrator.dashboard.form.label.averageOfTaskExecutionPeriods = Average of task execution period
-administrator.dashboard.form.label.deviationOfTaskExecutionPeriods = Deviation of task execution period
-administrator.dashboard.form.label.minOfTaskExecutionPeriods = Minimum of task execution period
-administrator.dashboard.form.label.maxOfTaskExecutionPeriods = Maximum of task execution period
+administrator.dashboard.form.label.averageOfTaskExecutionPeriods = Average of task execution period (mnts)
+administrator.dashboard.form.label.deviationOfTaskExecutionPeriods = Deviation of task execution period (mnts)
+administrator.dashboard.form.label.minOfTaskExecutionPeriods = Minimum of task execution period (mnts)
+administrator.dashboard.form.label.maxOfTaskExecutionPeriods = Maximum of task execution period (mnts)
 
-administrator.dashboard.form.label.averageOfTaskWorkloads = Average of tasks Workload
-administrator.dashboard.form.label.deviationOfTaskWorkloads = Deviation of tasks workload
-administrator.dashboard.form.label.minOfTaskWorkloads = Minimum of tasks workload 
-administrator.dashboard.form.label.maxOfTaskWorkloads = Maximum of task workload
+administrator.dashboard.form.label.averageOfTaskWorkloads = Average of tasks workload (h)
+administrator.dashboard.form.label.deviationOfTaskWorkloads = Deviation of tasks workload (h)
+administrator.dashboard.form.label.minOfTaskWorkloads = Minimum of tasks workload (h)
+administrator.dashboard.form.label.maxOfTaskWorkloads = Maximum of task workload (h)
 
 administrator.dashboard.form.label.numberOfWorkPlans = Number of Workplans
 administrator.dashboard.form.label.numberOfPublicWorkPlans = Number of public Workplans
@@ -35,15 +35,15 @@ administrator.dashboard.form.label.numberOfNonFinishedWorkPlans = Number of non-
 administrator.dashboard.form.label.numberOfPublishedWorkPlans = Number of published Workplans
 administrator.dashboard.form.label.numberOfNonPublishedWorkPlans = Number of non-published Workplans
 
-administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods = Average of Workplan execution period
-administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods = Deviation of Workplan execution period
-administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods = Minimum of Workplan execution period
-administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods = Maximum of Workplan execution period
+administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods = Average of Workplan execution period (mnts)
+administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods = Deviation of Workplan execution period (mnts)
+administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods = Minimum of Workplan execution period (mnts)
+administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods = Maximum of Workplan execution period (mnts)
 
-administrator.dashboard.form.label.averageOfWorkplanWorkloads = Average of Workplan workload
-administrator.dashboard.form.label.deviationOfWorkplanWorkloads = Deviation of Workplan workload
-administrator.dashboard.form.label.minOfWorkplanWorkloads = Minimum of Workplan workload
-administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan workload
+administrator.dashboard.form.label.averageOfWorkplanWorkloads = Average of Workplan workload (h)
+administrator.dashboard.form.label.deviationOfWorkplanWorkloads = Deviation of Workplan workload (h)
+administrator.dashboard.form.label.minOfWorkplanWorkloads = Minimum of Workplan workload (h)
+administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan workload (h)
 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
