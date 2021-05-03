@@ -18,10 +18,5 @@
 		<put-attribute name="body" type="template"
 			value="../authenticated/tasks/list.jsp" />
 	</definition>
-	
-	<definition name="authenticated/task/form" extends="master">
-		<put-attribute name="body" type="template"
-			value="../authenticated/tasks/form.jsp" />
-	</definition>
 
 </tiles-definitions>
