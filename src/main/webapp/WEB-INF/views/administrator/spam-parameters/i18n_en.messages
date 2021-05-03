@@ -12,4 +12,5 @@ administrator.spam.form.label.threshold = Spam Keyword Threshold:
 administrator.spam.form.label.keywords = Keywords
 administrator.spam.form.label.addKeyword = Add Keyword
 administrator.spam.form.button.addKeyword = Add Keyword
+administrator.spam.form.button.removeKeyword = Remove selected keyword
 administrator.spam.form.button.update = Update

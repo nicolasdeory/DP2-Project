@@ -12,4 +12,5 @@ administrator.spam.form.label.threshold = Límite de palabras spam:
 administrator.spam.form.label.keywords = Palabras clave
 administrator.spam.form.label.addKeyword = Añadir palabra clave
 administrator.spam.form.button.addKeyword = Añadir palabra clave
+administrator.spam.form.button.removeKeyword = Eliminar pal. clave seleccionada
 administrator.spam.form.button.update = Actualizar

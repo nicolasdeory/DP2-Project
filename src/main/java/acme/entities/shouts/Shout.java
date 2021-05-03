@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.DomainEntity;
@@ -39,9 +40,11 @@ public class Shout extends DomainEntity {
 
 	@NotBlank
 	@Size(min = 1, max = 100)
+	@NotSpamConstraint
 	protected String			text;
 	
 	@URL
+	@NotSpamConstraint
 	protected String			info;
 
 	// Derived attributes -----------------------------------------------------

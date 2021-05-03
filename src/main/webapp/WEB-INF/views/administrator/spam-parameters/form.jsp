@@ -19,21 +19,23 @@
 <acme:form>
 	<div class="col-6">
 		<acme:form-textbox code="administrator.spam.form.label.threshold" path="threshold" />
+		<acme:form-textbox code="administrator.spam.form.label.addKeyword" path="newKeyword" />
+		<button class="btn btn-primary mb-4" id="add-keyword"><acme:message code="administrator.spam.form.button.addKeyword" /></button>
+        <input type='hidden' name='keywords' />
 		<div class="form-group">
 			<label for="keywords">
 				<acme:message code="administrator.spam.form.label.keywords" />
 			</label>
 			<select id="keywords" size="6" class="form-control">
 				<jslt:forEach items="${keywords}" var="kw">
-					<option>${kw}</option>
+					<option value="${kw}">${kw}</option>
 				</jslt:forEach>
 			</select>
 		</div>
-
-		<acme:form-textbox code="administrator.spam.form.label.addKeyword" path="newKeyword" />
-		<acme:form-submit code="administrator.spam.form.button.addKeyword" action="/administrator/spam-parameters/update"/>
+		<button class="btn btn-primary mb-4" id="remove-keyword"><acme:message code="administrator.spam.form.button.removeKeyword" /></button>
+		<br>
 		<acme:form-submit code="administrator.spam.form.button.update" action="/administrator/spam-parameters/update"/>
-
 		<acme:form-return code="administrator.user-account.form.button.return"/>
 	</div>
 </acme:form>
+<script src="spam.js"></script>

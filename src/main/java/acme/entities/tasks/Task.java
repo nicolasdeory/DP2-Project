@@ -12,6 +12,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import acme.features.spam.NotSpamConstraint;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.URL;
 
@@ -31,12 +32,13 @@ public class Task extends DomainEntity {
 
     protected static final long serialVersionUID = 1L;
 
-    // Attributes -------------------------------------------------------------
-    @NotNull
-    @NotEmpty
-    @NotBlank
-    @Size(min = 1, max = 80)
-    protected String title;
+	// Attributes -------------------------------------------------------------
+	@NotNull
+	@NotEmpty
+	@NotBlank
+	@NotSpamConstraint
+	@Size(min = 1, max = 80)
+	protected String title;
 
     @NotNull
     protected Boolean isPublic;
@@ -45,14 +47,16 @@ public class Task extends DomainEntity {
     @Valid
     protected ExecutionPeriod executionPeriod;
 
-    @NotNull
-    @NotEmpty
-    @NotBlank
-    @Size(min = 1, max = 500)
-    protected String description;
+	@NotNull
+	@NotEmpty
+	@NotBlank
+	@NotSpamConstraint
+	@Size(min = 1, max = 500)
+	protected String description;
 
-    @URL
-    protected String link;
+	@URL
+	@NotSpamConstraint
+	protected String link;
 
     // Derived attributes -----------------------------------------------------
     @Transient

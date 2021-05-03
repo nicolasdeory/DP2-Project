@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.ExecutionPeriod;
@@ -29,14 +30,16 @@ public class WorkPlan extends DomainEntity {
 
     protected static final long serialVersionUID = 1L;
 
-    // Attributes -------------------------------------------------------------
-    @NotBlank
-    @Length(min = 1, max = 80)
-    protected String title;
+	// Attributes -------------------------------------------------------------
+	@NotBlank
+	@NotSpamConstraint
+	@Length(min = 5, max = 80)
+	protected String			title;
 
-    @NotBlank
-    @Size(min = 1, max = 500)
-    protected String description;
+	@NotBlank
+	@NotSpamConstraint
+	@Size(min = 1, max = 500)
+	protected String			description;
 
     @NotNull
     protected Boolean isPublic;
