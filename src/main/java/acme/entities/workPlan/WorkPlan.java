@@ -38,7 +38,7 @@ public class WorkPlan extends DomainEntity {
 
 	@NotBlank
 	@NotSpamConstraint
-	@Size(min = 1, max = 500)
+	@Length(min = 1, max = 500)
 	protected String			description;
 
     @NotNull

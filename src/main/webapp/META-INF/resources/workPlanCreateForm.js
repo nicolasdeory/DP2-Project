@@ -38,13 +38,16 @@ $(document).ready(() => {
 			finishDateStringSugg = maxDate.getFullYear() + "/" + 
 			(maxDate.getMonth() + 1) + "/" + maxDate.getDate() + " " +
 			("0" + maxDate.getHours()).slice(-2) + ":" + ("0" + maxDate.getMinutes()).slice(-2);
-			
-			//startDateStringSugg = minDate.toISOString().slice(0,10) + ' ' + maxDate.toLocaleTimeString(lang);
-			//finishDateStringSugg = maxDate.toISOString().slice(0,10) + ' ' + maxDate.toLocaleTimeString(lang);
+
 		} else 
 		{
-			startDateStringSugg = minDate.toLocaleDateString(lang) + ' ' + maxDate.toLocaleTimeString(lang);
-			finishDateStringSugg = maxDate.toLocaleDateString(lang) + ' ' + maxDate.toLocaleTimeString(lang);
+			startDateStringSugg = minDate.getDate() + "/" +
+				(minDate.getMonth() + 1) + "/" + minDate.getFullYear() + " " +
+				("0" + minDate.getHours()).slice(-2) + ":" + ("0" + minDate.getMinutes()).slice(-2);
+
+			finishDateStringSugg = maxDate.getDate() + "/" +
+				(maxDate.getMonth() + 1) + "/" + maxDate.getFullYear() + " " +
+				("0" + maxDate.getHours()).slice(-2) + ":" + ("0" + maxDate.getMinutes()).slice(-2);
 		}
 		
         $("#startDateTime").val(startDateStringSugg);

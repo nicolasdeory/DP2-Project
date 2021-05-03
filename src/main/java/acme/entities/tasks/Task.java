@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.ExecutionPeriod;
@@ -37,7 +38,7 @@ public class Task extends DomainEntity {
 	@NotEmpty
 	@NotBlank
 	@NotSpamConstraint
-	@Size(min = 1, max = 80)
+	@Length(min = 1, max = 80)
 	protected String title;
 
     @NotNull
@@ -51,7 +52,7 @@ public class Task extends DomainEntity {
 	@NotEmpty
 	@NotBlank
 	@NotSpamConstraint
-	@Size(min = 1, max = 500)
+	@Length(min = 1, max = 500)
 	protected String description;
 
 	@URL
