@@ -9,7 +9,7 @@ manager.tasks.list.label.workload=Workload
 
 manager.tasks.label.title = Title
 manager.tasks.label.description = Description
-manager.tasks.label.WorkloadHours = Workload
+manager.tasks.label.WorkloadHours = Workload (h)
 manager.tasks.label.is-public = Public Task
 manager.tasks.label.start-date-time = Start date
 manager.tasks.label.finish-date-time = End date
