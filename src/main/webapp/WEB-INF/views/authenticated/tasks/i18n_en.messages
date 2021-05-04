@@ -1,38 +1,9 @@
-master.menu.authenticated.list-publicTasks= Public Tasks
-authenticated.taks.list= Public Finished Tasks
-authenticated.taks.ownList = My Tasks
-
-authenticated.tasks.list.label.title = Title
-authenticated.tasks.list.label.description = Description
-authenticated.tasks.list.label.is-public = Public
-authenticated.tasks.list.label.start-date-time=Start
-authenticated.tasks.list.label.finish-date-time=Finish
-authenticated.tasks.list.label.workload=Workload
+master.menu.authenticated-publicTasks= Finished Tasks
+authenticated.taks= Public Finished Tasks
 
 authenticated.tasks.label.title = Title
 authenticated.tasks.label.description = Description
-authenticated.tasks.label.WorkloadHours = Workload
-authenticated.tasks.label.is-public = Public Task
-authenticated.tasks.label.start-date-time = Start date
-authenticated.tasks.label.finish-date-time = End date
-authenticated.tasks.label.add = Add
-
-
-
-authenticated.tasks.error.startDate = Start date error
-authenticated.tasks.error.finishDate = Finish date error
-
-authenticated.tasks.error.finishDate.format = Please, check finish date format and try again
-authenticated.tasks.error.startDateTime.format = Please, check start date format and try again
-
-authenticated.tasks.error.startDate.empty = Start date can not be empty
-authenticated.tasks.error.finishDate.empty = Finish date can not be empty
-
-authenticated.tasks.label.workPlan= WorkPlans
-authenticated.tasks.button.return=Return
-authenticated.tasks.button.update = Update
-authenticated.tasks.button.delete = Delete
-authenticated.tasks.button.create = Create
-
-authenticated.tasks.label.is-public.false = No
-authenticated.tasks.label.is-public.true = Yes
+authenticated.tasks.label.is-public = Public
+authenticated.tasks.label.start-date-time=Start
+authenticated.tasks.label.finish-date-time=Finish
+authenticated.tasks.label.workload=Workload

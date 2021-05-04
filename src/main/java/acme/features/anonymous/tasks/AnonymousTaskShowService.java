@@ -1,20 +1,16 @@
 package acme.features.anonymous.tasks;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.framework.components.Model;
-import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.entities.tasks.Task;
-import acme.framework.services.AbstractListService;
+import acme.framework.components.Model;
+import acme.framework.components.Request;
+import acme.framework.services.AbstractShowService;
 
 @Service
-public class AnonymousPublicTasksListService implements AbstractListService<Anonymous, Task> {
-
-	// Internal state ---------------------------------------------------------
+public class AnonymousTaskShowService implements AbstractShowService<Anonymous, Task> {
 
 	@Autowired
 	protected AnonymousTaskRepository repository;
@@ -31,14 +27,26 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		// revisar
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title", "isPublic", "description", "link");
 		model.setAttribute("workload", entity.getWorkloadHours());
-		request.unbind(entity, model, "title", "description", "isPublic");
+		model.setAttribute("isFinished", entity.isFinished());
+
 	}
 
 	@Override
-	public Collection<Task> findMany(Request<Task> request) {
+	public Task findOne(final Request<Task> request) {
 		assert request != null;
-		return this.repository.findNoFinishedAndPublicTasks();
+
+		Task task;
+		int id;
+
+		id = request.getModel().getInteger("id");
+		task = this.repository.findOneById(id);
+
+		return task;
 	}
+
 }

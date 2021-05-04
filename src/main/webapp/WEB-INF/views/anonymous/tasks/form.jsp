@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<acme:form readonly="true">
-	<acme:form-textbox  code="authenticated.tasks.label.title" path="title"/>
-	<acme:form-textbox code="authenticated.tasks.label.description" path="description"/>
-	<acme:form-checkbox code="authenticated.tasks.label.is-public" path="isPublic"/>
-	<acme:form-textbox  code="authenticated.tasks.label.WorkloadHours" path="workload"/>
-	<acme:form-moment  code="authenticated.tasks.label.start-date-time" path="startDateTime" />
-	<acme:form-moment  code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
+<acme:form  readonly ="true">
+	<acme:form-textbox  code="anonymous.tasks.label.title" path="title"/>
+	<acme:form-textbox code="anonymous.tasks.label.description" path="description"/>
+	<acme:form-checkbox code="anonymous.tasks.label.is-public" path="isPublic"/>
+	<acme:form-textbox   code="anonymous.tasks.label.WorkloadHours" path="workload"/>
+	<acme:form-moment   code="anonymous.tasks.label.start-date-time" path="startDateTime" />
+	<acme:form-moment  code="anonymous.tasks.label.finish-date-time" path="finishDateTime"/>
 </acme:form>
