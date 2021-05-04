@@ -67,7 +67,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
-        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        final List<Task> userTask = this.repository.findTasksByUserId(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         model.setAttribute("userTask", userTask);
 
     }
@@ -114,14 +114,23 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
         List<String> newTask = new ArrayList<>();
         newTask=entity.getNewTasksId();
         if(newTask!=null&&!errors.hasErrors()){
+            Boolean startDateError=true;
+            Boolean finishDateError=true;
+            Boolean isPublicError=true;
             for (final String taskId : newTask) {
                 final Integer id = Integer.valueOf(taskId);
                 final Task t = this.repository.findOneTaskById(id);
-                if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
+                if (startDateError&&entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
                     errors.state(request,false,"startDateTime", "manager.workplan.error.startDate.task");
+                    startDateError=false;
                 }
-                if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
+                if (finishDateError&&entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
                     errors.state(request,false,"finishDateTime", "manager.workplan.error.finishDate.task");
+                    finishDateError=false;
+                }
+                if(isPublicError&&!((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
+                    errors.state(request,false,"isPublic", "manager.workplan.error.isPublic");
+                    isPublicError=false;
                 }
             }
 
@@ -141,6 +150,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
         final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
         entity.setUser(user);
         entity.setTasks(new ArrayList<>());
+        //ToDo Las tareas privadas no pueden estar en workplan publicos
         if(entity.getNewTasksId()!=null){
             for (final String taskId : entity.getNewTasksId()) {
                 final Integer id = Integer.valueOf(taskId);

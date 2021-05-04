@@ -1,4 +1,4 @@
-package acme.features.administrator.tasks;
+package acme.features.authenticated.tasks;
 
 import javax.annotation.PostConstruct;
 
@@ -8,23 +8,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Authenticated;
 import acme.entities.tasks.Task;
 
 @Controller
-@RequestMapping("/administrator/tasks/")
-public class AdministratorTaskController extends AbstractController<Administrator, Task> {
+@RequestMapping("/authenticated/task/")
+public class AuthenticatedTaskController extends AbstractController<Authenticated, Task> {
 
     // Internal state ---------------------------------------------------------
 
     @Autowired
-    protected AdministratorListPublicFinishedTasksService listPublicTasksService;
+    protected AuthenticatedListPublicFinishedTasksService listPublicTasksService;
+
+    @Autowired
+    protected AuthenticatedTaskShowService showTaskService;
 
     // Constructors -----------------------------------------------------------
 
     @PostConstruct
     protected void initialise() {
         super.addBasicCommand(BasicCommand.LIST, this.listPublicTasksService);
+        super.addBasicCommand(BasicCommand.SHOW, this.showTaskService);
     }
 
 }

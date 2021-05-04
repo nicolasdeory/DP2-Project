@@ -1,17 +1,15 @@
 package acme.features.authenticated.manager;
 
-import acme.entities.roles.Consumer;
-import acme.entities.roles.Manager;
-import acme.features.authenticated.consumer.AuthenticatedConsumerCreateService;
-import acme.features.authenticated.consumer.AuthenticatedConsumerUpdateService;
-import acme.framework.components.BasicCommand;
-import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.PostConstruct;
+import acme.entities.roles.Manager;
+import acme.framework.components.BasicCommand;
+import acme.framework.controllers.AbstractController;
+import acme.framework.entities.Authenticated;
 
 @Controller
 @RequestMapping("/authenticated/manager/")

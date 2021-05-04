@@ -49,19 +49,8 @@ master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
 
-# master.menu.provider ########################################################
-
-master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
-
-# master.menu.consumer ##########################################################
-
-master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
-
-
 # master.menu.manager #######################################################
-
+master.menu.authenticated = Authenticated
 master.menu.manager = Manager
 master.menu.manager.list-Workplans = My Workplans List
 master.menu.manager.create-Workplans = Create new Workplan
@@ -72,10 +61,6 @@ master.menu.manager.create = Create task
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
-master.menu.user-account.provider = Provider data
-master.menu.user-account.become-provider = Become a provider
-master.menu.user-account.consumer = Consumer data
-master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.manager = Manager data
 master.menu.user-account.become-manager = Become a manager
 

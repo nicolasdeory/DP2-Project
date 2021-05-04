@@ -9,11 +9,13 @@ manager.tasks.list.label.workload=Workload
 
 manager.tasks.label.title = Title
 manager.tasks.label.description = Description
-manager.tasks.label.WorkloadHours = Workload
+manager.tasks.label.WorkloadHours = Workload (h)
 manager.tasks.label.is-public = Public Task
 manager.tasks.label.start-date-time = Start date
 manager.tasks.label.finish-date-time = End date
 manager.tasks.label.add = Add
+manager.tasks.label.FinishedTaskMessage = This task is finished. You can not update nor delete it.
+
 
 manager.tasks.label.workPlan= WorkPlans
 manager.tasks.button.return=Return

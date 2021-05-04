@@ -43,6 +43,9 @@
                 <acme:message code="manager.workplan.label.finish-date-time"/>
             </th>
             <th>
+                <acme:message code="manager.workplan.label.task.isPublic"/>
+            </th>
+            <th>
                 <acme:message code="manager.workplan.label.add"/>
             </th>
         </tr>
@@ -58,11 +61,14 @@
                     <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
+                    <c:out value="${task.isPublic}"/>
+                </td>
+                <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}" checked="true">
                 </td>
             </tr>
         </c:forEach>
-
+    <jstl:if test="${command == 'create' || isFinished == 'false'}">
         <c:forEach items="${userTask}" var="task">
             <tr>
                 <td>
@@ -75,13 +81,19 @@
                     <acme:print value="${task.executionPeriod.finishDateTime}"/>
                 </td>
                 <td>
+                    <c:out value="${task.isPublic}"/>
+                </td>
+                <td>
                     <input type="checkbox" name="newTasksId" value="${task.id}">
                 </td>
             </tr>
         </c:forEach>
-
+    </jstl:if>
     </table>
     </div>
+    <jstl:if test="${isFinished == 'true'}">
+            <acme:message code="manager.tasks.label.FinishedWorkplanMessage"/>
+    </jstl:if>
     <br>
     <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="manager.workplan.button.update"
                       action="/manager/work-plan/update"/>

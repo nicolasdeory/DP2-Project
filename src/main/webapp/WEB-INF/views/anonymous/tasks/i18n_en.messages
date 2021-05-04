@@ -1,9 +1,12 @@
-master.menu.anonymous.list-publicTasks= Public Tasks
-anonymous.taks.list= Public Tasks
+master.menu.anonymous-publicTasks= Public Tasks
+anonymous.taks= Public Tasks
 
-anonymous.tasks.list.label.title = Title
-anonymous.tasks.list.label.description = Description
-anonymous.tasks.list.label.is-public = Public
-anonymous.tasks.list.label.start-date-time=Start
-anonymous.tasks.list.label.finish-date-time=Finish
-anonymous.tasks.list.label.workload=Workload
+anonymous.tasks.label.title = Title
+anonymous.tasks.label.description = Description
+anonymous.tasks.label.is-public = Public
+anonymous.tasks.label.start-date-time=Start
+anonymous.tasks.label.finish-date-time=Finish
+anonymous.tasks.label.workload=Workload
+
+anonymous.tasks.button.return=Return
+authenticated.tasks.finished = This task is finished.

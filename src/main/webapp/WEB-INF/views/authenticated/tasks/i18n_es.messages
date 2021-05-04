@@ -1,25 +1,15 @@
-master.menu.anonymous.list-publicTasks= Tareas Públicas
-anonymous.taks.list= Tareas Públicas Terminadas
-authenticated.taks.ownList = Mis Tareas
+master.menu.authenticated-publicTasks= Tareas Terminadas
+authenticated.taks= Tareas Públicas Terminadas
 
-authenticated.tasks.list.label.title = Título
-authenticated.tasks.list.label.description = Descripción
-authenticated.tasks.list.label.is-public = Pública
-authenticated.tasks.list.label.start-date-time=Inicio
-authenticated.tasks.list.label.finish-date-time=Fin
-authenticated.tasks.list.label.workload=Carga de trabajo
-
-authenticated.tasks.label.title = Título
+authenticated.tasks.label.title = Titulo
 authenticated.tasks.label.description = Descripción
-authenticated.tasks.label.WorkloadHours = Carga de trabajo
-authenticated.tasks.label.is-public = Tarea pública
-authenticated.tasks.label.start-date-time = Fecha de inicio
-authenticated.tasks.label.finish-date-time = Fecha de fin
+authenticated.tasks.label.is-public = Publica
 
-authenticated.tasks.label.workPlan= Plan de trabajo
-authenticated.tasks.button.return= Volver
-authenticated.tasks.button.update = Actualizar
-authenticated.tasks.button.delete = Borrar
 
-authenticated.tasks.label.is-public.false = No
-authenticated.tasks.label.is-public.true = Si
+authenticated.tasks.label.start-date-time=Inicio
+authenticated.tasks.label.finish-date-time=Fin
+authenticated.tasks.label.workload=Carga de trabajo
+
+
+authenticated.tasks.button.return=Atrás
+authenticated.tasks.finished = Esta tarea esta terminada.

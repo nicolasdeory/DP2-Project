@@ -10,10 +10,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import acme.features.spam.NotSpamConstraint;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -21,6 +19,7 @@ import acme.datatypes.ExecutionPeriod;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
+import acme.utils.WorkLoadOperations;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,36 +32,43 @@ public class Task extends DomainEntity {
 
     protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@NotSpamConstraint
-	@Length(min = 1, max = 80)
-	protected String title;
+    // Attributes -------------------------------------------------------------
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 1, max = 80)
+    protected String title;
 
     @NotNull
     protected Boolean isPublic;
+
+    /*
+     * Workload Format: X.YYY where: X is the number of hours YYY is the number of
+     * minutes
+     */
+    @NotNull
+    protected Double workload;
 
     @NotNull
     @Valid
     protected ExecutionPeriod executionPeriod;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@NotSpamConstraint
-	@Length(min = 1, max = 500)
-	protected String description;
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 1, max = 500)
+    protected String description;
 
-	@URL
-	@NotSpamConstraint
-	protected String link;
+    @URL
+    @NotSpamConstraint
+    protected String link;
 
     // Derived attributes -----------------------------------------------------
     @Transient
-    public Double getWorkloadHours() {
-        return this.executionPeriod.getWorkloadHours();
+    public Double getMaxWorkloadHours() {
+        return WorkLoadOperations.formatWorkload(this.executionPeriod.getWorkloadHours());
     }
 
     @Transient

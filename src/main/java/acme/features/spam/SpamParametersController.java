@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderController.java
+ * SpamParameterController.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -12,17 +12,15 @@
 
 package acme.features.spam;
 
-import acme.entities.roles.Provider;
-import acme.features.authenticated.provider.AuthenticatedProviderUpdateService;
-import acme.framework.components.BasicCommand;
-import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.PostConstruct;
+import acme.framework.components.BasicCommand;
+import acme.framework.controllers.AbstractController;
+import acme.framework.entities.Administrator;
 
 @Controller
 @RequestMapping("/administrator/spam-parameters")
