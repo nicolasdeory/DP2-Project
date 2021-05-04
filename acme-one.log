@@ -202,3 +202,6 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout00 = acme.en
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout01 = acme.entities.shouts.Shout{id=25, version=0}
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout02 = acme.entities.shouts.Shout{id=26, version=0}
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised

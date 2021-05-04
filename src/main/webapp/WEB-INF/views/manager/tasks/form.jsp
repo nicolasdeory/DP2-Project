@@ -29,7 +29,7 @@
 	<acme:form-moment code="manager.tasks.label.finish-date-time" path="finishDateTime"/>
 	
     
-    <jstl:if test="${command == 'show' && isFinished == 'true'}">
+    <jstl:if test="${isFinished == 'true'}">
     	<acme:message code="manager.tasks.label.FinishedTaskMessage"/>
     </jstl:if>
     <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="manager.tasks.button.update"
