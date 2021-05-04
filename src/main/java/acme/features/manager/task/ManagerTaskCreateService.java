@@ -11,7 +11,6 @@ import acme.entities.tasks.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractCreateService;
 
@@ -25,20 +24,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
-		int taskId;
-        final Task task;
-        UserAccount userAccount;
-        Principal principal;
-
-        taskId = request.getModel().getInteger("id");
-        task = this.repository.findOneTaskById(taskId);
-        userAccount = task.getUser();
-        principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
             return true;
-        } else {
-            return false;
-        }
+        
 	}
 
 	@Override
