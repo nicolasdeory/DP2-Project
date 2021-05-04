@@ -25,14 +25,3 @@ manager.tasks.button.create = Create
 
 manager.tasks.label.is-public.false = No
 manager.tasks.label.is-public.true = Yes
-
-manager.tasks.error.startDate = Start date error
-manager.tasks.error.finishDate = Finish date error
-
-manager.tasks.error.finishDate.format = Please, check finish date format and try again
-manager.tasks.error.startDateTime.format = Please, check start date format and try again
-
-manager.tasks.error.startDate.empty = Start date can not be empty
-manager.tasks.error.finishDate.empty = Finish date can not be empty
-
-
