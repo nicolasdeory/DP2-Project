@@ -31,7 +31,7 @@ public class WorkLoadOperations {
         int hours = workload.intValue();
         double decimals = (workload - hours);
         int minutes = (int) decimals * 100;
-        return minutes > 59;
+        return minutes < 60;
     }
 
 }
