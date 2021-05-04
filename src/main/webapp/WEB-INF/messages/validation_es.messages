@@ -65,6 +65,8 @@ manager.tasks.error.startDate.empty = La fecha de inicio no puede estar vacía
 manager.tasks.error.finishDate.empty = La fecha de fin no puede estar vacía
 manager.tasks.error.finishDate.before = La fecha de fin no puede ser antes que la de inicio
 manager.tasks.error.startDate.after = La fecha de inicio no puede ser después de la de fin
+manager.tasks.workload.error.workloadMax =Workload deberia ajustarse al periodo de ejecucion de la tarea
+manager.tasks.workload.error.format=Los minutos de un workload deberian estar entre 0 y 59
 
 acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reescribirlo
 
