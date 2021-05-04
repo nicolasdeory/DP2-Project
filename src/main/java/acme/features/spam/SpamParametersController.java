@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderController.java
+ * SpamParameterController.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *

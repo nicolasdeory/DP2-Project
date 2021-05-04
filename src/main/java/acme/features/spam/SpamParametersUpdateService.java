@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderUpdateService.java
+ * SpamParameterService.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -35,7 +35,6 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 	@Autowired
 	protected SpamParametersRepository repository;
 
-	// AbstractUpdateService<Authenticated, Provider> interface ---------------
 
 
 	@Override
