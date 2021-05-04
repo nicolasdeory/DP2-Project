@@ -17,9 +17,10 @@
 
 <h1><acme:message code="manager.taks.ownList"/></h1>
 <acme:list>
-	<acme:list-column code="manager.tasks.list.label.title" path="title" width="20%" sortable="false"/>
-	<acme:list-column code="manager.tasks.list.label.description" path="description" width="20%" sortable="false"/>
-	<acme:list-column code="manager.tasks.list.label.start-date-time" path="startDateTime" width="20%" sortable="false"/>
-	<acme:list-column code="manager.tasks.list.label.finish-date-time" path="finishDateTime" width="20%" sortable="false"/>
-	<acme:list-column code="manager.tasks.label.link" path="link" width="20%" sortable="false"/>
+	<acme:list-column code="manager.tasks.list.label.title" path="title" width="15%" sortable="false"/>
+	<acme:list-column code="manager.tasks.list.label.description" path="description" width="15%" sortable="false"/>
+	<acme:list-column code="manager.tasks.list.label.start-date-time" path="startDateTime" width="15%"/>
+	<acme:list-column code="manager.tasks.list.label.finish-date-time" path="finishDateTime" width="15%"/>
+	<acme:list-column code="manager.tasks.list.label.workload" path="workload" width="15%"/>
+	<acme:list-column code="manager.tasks.label.link" path="link" width="15%" sortable="false"/>
 </acme:list>

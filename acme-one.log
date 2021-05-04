@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 99308 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
 INFO [acme.Launcher] Started Launcher in 6.217 seconds (JVM running for 6.696)
@@ -2394,6 +2395,63 @@ INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-GDG7K2D with PID 2836 (C:\Users\Usuario\git\DP2-Project\target\classes started by Usuario in C:\Users\Usuario\git\DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
 INFO [acme.Launcher] Started Launcher in 5.998 seconds (JVM running for 6.569)
+=======
+
+CORCHUELO
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workplan3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workplan4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workplan5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workplan6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workplan7.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workplan8.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for workplan9.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 17 for Shout00.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 18 for Shout01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 19 for Shout02.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanAuthenticated = acme.framework.entities.Authenticated{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan1 = acme.entities.workPlan.WorkPlan{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan2 = acme.entities.workPlan.WorkPlan{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan3 = acme.entities.workPlan.WorkPlan{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan4 = acme.entities.workPlan.WorkPlan{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan5 = acme.entities.workPlan.WorkPlan{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan6 = acme.entities.workPlan.WorkPlan{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan7 = acme.entities.workPlan.WorkPlan{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan8 = acme.entities.workPlan.WorkPlan{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan9 = acme.entities.workPlan.WorkPlan{id=23, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout00 = acme.entities.shouts.Shout{id=24, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout01 = acme.entities.shouts.Shout{id=25, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout02 = acme.entities.shouts.Shout{id=26, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: java.lang.AssertionError
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on PORTATIL-INB with PID 24204 (C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project\target\classes started by Igna in C:\Users\inava\Desktop\Universidad\3º\Segundo Cuatrimestre\DP2\DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 7.387 seconds (JVM running for 7.915)
+>>>>>>> master
 INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
 INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
 INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
@@ -2422,20 +2480,26 @@ INFO [acme.framework.utilities.DatabasePopulator] Populating entities from class
 INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
 INFO [acme.framework.utilities.DatabasePopulator] Validating juanUserAccount ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating juanAuthenticated ... PASS
+<<<<<<< HEAD
 INFO [acme.framework.utilities.DatabasePopulator] Validating juanManager ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating lolaUserAccount ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating lolaAuthenticated ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating lolaManager ... PASS
+=======
+>>>>>>> master
 INFO [acme.framework.utilities.DatabasePopulator] Validating task1 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task2 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task3 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task4 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task5 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task6 ... PASS
+<<<<<<< HEAD
 INFO [acme.framework.utilities.DatabasePopulator] Validating task7 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task8 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task9 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating task10 ... PASS
+=======
+>>>>>>> master
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan1 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan2 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan3 ... PASS
@@ -2445,13 +2509,17 @@ INFO [acme.framework.utilities.DatabasePopulator] Validating workplan6 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan7 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan8 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan9 ... PASS
+<<<<<<< HEAD
 INFO [acme.framework.utilities.DatabasePopulator] Validating workplan10 ... PASS
+=======
+>>>>>>> master
 INFO [acme.framework.utilities.DatabasePopulator] Validating Shout00 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating Shout01 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Validating Shout02 ... PASS
 INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
 INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for juanUserAccount.
 INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for juanAuthenticated.
+<<<<<<< HEAD
 INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for juanManager.
 INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for lolaUserAccount.
 INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for lolaAuthenticated.
@@ -2510,6 +2578,56 @@ INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout00 = acme.en
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout01 = acme.entities.shouts.Shout{id=34, version=0}
 INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout02 = acme.entities.shouts.Shout{id=35, version=0}
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+=======
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for task1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for task2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for task3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for task4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for task5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for task6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for workplan1.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for workplan2.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workplan3.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workplan4.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workplan5.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workplan6.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workplan7.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workplan8.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for workplan9.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 17 for Shout00.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 18 for Shout01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 19 for Shout02.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting juanAuthenticated = acme.framework.entities.Authenticated{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task1 = acme.entities.tasks.Task{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task2 = acme.entities.tasks.Task{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task3 = acme.entities.tasks.Task{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task4 = acme.entities.tasks.Task{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task5 = acme.entities.tasks.Task{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task6 = acme.entities.tasks.Task{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan1 = acme.entities.workPlan.WorkPlan{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan2 = acme.entities.workPlan.WorkPlan{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan3 = acme.entities.workPlan.WorkPlan{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan4 = acme.entities.workPlan.WorkPlan{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan5 = acme.entities.workPlan.WorkPlan{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan6 = acme.entities.workPlan.WorkPlan{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan7 = acme.entities.workPlan.WorkPlan{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan8 = acme.entities.workPlan.WorkPlan{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workplan9 = acme.entities.workPlan.WorkPlan{id=23, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout00 = acme.entities.shouts.Shout{id=24, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout01 = acme.entities.shouts.Shout{id=25, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting Shout02 = acme.entities.shouts.Shout{id=26, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorisedERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+>>>>>>> master
 ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at acme.framework.utilities.RememberMeLogoutHandler.logout(RememberMeLogoutHandler.java:31): java.lang.AssertionError
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
@@ -2517,4 +2635,9 @@ ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.apac
 java.lang.AssertionError
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+<<<<<<< HEAD
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
+=======
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
+
+>>>>>>> master

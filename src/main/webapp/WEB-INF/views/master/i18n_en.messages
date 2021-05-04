@@ -56,7 +56,6 @@ master.menu.manager.list-Workplans = My Workplans List
 master.menu.manager.create-Workplans = Create new Workplan
 master.menu.manager.list-ownTasks = My tasks
 master.menu.manager.create = Create task
-
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
