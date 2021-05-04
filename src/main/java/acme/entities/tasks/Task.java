@@ -7,12 +7,11 @@ import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.ExecutionPeriod;
@@ -48,6 +47,7 @@ public class Task extends DomainEntity {
      * minutes
      */
     @NotNull
+    @Max(730)
     protected Double workload;
 
     @NotNull

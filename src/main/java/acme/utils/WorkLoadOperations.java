@@ -10,9 +10,9 @@ public class WorkLoadOperations {
      */
 
     public static Double formatWorkload(Double workload) {
-        int hours = workload.intValue();
-        double decimals = (workload - hours);
-        int minutes = (int) Math.round(Math.floor(decimals * 100) / 100 * 60);
+        Integer hours = workload.intValue();
+        Double decimals = (workload - hours);
+        Integer minutes = (int) Math.round(Math.floor(decimals * 100) / 100 * 60);
         while (minutes > 59) {
             hours++;
             minutes -= 60;
@@ -21,17 +21,17 @@ public class WorkLoadOperations {
     }
 
     public static Double unformatWorkload(Double workload) {
-        int hours = workload.intValue();
-        int minutes = (int) (workload - hours) * 100;
-        double decimals = minutes / 60;
+        Integer hours = workload.intValue();
+        Integer minutes = (int) Math.round((workload - hours) * 100);
+        Double decimals = minutes / 60.0;
         return hours + decimals;
     }
 
     public static Boolean isFormatedWorkload(Double workload) {
-        int hours = workload.intValue();
-        double decimals = (workload - hours);
-        int minutes = (int) decimals * 100;
-        return minutes < 60;
+        Long hours = workload.longValue();
+        Double decimals = (workload - hours);
+        Long minutes =  Math.round(decimals*100);
+        return minutes < 60 && minutes>=0;
     }
 
 }
