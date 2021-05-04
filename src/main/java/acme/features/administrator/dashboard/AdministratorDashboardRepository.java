@@ -10,10 +10,10 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository{
 
-	@Query("select t.workload from Task")
+	@Query("select t.workload from Task t")
 	List<Double> findAllTaskWorkload();
 	
-	@Query("select w.workload form Workplan")
+	@Query("select w.workload from WorkPlan w")
 	List<Double> findAllWorkPlanWorkload();
 	
 	@Query("select count(t) from Task t where t.isPublic=True")
