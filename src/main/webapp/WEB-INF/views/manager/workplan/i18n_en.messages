@@ -35,3 +35,4 @@ manager.workplan.error.startDate.empty=Start date cant be empty
 manager.workplan.error.finishDate.empty=Finish date cant be empty
 manager.workplan.error.startDate.format=Start Date format is wrong
 manager.workplan.error.finishDate.format=Finish Date format is wrong
+manager.workplan.label.task.isPublic = Public

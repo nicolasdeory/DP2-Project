@@ -18,11 +18,13 @@ manager.workplan.label.start-date-time= Fecha inicio
 manager.workplan.label.finish-date-time= Fecha fin
 manager.workplan.label.WorkloadHours=Carga de trabajo (h)
 manager.workplan.label.task=Tareas
+manager.workplan.label.task.isPublic = Publico
 manager.workplan.button.update=Actualizar
 manager.workplan.button.delete=Borrar
 manager.workplan.button.create=Crear
 manager.workplan.button.return=Volver
 manager.workplan.label.add=Añadir tarea al plan de trabajo
+manager.workplan.error.isPublic=Un workplan publico no puede tener tareas privadas
 
 manager.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
 manager.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo

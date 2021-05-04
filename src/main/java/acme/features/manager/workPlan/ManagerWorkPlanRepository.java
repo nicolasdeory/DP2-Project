@@ -6,6 +6,7 @@ import java.util.Date;
 import acme.entities.tasks.Task;
 import acme.framework.entities.UserAccount;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.workPlan.WorkPlan;
@@ -29,8 +30,11 @@ public interface ManagerWorkPlanRepository extends AbstractRepository {
     @Query("select user from UserAccount user where user.id =?1")
     UserAccount findUserById(Integer id);
 
-    @Query("select DISTINCT task from Task task where task.user.id =?1")
-    Collection<Task> findTasksByUserIdAndNotInWorkplan(Integer userId);
+    @Query("select task from Task task where task.user.id =?1 and task.isPublic=True")
+    Collection<Task> findTasksByUserIdIsPublic(Integer userId);
+
+    @Query("select task from Task task where task.user.id =?1")
+    Collection<Task> findTasksByUserId(Integer userId);
 
 
 }

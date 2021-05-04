@@ -19,7 +19,7 @@ public interface ManagerTaskRepository extends AbstractRepository {
 	@Query("select task from Task task where task.id = ?1")
 	Task findOneTaskById(Integer id);
 
-	@Query("select task from Task task where task.user.id = ?1 and task.executionPeriod.finishDateTime>=CURRENT_DATE order by task.executionPeriod")
+	@Query("select task from Task task where task.user.id = ?1 order by task.executionPeriod")
 	Collection<Task> findAuthenticatedOwnTasks(Integer id);
 	
 	@Query("select workplan from WorkPlan workplan")
