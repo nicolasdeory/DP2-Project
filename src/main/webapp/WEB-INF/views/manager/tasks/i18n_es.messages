@@ -9,11 +9,13 @@ manager.tasks.list.label.workload=Carga de trabajo
 
 manager.tasks.label.title = Título
 manager.tasks.label.description = Descripción
-manager.tasks.label.WorkloadHours = Carga de trabajo
+manager.tasks.label.WorkloadHours = Carga de trabajo (h)
 manager.tasks.label.is-public = Tarea pública
 manager.tasks.label.start-date-time = Fecha de inicio
 manager.tasks.label.finish-date-time = Fecha de fin
 manager.tasks.label.add = Añadir
+
+manager.tasks.label.FinishedTaskMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
 
 manager.tasks.label.workPlan= Plan de trabajo
 manager.tasks.button.return= Volver
