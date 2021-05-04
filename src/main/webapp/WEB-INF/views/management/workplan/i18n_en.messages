@@ -1,0 +1,38 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.management.list-Workplans= My Workplans List
+ 
+management.workplan.label.title = Title
+management.workplan.label.description = Description
+management.workplan.label.isPublic = Public Workplan
+management.workplan.label.start-date-time=Starter date
+management.workplan.label.finish-date-time=Finish date
+management.workplan.label.WorkloadHours=Workload (h)
+management.workplan.label.task=Tasks
+management.workplan.button.update=Update
+management.workplan.button.delete=Delete
+management.workplan.button.create=Create
+management.workplan.button.return=Return
+management.workplan.label.add=Add task to the workplan
+management.workplan.label.FinishedWorkplanMessage = This workplan is finished. You can not update nor delete it.
+
+management.workplan.error.startDate.task=Task start date must not be before workplan starter date
+management.workplan.error.finishDate.task=Task finish date must not be after workplan finish date
+management.workplan.error.startDate=Start date must not be before now
+management.workplan.error.finishDate=Finish date must not be before now
+management.workplan.error.startDate.after=Starter date must not be after finish date
+management.workplan.error.finishDate.before=Finish date must not be before starter date
+management.workplan.error.startDate.empty=Start date cant be empty
+management.workplan.error.finishDate.empty=Finish date cant be empty
+management.workplan.error.startDate.format=Start Date format is wrong
+management.workplan.error.finishDate.format=Finish Date format is wrong
+management.workplan.label.task.isPublic = Public

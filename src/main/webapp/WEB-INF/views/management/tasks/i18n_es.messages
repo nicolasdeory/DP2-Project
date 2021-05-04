@@ -1,0 +1,27 @@
+management.taks.ownList = Mis Tareas
+
+management.tasks.list.label.title = Título
+management.tasks.list.label.description = Descripción
+management.tasks.list.label.is-public = Pública
+management.tasks.list.label.start-date-time=Inicio
+management.tasks.list.label.finish-date-time=Fin
+management.tasks.list.label.workload=Carga de trabajo
+
+management.tasks.label.title = Título
+management.tasks.label.description = Descripción
+management.tasks.label.WorkloadHours = Carga de trabajo (h)
+management.tasks.label.is-public = Tarea pública
+management.tasks.label.start-date-time = Fecha de inicio
+management.tasks.label.finish-date-time = Fecha de fin
+management.tasks.label.add = Añadir
+management.tasks.label.link = Enlace
+management.tasks.label.FinishedTaskMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
+
+management.tasks.label.workPlan= Plan de trabajo
+management.tasks.button.return= Volver
+management.tasks.button.update = Actualizar
+management.tasks.button.delete = Borrar
+management.tasks.button.create = Crear
+
+management.tasks.label.is-public.false = No
+management.tasks.label.is-public.true = Si

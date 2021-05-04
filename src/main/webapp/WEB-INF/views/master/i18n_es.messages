@@ -51,17 +51,17 @@ master.menu.administrator.shutdown = Parar el sistema
 
 # master.menu.authenticated #######################################################
 master.menu.authenticated = Autenticado
-master.menu.manager = Manager
-master.menu.manager.list-Workplans = Lista de mis planes de trabajo
-master.menu.manager.create-Workplans = Crear nuevo Plan de trabajo
-master.menu.manager.create = Crear tarea
-master.menu.manager.list-ownTasks = Mis tareas
+master.menu.management = Management
+master.menu.management.list-Workplans = Lista de mis planes de trabajo
+master.menu.management.create-Workplans = Crear nuevo Plan de trabajo
+master.menu.management.create = Crear tarea
+master.menu.management.list-ownTasks = Mis tareas
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
-master.menu.user-account.manager = Datos de manager
-master.menu.user-account.become-manager = Hazte manager
+master.menu.user-account.management = Datos de management
+master.menu.user-account.become-management = Hazte management
 
 ﻿# master.footer ###############################################################
 

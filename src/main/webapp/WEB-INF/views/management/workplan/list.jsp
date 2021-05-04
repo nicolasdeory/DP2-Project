@@ -1,7 +1,7 @@
 <%--
-- form.jsp
+- list.jsp
 -
-- Copyright (c) 2012-2021 Rafael Corchuelo.
+- Copyright (C) 2012-2021 Rafael Corchuelo.
 -
 - In keeping with the traditional purpose of furthering education and research, it is
 - the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -15,10 +15,10 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
-	<acme:form-textbox code="authenticated.management.form.label.team" path="team"/>
-	
-	<acme:form-submit test="${command == 'create'}" code="authenticated.management.form.button.create" action="/authenticated/management/create"/>
-	<acme:form-submit test="${command == 'update'}" code="authenticated.management.form.button.update" action="/authenticated/management/update"/>
-	<acme:form-return code="authenticated.management.form.button.return"/>
-</acme:form>
+<acme:list>
+	<acme:list-column code="management.workplan.label.title" path="title" width="20%"/>
+	<acme:list-column code="management.workplan.label.WorkloadHours" path="workload" width="20%"/>
+	<acme:list-column code="management.workplan.label.start-date-time" path="startDateTime" width="20%"/>
+	<acme:list-column code="management.workplan.label.finish-date-time" path="finishDateTime" width="20%"/>
+
+</acme:list>

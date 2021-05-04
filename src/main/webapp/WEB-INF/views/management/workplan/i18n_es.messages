@@ -1,0 +1,38 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.management.list-Workplans= Lista de mis planes de trabajo
+ 
+management.workplan.label.title = Título
+management.workplan.label.description = Descripción
+management.workplan.label.isPublic = Plan de trabajo público
+management.workplan.label.start-date-time= Fecha inicio
+management.workplan.label.finish-date-time= Fecha fin
+management.workplan.label.WorkloadHours=Carga de trabajo (h)
+management.workplan.label.task=Tareas
+management.workplan.label.task.isPublic = Publico
+management.workplan.button.update=Actualizar
+management.workplan.button.delete=Borrar
+management.workplan.button.create=Crear
+management.workplan.button.return=Volver
+management.workplan.label.add=Añadir tarea al plan de trabajo
+management.workplan.label.FinishedWorkplanMessage = Este plan de trabajo está terminada. No la puedes editar ni eliminar.
+
+management.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
+management.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo
+management.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
+management.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
+management.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin
+management.workplan.error.finishDate.before=La fecha de fin no debe estar antes de la fecha de inicio
+management.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
+management.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
+management.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
+management.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto

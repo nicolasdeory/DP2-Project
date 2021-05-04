@@ -41,12 +41,12 @@
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
 		</acme:menu-option>
 	
-		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
-			<acme:menu-suboption code="master.menu.manager.list-Workplans" action="/manager/work-plan/list"/>
-			<acme:menu-suboption code="master.menu.manager.create-Workplans" action="/manager/work-plan/create"/>
+		<acme:menu-option code="master.menu.management" access="hasRole('Management')">
+			<acme:menu-suboption code="master.menu.management.list-Workplans" action="/management/work-plan/list"/>
+			<acme:menu-suboption code="master.menu.management.create-Workplans" action="/management/work-plan/create"/>
             <acme:menu-separator/>
-            <acme:menu-suboption code="master.menu.manager.list-ownTasks" action="/manager/task/list"/>
-			<acme:menu-suboption code="master.menu.manager.create" action="/manager/task/create"/>
+            <acme:menu-suboption code="master.menu.management.list-ownTasks" action="/management/task/list"/>
+			<acme:menu-suboption code="master.menu.management.create" action="/management/task/create"/>
         </acme:menu-option>		
 	</acme:menu-left>
 
@@ -56,8 +56,8 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
-			<acme:menu-suboption code="master.menu.user-account.manager" action="/authenticated/manager/update" access="hasRole('Manager')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-management" action="/authenticated/management/create" access="!hasRole('Management')"/>
+			<acme:menu-suboption code="master.menu.user-account.management" action="/authenticated/management/update" access="hasRole('Management')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

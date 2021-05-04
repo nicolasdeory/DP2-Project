@@ -41,7 +41,7 @@
         <property name="userAccount" ref="juanUserAccount"/>
 
     </bean>
-    <bean class="acme.entities.roles.Manager" name="juanManager">
+    <bean class="acme.entities.roles.Management" name="juanManagement">
 
         <property name="userAccount" ref="juanUserAccount"/>
         <property name="team" value="DPTEAM" />
@@ -70,7 +70,7 @@
         <property name="userAccount" ref="lolaUserAccount"/>
 
     </bean>
-    <bean class="acme.entities.roles.Manager" name="lolaManager">
+    <bean class="acme.entities.roles.Management" name="lolaManagement">
 
         <property name="userAccount" ref="lolaUserAccount"/>
         <property name="team" value="DPTEAM 2" />

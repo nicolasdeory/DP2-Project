@@ -1,0 +1,27 @@
+management.taks.ownList = My Tasks
+
+management.tasks.list.label.title = Title
+management.tasks.list.label.description = Description
+management.tasks.list.label.is-public = Public
+management.tasks.list.label.start-date-time=Start
+management.tasks.list.label.finish-date-time=Finish
+management.tasks.list.label.workload=Workload
+
+management.tasks.label.title = Title
+management.tasks.label.description = Description
+management.tasks.label.WorkloadHours = Workload (h)
+management.tasks.label.is-public = Public Task
+management.tasks.label.start-date-time = Start date
+management.tasks.label.finish-date-time = End date
+management.tasks.label.add = Add
+management.tasks.label.FinishedTaskMessage = This task is finished. You can not update nor delete it.
+management.tasks.label.link = Link
+
+management.tasks.label.workPlan= WorkPlans
+management.tasks.button.return=Return
+management.tasks.button.update = Update
+management.tasks.button.delete = Delete
+management.tasks.button.create = Create
+
+management.tasks.label.is-public.false = No
+management.tasks.label.is-public.true = Yes

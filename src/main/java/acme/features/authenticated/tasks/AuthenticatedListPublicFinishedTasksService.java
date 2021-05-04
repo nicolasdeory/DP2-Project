@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tasks.Task;
-import acme.features.manager.task.ManagerTaskRepository;
+import acme.features.management.task.ManagementTaskRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -18,7 +18,7 @@ public class AuthenticatedListPublicFinishedTasksService implements AbstractList
     // Internal state ---------------------------------------------------------
 
     @Autowired
-    protected ManagerTaskRepository repository;
+    protected ManagementTaskRepository repository;
 
     @Override
     public boolean authorise(final Request<Task> request) {
