@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.tasks.Task;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
@@ -29,8 +30,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select count(t) from Task t where t.executionPeriod.finishDateTime > CURRENT_TIMESTAMP")
 	Integer numberOfNonFinishedTasks();
 	
-	@Query("select (avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
-	Double averageOfTaskExecutionPeriods();
+	@Query("select t from Task t")
+	List<Task> getAllTasks();
 	
 	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double deviationOfTaskExecutionPeriods();

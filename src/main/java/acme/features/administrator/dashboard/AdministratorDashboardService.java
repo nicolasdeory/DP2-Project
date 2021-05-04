@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import acme.entities.workPlan.WorkPlan;
+import acme.utils.WorkLoadOperations;
 
 @Service
 public class AdministratorDashboardService {
@@ -25,7 +26,7 @@ public class AdministratorDashboardService {
 		List<Double> baseWorkloads = this.dashRepo.findAllTaskWorkload();
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
 		Double average = formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
-		return AdministratorDashboardService.unformatWorkload(average); 
+		return average; 
 	
 		
 		
@@ -36,7 +37,7 @@ public class AdministratorDashboardService {
 		List<Double> baseWorkloads = this.dashRepo.findAllTaskWorkload();
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
 		Double deviation = AdministratorDashboardService.sd(formattedWorkloads);
-		return AdministratorDashboardService.unformatWorkload(deviation);
+		return deviation;
 		
 	}
 	
@@ -46,7 +47,7 @@ public class AdministratorDashboardService {
 		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
 		Double average = formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
-		return AdministratorDashboardService.unformatWorkload(average); 
+		return average; 
 		
 	}
 	
@@ -55,8 +56,8 @@ public class AdministratorDashboardService {
 		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
 		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
-		Double deviation = AdministratorDashboardService.sd(formattedWorkloads);
-		return AdministratorDashboardService.unformatWorkload(deviation);
+		return AdministratorDashboardService.sd(formattedWorkloads);
+
 	
 	}
 	
@@ -64,29 +65,13 @@ public class AdministratorDashboardService {
 		List<Double> formattedWorkloads = new ArrayList<>();
 		for (int i = 0; i < baseWorkloads.size();i++) {
 			Double workload = baseWorkloads.get(i);
-			Double newWorkload = AdministratorDashboardService.formatWorkload(workload);
+			Double newWorkload = WorkLoadOperations.unformatWorkload(workload);
 			formattedWorkloads.add(newWorkload);
 		}
 		return formattedWorkloads;
 	}
 	
-	public static Double formatWorkload(Double workload) {
-        int hours = workload.intValue();
-        double decimals = (workload - hours);
-        int minutes = (int) Math.round(Math.floor(decimals * 100) / 100 * 60);
-        while (minutes > 59) {
-            hours++;
-            minutes -= 60;
-        }
-        return hours + minutes / 100.;
-    }
-	
-	public static Double unformatWorkload(Double workload) {
-	    int hours = workload.intValue();
-	    int minutes = (int) (workload - hours) * 100;
-	    double decimals = minutes / 60;
-	    return hours + decimals;
-	}
+
 	
 	public static Double sd (List<Double> table)	{
 	  
