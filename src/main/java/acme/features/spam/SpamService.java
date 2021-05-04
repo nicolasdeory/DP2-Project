@@ -39,6 +39,12 @@ public class SpamService {
 		return Arrays.stream(str.split("[,.]")).collect(Collectors.toList());
 	}
 
+	private List<String> tokenizeStringWithSpaces(String str)
+	{
+		str = str.trim().replaceAll(" +", " ");
+		return Arrays.stream(str.split("[,. ]")).collect(Collectors.toList());
+	}
+
 	public boolean isStringSpam(String str)
 	{
 		if (str == null)
@@ -54,7 +60,9 @@ public class SpamService {
 		{
 			for (String keyword : spamWords)
 			{
-				if (w.contains(keyword))
+				w = w.replace(" ","");
+				keyword = keyword.replace(" ", "");
+				if (w.toLowerCase().contains(keyword.toLowerCase()))
 				{
 					spamCounter++;
 					break;
@@ -62,7 +70,9 @@ public class SpamService {
 			}
 		}
 
-		Double ratio = (double)spamCounter / tokenized.size();
+		List<String> tokenizedWithSpace = tokenizeStringWithSpaces(str);
+
+		Double ratio = (double)spamCounter / tokenizedWithSpace.size();
 		return ratio >= spamParameters.threshold;
 	}
 
