@@ -20,4 +20,5 @@ anonymous.workplan.label.start-date-time=Fecha inicio
 anonymous.workplan.label.finish-date-time=Fecha fin
 anonymous.workplan.label.WorkloadHours=Carga de trabajo (h)
 anonymous.workplan.label.task=Tareas
+anonymous.workplan.label.FinishedTaskMessage = Este plan de trabajo está terminada. No la puedes editar ni eliminar.
 anonymous.workplan.button.return=Volver

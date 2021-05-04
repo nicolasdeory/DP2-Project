@@ -23,6 +23,7 @@
 	<acme:form-textbox   code="anonymous.tasks.label.workload" path="workload"/>
 	<acme:form-moment   code="anonymous.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment  code="anonymous.tasks.label.finish-date-time" path="finishDateTime"/>
+	<acme:form-textbox   code="anonymous.tasks.label.link" path="link"/>
 	<acme:form-return code="anonymous.tasks.button.return"/>
 </acme:form>
 

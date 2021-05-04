@@ -20,4 +20,5 @@ anonymous.workplan.label.start-date-time=Starter date
 anonymous.workplan.label.finish-date-time=Finish date
 anonymous.workplan.label.WorkloadHours=Workload (h)
 anonymous.workplan.label.task=Tasks
+anonymous.workplan.label.FinishedTaskMessage =  This workplan is finished. You can not update nor delete it.
 anonymous.workplan.button.return=Return

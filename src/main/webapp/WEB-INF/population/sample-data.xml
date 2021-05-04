@@ -83,6 +83,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="Mantener el sistema..."/>
         <property name="isPublic" value="true"/>
+        <property name="link" value="https://www.youtube.com/"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/09/10 23:59"/>
@@ -103,6 +104,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="Escribir la documentacion"/>
         <property name="isPublic" value="true"/>
+                <property name="link" value="https://www.twitter.com/"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/09/10 23:59"/>
@@ -123,6 +125,7 @@
         <property name="workload" value="1.30"/>
 		<property name="description" value="The best starter" />
 		<property name="isPublic" value="true" />
+                <property name="link" value="https://www.twitch.tv/"/>
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
 				<property name="startDateTime" value="2022/1/11 15:59" />
@@ -138,6 +141,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="The best frontend"/>
         <property name="isPublic" value="false"/>
+        <property name="link" value="https://www.ignacionavarro.eu/"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/07/10 23:59"/>
@@ -152,6 +156,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="The best backend"/>
         <property name="isPublic" value="false"/>
+        <property name="link" value="https://www.xlstudios.eu/"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/06/10 23:59"/>
@@ -167,6 +172,7 @@
         <property name="description" value="On your tasking"/>
         <property name="isPublic" value="true"/>
         <property name="executionPeriod">
+        
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/07/10 23:59"/>
                 <property name="finishDateTime" value="2021/08/18 23:59"/>
@@ -180,6 +186,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
+        <property name="link" value="http://example.org"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/03/10 23:59"/>
@@ -194,6 +201,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="on your references"/>
         <property name="isPublic" value="true"/>
+                <property name="link" value="http://example.org"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/06/10 23:59"/>
@@ -207,6 +215,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
+        <property name="link" value="http://example.org"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/02/10 23:59"/>
@@ -221,6 +230,7 @@
         <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
+        <property name="link" value="http://example.org"/>
         <property name="executionPeriod">
             <bean class="acme.datatypes.ExecutionPeriod">
                 <property name="startDateTime" value="2021/06/10 23:59"/>

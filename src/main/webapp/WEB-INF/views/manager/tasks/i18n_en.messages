@@ -15,7 +15,7 @@ manager.tasks.label.start-date-time = Start date
 manager.tasks.label.finish-date-time = End date
 manager.tasks.label.add = Add
 manager.tasks.label.FinishedTaskMessage = This task is finished. You can not update nor delete it.
-
+manager.tasks.label.link = Link
 
 manager.tasks.label.workPlan= WorkPlans
 manager.tasks.button.return=Return

@@ -52,6 +52,7 @@ manager.workplan.error.startDate.empty=La fecha de inicio no debe estar vacia
 manager.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
 manager.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
 manager.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto
+manager.workplan.error.isPublic=Un workplan publico no puede tener tareas privadas
 
 manager.tasks.error.startDate = La fecha de inicio debe ser posterior a la fecha de hoy
 manager.tasks.error.finishDate = La fecha de fin debe ser posterior a la fecha de hoy
