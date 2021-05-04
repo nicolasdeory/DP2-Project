@@ -42,14 +42,14 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
             catch(final Exception e){
-                errors.state(request, false,"startDateTime","authenticated.tasks.error.startDateTime.format");
+                errors.state(request, false,"startDateTime","manager.tasks.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute("finishDateTime")){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
             }catch(final Exception e){
-                errors.state(request, false,"finishDateTime","authenticated.tasks.error.finishDate.format");
+                errors.state(request, false,"finishDateTime","manager.tasks.error.finishDate.format");
             }
 
         }
@@ -91,10 +91,10 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request, false,"startDateTime", "authenticated.tasks.error.startDate");
+                errors.state(request, false,"startDateTime", "manager.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request, false,"finishDateTime", "authenticated.tasks.error.finishDate");
+                errors.state(request, false,"finishDateTime", "manager.tasks.error.finishDate");
             }
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
                 errors.state(request, false,"startDateTime","manager.tasks.error.startDate.after");
@@ -102,10 +102,10 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request, false,"startDateTime", "authenticated.tasks.error.startDate.empty");
+                errors.state(request, false,"startDateTime", "manager.tasks.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.state(request, false,"finishDateTime", "authenticated.tasks.error.finishDate.empty");
+                errors.state(request, false,"finishDateTime", "manager.tasks.error.finishDate.empty");
             }
             
 	}
