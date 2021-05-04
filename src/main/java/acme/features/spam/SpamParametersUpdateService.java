@@ -1,5 +1,5 @@
 /*
- * AuthenticatedProviderUpdateService.java
+ * SpamParameterService.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -12,19 +12,20 @@
 
 package acme.features.spam;
 
-import acme.entities.roles.Provider;
-import acme.features.authenticated.provider.AuthenticatedProviderRepository;
-import acme.framework.components.*;
-import acme.framework.entities.Administrator;
-import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
-import acme.framework.helpers.PrincipalHelper;
-import acme.framework.services.AbstractUpdateService;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
+import acme.framework.components.Model;
+import acme.framework.components.Request;
+import acme.framework.components.Response;
+import acme.framework.entities.Administrator;
+import acme.framework.helpers.PrincipalHelper;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
 public class SpamParametersUpdateService implements AbstractUpdateService<Administrator, SpamParameters> {
@@ -34,7 +35,6 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 	@Autowired
 	protected SpamParametersRepository repository;
 
-	// AbstractUpdateService<Authenticated, Provider> interface ---------------
 
 
 	@Override
@@ -84,7 +84,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		assert request != null;
 		assert entity != null;
 
-		Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
+		final Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
 		entity.setKeywords(set.stream().sorted().collect(Collectors.toList()));
 
 		this.repository.save(entity);
