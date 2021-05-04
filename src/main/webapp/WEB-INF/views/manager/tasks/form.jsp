@@ -27,6 +27,7 @@
 	
 	<acme:form-moment code="manager.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment code="manager.tasks.label.finish-date-time" path="finishDateTime"/>
+	<acme:form-textbox   code="manager.tasks.label.link" path="link"/>
 	
     
     <jstl:if test="${isFinished == 'true'}">

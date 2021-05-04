@@ -23,7 +23,7 @@ manager.workplan.button.delete=Delete
 manager.workplan.button.create=Create
 manager.workplan.button.return=Return
 manager.workplan.label.add=Add task to the workplan
-
+manager.workplan.label.FinishedWorkplanMessage = This workplan is finished. You can not update nor delete it.
 
 manager.workplan.error.startDate.task=Task start date must not be before workplan starter date
 manager.workplan.error.finishDate.task=Task finish date must not be after workplan finish date

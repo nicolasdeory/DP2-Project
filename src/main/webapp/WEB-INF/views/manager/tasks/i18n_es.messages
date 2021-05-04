@@ -14,7 +14,7 @@ manager.tasks.label.is-public = Tarea pública
 manager.tasks.label.start-date-time = Fecha de inicio
 manager.tasks.label.finish-date-time = Fecha de fin
 manager.tasks.label.add = Añadir
-
+manager.tasks.label.link = Enlace
 manager.tasks.label.FinishedTaskMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
 
 manager.tasks.label.workPlan= Plan de trabajo

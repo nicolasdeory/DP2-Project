@@ -92,7 +92,7 @@
     </table>
     </div>
     <jstl:if test="${isFinished == 'true'}">
-            <acme:message code="manager.tasks.label.FinishedWorkplanMessage"/>
+            <acme:message code="manager.workplan.label.FinishedWorkplanMessage"/>
     </jstl:if>
     <br>
     <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="manager.workplan.button.update"

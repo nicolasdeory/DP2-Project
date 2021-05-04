@@ -21,4 +21,5 @@
 	<acme:list-column code="authenticated.tasks.label.start-date-time" path="startDateTime" width="20%"/>
 	<acme:list-column code="authenticated.tasks.label.finish-date-time" path="finishDateTime" width="20%"/>
 	<acme:list-column code="authenticated.tasks.label.workload" path="workload" width="20%"/>
+	<acme:list-column code="authenticated.tasks.label.link" path="link" width="20%" sortable="false"/>
 </acme:list>

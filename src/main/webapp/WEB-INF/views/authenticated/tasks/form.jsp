@@ -23,4 +23,5 @@
 	<acme:form-textbox  code="authenticated.tasks.label.WorkloadHours" path="workload"/>
 	<acme:form-moment  code="authenticated.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment  code="authenticated.tasks.label.finish-date-time" path="finishDateTime"/>
+	<acme:form-textbox   code="authenticated.tasks.label.link" path="link"/>
 </acme:form>

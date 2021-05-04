@@ -54,6 +54,11 @@
 		</table>
 	</div>
 	<br>
+	
 
+    <jstl:if test="${isFinished == 'true'}">
+    	<acme:message code="anonymous.workplan.label.FinishedTaskMessage"/>
+    </jstl:if>
+    
   	<acme:form-return code="anonymous.workplan.button.return"/>
 </acme:form>

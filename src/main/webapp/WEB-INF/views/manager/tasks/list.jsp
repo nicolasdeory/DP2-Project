@@ -21,4 +21,5 @@
 	<acme:list-column code="manager.tasks.list.label.description" path="description" width="20%" sortable="false"/>
 	<acme:list-column code="manager.tasks.list.label.start-date-time" path="startDateTime" width="20%" sortable="false"/>
 	<acme:list-column code="manager.tasks.list.label.finish-date-time" path="finishDateTime" width="20%" sortable="false"/>
+	<acme:list-column code="manager.tasks.label.link" path="link" width="20%" sortable="false"/>
 </acme:list>

@@ -9,3 +9,4 @@ authenticated.tasks.label.is-public = Publica
 authenticated.tasks.label.start-date-time=Inicio
 authenticated.tasks.label.finish-date-time=Fin
 authenticated.tasks.label.workload=Carga de trabajo
+authenticated.tasks.label.link = Enlace

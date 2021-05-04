@@ -7,3 +7,4 @@ anonymous.tasks.label.is-public = Public
 anonymous.tasks.label.start-date-time=Start
 anonymous.tasks.label.finish-date-time=Finish
 anonymous.tasks.label.workload=Workload
+anonymous.tasks.label.link = Link
