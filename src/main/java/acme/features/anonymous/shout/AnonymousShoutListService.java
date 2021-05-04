@@ -62,11 +62,6 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		
 		result = this.repository.findMany(noOlderThanOneMonth);
 
-//		final List<Shout> resultList = result.stream().collect(Collectors.toList());
-//		
-//		Collections.sort(resultList, Comparator.comparing(Shout::getMoment).reversed());
-//		
-//		final Collection<Shout> finalResult = resultList;
 		
 		return result;
 	}

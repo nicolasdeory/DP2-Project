@@ -13,7 +13,7 @@ anonymous.shout.form.label.text = Texto:
 anonymous.shout.form.label.text = Información:
 anonymous.shout.form.button.create = Shout
 anonymous.shout.form.button.return = Volver
- 
+anonymous.shout.list.label.info = URL
 anonymous.shout.list.label.moment = Fecha
 anonymous.shout.list.label.author = Autor
 anonymous.shout.list.label.text = Texto
