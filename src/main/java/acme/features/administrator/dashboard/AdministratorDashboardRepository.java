@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.workPlan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -13,8 +14,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select t.workload from Task t")
 	List<Double> findAllTaskWorkload();
 	
-	@Query("select w.workload from WorkPlan w")
-	List<Double> findAllWorkPlanWorkload();
+	@Query("select w from WorkPlan w")
+	List<WorkPlan> findAllWorkPlans();
 	
 	@Query("select count(t) from Task t where t.isPublic=True")
 	Integer numberOfPublicTasks();

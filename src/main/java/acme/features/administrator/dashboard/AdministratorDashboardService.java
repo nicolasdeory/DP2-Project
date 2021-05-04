@@ -2,10 +2,13 @@ package acme.features.administrator.dashboard;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import acme.entities.workPlan.WorkPlan;
 
 @Service
 public class AdministratorDashboardService {
@@ -39,8 +42,9 @@ public class AdministratorDashboardService {
 	
 	@Transactional
 	public Double averageOfWorkPlanWorkload() {
-		List<Double> baseWorkloads = this.dashRepo.findAllWorkPlanWorkload();
-		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
+		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
+		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
+		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
 		Double average = formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
 		return AdministratorDashboardService.unformatWorkload(average); 
 		
@@ -48,8 +52,9 @@ public class AdministratorDashboardService {
 	
 	@Transactional
 	public Double deviationOfWorkPlanWorkload() {
-		List<Double> baseWorkloads = this.dashRepo.findAllWorkPlanWorkload();
-		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
+		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
+		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
+		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
 		Double deviation = AdministratorDashboardService.sd(formattedWorkloads);
 		return AdministratorDashboardService.unformatWorkload(deviation);
 	
