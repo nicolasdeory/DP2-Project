@@ -12,15 +12,15 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class ManagerTaskListService implements AbstractListService<Manager,Task>{
+public class ManagerTaskListService implements AbstractListService<Manager, Task> {
 
 	@Autowired
 	protected ManagerTaskRepository repository;
-	
+
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-		
+
 		return true;
 	}
 
@@ -29,11 +29,11 @@ public class ManagerTaskListService implements AbstractListService<Manager,Task>
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		request.unbind(entity, model, "title", "description", "isPublic"); 
-		model.setAttribute("workload", entity.getWorkloadHours()); 
-		
+		request.unbind(entity, model, "title", "description", "isPublic");
+		model.setAttribute("workload", entity.getWorkload());
+
 	}
 
 	@Override

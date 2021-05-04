@@ -7,3 +7,6 @@ authenticated.tasks.label.is-public = Public
 authenticated.tasks.label.start-date-time=Start
 authenticated.tasks.label.finish-date-time=Finish
 authenticated.tasks.label.workload=Workload
+
+authenticated.tasks.button.return=Return
+authenticated.tasks.finished = This task is finished.
