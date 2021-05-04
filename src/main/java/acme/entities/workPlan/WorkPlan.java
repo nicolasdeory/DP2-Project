@@ -51,8 +51,9 @@ public class WorkPlan extends DomainEntity {
 
     // Derived attributes -----------------------------------------------------
     public Double getWorkloadHours() {
-        return WorkLoadOperations.formatWorkload(
-                this.tasks.stream().collect(Collectors.summarizingDouble(x -> x.getWorkload())).getSum());
+        return WorkLoadOperations.formatWorkload(this.tasks.stream()
+                .collect(Collectors.summarizingDouble(x -> WorkLoadOperations.unformatWorkload(x.getWorkload())))
+                .getSum());
     }
 
     @Transient

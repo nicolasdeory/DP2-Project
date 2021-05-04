@@ -30,7 +30,7 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
         task = this.repository.findOneTaskById(taskId);
         userAccount = task.getUser();
         principal = request.getPrincipal();
-        if (task.getIsPublic() || userAccount.getId() == principal.getAccountId()) {
+        if (userAccount.getId() == principal.getAccountId()) {
             return true;
         } else {
             return false;
