@@ -1,5 +1,7 @@
 package acme.features.administrator.dashboard;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +10,12 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository{
 
+	@Query("select t.workload from Task")
+	List<Double> findAllTaskWorkload();
+	
+	@Query("select w.workload form Workplan")
+	List<Double> findAllWorkPlanWorkload();
+	
 	@Query("select count(t) from Task t where t.isPublic=True")
 	Integer numberOfPublicTasks();
 	
@@ -20,16 +28,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select count(t) from Task t where t.executionPeriod.finishDateTime > CURRENT_TIMESTAMP")
 	Integer numberOfNonFinishedTasks();
 	
-	@Query("select avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime))/60000 from Task t")
+	@Query("select (avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double averageOfTaskExecutionPeriods();
 	
-	@Query("select stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime))/60000 from Task t")
+	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double deviationOfTaskExecutionPeriods();
 	
-	@Query("select min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime))/60000 from Task t")
+	@Query("select (min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double minOfTaskExecutionPeriods();
 	
-	@Query("select max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime))/60000 from Task t")
+	@Query("select (max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double maxOfTaskExecutionPeriods();
 	
 	@Query("select (avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
@@ -59,16 +67,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select count(w) from WorkPlan w where w.executionPeriod.finishDateTime > CURRENT_TIMESTAMP")
 	Integer numberOfNonFinishedWorkPlans();
 	
-	@Query("select avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime))/60000 from WorkPlan w")
+	@Query("select (avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
 	Double averageOfWorkPlanExecutionPeriods();
 	
-	@Query("select stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime))/60000 from WorkPlan w")
+	@Query("select (stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
 	Double deviationOfWorkPlanExecutionPeriods();
 	
-	@Query("select min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime))/60000 from WorkPlan w")
+	@Query("select (min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
 	Double minOfWorkPlanExecutionPeriods();
 	
-	@Query("select max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime))/60000 from WorkPlan w")
+	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
 	Double maxOfWorkPlanExecutionPeriods();
 	
 	@Query("select (avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
@@ -83,6 +91,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Double maxOfWorkplanWorkloads();
 
+	/////////////////////////////////////////////////
 	
+	/////////////////////////////////////////////////
 	
 }

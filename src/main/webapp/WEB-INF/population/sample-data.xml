@@ -138,7 +138,7 @@
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
 				<property name="startDateTime" value="2022/1/11 15:59" />
-				<property name="finishDateTime" value="2022/1/11 16:01" />
+				<property name="finishDateTime" value="2022/1/11 17:01" />
 			</bean>
 		</property>
 		<property name="user" ref="JohnUserAccount">
@@ -165,7 +165,7 @@
 		<property name="executionPeriod">
 			<bean class="acme.datatypes.ExecutionPeriod">
 				<property name="startDateTime" value="2023/4/19 19:18" />
-				<property name="finishDateTime" value="2023/4/20 19:19" />
+				<property name="finishDateTime" value="2023/4/19 20:19" />
 			</bean>
 		</property>
 		<property name="user" ref="JohnUserAccount">
