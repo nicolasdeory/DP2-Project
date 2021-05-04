@@ -8,6 +8,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractShowService;
+import acme.utils.WorkLoadOperations;
 
 @Service
 public class AdministratorDashboardShowService implements AbstractShowService<Administrator, Dashboard> {
@@ -16,6 +17,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		@Autowired
 		protected AdministratorDashboardRepository repository;
+		
+		@Autowired
+		protected AdministratorDashboardService service;
 
 		// AbstractShowService<Administrator, Dashboard> interface ----------------
 	@Override
@@ -63,8 +67,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Integer numberOfFinishedWorkPlans;
 		Integer numberOfNonFinishedWorkPlans;
 		Integer numberOfWorkPlans;
-//		Integer numberOfPublishedWorkPlans;
-//		Integer numberOfNonPublishedWorkPlans;
 		
 		Double averageOfWorkPlanExecutionPeriods;
 		Double deviationOfWorkPlanExecutionPeriods;
@@ -83,33 +85,31 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		numberOfFinishedTasks = this.repository.numberOfFinishedTasks();
 		numberOfNonFinishedTasks = this.repository.numberOfNonFinishedTasks();
 		
-		averageOfTaskExecutionPeriods = this.repository.averageOfTaskExecutionPeriods();
-		deviationOfTaskExecutionPeriods = this.repository.deviationOfTaskExecutionPeriods();
-		minOfTaskExecutionPeriods = this.repository.minOfTaskExecutionPeriods();
-		maxOfTaskExecutionPeriods = this.repository.maxOfTaskExecutionPeriods();
+		averageOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).average().getAsDouble());
+		deviationOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfTaskExecutionPeriods());
+		minOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfTaskExecutionPeriods());
+		maxOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfTaskExecutionPeriods());
 		
-		averageOfTaskWorkloads = this.repository.averageOfTaskWorkloads();
-		deviationOfTaskWorkloads = this.repository.deviationOfTaskWorkloads();
-		minOfTaskWorkloads = this.repository.minOfTaskWorkloads();
-		maxOfTaskWorkloads = this.repository.maxOfTaskWorkloads();
+		averageOfTaskWorkloads = this.service.averageOfTaskWorkload();
+		deviationOfTaskWorkloads = this.service.deviationOfTaskWorkload();
+		minOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().getAsDouble();
+		maxOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().getAsDouble();
 		
 		numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
 		numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
 		numberOfFinishedWorkPlans = this.repository.numberOfFinishedWorkPlans();
 		numberOfNonFinishedWorkPlans = this.repository.numberOfNonFinishedWorkPlans();
 		numberOfWorkPlans = this.repository.numberOfWorkPlans();
-//		numberOfPublishedWorkPlans = this.repository.numberOfPublishedWorkPlans();
-//		numberOfNonPublishedWorkPlans = this.repository.numberOfNonPublishedWorkPlans();
 		
-		averageOfWorkPlanExecutionPeriods = this.repository.averageOfWorkPlanExecutionPeriods();
-		deviationOfWorkPlanExecutionPeriods = this.repository.deviationOfWorkPlanExecutionPeriods();
-		minOfWorkPlanExecutionPeriods = this.repository.minOfWorkPlanExecutionPeriods();
-		maxOfWorkPlanExecutionPeriods = this.repository.maxOfWorkPlanExecutionPeriods();
+		averageOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.averageOfWorkPlanExecutionPeriods());
+		deviationOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfWorkPlanExecutionPeriods());
+		minOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfWorkPlanExecutionPeriods());
+		maxOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfWorkPlanExecutionPeriods());
 		
-		averageOfWorkplanWorkloads = this.repository.averageOfWorkplanWorkloads();
-		deviationOfWorkplanWorkloads = this.repository.deviationOfWorkplanWorkloads();
-		minOfWorkplanWorkloads = this.repository.minOfWorkplanWorkloads();
-		maxOfWorkplanWorkloads = this.repository.maxOfWorkplanWorkloads();
+		averageOfWorkplanWorkloads = this.service.averageOfWorkPlanWorkload();
+		deviationOfWorkplanWorkloads = this.service.deviationOfWorkPlanWorkload();
+		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().getAsDouble();
+		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().getAsDouble();
 
 		
 		result = new Dashboard();
@@ -133,8 +133,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setNumberOfFinishedWorkPlans(numberOfFinishedWorkPlans);
 		result.setNumberOfNonFinishedWorkPlans(numberOfNonFinishedWorkPlans);
 		result.setNumberOfWorkPlans(numberOfWorkPlans);
-//		result.setNumberOfPublishedWorkPlans(numberOfPublishedWorkPlans);
-//		result.setNumberOfNonPublishedWorkPlans(numberOfNonPublishedWorkPlans);
 		
 		result.setAverageOfWorkPlanExecutionPeriods(averageOfWorkPlanExecutionPeriods);
 		result.setDeviationOfWorkPlanExecutionPeriods(deviationOfWorkPlanExecutionPeriods);
@@ -148,5 +146,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return result;
 	}
+//	private Double getTimeFormat(final Double d) {
+//        final Integer hours = (int)Math.floor(d);
+//        final Integer minutes = (int)Math.floor(d * 60) % 60;
+//        final String finalString = hours + "." + minutes; 
+//        return Double.parseDouble(finalString);
+//    }
 
 }

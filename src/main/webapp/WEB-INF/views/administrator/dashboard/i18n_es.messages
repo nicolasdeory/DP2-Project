@@ -17,10 +17,10 @@ administrator.dashboard.form.label.numberOfPrivateTasks =  Número de tareas pri
 administrator.dashboard.form.label.numberOfFinishedTasks = Número de tareas finalizadas
 administrator.dashboard.form.label.numberOfNonFinishedTasks = Número de tareas no finalizadas
 
-administrator.dashboard.form.label.averageOfTaskExecutionPeriods = Media del período de ejecución de tareas (mnts)
-administrator.dashboard.form.label.deviationOfTaskExecutionPeriods = Desviación del período de ejecución de tareas (mnts)
-administrator.dashboard.form.label.minOfTaskExecutionPeriods = Mínimo del período de ejecución de tareas (mnts)
-administrator.dashboard.form.label.maxOfTaskExecutionPeriods = Máximo del período de ejecución de tareas (mnts)
+administrator.dashboard.form.label.averageOfTaskExecutionPeriods = Media del período de ejecución de tareas (h)
+administrator.dashboard.form.label.deviationOfTaskExecutionPeriods = Desviación del período de ejecución de tareas (h)
+administrator.dashboard.form.label.minOfTaskExecutionPeriods = Mínimo del período de ejecución de tareas (h)
+administrator.dashboard.form.label.maxOfTaskExecutionPeriods = Máximo del período de ejecución de tareas (h)
 
 administrator.dashboard.form.label.averageOfTaskWorkloads = Media de carga de trabajo de tareas (h)
 administrator.dashboard.form.label.deviationOfTaskWorkloads = Desviación de carga de trabajo de tareas (h)
@@ -35,10 +35,10 @@ administrator.dashboard.form.label.numberOfNonFinishedWorkPlans = Número de pla
 administrator.dashboard.form.label.numberOfPublishedWorkPlans = Número de planes de trabajo publicados
 administrator.dashboard.form.label.numberOfNonPublishedWorkPlans = Número de planes de trabajo no publicados
 
-administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods = Media del período de planes de trabajo (mnts)
-administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods = Desviación del período de planes de trabajo (mnts)
-administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods = Mínimo del período de ejecución planes de trabajo (mnts)
-administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods = Máximo del período de ejecución planes de trabajo (mnts)
+administrator.dashboard.form.label.averageOfWorkPlanExecutionPeriods = Media del período de planes de trabajo (h)
+administrator.dashboard.form.label.deviationOfWorkPlanExecutionPeriods = Desviación del período de planes de trabajo (h)
+administrator.dashboard.form.label.minOfWorkPlanExecutionPeriods = Mínimo del período de ejecución planes de trabajo (h)
+administrator.dashboard.form.label.maxOfWorkPlanExecutionPeriods = Máximo del período de ejecución planes de trabajo (h)
 
 administrator.dashboard.form.label.averageOfWorkplanWorkloads = Media de carga de trabajo de planes de trabajo (h)
 administrator.dashboard.form.label.deviationOfWorkplanWorkloads = Desviación de carga de trabajo de planes de trabajo (h)
