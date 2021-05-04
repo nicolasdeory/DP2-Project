@@ -10,3 +10,5 @@ authenticated.tasks.label.start-date-time=Inicio
 authenticated.tasks.label.finish-date-time=Fin
 authenticated.tasks.label.workload=Carga de trabajo
 authenticated.tasks.label.link = Enlace
+authenticated.tasks.button.return=Atrás
+authenticated.tasks.finished = Esta tarea esta terminada.

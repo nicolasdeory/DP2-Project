@@ -33,7 +33,7 @@ public class AuthenticatedListPublicFinishedTasksService implements AbstractList
         assert entity != null;
         assert model != null;
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-        model.setAttribute("workload", entity.getWorkloadHours());
+        model.setAttribute("workload", entity.getWorkload());
         request.unbind(entity, model, "title", "description", "isPublic", "link");
     }
 

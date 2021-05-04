@@ -19,6 +19,7 @@ import acme.datatypes.ExecutionPeriod;
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
+import acme.utils.WorkLoadOperations;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,16 +31,16 @@ public class WorkPlan extends DomainEntity {
 
     protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotBlank
-	@NotSpamConstraint
-	@Length(min = 5, max = 80)
-	protected String			title;
+    // Attributes -------------------------------------------------------------
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 5, max = 80)
+    protected String title;
 
-	@NotBlank
-	@NotSpamConstraint
-	@Length(min = 1, max = 500)
-	protected String			description;
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 1, max = 500)
+    protected String description;
 
     @NotNull
     protected Boolean isPublic;
@@ -50,7 +51,8 @@ public class WorkPlan extends DomainEntity {
 
     // Derived attributes -----------------------------------------------------
     public Double getWorkloadHours() {
-        return this.tasks.stream().collect(Collectors.summarizingDouble(x -> x.getWorkloadHours())).getSum();
+        return WorkLoadOperations.formatWorkload(
+                this.tasks.stream().collect(Collectors.summarizingDouble(x -> x.getWorkload())).getSum());
     }
 
     @Transient
@@ -58,9 +60,9 @@ public class WorkPlan extends DomainEntity {
 
     public Boolean isFinished() {
         final Date now = new Date();
-        if(this.executionPeriod.getFinishDateTime()!=null){
+        if (this.executionPeriod.getFinishDateTime() != null) {
             return now.after(this.executionPeriod.getFinishDateTime());
-        }else{
+        } else {
             return null;
         }
 

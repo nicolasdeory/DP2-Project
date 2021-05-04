@@ -8,3 +8,5 @@ anonymous.tasks.label.start-date-time=Start
 anonymous.tasks.label.finish-date-time=Finish
 anonymous.tasks.label.workload=Workload
 anonymous.tasks.label.link = Link
+anonymous.tasks.button.return=Return
+authenticated.tasks.finished = This task is finished.

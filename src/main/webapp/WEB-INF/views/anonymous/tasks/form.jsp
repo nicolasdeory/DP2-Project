@@ -20,8 +20,12 @@
 	<acme:form-textbox  code="anonymous.tasks.label.title" path="title"/>
 	<acme:form-textbox code="anonymous.tasks.label.description" path="description"/>
 	<acme:form-checkbox code="anonymous.tasks.label.is-public" path="isPublic"/>
-	<acme:form-textbox   code="anonymous.tasks.label.WorkloadHours" path="workload"/>
+	<acme:form-textbox   code="anonymous.tasks.label.workload" path="workload"/>
 	<acme:form-moment   code="anonymous.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment  code="anonymous.tasks.label.finish-date-time" path="finishDateTime"/>
 	<acme:form-textbox   code="anonymous.tasks.label.link" path="link"/>
+	<acme:form-return code="anonymous.tasks.button.return"/>
 </acme:form>
+
+<jstl:if test="${isFinished == 'true'}"><acme:message code="anonymous.tasks.finished"/> </jstl:if>
+

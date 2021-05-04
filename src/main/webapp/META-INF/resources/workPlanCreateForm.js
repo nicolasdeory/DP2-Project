@@ -8,6 +8,10 @@ $(document).ready(() => {
         let minDate = new Date();
         let maxDate = new Date();
         
+        let dateMinusDay = new Date();
+        let datePlusDay = new Date();
+        
+        
         let liststart = [];
         let listfinish = [];
 
@@ -31,23 +35,31 @@ $(document).ready(() => {
 		let finishDateStringSugg;
 		if (lang == "en-US")
 		{
+		
+			minDate.setDate(minDate.getDate()-1);
+			maxDate.setDate(maxDate.getDate()+1);
+			
 			startDateStringSugg = minDate.getFullYear() + "/" + 
-							(minDate.getMonth() + 1) + "/" + minDate.getDate() + " " + 
-							("0" + minDate.getHours()).slice(-2) + ":" + ("0" + minDate.getMinutes()).slice(-2);
+							(minDate.getMonth() + 1) + "/" + minDate.getDate() + " " +
+				("08:00");
 							
 			finishDateStringSugg = maxDate.getFullYear() + "/" + 
 			(maxDate.getMonth() + 1) + "/" + maxDate.getDate() + " " +
-			("0" + maxDate.getHours()).slice(-2) + ":" + ("0" + maxDate.getMinutes()).slice(-2);
+				("17:00");
 
 		} else 
 		{
-			startDateStringSugg = minDate.getDate() + "/" +
+		
+			minDate.setDate(minDate.getDate()-1);
+			maxDate.setDate(maxDate.getDate()+1);
+			
+			startDateStringSugg = (minDate.getDate()) + "/" +
 				(minDate.getMonth() + 1) + "/" + minDate.getFullYear() + " " +
-				("0" + minDate.getHours()).slice(-2) + ":" + ("0" + minDate.getMinutes()).slice(-2);
+				("08:00");
 
 			finishDateStringSugg = maxDate.getDate() + "/" +
 				(maxDate.getMonth() + 1) + "/" + maxDate.getFullYear() + " " +
-				("0" + maxDate.getHours()).slice(-2) + ":" + ("0" + maxDate.getMinutes()).slice(-2);
+				("17:00");
 		}
 		
         $("#startDateTime").val(startDateStringSugg);

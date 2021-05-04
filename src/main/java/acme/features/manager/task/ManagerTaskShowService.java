@@ -12,11 +12,11 @@ import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class ManagerTaskShowService implements AbstractShowService<Manager, Task>{
+public class ManagerTaskShowService implements AbstractShowService<Manager, Task> {
 
 	@Autowired
 	protected ManagerTaskRepository repository;
-	
+
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
@@ -42,13 +42,12 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		//revisar
-		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
-		request.unbind(entity, model, "title","isPublic", "description", "link");
-		model.setAttribute("workload", entity.getWorkloadHours()); 
+
+		// revisar
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title", "isPublic", "description", "link");
+		model.setAttribute("workload", entity.getWorkload());
 		model.setAttribute("isFinished", entity.isFinished());
-		
 	}
 
 	@Override
@@ -57,10 +56,10 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 
 		Task task;
 		int id;
-		
+
 		id = request.getModel().getInteger("id");
 		task = this.repository.findOneTaskById(id);
-		
+
 		return task;
 	}
 

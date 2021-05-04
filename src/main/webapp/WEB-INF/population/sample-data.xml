@@ -80,6 +80,7 @@
     <!-- Tasks -->
     <bean name="task1" class="acme.entities.tasks.Task">
         <property name="title" value="Mantenimiento"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="Mantener el sistema..."/>
         <property name="isPublic" value="true"/>
         <property name="link" value="https://www.youtube.com/"/>
@@ -100,6 +101,7 @@
 
     <bean name="task2" class="acme.entities.tasks.Task">
         <property name="title" value="Documentacion"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="Escribir la documentacion"/>
         <property name="isPublic" value="true"/>
                 <property name="link" value="https://www.twitter.com/"/>
@@ -119,22 +121,24 @@
     </bean>
 
     <bean name="task3" class="acme.entities.tasks.Task">
-        <property name="title" value="Task"/>
-        <property name="description" value="The best task"/>
-        <property name="isPublic" value="true"/>
+		<property name="title" value="Task" />
+        <property name="workload" value="1.30"/>
+		<property name="description" value="The best starter" />
+		<property name="isPublic" value="true" />
                 <property name="link" value="https://www.twitch.tv/"/>
-        <property name="executionPeriod">
-            <bean class="acme.datatypes.ExecutionPeriod">
-                <property name="startDateTime" value="2021/07/10 23:59"/>
-                <property name="finishDateTime" value="2021/08/18 23:59"/>
-            </bean>
-        </property>
-        <property name="user" ref="juanUserAccount">
-        </property>
-    </bean>
+		<property name="executionPeriod">
+			<bean class="acme.datatypes.ExecutionPeriod">
+				<property name="startDateTime" value="2022/1/11 15:59" />
+				<property name="finishDateTime" value="2023/2/5 10:59" />
+			</bean>
+		</property>
+		<property name="user" ref="juanUserAccount">
+		</property>
+	</bean>
 
     <bean name="task4" class="acme.entities.tasks.Task">
         <property name="title" value="FrontEnd"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="The best frontend"/>
         <property name="isPublic" value="false"/>
         <property name="link" value="https://www.ignacionavarro.eu/"/>
@@ -149,6 +153,7 @@
 
     <bean name="task5" class="acme.entities.tasks.Task">
         <property name="title" value="BackEnd"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="The best backend"/>
         <property name="isPublic" value="false"/>
         <property name="link" value="https://www.xlstudios.eu/"/>
@@ -163,6 +168,7 @@
 
     <bean name="task6" class="acme.entities.tasks.Task">
         <property name="title" value="Testing"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="On your tasking"/>
         <property name="isPublic" value="true"/>
         <property name="executionPeriod">
@@ -177,6 +183,7 @@
 
     <bean name="task7" class="acme.entities.tasks.Task">
         <property name="title" value="Testing task"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
         <property name="link" value="http://example.org"/>
@@ -191,7 +198,8 @@
 
     <bean name="task8" class="acme.entities.tasks.Task">
         <property name="title" value="Testing as never before"/>
-        <property name="description" value="Never before was this easy to test your tasks"/>
+        <property name="workload" value="1.30"/>
+        <property name="description" value="on your references"/>
         <property name="isPublic" value="true"/>
                 <property name="link" value="http://example.org"/>
         <property name="executionPeriod">
@@ -204,6 +212,7 @@
     </bean>
     <bean name="task9" class="acme.entities.tasks.Task">
         <property name="title" value="Testing 2341234"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
         <property name="link" value="http://example.org"/>
@@ -218,6 +227,7 @@
 
     <bean name="task10" class="acme.entities.tasks.Task">
         <property name="title" value="Lola Task"/>
+        <property name="workload" value="1.30"/>
         <property name="description" value="Never before was this easy to test your tasks"/>
         <property name="isPublic" value="true"/>
         <property name="link" value="http://example.org"/>
