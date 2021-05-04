@@ -40,12 +40,10 @@ public class ExecutionPeriod extends DomainDatatype implements Comparable<Execut
 	// Attributes -------------------------------------------------------------
 
 	@Valid
-	@Future
 	@NotNull
 	protected Date startDateTime;
 
 	@Valid
-	@Future
 	@NotNull
 	protected Date finishDateTime;
 

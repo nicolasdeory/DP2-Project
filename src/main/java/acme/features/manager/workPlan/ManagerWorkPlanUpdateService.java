@@ -86,7 +86,17 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        Boolean ispublic=entity.getIsPublic();
+        if(entity.getIsPublic()==null){
+            ispublic=false;
+        }
+        final List<Task> userTask;
+        if(ispublic==true){
+            userTask = this.repository.findTasksByUserIdIsPublic(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        }else{
+            userTask = this.repository.findTasksByUserId(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        }
+
         userTask.removeAll(entity.getTasks());
         model.setAttribute("userTask", userTask);
     }
@@ -135,16 +145,23 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
         List<String> newTask = new ArrayList<>();
         newTask=entity.getNewTasksId();
         if(newTask!=null&&!errors.hasErrors()){
+            Boolean startDateError=true;
+            Boolean finishDateError=true;
+            Boolean isPublicError=true;
             for (final String taskId : newTask) {
                 final Integer id = Integer.valueOf(taskId);
                 final Task t = this.repository.findOneTaskById(id);
-                if (entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
+                if (startDateError&&entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
                     errors.state(request,false,"startDateTime", "manager.workplan.error.startDate.task");
-                    break;
+                    startDateError=false;
                 }
-                if (entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
+                if (finishDateError&&entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
                     errors.state(request,false,"finishDateTime", "manager.workplan.error.finishDate.task");
-                    break;
+                    finishDateError=false;
+                }
+                if(isPublicError&&!((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
+                    errors.state(request,false,"isPublic", "manager.workplan.error.isPublic");
+                    isPublicError=false;
                 }
             }
 

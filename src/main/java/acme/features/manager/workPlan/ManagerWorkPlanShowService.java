@@ -34,7 +34,7 @@ public class ManagerWorkPlanShowService implements AbstractShowService<Manager, 
         workPlan = this.repository.findOneWorkPlanById(workplanId);
         userAccount = workPlan.getUser();
         principal = request.getPrincipal();
-        if (workPlan.getIsPublic() || userAccount.getId() == principal.getAccountId()) {
+        if (userAccount.getId() == principal.getAccountId()) {
             return true;
         } else {
             return false;
@@ -51,7 +51,16 @@ public class ManagerWorkPlanShowService implements AbstractShowService<Manager, 
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        final List<Task> userTask = this.repository.findTasksByUserIdAndNotInWorkplan(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        Boolean ispublic=entity.getIsPublic();
+        if(entity.getIsPublic()==null){
+            ispublic=true;
+        }
+        final List<Task> userTask;
+        if(ispublic==true){
+            userTask = this.repository.findTasksByUserIdIsPublic(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        }else{
+            userTask = this.repository.findTasksByUserId(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
+        }
         userTask.removeAll(entity.getTasks());
         model.setAttribute("userTask", userTask);
 
