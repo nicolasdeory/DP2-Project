@@ -63,8 +63,8 @@ manager.tasks.error.finishDate.empty = Finish date can not be empty
 manager.tasks.error.finishDate.before = Finish date can not be before start date
 manager.tasks.error.startDate.after = Start date can not be after finish date
 
-manager.tasks.error.startDate = Start date error
-manager.tasks.error.finishDate = Finish date error
+manager.tasks.error.startDate = Start date must not be before now
+manager.tasks.error.finishDate = Finish date must not be before now
 
 acme.features.spam.isSpam = This text has been detected to contain spam. Try rephrasing it
 

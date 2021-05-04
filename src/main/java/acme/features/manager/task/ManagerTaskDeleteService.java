@@ -5,9 +5,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
+import acme.entities.workPlan.WorkPlan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
@@ -20,7 +23,20 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
-		return true;
+		int taskId;
+        final Task task;
+        UserAccount userAccount;
+        Principal principal;
+
+        taskId = request.getModel().getInteger("id");
+        task = this.repository.findOneTaskById(taskId);
+        userAccount = task.getUser();
+        principal = request.getPrincipal();
+        if (userAccount.getId() == principal.getAccountId()) {
+            return true;
+        } else {
+            return false;
+        }
 	}
 
 	@Override
@@ -67,12 +83,18 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	}
 
 	@Override
-	public void delete(final Request<Task> request, final Task entity) {
-		assert request != null;
-		assert entity != null;
-		
-		
-		this.repository.delete(entity);
-	}
+    public void delete(final Request<Task> request, final Task entity) {
+        assert request != null;
+        assert entity != null;
+
+
+        for (final WorkPlan workPlan : entity.getWorkPlans()) {
+            workPlan.getTasks().remove(entity);
+            this.repository.save(workPlan);
+        }
+        entity.getWorkPlans().clear();
+
+        this.repository.delete(entity);
+    }
 
 }
