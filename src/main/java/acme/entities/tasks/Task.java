@@ -66,10 +66,6 @@ public class Task extends DomainEntity {
     protected String link;
 
     // Derived attributes -----------------------------------------------------
-    @Transient
-    public Double getMaxWorkloadHours() {
-        return WorkLoadOperations.formatWorkload(this.executionPeriod.getWorkloadHours());
-    }
 
     @Transient
     public Boolean isFinished() {

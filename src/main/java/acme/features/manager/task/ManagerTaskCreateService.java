@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.utils.WorkLoadOperations;
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
@@ -13,6 +14,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractCreateService;
+
 
 @Service
 public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task>{
@@ -66,7 +68,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		//revisar
 		
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
-		request.unbind(entity, model, "title","isPublic", "description", "link");
+		request.unbind(entity, model, "title","isPublic", "description", "link","workload");
 		
 	}
 
@@ -109,6 +111,19 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
             }
             
 	}
+
+        if(entity.getWorkload()!=null){
+			Boolean isValid=WorkLoadOperations.isFormatedWorkload(entity.getWorkload());
+			if(isValid&&!errors.hasErrors("startDateTime")&&!errors.hasErrors("finishDateTime")){
+				Double maxWorkload=WorkLoadOperations.formatWorkload(entity.getExecutionPeriod().getWorkloadHours());
+				if(entity.getWorkload()>maxWorkload){
+					errors.state(request, false,"workload", "manager.workload.error.workloadMax");
+				}
+			}
+			if(!isValid){
+				errors.state(request, false,"workload", "manager.workload.error.format");
+			}
+		}
         
         
 	}
