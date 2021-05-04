@@ -54,6 +54,7 @@ manager.workplan.error.startDate.format=El formato de la fecha de inicio es inco
 manager.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto
 manager.workplan.error.isPublic=Un workplan publico no puede tener tareas privadas
 
+
 manager.tasks.error.startDate = La fecha de inicio debe ser posterior a la fecha de hoy
 manager.tasks.error.finishDate = La fecha de fin debe ser posterior a la fecha de hoy
 
@@ -64,5 +65,7 @@ manager.tasks.error.startDate.empty = La fecha de inicio no puede estar vacía
 manager.tasks.error.finishDate.empty = La fecha de fin no puede estar vacía
 manager.tasks.error.finishDate.before = La fecha de fin no puede ser antes que la de inicio
 manager.tasks.error.startDate.after = La fecha de inicio no puede ser después de la de fin
+
+acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reescribirlo
 
 manager.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
