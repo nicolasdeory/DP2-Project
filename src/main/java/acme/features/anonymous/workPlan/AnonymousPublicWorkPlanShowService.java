@@ -18,7 +18,14 @@ public class AnonymousPublicWorkPlanShowService implements AbstractShowService<A
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-		return true;
+		Integer id=request.getModel().getInteger("id");
+		WorkPlan workPlan=repository.findOneById(id);
+		if(workPlan.getIsPublic()==true&&workPlan.isFinished()==false){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	@Override

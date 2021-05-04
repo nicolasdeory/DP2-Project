@@ -42,8 +42,8 @@ acme.validation.length = La longitud debe ser entre {0} y {1}
 acme.validation.range = Debe estar entre {0} y {1}
 acme.validation.script = El script "{0}" debe devolver true
 
-manager.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
-manager.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo
+manager.workplan.error.startDate.task=La fecha de inicio del plan de trabajo  no debe estar antes de la fecha de incio de las tareas
+manager.workplan.error.finishDate.task=La fecha de fin del plan de trabajo no debe estar despues de la fecha de fin de las tareas
 manager.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
 manager.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
 manager.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin
@@ -63,3 +63,5 @@ manager.tasks.error.startDate.empty = La fecha de inicio no puede estar vacía
 manager.tasks.error.finishDate.empty = La fecha de fin no puede estar vacía
 manager.tasks.error.finishDate.before = La fecha de fin no puede ser antes que la de inicio
 manager.tasks.error.startDate.after = La fecha de inicio no puede ser después de la de fin
+
+manager.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.

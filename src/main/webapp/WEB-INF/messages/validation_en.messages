@@ -42,8 +42,8 @@ acme.validation.length = Length must be between {0} and {1}
 acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
 
-manager.workplan.error.startDate.task=Task start date must not be before workplan starter date
-manager.workplan.error.finishDate.task=Task finish date must not be after workplan finish date
+manager.workplan.error.startDate.task=Workplan starter date must not be before task start date
+manager.workplan.error.finishDate.task=Workplan starter date must not be after task finish date
 manager.workplan.error.startDate=Start date must not be before now
 manager.workplan.error.finishDate=Finish date must not be before now
 manager.workplan.error.startDate.after=Starter date must not be after finish date
@@ -52,6 +52,7 @@ manager.workplan.error.startDate.empty=Start date cant be empty
 manager.workplan.error.finishDate.empty=Finish date cant be empty
 manager.workplan.error.startDate.format=Start Date format is wrong
 manager.workplan.error.finishDate.format=Finish Date format is wrong
+manager.workplan.error.isPublic=A public workplan must not contains public tasks
 
 
 manager.tasks.error.finishDate.format = Please, check finish date format and try again
@@ -66,3 +67,5 @@ manager.tasks.error.startDate = Start date error
 manager.tasks.error.finishDate = Finish date error
 
 acme.features.spam.isSpam = This text has been detected to contain spam. Try rephrasing it
+
+manager.tasks.label.FinishedWorkplanMessage = This task is finished. You can not update nor delete it.
