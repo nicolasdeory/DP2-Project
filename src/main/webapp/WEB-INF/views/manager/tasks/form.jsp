@@ -20,10 +20,8 @@
 	<acme:form-textbox code="manager.tasks.label.title" path="title"/>
 	<acme:form-textbox code="manager.tasks.label.description" path="description"/>
 	<acme:form-checkbox code="manager.tasks.label.is-public" path="isPublic"/>
-	
-	<jstl:if test="${command != 'create'}">
-		<acme:form-textbox code="manager.tasks.label.WorkloadHours" path="workload" readonly ="true"/>
-	</jstl:if>
+
+	<acme:form-textbox code="manager.tasks.label.WorkloadHours" path="workload"/>
 	
 	<acme:form-moment code="manager.tasks.label.start-date-time" path="startDateTime" />
 	<acme:form-moment code="manager.tasks.label.finish-date-time" path="finishDateTime"/>

@@ -9,3 +9,7 @@
 # they accept any liabilities with respect to them.
 
 This is Acme Planner, our first project in D&T
+
+### CleverCloud Credentials
+deorynicolas@gmail.com
+pruebadp
