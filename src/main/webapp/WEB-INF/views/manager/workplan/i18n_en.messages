@@ -1,0 +1,38 @@
+# i18n_en.messages
+#
+# Copyright (c) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+
+master.menu.manager.list-Workplans= My Workplans List
+ 
+manager.workplan.label.title = Title
+manager.workplan.label.description = Description
+manager.workplan.label.isPublic = Public Workplan
+manager.workplan.label.start-date-time=Starter date
+manager.workplan.label.finish-date-time=Finish date
+manager.workplan.label.WorkloadHours=Workload (h)
+manager.workplan.label.task=Tasks
+manager.workplan.button.update=Update
+manager.workplan.button.delete=Delete
+manager.workplan.button.create=Create
+manager.workplan.button.return=Return
+manager.workplan.label.add=Add task to the workplan
+manager.workplan.label.FinishedWorkplanMessage = This workplan is finished. You can not update nor delete it.
+
+manager.workplan.error.startDate.task=Task start date must not be before workplan starter date
+manager.workplan.error.finishDate.task=Task finish date must not be after workplan finish date
+manager.workplan.error.startDate=Start date must not be before now
+manager.workplan.error.finishDate=Finish date must not be before now
+manager.workplan.error.startDate.after=Starter date must not be after finish date
+manager.workplan.error.finishDate.before=Finish date must not be before starter date
+manager.workplan.error.startDate.empty=Start date cant be empty
+manager.workplan.error.finishDate.empty=Finish date cant be empty
+manager.workplan.error.startDate.format=Start Date format is wrong
+manager.workplan.error.finishDate.format=Finish Date format is wrong
+manager.workplan.label.task.isPublic = Public

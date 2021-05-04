@@ -2,6 +2,7 @@
 package acme.features.anonymous.workPlan;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,9 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "title", "description", "isPublic", "executionPeriod");
+		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+		request.unbind(entity, model, "title");
+		model.setAttribute("workload", entity.getWorkloadHours());
 
 	}
 

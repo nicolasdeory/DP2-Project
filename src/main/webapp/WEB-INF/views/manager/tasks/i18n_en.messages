@@ -1,0 +1,38 @@
+manager.taks.ownList = My Tasks
+
+manager.tasks.list.label.title = Title
+manager.tasks.list.label.description = Description
+manager.tasks.list.label.is-public = Public
+manager.tasks.list.label.start-date-time=Start
+manager.tasks.list.label.finish-date-time=Finish
+manager.tasks.list.label.workload=Workload
+
+manager.tasks.label.title = Title
+manager.tasks.label.description = Description
+manager.tasks.label.WorkloadHours = Workload (h)
+manager.tasks.label.is-public = Public Task
+manager.tasks.label.start-date-time = Start date
+manager.tasks.label.finish-date-time = End date
+manager.tasks.label.add = Add
+manager.tasks.label.FinishedTaskMessage = This task is finished. You can not update nor delete it.
+manager.tasks.label.link = Link
+
+manager.tasks.label.workPlan= WorkPlans
+manager.tasks.button.return=Return
+manager.tasks.button.update = Update
+manager.tasks.button.delete = Delete
+manager.tasks.button.create = Create
+
+manager.tasks.label.is-public.false = No
+manager.tasks.label.is-public.true = Yes
+
+manager.tasks.error.startDate = Start date error
+manager.tasks.error.finishDate = Finish date error
+
+manager.tasks.error.finishDate.format = Please, check finish date format and try again
+manager.tasks.error.startDateTime.format = Please, check start date format and try again
+
+manager.tasks.error.startDate.empty = Start date can not be empty
+manager.tasks.error.finishDate.empty = Finish date can not be empty
+
+

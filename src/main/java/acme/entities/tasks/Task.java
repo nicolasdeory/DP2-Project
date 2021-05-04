@@ -5,21 +5,21 @@ import java.beans.Transient;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import acme.features.spam.NotSpamConstraint;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
+import acme.utils.WorkLoadOperations;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,52 +28,61 @@ import lombok.Setter;
 @Setter
 public class Task extends DomainEntity {
 
-	// Serialisation identifier -----------------------------------------------
+    // Serialisation identifier -----------------------------------------------
 
-	protected static final long serialVersionUID = 1L;
+    protected static final long serialVersionUID = 1L;
 
-	// Attributes -------------------------------------------------------------
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@Size(min = 1, max = 80)
-	protected String title;
+    // Attributes -------------------------------------------------------------
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 1, max = 80)
+    protected String title;
 
-	@NotNull
-	protected Boolean isPublic;
+    @NotNull
+    protected Boolean isPublic;
 
-	@NotNull
-	@Valid
-	protected ExecutionPeriod executionPeriod;
+    /*
+     * Workload Format: X.YYY where: X is the number of hours YYY is the number of
+     * minutes
+     */
+    @NotNull
+    protected Double workload;
 
-	@NotNull
-	@NotEmpty
-	@NotBlank
-	@Size(min = 1, max = 500)
-	protected String description;
+    @NotNull
+    @Valid
+    protected ExecutionPeriod executionPeriod;
 
-	@URL
-	protected String link;
+    @NotNull
+    @NotEmpty
+    @NotBlank
+    @NotSpamConstraint
+    @Length(min = 1, max = 500)
+    protected String description;
 
-	// Derived attributes -----------------------------------------------------
-	@Transient
-	public Double getWorkloadHours() {
-		return this.executionPeriod.getWorkloadHours();
-	}
+    @URL
+    @NotSpamConstraint
+    protected String link;
 
-	@Transient
-	public Boolean isFinished() {
-		final Date now = new Date();
-		return now.after(this.executionPeriod.getFinishDateTime());
-	}
+    // Derived attributes -----------------------------------------------------
+    @Transient
+    public Double getMaxWorkloadHours() {
+        return WorkLoadOperations.formatWorkload(this.executionPeriod.getWorkloadHours());
+    }
 
-	// Relationships ----------------------------------------------------------
-	@Valid
-	@ManyToOne
-	protected UserAccount user;
+    @Transient
+    public Boolean isFinished() {
+        final Date now = new Date();
+        return now.after(this.executionPeriod.getFinishDateTime());
+    }
 
-	@Valid
-	@ManyToMany
-	protected List<WorkPlan> workPlans;
-	
+    // Relationships ----------------------------------------------------------
+    @Valid
+    @ManyToOne
+    protected UserAccount user;
+
+    @Valid
+    @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    protected List<WorkPlan> workPlans;
 }

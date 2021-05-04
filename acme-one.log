@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 99308 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
 INFO [acme.Launcher] The following profiles are active: development,populator
 INFO [acme.Launcher] Started Launcher in 6.217 seconds (JVM running for 6.696)
@@ -2357,3 +2358,6 @@ ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-One/
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:200): Filter execution threw an exception
 java.lang.AssertionError
+=======
+corchuelo
+>>>>>>> master

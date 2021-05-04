@@ -12,10 +12,11 @@
 
 package acme.datatypes;
 
-import java.beans.Transient;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
+import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
@@ -38,19 +39,22 @@ public class ExecutionPeriod extends DomainDatatype implements Comparable<Execut
 
 	// Attributes -------------------------------------------------------------
 
-	@Future
+	@Valid
 	@NotNull
 	protected Date startDateTime;
 
-	@Future
+	@Valid
 	@NotNull
 	protected Date finishDateTime;
 
 	// Derived attributes -----------------------------------------------------
 
-	@Transient
+
 	public Double getWorkloadHours() {
 		return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600.0);
+		/*LocalDateTime finish=finishDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		LocalDateTime start=startDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+		return Duration.between(start, finish).toHours()+Duration.between(start, finish).toMinutes()*0.01;*/
 	}
 
 	@Override

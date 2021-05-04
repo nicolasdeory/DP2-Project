@@ -215,26 +215,26 @@
 										
 </table>
 <h2>
-	<acme:message code="administrator.dashboard.form.title.application-statuses"/>
+	<acme:message code="administrator.dashboard.form.title.chart-workplans"/>
 </h2>
 
-<div>
+<div class="col-6">
 	<canvas id="canvas"></canvas>
 </div> 
 <script type="text/javascript">
 	$(document).ready(function() {
 		var data = {
 			labels : [
-					"TOTAL", "PUBLISHED", "NOT PUBLISHED"
+					"PUBLISHED", "NOT PUBLISHED"
 			],
 			datasets : [
 				{
 					data : [
-						<jstl:out value="${numberOfWorkPlans}"/>, 
+<%--						<jstl:out value="${numberOfWorkPlans}"/>, --%>
 						<jstl:out value="${numberOfPublicWorkPlans}"/>, 
 						<jstl:out value="${numberOfPrivateWorkPlans}"/>
 					],
-					backgroundColor: ["black", "blue", "red"],
+					backgroundColor: ["blue", "red"],
 				}
 			]
 		};
@@ -259,7 +259,7 @@
 		canvas = document.getElementById("canvas");
 		context = canvas.getContext("2d");
 		new Chart(context, {
-			type : "bar",
+			type : "pie",
 			data : data,
 			options : options
 		});

@@ -1,15 +1,14 @@
 package acme.features.anonymous.tasks;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.tasks.Task;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
-import acme.entities.tasks.Task;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -33,11 +32,12 @@ public class AnonymousPublicTasksListService implements AbstractListService<Anon
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		request.unbind(entity, model, "title", "description", "isPublic");
+		model.setAttribute("workload", entity.getWorkload());
+		request.unbind(entity, model, "title", "description", "isPublic", "link");
 	}
 
 	@Override
-	public Collection<Task> findMany(Request<Task> request) {
+	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 		return this.repository.findNoFinishedAndPublicTasks();
 	}
