@@ -53,8 +53,8 @@ manager.workplan.error.finishDate.empty=La fecha de fin no debe estar vacia
 manager.workplan.error.startDate.format=El formato de la fecha de inicio es incorrecto
 manager.workplan.error.finishDate.format=El formato de la fecha de fin es incorrecto
 
-manager.tasks.error.startDate = Error en la fecha de inicio
-manager.tasks.error.finishDate = Error en la fecha de fin
+manager.tasks.error.startDate = La fecha de inicio debe ser posterior a la fecha de hoy
+manager.tasks.error.finishDate = La fecha de fin debe ser posterior a la fecha de hoy
 
 manager.tasks.error.finishDate.format = Comprueba el formato de la fecha de fin y vuelve a intentarlo
 manager.tasks.error.startDateTime.format = Comprueba el formato de la fecha de inicio y vuelve a intentarlo
