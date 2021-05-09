@@ -1,19 +1,14 @@
-package acme.features.management.workPlan;
+package acme.features.management.workplan;
 
 import java.util.Collection;
-import java.util.Date;
 
 import acme.entities.tasks.Task;
 import acme.framework.entities.UserAccount;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
-import org.springframework.transaction.annotation.Propagation;
-
-import javax.transaction.Transactional;
 
 @Repository
 public interface ManagementWorkPlanRepository extends AbstractRepository {

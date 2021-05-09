@@ -1,5 +1,5 @@
 /*
- * AuthenticatedUserAccountRepository.java
+ * AdministratorUserAccountRepository.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -10,7 +10,9 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.userAccount;
+package acme.features.administrator.useraccount;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -19,9 +21,12 @@ import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedUserAccountRepository extends AbstractRepository {
+public interface AdministratorUserAccountRepository extends AbstractRepository {
 
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
+
+	@Query("select ua from UserAccount ua")
+	Collection<UserAccount> findAllUserAccounts();
 
 }

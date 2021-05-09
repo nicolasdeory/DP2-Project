@@ -147,11 +147,5 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return result;
 	}
-//	private Double getTimeFormat(final Double d) {
-//        final Integer hours = (int)Math.floor(d);
-//        final Integer minutes = (int)Math.floor(d * 60) % 60;
-//        final String finalString = hours + "." + minutes; 
-//        return Double.parseDouble(finalString);
-//    }
 
 }

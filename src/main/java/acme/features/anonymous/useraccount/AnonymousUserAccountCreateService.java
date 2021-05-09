@@ -1,5 +1,5 @@
 /*
- * AdministratorUserAccountUpdateService.java
+ * AnonymousUserAccountCreateService.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -10,32 +10,29 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.userAccount;
-
-import java.util.Collection;
+package acme.features.anonymous.useraccount;
 
 import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
+import acme.framework.entities.Anonymous;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.UserAccount;
-import acme.framework.entities.UserAccountStatus;
 import acme.framework.entities.UserRole;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AdministratorUserAccountUpdateService implements AbstractUpdateService<Administrator, UserAccount> {
+public class AnonymousUserAccountCreateService implements AbstractCreateService<Anonymous, UserAccount> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AdministratorUserAccountRepository repository;
-
-	// AbstractUpdateService<Administrator, UserAccount> interface -------------
+	protected AnonymousUserAccountRepository repository;
 
 
 	@Override
@@ -60,36 +57,29 @@ public class AdministratorUserAccountUpdateService implements AbstractUpdateServ
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertModelNotNull(model);
 
-		StringBuilder buffer;
-		Collection<UserRole> roles;
-
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
-		roles = entity.getRoles();
-		buffer = new StringBuilder();
-		for (final UserRole role : roles) {
-			buffer.append(role.getAuthorityName());
-			buffer.append(" ");
-		}
-
-		model.setAttribute("roleList", buffer.toString());
-
-		if (entity.isEnabled()) {
-			model.setAttribute("status", UserAccountStatus.ENABLED);
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("password", "");
+			model.setAttribute("confirmation", "");
+			model.setAttribute("accept", "false");
 		} else {
-			model.setAttribute("status", UserAccountStatus.DISABLED);
+			request.transfer(model, "password", "confirmation", "accept");
 		}
 	}
 
 	@Override
-	public UserAccount findOne(final Request<UserAccount> request) {
+	public UserAccount instantiate(final Request<UserAccount> request) {
 		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
-		int id;
+		Authenticated defaultRole;
 
-		id = request.getModel().getInteger("id");
-		result = this.repository.findOneUserAccountById(id);
+		result = new UserAccount();
+		result.setEnabled(true);
+		defaultRole = new Authenticated();
+		result.addRole(defaultRole);
+		defaultRole.setUserAccount(result);
 
 		return result;
 	}
@@ -99,20 +89,35 @@ public class AdministratorUserAccountUpdateService implements AbstractUpdateServ
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
+
+		boolean isDuplicated, isAccepted, isMatching;
+		String password, confirmation;
+		int passwordLength;
+
+		isDuplicated = this.repository.findOneUserAccountByUsername(entity.getUsername()) != null;
+		errors.state(request, !isDuplicated, "username", "anonymous.user-account.error.duplicated");
+
+		passwordLength = request.getModel().getString("password").length();
+		errors.state(request, passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
+
+		isAccepted = request.getModel().getBoolean("accept");
+		errors.state(request, isAccepted, "accept", "anonymous.user-account.error.must-accept");
+
+		password = request.getModel().getString("password");
+		confirmation = request.getModel().getString("confirmation");
+		isMatching = password.equals(confirmation);
+		errors.state(request, isMatching, "confirmation", "anonymous.user-account.error.confirmation-no-match");
 	}
 
 	@Override
-	public void update(final Request<UserAccount> request, final UserAccount entity) {
+	public void create(final Request<UserAccount> request, final UserAccount entity) {
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 
-		if (request.getModel().getString("newStatus").equals("ENABLED")) {
-			entity.setEnabled(true);
-		} else if (request.getModel().getString("newStatus").equals("DISABLED")) {
-			entity.setEnabled(false);
-		}
-
 		this.repository.save(entity);
+		for (final UserRole role : entity.getRoles()) {
+			this.repository.save(role);
+		}
 	}
 
 }

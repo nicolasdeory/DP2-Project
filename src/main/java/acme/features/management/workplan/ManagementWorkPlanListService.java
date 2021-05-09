@@ -1,4 +1,4 @@
-package acme.features.management.workPlan;
+package acme.features.management.workplan;
 
 import java.util.Collection;
 

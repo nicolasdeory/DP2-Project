@@ -1,5 +1,5 @@
 /*
- * AdministratorUserAccountRepository.java
+ * AnonymousUserAccountRepository.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -10,9 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.userAccount;
-
-import java.util.Collection;
+package acme.features.anonymous.useraccount;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,12 +19,9 @@ import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AdministratorUserAccountRepository extends AbstractRepository {
+public interface AnonymousUserAccountRepository extends AbstractRepository {
 
-	@Query("select ua from UserAccount ua where ua.id = ?1")
-	UserAccount findOneUserAccountById(int id);
-
-	@Query("select ua from UserAccount ua")
-	Collection<UserAccount> findAllUserAccounts();
+	@Query("select ua from UserAccount ua where ua.username = ?1")
+	UserAccount findOneUserAccountByUsername(String username);
 
 }

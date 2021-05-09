@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.userAccount;
+package acme.features.administrator.useraccount;
 
 import java.util.Collection;
 

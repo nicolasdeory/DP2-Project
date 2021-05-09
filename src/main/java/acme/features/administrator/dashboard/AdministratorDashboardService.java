@@ -25,8 +25,7 @@ public class AdministratorDashboardService {
 	public Double averageOfTaskWorkload() {
 		List<Double> baseWorkloads = this.dashRepo.findAllTaskWorkload();
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
-		Double average = formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
-		return average; 
+		return formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
 	
 		
 		
@@ -36,29 +35,25 @@ public class AdministratorDashboardService {
 	public Double deviationOfTaskWorkload() {
 		List<Double> baseWorkloads = this.dashRepo.findAllTaskWorkload();
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
-		Double deviation = AdministratorDashboardService.sd(formattedWorkloads);
-		return deviation;
+		return AdministratorDashboardService.sd(formattedWorkloads);
 		
 	}
 	
 	@Transactional
 	public Double averageOfWorkPlanWorkload() {
 		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
-		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
+		List<Double> workloads = baseWorkloads.stream().map(WorkPlan::getWorkloadHours).collect(Collectors.toList());
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
-		Double average = formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
-		return average; 
+		return formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
 		
 	}
 	
 	@Transactional
 	public Double deviationOfWorkPlanWorkload() {
 		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
-		List<Double> workloads = baseWorkloads.stream().map(x -> x.getWorkloadHours()).collect(Collectors.toList());
+		List<Double> workloads = baseWorkloads.stream().map(WorkPlan::getWorkloadHours).collect(Collectors.toList());
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
 		return AdministratorDashboardService.sd(formattedWorkloads);
-
-	
 	}
 	
 	public static List<Double> formatTime(List<Double> baseWorkloads) {

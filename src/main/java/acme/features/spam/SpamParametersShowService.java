@@ -12,7 +12,6 @@
 
 package acme.features.spam;
 
-import acme.features.administrator.userAccount.AdministratorUserAccountRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.*;
@@ -20,8 +19,6 @@ import acme.framework.services.AbstractShowService;
 import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
 
 @Service
 public class SpamParametersShowService implements AbstractShowService<Administrator, SpamParameters> {

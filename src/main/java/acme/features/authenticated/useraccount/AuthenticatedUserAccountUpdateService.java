@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.userAccount;
+package acme.features.authenticated.useraccount;
 
 import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
