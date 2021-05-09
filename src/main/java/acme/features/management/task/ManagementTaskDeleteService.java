@@ -1,5 +1,6 @@
 package acme.features.management.task;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class ManagementTaskDeleteService implements AbstractDeleteService<Manage
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		int taskId;
 		final Task task;
@@ -41,9 +42,9 @@ public class ManagementTaskDeleteService implements AbstractDeleteService<Manage
 
 	@Override
 	public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 
@@ -51,9 +52,9 @@ public class ManagementTaskDeleteService implements AbstractDeleteService<Manage
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "endDateTime");
 		request.unbind(entity, model, "title", "isPublic", "executionPeriod", "description", "link");
@@ -64,7 +65,7 @@ public class ManagementTaskDeleteService implements AbstractDeleteService<Manage
 
 	@Override
 	public Task findOne(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Task task;
 		int id;
@@ -76,16 +77,16 @@ public class ManagementTaskDeleteService implements AbstractDeleteService<Manage
 
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 	}
 
 	@Override
 	public void delete(final Request<Task> request, final Task entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		for (final WorkPlan workPlan : entity.getWorkPlans()) {
 			workPlan.getTasks().remove(entity);

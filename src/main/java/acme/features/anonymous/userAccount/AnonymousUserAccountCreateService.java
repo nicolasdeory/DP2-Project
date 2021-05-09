@@ -12,6 +12,7 @@
 
 package acme.features.anonymous.userAccount;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,25 +37,25 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
@@ -69,7 +70,7 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	@Override
 	public UserAccount instantiate(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		Authenticated defaultRole;
@@ -85,9 +86,9 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	@Override
 	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		boolean isDuplicated, isAccepted, isMatching;
 		String password, confirmation;
@@ -110,8 +111,8 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	@Override
 	public void create(final Request<UserAccount> request, final UserAccount entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		this.repository.save(entity);
 		for (final UserRole role : entity.getRoles()) {

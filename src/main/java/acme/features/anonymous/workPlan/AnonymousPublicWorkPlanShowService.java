@@ -1,5 +1,6 @@
 package acme.features.anonymous.workPlan;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class AnonymousPublicWorkPlanShowService implements AbstractShowService<A
 
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		Integer id=request.getModel().getInteger("id");
 		WorkPlan workPlan=repository.findOneById(id);
 		if(workPlan.getIsPublic()==true&&workPlan.isFinished()==false){
@@ -30,9 +31,9 @@ public class AnonymousPublicWorkPlanShowService implements AbstractShowService<A
 
 	@Override
 	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
 		request.unbind(entity, model, "title", "description","tasks");
@@ -43,7 +44,7 @@ public class AnonymousPublicWorkPlanShowService implements AbstractShowService<A
 
 	@Override
 	public WorkPlan findOne(final Request<WorkPlan> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		WorkPlan result;
 		int id;
 

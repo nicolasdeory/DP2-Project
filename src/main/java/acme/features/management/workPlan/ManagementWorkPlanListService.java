@@ -2,6 +2,7 @@ package acme.features.management.workPlan;
 
 import java.util.Collection;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,16 +20,16 @@ public class ManagementWorkPlanListService implements AbstractListService<Manage
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
         return true;
 
     }
 
     @Override
     public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title");
         model.setAttribute("workload", entity.getWorkloadHours());

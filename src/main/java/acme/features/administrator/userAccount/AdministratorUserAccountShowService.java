@@ -14,6 +14,7 @@ package acme.features.administrator.userAccount;
 
 import java.util.Collection;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,16 +40,16 @@ public class AdministratorUserAccountShowService implements AbstractShowService<
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		StringBuilder buffer;
 		Collection<UserRole> roles;
@@ -79,7 +80,7 @@ public class AdministratorUserAccountShowService implements AbstractShowService<
 
 	@Override
 	public UserAccount findOne(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		int id;

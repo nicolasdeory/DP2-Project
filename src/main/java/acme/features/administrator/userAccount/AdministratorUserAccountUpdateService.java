@@ -14,6 +14,7 @@ package acme.features.administrator.userAccount;
 
 import java.util.Collection;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,25 +40,25 @@ public class AdministratorUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		StringBuilder buffer;
 		Collection<UserRole> roles;
@@ -82,7 +83,7 @@ public class AdministratorUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public UserAccount findOne(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		int id;
@@ -95,15 +96,15 @@ public class AdministratorUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 	}
 
 	@Override
 	public void update(final Request<UserAccount> request, final UserAccount entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		if (request.getModel().getString("newStatus").equals("ENABLED")) {
 			entity.setEnabled(true);

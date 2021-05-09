@@ -4,6 +4,7 @@ package acme.features.anonymous.workPlan;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,15 +23,15 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
 		request.unbind(entity, model, "title");
 		model.setAttribute("workload", entity.getWorkloadHours());
@@ -39,7 +40,7 @@ public class AnonymousPublicWorkPlanListService implements AbstractListService<A
 
 	@Override
 	public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		Collection<WorkPlan> result;
 		result = this.repository.findAnonymousPublicWorkPlan();
 		return result;

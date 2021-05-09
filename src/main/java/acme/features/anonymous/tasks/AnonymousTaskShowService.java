@@ -1,5 +1,6 @@
 package acme.features.anonymous.tasks;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,16 +18,16 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		// revisar
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
@@ -38,7 +39,7 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 
 	@Override
 	public Task findOne(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Task task;
 		int id;

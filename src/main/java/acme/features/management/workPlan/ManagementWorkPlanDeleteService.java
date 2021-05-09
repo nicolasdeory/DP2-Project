@@ -1,5 +1,6 @@
 package acme.features.management.workPlan;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
         final boolean result;
         int workplanId;
         WorkPlan workPlan;
@@ -42,9 +43,9 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
 
     @Override
     public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
 
@@ -52,9 +53,9 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
 
     @Override
     public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks");
@@ -64,7 +65,7 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
 
     @Override
     public WorkPlan findOne(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         WorkPlan workPlan;
         int id;
@@ -76,17 +77,17 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
 
     @Override
     public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         //TODO
     }
 
     @Override
     public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
         for (final Task task : entity.getTasks()) {
             task.getWorkPlans().remove(entity);
             this.repository.save(task);

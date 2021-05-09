@@ -2,6 +2,7 @@ package acme.features.management.task;
 
 import java.util.Date;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 	
 	@Override
 	public boolean authorise(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
         int taskId;
         final Task task;
@@ -43,9 +44,9 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
@@ -72,9 +73,9 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 		
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
 		request.unbind(entity, model, "title","isPublic", "description", "link");
@@ -83,7 +84,7 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public Task findOne(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Task task;
 		int id;
@@ -96,9 +97,9 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;	
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 		
 		final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
@@ -130,8 +131,8 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void update(final Request<Task> request, final Task entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 		
 		this.repository.save(entity);
 		

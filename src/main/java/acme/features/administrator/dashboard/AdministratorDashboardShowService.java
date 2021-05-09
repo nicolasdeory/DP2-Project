@@ -1,5 +1,6 @@
 package acme.features.administrator.dashboard;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,15 +25,15 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		// AbstractShowService<Administrator, Dashboard> interface ----------------
 	@Override
 	public boolean authorise(final Request<Dashboard> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<Dashboard> request, final Dashboard entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 		
 		
 		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks","numberOfPublicWorkPlans","numberOfPrivateWorkPlans",
@@ -43,7 +44,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 	@Override
 	public Dashboard findOne(final Request<Dashboard> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		
 		Dashboard result;
 		Integer numberOfPublicTasks;

@@ -3,6 +3,7 @@ package acme.features.management.workPlan;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
         final boolean result;
         int workplanId;
         WorkPlan workPlan;
@@ -43,9 +44,9 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
 
     @Override
     public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
@@ -69,7 +70,7 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
 
     @Override
     public WorkPlan findOne(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         WorkPlan workPlan;
         int id;

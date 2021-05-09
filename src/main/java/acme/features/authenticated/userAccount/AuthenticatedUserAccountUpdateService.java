@@ -12,6 +12,7 @@
 
 package acme.features.authenticated.userAccount;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,16 +41,16 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		String password;
 
@@ -62,9 +63,9 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
@@ -80,7 +81,7 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public UserAccount findOne(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		Principal principal;
@@ -94,9 +95,9 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		int passwordLength;
 		String password, confirmation;
@@ -113,8 +114,8 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void update(final Request<UserAccount> request, final UserAccount entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		this.repository.save(entity);
 		for (final UserRole role : entity.getRoles()) {
@@ -124,7 +125,7 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void onSuccess(final Request<UserAccount> request, final Response<UserAccount> response) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		assert response != null;
 
 		if (request.isMethod(HttpMethod.POST)) {

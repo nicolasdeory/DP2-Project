@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,16 +27,16 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         return true;
     }
 
     @Override
     public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
         final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
         if(request.getModel().hasAttribute("startDateTime")){
@@ -61,9 +62,9 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
 
     @Override
     public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
@@ -74,7 +75,7 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
 
     @Override
     public WorkPlan instantiate(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         WorkPlan workPlan;
         workPlan = new WorkPlan();
@@ -86,9 +87,9 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
 
     @Override
     public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
         final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
@@ -145,8 +146,8 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
 
     @Override
     public void create(final Request<WorkPlan> request, final WorkPlan entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
         final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
         entity.setUser(user);
         entity.setTasks(new ArrayList<>());

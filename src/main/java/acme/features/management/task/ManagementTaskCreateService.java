@@ -2,6 +2,7 @@ package acme.features.management.task;
 
 import java.util.Date;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,7 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public boolean authorise(final Request<Task> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         return true;
 
@@ -32,9 +33,9 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
         final ExecutionPeriod executionPeriod = new ExecutionPeriod();
 
         request.bind(entity, errors);
@@ -60,9 +61,9 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public void unbind(final Request<Task> request, final Task entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         //revisar
 
@@ -73,7 +74,7 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public Task instantiate(final Request<Task> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         Task task;
         task = new Task();
@@ -84,9 +85,9 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         final Date now = new Date(System.currentTimeMillis());
 
@@ -129,8 +130,8 @@ public class ManagementTaskCreateService implements AbstractCreateService<Manage
 
     @Override
     public void create(final Request<Task> request, final Task entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
 
         final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
         entity.setUser(user);

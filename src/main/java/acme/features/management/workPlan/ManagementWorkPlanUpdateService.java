@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -50,9 +51,9 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
@@ -78,9 +79,9 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
@@ -103,7 +104,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public WorkPlan findOne(final Request<WorkPlan> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         WorkPlan workPlan;
         int id;
@@ -116,9 +117,9 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public void validate(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
         final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
@@ -173,8 +174,8 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
     @Override
     public void update(final Request<WorkPlan> request, final WorkPlan entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
         final List<Task> tasks = entity.getTasks();
         if (entity.getNewTasksId() == null || entity.getNewTasksId().size() == 0) {
             tasks.clear();
