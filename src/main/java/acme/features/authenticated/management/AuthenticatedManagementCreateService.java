@@ -81,7 +81,7 @@ public class AuthenticatedManagementCreateService implements AbstractCreateServi
     @Override
     public void onSuccess(final Request<Management> request, final Response<Management> response) {
         AssertUtils.assertRequestNotNull(request);
-        assert response != null;
+        AssertUtils.assertResponseNotNull(response);
 
         if (request.isMethod(HttpMethod.POST)) {
             PrincipalHelper.handleUpdate();

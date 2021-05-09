@@ -94,7 +94,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 	@Override
 	public void onSuccess(final Request<SpamParameters> request, final Response<SpamParameters> response) {
 		AssertUtils.assertRequestNotNull(request);
-		assert response != null;
+		AssertUtils.assertResponseNotNull(response);
 
 		if (request.isMethod(HttpMethod.POST)) {
 			PrincipalHelper.handleUpdate();

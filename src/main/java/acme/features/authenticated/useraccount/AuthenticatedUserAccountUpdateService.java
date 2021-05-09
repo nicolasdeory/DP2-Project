@@ -126,7 +126,7 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 	@Override
 	public void onSuccess(final Request<UserAccount> request, final Response<UserAccount> response) {
 		AssertUtils.assertRequestNotNull(request);
-		assert response != null;
+		AssertUtils.assertResponseNotNull(response);
 
 		if (request.isMethod(HttpMethod.POST)) {
 			PrincipalHelper.handleUpdate();
