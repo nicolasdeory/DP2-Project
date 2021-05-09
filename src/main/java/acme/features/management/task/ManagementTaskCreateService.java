@@ -7,7 +7,6 @@ import acme.utils.TaskValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.utils.WorkLoadOperations;
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.roles.Management;
 import acme.entities.tasks.Task;

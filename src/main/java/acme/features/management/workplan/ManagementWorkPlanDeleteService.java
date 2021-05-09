@@ -24,7 +24,6 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         AssertUtils.assertRequestNotNull(request);
-        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -34,11 +33,7 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
         workPlan = this.repository.findOneWorkPlanById(workplanId);
         userAccount = workPlan.getUser();
         principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAccount.getId() == principal.getAccountId();
     }
 
     @Override

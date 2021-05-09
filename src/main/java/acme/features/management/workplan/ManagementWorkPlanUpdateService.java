@@ -26,6 +26,9 @@ import acme.framework.services.AbstractUpdateService;
 @Service
 public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Management, WorkPlan> {
 
+    private static final String START_DATE_TIME = "startDateTime";
+    private static final String FINISH_DATE_TIME = "finishDateTime";
+
     @Autowired
     protected ManagementWorkPlanRepository repository;
 
@@ -41,11 +44,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         workPlan = this.repository.findOneWorkPlanById(workplanId);
         userAccount = workPlan.getUser();
         principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAccount.getId() == principal.getAccountId();
 
     }
 
@@ -57,19 +56,19 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
         final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
-        if(request.getModel().hasAttribute("startDateTime")){
+        if(request.getModel().hasAttribute(START_DATE_TIME)){
             try{
                 executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
             }
             catch(final Exception e){
-                errors.state(request,false,"startDateTime","management.workplan.error.startDateTime.format");
+                errors.state(request,false,START_DATE_TIME,"management.workplan.error.startDateTime.format");
             }
         }
-        if(request.getModel().hasAttribute("finishDateTime")){
+        if(request.getModel().hasAttribute(FINISH_DATE_TIME)){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
             }catch(final Exception e){
-                errors.state(request,false,"finishDateTime","management.workplan.error.finishDate.format");
+                errors.state(request,false,FINISH_DATE_TIME,"management.workplan.error.finishDate.format");
             }
 
         }
@@ -83,16 +82,16 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertModelNotNull(model);
 
-        request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
+        request.unbind(entity.getExecutionPeriod(), model, START_DATE_TIME, FINISH_DATE_TIME);
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        Boolean ispublic=entity.getIsPublic();
+        boolean isPublic=entity.getIsPublic();
         if(entity.getIsPublic()==null){
-            ispublic=false;
+            isPublic=false;
         }
         final List<Task> userTask;
-        if(ispublic==true){
+        if(isPublic){
             userTask = this.repository.findTasksByUserIdIsPublic(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         }else{
             userTask = this.repository.findTasksByUserId(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
@@ -123,32 +122,31 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request,false,"startDateTime", "management.workplan.error.startDate");
+                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate");
 
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request,false,"finishDateTime", "management.workplan.error.finishDate");
+                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate");
             }
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.state(request,false,"startDateTime","management.workplan.error.startDate.after");
-                errors.state(request,false,"finishDateTime","management.workplan.error.finishDate.before");
+                errors.state(request,false,START_DATE_TIME,"management.workplan.error.startDate.after");
+                errors.state(request,false,FINISH_DATE_TIME,"management.workplan.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request,false,"startDateTime", "management.workplan.error.startDate.empty");
+                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.state(request,false,"finishDateTime", "management.workplan.error.finishDate.empty");
+                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.empty");
             }
 
         }
 
-        List<String> newTask = new ArrayList<>();
-        newTask=entity.getNewTasksId();
+        List<String> newTask = entity.getNewTasksId();
         if(newTask!=null&&!errors.hasErrors()){
-            Boolean startDateError=true;
-            Boolean finishDateError=true;
-            Boolean isPublicError=true;
+            boolean startDateError=true;
+            boolean finishDateError=true;
+            boolean isPublicError=true;
             for (final String taskId : newTask) {
                 final Integer id = Integer.valueOf(taskId);
                 final Task t = this.repository.findOneTaskById(id);
@@ -177,11 +175,11 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         final List<Task> tasks = entity.getTasks();
-        if (entity.getNewTasksId() == null || entity.getNewTasksId().size() == 0) {
+        if (entity.getNewTasksId() == null || entity.getNewTasksId().isEmpty()) {
             tasks.clear();
         } else {
             final Set<Integer> newTaskIdStrings = entity.getNewTasksId().stream()
-                    .map(x -> Integer.valueOf(x))
+                    .map(Integer::valueOf)
                     .collect(Collectors.toSet());
 
             final Map<Integer, Task> idTask = new HashMap<>();
@@ -189,14 +187,13 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
                 idTask.put(t.getId(), t);
             }
 
-            for (final Integer taskId : idTask.keySet()) {
-                if (!newTaskIdStrings.contains(taskId)) {
-                    final Task task = idTask.get(taskId);
-                    tasks.remove(task);
+            for (final Map.Entry<Integer, Task> taskEntry : idTask.entrySet()) {
+                if (!newTaskIdStrings.contains(taskEntry.getKey())) {
+                    tasks.remove(taskEntry.getValue());
 
                 } else {
                     // ya hemos terminado de manejarla, la borramos para evitar iteraciones innecesarias
-                    newTaskIdStrings.remove(taskId);
+                    newTaskIdStrings.remove(taskEntry.getValue());
                 }
             }
 

@@ -25,7 +25,6 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
     @Override
     public boolean authorise(final Request<WorkPlan> request) {
         AssertUtils.assertRequestNotNull(request);
-        final boolean result;
         int workplanId;
         WorkPlan workPlan;
         UserAccount userAccount;
@@ -35,11 +34,7 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
         workPlan = this.repository.findOneWorkPlanById(workplanId);
         userAccount = workPlan.getUser();
         principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAccount.getId() == principal.getAccountId();
     }
 
     @Override
@@ -52,12 +47,12 @@ public class ManagementWorkPlanShowService implements AbstractShowService<Manage
         request.unbind(entity, model, "title", "description", "tasks", "isPublic");
         model.setAttribute("workload", entity.getWorkloadHours());
         model.setAttribute("isFinished", entity.isFinished());
-        Boolean ispublic=entity.getIsPublic();
+        boolean isPublic = entity.getIsPublic();
         if(entity.getIsPublic()==null){
-            ispublic=true;
+            isPublic=true;
         }
         final List<Task> userTask;
-        if(ispublic==true){
+        if(isPublic){
             userTask = this.repository.findTasksByUserIdIsPublic(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
         }else{
             userTask = this.repository.findTasksByUserId(request.getPrincipal().getAccountId()).stream().collect(Collectors.toList());
