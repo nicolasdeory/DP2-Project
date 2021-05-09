@@ -31,6 +31,10 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	// Internal state ---------------------------------------------------------
 
+	private static final String PASSWORD = "password";
+	private static final String CONFIRMATION = "confirmation";
+	private static final String ACCEPT = "accept";
+
 	@Autowired
 	protected AnonymousUserAccountRepository repository;
 
@@ -60,11 +64,11 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
 		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("password", "");
-			model.setAttribute("confirmation", "");
-			model.setAttribute("accept", "false");
+			model.setAttribute(PASSWORD, "");
+			model.setAttribute(CONFIRMATION, "");
+			model.setAttribute(ACCEPT, "false");
 		} else {
-			request.transfer(model, "password", "confirmation", "accept");
+			request.transfer(model, PASSWORD, CONFIRMATION, ACCEPT);
 		}
 	}
 
@@ -90,23 +94,26 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
 
-		boolean isDuplicated, isAccepted, isMatching;
-		String password, confirmation;
+		boolean isDuplicated;
+		boolean isAccepted;
+		boolean isMatching;
+		String password;
+		String confirmation;
 		int passwordLength;
 
 		isDuplicated = this.repository.findOneUserAccountByUsername(entity.getUsername()) != null;
 		errors.state(request, !isDuplicated, "username", "anonymous.user-account.error.duplicated");
 
-		passwordLength = request.getModel().getString("password").length();
-		errors.state(request, passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
+		passwordLength = request.getModel().getString(PASSWORD).length();
+		errors.state(request, passwordLength >= 5 && passwordLength <= 60, PASSWORD, "acme.validation.length", 6, 60);
 
-		isAccepted = request.getModel().getBoolean("accept");
-		errors.state(request, isAccepted, "accept", "anonymous.user-account.error.must-accept");
+		isAccepted = request.getModel().getBoolean(ACCEPT);
+		errors.state(request, isAccepted, ACCEPT, "anonymous.user-account.error.must-accept");
 
-		password = request.getModel().getString("password");
-		confirmation = request.getModel().getString("confirmation");
+		password = request.getModel().getString(PASSWORD);
+		confirmation = request.getModel().getString(CONFIRMATION);
 		isMatching = password.equals(confirmation);
-		errors.state(request, isMatching, "confirmation", "anonymous.user-account.error.confirmation-no-match");
+		errors.state(request, isMatching, CONFIRMATION, "anonymous.user-account.error.confirmation-no-match");
 	}
 
 	@Override

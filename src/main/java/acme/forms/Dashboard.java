@@ -34,9 +34,6 @@ public class Dashboard implements Serializable {
 	Integer numberOfFinishedWorkPlans;
 	Integer numberOfNonFinishedWorkPlans;
 	Integer numberOfWorkPlans;
-//	Integer numberOfPublishedWorkPlans;
-//	Integer numberOfNonPublishedWorkPlans;
-//	
 	Double averageOfWorkPlanExecutionPeriods;
 	Double deviationOfWorkPlanExecutionPeriods;
 	Double minOfWorkPlanExecutionPeriods;

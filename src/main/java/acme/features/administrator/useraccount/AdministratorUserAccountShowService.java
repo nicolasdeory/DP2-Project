@@ -71,11 +71,8 @@ public class AdministratorUserAccountShowService implements AbstractShowService<
 			model.setAttribute("status", UserAccountStatus.DISABLED);
 		}
 
-		if (entity.hasRole(Administrator.class) || entity.hasRole(Anonymous.class)) {
-			model.setAttribute("canUpdate", false);
-		} else {
-			model.setAttribute("canUpdate", true);
-		}
+		Boolean cond = entity.hasRole(Administrator.class) || entity.hasRole(Anonymous.class);
+		model.setAttribute("canUpdate", !cond);
 	}
 
 	@Override
@@ -87,7 +84,6 @@ public class AdministratorUserAccountShowService implements AbstractShowService<
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneUserAccountById(id);
-		result.getRoles().forEach(r -> {;});
 
 		return result;
 	}

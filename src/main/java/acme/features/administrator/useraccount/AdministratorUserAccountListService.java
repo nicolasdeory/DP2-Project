@@ -78,9 +78,6 @@ public class AdministratorUserAccountListService implements AbstractListService<
 		Collection<UserAccount> result;
 
 		result = this.repository.findAllUserAccounts();
-		for (final UserAccount userAccount : result) {
-			userAccount.getRoles().forEach(r -> { ; });
-		}
 
 		return result;
 	}

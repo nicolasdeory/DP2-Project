@@ -32,7 +32,7 @@ public final class AssertUtils {
     }
     public static void assertResponseNotNull(Object response)
     {
-        assertGenericNotNull(model, "response");
+        assertGenericNotNull(response, "response");
     }
 
 }

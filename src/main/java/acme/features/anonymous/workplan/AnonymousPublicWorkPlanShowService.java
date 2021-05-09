@@ -21,12 +21,7 @@ public class AnonymousPublicWorkPlanShowService implements AbstractShowService<A
 		AssertUtils.assertRequestNotNull(request);
 		Integer id=request.getModel().getInteger("id");
 		WorkPlan workPlan=repository.findOneById(id);
-		if(workPlan.getIsPublic()==true&&workPlan.isFinished()==false){
-			return true;
-		}
-		else {
-			return false;
-		}
+		return workPlan.getIsPublic() && !workPlan.isFinished();
 	}
 
 	@Override

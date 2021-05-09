@@ -33,6 +33,10 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	// Internal state ---------------------------------------------------------
 
+	private static final String PASSWORD = "password";
+	private static final String CONFIRMATION = "confirmation";
+	private static final String MASKED_PASSWORD = "[MASKED-PASWORD]";
+
 	@Autowired
 	protected AuthenticatedUserAccountRepository repository;
 
@@ -54,9 +58,9 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 		String password;
 
-		request.bind(entity, errors, "username", "password");
-		password = request.getModel().getString("password");
-		if (!password.equals("[MASKED-PASWORD]")) {
+		request.bind(entity, errors, "username", PASSWORD);
+		password = request.getModel().getString(PASSWORD);
+		if (!password.equals(MASKED_PASSWORD)) {
 			entity.setPassword(password);
 		}
 	}
@@ -70,12 +74,12 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
 		if (request.isMethod(HttpMethod.POST)) {
-			request.transfer(model, "password");
-			request.transfer(model, "confirmation");
+			request.transfer(model, PASSWORD);
+			request.transfer(model, CONFIRMATION);
 		} else {
-			request.unbind(entity, model, "password");
-			model.setAttribute("password", "[MASKED-PASWORD]");
-			model.setAttribute("confirmation", "[MASKED-PASWORD]");
+			request.unbind(entity, model, PASSWORD);
+			model.setAttribute(PASSWORD, MASKED_PASSWORD);
+			model.setAttribute(CONFIRMATION, MASKED_PASSWORD);
 		}
 	}
 
@@ -88,7 +92,6 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 		principal = request.getPrincipal();
 		result = this.repository.findOneUserAccountById(principal.getAccountId());
-		result.getRoles().forEach(r -> {;});
 
 		return result;
 	}
@@ -100,16 +103,17 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 		AssertUtils.assertErrorsNotNull(errors);
 
 		int passwordLength;
-		String password, confirmation;
+		String password;
+		String confirmation;
 		boolean isMatching;
 
-		passwordLength = request.getModel().getString("password").length();
-		errors.state(request, passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
+		passwordLength = request.getModel().getString(PASSWORD).length();
+		errors.state(request, passwordLength >= 5 && passwordLength <= 60, PASSWORD, "acme.validation.length", 6, 60);
 
-		password = request.getModel().getString("password");
-		confirmation = request.getModel().getString("confirmation");
+		password = request.getModel().getString(PASSWORD);
+		confirmation = request.getModel().getString(CONFIRMATION);
 		isMatching = password.equals(confirmation);
-		errors.state(request, isMatching, "confirmation", "anonymous.user-account.error.confirmation-no-match");
+		errors.state(request, isMatching, CONFIRMATION, "anonymous.user-account.error.confirmation-no-match");
 	}
 
 	@Override
