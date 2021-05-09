@@ -91,15 +91,15 @@ public class UserAccount extends DomainEntity {
 
 	@NotEmpty
 	@OneToMany(mappedBy = "userAccount")
-	protected Collection<@Valid UserRole> roles;
+	private Collection<@Valid UserRole> roles;
 	
 	@Valid
 	@OneToMany
-	protected List<Task> tasks;
+	private List<Task> tasks;
 	
 	@Valid
 	@OneToMany
-	protected List<WorkPlan> workPlans;
+	private List<WorkPlan> workPlans;
 
 	@Transient
 	public boolean hasRole(final UserRole role) {
@@ -182,5 +182,5 @@ public class UserAccount extends DomainEntity {
 	}
 
 	// Other methods ----------------------------------------------------------
-	
+
 }
