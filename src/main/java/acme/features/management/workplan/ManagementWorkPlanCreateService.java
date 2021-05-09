@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import acme.utils.AssertUtils;
+import acme.utils.WorkPlanValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -93,56 +94,12 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final Date now=new Date(System.currentTimeMillis());
-        if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
-            if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate");
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate");
-            }
-            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.state(request,false,START_DATE_TIME,"management.workplan.error.startDate.after");
-                errors.state(request,false,FINISH_DATE_TIME,"management.workplan.error.finishDate.before");
-            }
-        }else{
-            if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.empty");
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.empty");
-            }
 
-        }
+        WorkPlanValidator.validateWorkPlan(entity, request, errors, repository);
 
-        List<String> newTask = entity.getNewTasksId();
-        if(newTask!=null&&!errors.hasErrors()){
-            boolean startDateError=true;
-            boolean finishDateError=true;
-            boolean isPublicError=true;
-            for (final String taskId : newTask) {
-                final Integer id = Integer.valueOf(taskId);
-                final Task t = this.repository.findOneTaskById(id);
-                if (startDateError&&entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.task");
-                    startDateError=false;
-                }
-                if (finishDateError&&entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.task");
-                    finishDateError=false;
-                }
-                if(isPublicError&&!((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
-                    errors.state(request,false,"isPublic", "management.workplan.error.isPublic");
-                    isPublicError=false;
-                }
-            }
-
-        }
-        if(errors.hasErrors()){
+        if(errors.hasErrors()) {
             this.unbind(request,entity,request.getModel());
         }
-
-
 
     }
 

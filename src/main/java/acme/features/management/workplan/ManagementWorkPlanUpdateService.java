@@ -1,13 +1,14 @@
 package acme.features.management.workplan;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import acme.utils.AssertUtils;
+import acme.utils.WorkPlanValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -118,52 +119,9 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final Date now=new Date(System.currentTimeMillis());
-        if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
-            if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate");
 
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate");
-            }
-            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.state(request,false,START_DATE_TIME,"management.workplan.error.startDate.after");
-                errors.state(request,false,FINISH_DATE_TIME,"management.workplan.error.finishDate.before");
-            }
-        }else{
-            if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.empty");
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime()==null){
-                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.empty");
-            }
+        WorkPlanValidator.validateWorkPlan(entity, request, errors, repository);
 
-        }
-
-        List<String> newTask = entity.getNewTasksId();
-        if(newTask!=null&&!errors.hasErrors()){
-            boolean startDateError=true;
-            boolean finishDateError=true;
-            boolean isPublicError=true;
-            for (final String taskId : newTask) {
-                final Integer id = Integer.valueOf(taskId);
-                final Task t = this.repository.findOneTaskById(id);
-                if (startDateError&&entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.task");
-                    startDateError=false;
-                }
-                if (finishDateError&&entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.task");
-                    finishDateError=false;
-                }
-                if(isPublicError&&!((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
-                    errors.state(request,false,"isPublic", "management.workplan.error.isPublic");
-                    isPublicError=false;
-                }
-            }
-
-        }
         if(errors.hasErrors()){
             this.unbind(request,entity,request.getModel());
         }
@@ -177,34 +135,43 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         if (entity.getNewTasksId() == null || entity.getNewTasksId().isEmpty()) {
             tasks.clear();
         } else {
-            final Set<Integer> newTaskIdStrings = entity.getNewTasksId().stream()
+            final Set<Integer> newTaskIds = entity.getNewTasksId().stream()
                     .map(Integer::valueOf)
                     .collect(Collectors.toSet());
 
-            final Map<Integer, Task> idTask = new HashMap<>();
-            for (final Task t : tasks) {
-                idTask.put(t.getId(), t);
-            }
+            final Map<Integer, Task> mapIdTask = tasks.stream()
+                    .collect(Collectors.toMap(Task::getId, Function.identity()));
 
-            for (final Map.Entry<Integer, Task> taskEntry : idTask.entrySet()) {
-                if (!newTaskIdStrings.contains(taskEntry.getKey())) {
-                    tasks.remove(taskEntry.getValue());
+            removeNotFoundTasks(tasks, newTaskIds, mapIdTask);
+            addMissingTasks(tasks, newTaskIds, mapIdTask);
 
-                } else {
-                    // ya hemos terminado de manejarla, la borramos para evitar iteraciones innecesarias
-                    newTaskIdStrings.remove(taskEntry.getKey());
-                }
-            }
-
-            for (final Integer taskId : newTaskIdStrings) {
-                if (!idTask.keySet().contains(taskId)) {
-                    // podría optimizarse si JPA permitiera añadir un ManyToMany por id, sin tener que traerse el objeto
-                    final Task taskToAdd = this.repository.findOneTaskById(taskId);
-                    tasks.add(taskToAdd);
-                }
-            }
         }
         this.repository.save(entity);
     }
+
+    private void removeNotFoundTasks(List<Task> entityTasks, Set<Integer> newTaskIds, Map<Integer, Task> mapIdTask)
+    {
+        for (final Map.Entry<Integer, Task> taskEntry : mapIdTask.entrySet()) {
+            if (!newTaskIds.contains(taskEntry.getKey())) {
+                entityTasks.remove(taskEntry.getValue());
+
+            } else {
+                // ya hemos terminado de manejarla, la borramos para evitar iteraciones innecesarias
+                newTaskIds.remove(taskEntry.getKey());
+            }
+        }
+    }
+
+    private void addMissingTasks(List<Task> entityTasks, Set<Integer> newTaskIds, Map<Integer, Task> mapIdTask)
+    {
+        for (final Integer taskId : newTaskIds) {
+            if (!mapIdTask.keySet().contains(taskId)) {
+                // podría optimizarse si JPA permitiera añadir un ManyToMany por id, sin tener que traerse el objeto
+                final Task taskToAdd = this.repository.findOneTaskById(taskId);
+                entityTasks.add(taskToAdd);
+            }
+        }
+    }
+
 
 }
