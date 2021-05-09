@@ -182,11 +182,5 @@ public class UserAccount extends DomainEntity {
 	}
 
 	// Other methods ----------------------------------------------------------
-
 	
-	
-	//RELATIONS
-	
-	@OneToMany
-	protected List<WorkPlan> workplans;
 }
