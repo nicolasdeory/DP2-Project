@@ -12,7 +12,6 @@
 
 package acme.features.spam;
 
-import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

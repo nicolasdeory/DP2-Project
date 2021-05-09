@@ -12,6 +12,7 @@
 
 package acme.testing;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +21,7 @@ import org.openqa.selenium.By;
 
 import acme.framework.testing.AbstractTest;
 
-public class SignUpTest extends AbstractTest {
+class SignUpTest extends AbstractTest {
 
 	// Internal state ---------------------------------------------------------
 
@@ -45,10 +46,10 @@ public class SignUpTest extends AbstractTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
+	void positiveSignUp(final String username, final String password, final String name, final String surname, final String email) {
 		this.signUp(username, password, name, surname, email);
 		this.signIn(username, password);
-		assert super.exists(By.linkText("Account"));
+		Assertions.assertTrue(super.exists(By.linkText("Account")), "account doesnt exist");
 		this.signOut();
 	}
 

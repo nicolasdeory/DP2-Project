@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Management;
 import acme.entities.tasks.Task;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;

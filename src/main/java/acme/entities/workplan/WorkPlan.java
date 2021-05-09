@@ -1,8 +1,9 @@
 
-package acme.entities.workPlan;
+package acme.entities.workplan;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
@@ -59,14 +60,14 @@ public class WorkPlan extends DomainEntity {
     }
 
     @Transient
-    List<String> newTasksId;
+    private List<String> newTasksId;
 
-    public Boolean isFinished() {
+    public boolean isFinished() {
         final Date now = new Date();
         if (this.executionPeriod.getFinishDateTime() != null) {
             return now.after(this.executionPeriod.getFinishDateTime());
         } else {
-            return null;
+            return false;
         }
 
     }
@@ -80,4 +81,23 @@ public class WorkPlan extends DomainEntity {
     @ManyToOne(optional = false)
     protected UserAccount user;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof WorkPlan)) return false;
+        if (!super.equals(o)) return false;
+        WorkPlan workPlan = (WorkPlan) o;
+        return Objects.equals(title, workPlan.title) &&
+                Objects.equals(description, workPlan.description) &&
+                Objects.equals(isPublic, workPlan.isPublic) &&
+                Objects.equals(executionPeriod, workPlan.executionPeriod) &&
+                Objects.equals(newTasksId, workPlan.newTasksId) &&
+                Objects.equals(tasks, workPlan.tasks) &&
+                Objects.equals(user, workPlan.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), title, description, isPublic, executionPeriod, newTasksId, tasks, user);
+    }
 }

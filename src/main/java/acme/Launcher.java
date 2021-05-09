@@ -97,11 +97,13 @@ public class Launcher extends SpringBootServletInitializer {
 
 	protected static Map<String, String> analyseArguments(final String[] argv) {
 		Map<String, String> result;
-		String[] validProfiles, validActions;
+		String[] validProfiles;
+		String[] validActions;
 		Options options;
 		CommandLineParser parser;
 		CommandLine commandLine;
-		String profile, action;
+		String profile;
+		String action;
 
 		result = new HashMap<String, String>();
 		result.put("profile", "development");
@@ -239,8 +241,8 @@ public class Launcher extends SpringBootServletInitializer {
 		// context is nullable
 		
 		int status;
-		
-		try { Thread.sleep(1000); } catch (final Throwable oops) { }
+
+		try { Thread.sleep(1000); } catch (final Throwable oops) { /* do nothing */ }
 		status = (context == null ? 1 : SpringApplication.exit(context));		
 		System.exit(status);
 	}

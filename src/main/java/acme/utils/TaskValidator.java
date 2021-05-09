@@ -14,7 +14,7 @@ public final class TaskValidator {
 
     private TaskValidator() { }
 
-    public static void validateTask(Task entity, Request request, Errors errors)
+    public static void validateTask(Task entity, Request<Task> request, Errors errors)
     {
         boolean validDates = validateStartDateNotNull(entity, request, errors) && validateFinishDateNotNull(entity, request, errors);
 
@@ -35,7 +35,7 @@ public final class TaskValidator {
 
     }
 
-    private static boolean validateStartDateNotNull(Task entity, Request request, Errors errors)
+    private static boolean validateStartDateNotNull(Task entity, Request<Task> request, Errors errors)
     {
         if (entity.getExecutionPeriod().getStartDateTime() == null) {
             errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.empty");
@@ -44,7 +44,7 @@ public final class TaskValidator {
         return true;
     }
 
-    private static boolean validateFinishDateNotNull(Task entity, Request request, Errors errors)
+    private static boolean validateFinishDateNotNull(Task entity, Request<Task> request, Errors errors)
     {
         if (entity.getExecutionPeriod().getFinishDateTime() == null) {
             errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate.empty");
@@ -53,7 +53,7 @@ public final class TaskValidator {
         return true;
     }
 
-    private static void validateStartDateAfterNow(Task entity, Request request, Errors errors)
+    private static void validateStartDateAfterNow(Task entity, Request<Task> request, Errors errors)
     {
         final Date now = new Date(System.currentTimeMillis());
 
@@ -62,7 +62,7 @@ public final class TaskValidator {
         }
     }
 
-    private static void validateFinishDateAfterNow(Task entity, Request request, Errors errors)
+    private static void validateFinishDateAfterNow(Task entity, Request<Task> request, Errors errors)
     {
         final Date now = new Date(System.currentTimeMillis());
 
@@ -71,7 +71,7 @@ public final class TaskValidator {
         }
     }
 
-    private static void validateFinishDateAfterStartDate(Task entity, Request request, Errors errors)
+    private static void validateFinishDateAfterStartDate(Task entity, Request<Task> request, Errors errors)
     {
         if (entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())) {
             errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.after");
@@ -79,7 +79,7 @@ public final class TaskValidator {
         }
     }
 
-    private static boolean validateWorkload(Task entity, Request request, Errors errors)
+    private static boolean validateWorkload(Task entity, Request<Task> request, Errors errors)
     {
         if (!WorkLoadOperations.isFormatedWorkload(entity.getWorkload())) {
             errors.state(request, false, WORKLOAD, "management.tasks.workload.error.format");
@@ -88,7 +88,7 @@ public final class TaskValidator {
         return true;
     }
 
-    private static void validateMaxWorkload(Task entity, Request request, Errors errors)
+    private static void validateMaxWorkload(Task entity, Request<Task> request, Errors errors)
     {
         Double maxWorkload = WorkLoadOperations.formatWorkload(entity.getExecutionPeriod().getWorkloadHours());
         if (entity.getWorkload() > maxWorkload) {

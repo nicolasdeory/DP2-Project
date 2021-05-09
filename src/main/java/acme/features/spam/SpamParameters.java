@@ -13,14 +13,13 @@
 package acme.features.spam;
 
 import acme.framework.entities.DomainEntity;
-import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -41,5 +40,22 @@ public class SpamParameters extends DomainEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof SpamParameters)) return false;
+		if (!super.equals(o)) return false;
+		SpamParameters that = (SpamParameters) o;
+		return Objects.equals(threshold, that.threshold) &&
+				Objects.equals(keywords, that.keywords);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), threshold, keywords);
+	}
+
 
 }

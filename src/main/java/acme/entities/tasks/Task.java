@@ -14,7 +14,7 @@ import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 import acme.datatypes.ExecutionPeriod;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
 import lombok.Getter;

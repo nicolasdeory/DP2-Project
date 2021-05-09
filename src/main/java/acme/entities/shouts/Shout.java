@@ -2,6 +2,7 @@ package acme.entities.shouts;
 
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -9,7 +10,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
 
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
@@ -48,6 +48,23 @@ public class Shout extends DomainEntity {
 	@URL
 	@NotSpamConstraint
 	protected String			info;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Shout)) return false;
+		if (!super.equals(o)) return false;
+		Shout shout = (Shout) o;
+		return Objects.equals(moment, shout.moment) &&
+				Objects.equals(author, shout.author) &&
+				Objects.equals(text, shout.text) &&
+				Objects.equals(info, shout.info);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), moment, author, text, info);
+	}
 
 	// Derived attributes -----------------------------------------------------
 

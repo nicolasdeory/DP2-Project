@@ -51,7 +51,7 @@ public class SpamParametersShowService implements AbstractShowService<Administra
 		AssertUtils.assertRequestNotNull(request);
 
 		SpamParameters result;
-		result = this.repository.findAllSpamParameters().stream().findFirst().get();
+		result = this.repository.findAllSpamParameters().stream().findFirst().orElseThrow(() -> new IllegalStateException("No spam parameters were found."));
 		return result;
 	}
 

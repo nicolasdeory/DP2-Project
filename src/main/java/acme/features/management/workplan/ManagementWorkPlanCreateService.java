@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.roles.Management;
 import acme.entities.tasks.Task;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;

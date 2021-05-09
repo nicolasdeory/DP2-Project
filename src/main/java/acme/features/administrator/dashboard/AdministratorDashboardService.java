@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.utils.WorkLoadOperations;
 
 @Service

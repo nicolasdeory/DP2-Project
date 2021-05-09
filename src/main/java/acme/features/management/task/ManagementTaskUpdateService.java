@@ -76,7 +76,7 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertModelNotNull(model);
 		
-		request.unbind(entity.getExecutionPeriod(), model, START_DATE_TIME, "finishDateTime");
+		request.unbind(entity.getExecutionPeriod(), model, START_DATE_TIME, FINISH_DATE_TIME);
 		request.unbind(entity, model, "title","isPublic", "description", "link");
 		
 	}

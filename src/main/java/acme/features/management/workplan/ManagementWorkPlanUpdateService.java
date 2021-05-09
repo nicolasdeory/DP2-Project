@@ -1,6 +1,5 @@
 package acme.features.management.workplan;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Service;
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.roles.Management;
 import acme.entities.tasks.Task;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -58,7 +57,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         request.bind(entity, errors);
         if(request.getModel().hasAttribute(START_DATE_TIME)){
             try{
-                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
+                executionPeriod.setStartDateTime(request.getModel().getAttribute(START_DATE_TIME,Date.class));
             }
             catch(final Exception e){
                 errors.state(request,false,START_DATE_TIME,"management.workplan.error.startDateTime.format");
@@ -66,7 +65,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
         }
         if(request.getModel().hasAttribute(FINISH_DATE_TIME)){
             try{
-                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
+                executionPeriod.setFinishDateTime(request.getModel().getAttribute(FINISH_DATE_TIME,Date.class));
             }catch(final Exception e){
                 errors.state(request,false,FINISH_DATE_TIME,"management.workplan.error.finishDate.format");
             }
@@ -151,11 +150,11 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
                 final Integer id = Integer.valueOf(taskId);
                 final Task t = this.repository.findOneTaskById(id);
                 if (startDateError&&entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.state(request,false,"startDateTime", "management.workplan.error.startDate.task");
+                    errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.task");
                     startDateError=false;
                 }
                 if (finishDateError&&entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.state(request,false,"finishDateTime", "management.workplan.error.finishDate.task");
+                    errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.task");
                     finishDateError=false;
                 }
                 if(isPublicError&&!((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
@@ -193,7 +192,7 @@ public class ManagementWorkPlanUpdateService implements AbstractUpdateService<Ma
 
                 } else {
                     // ya hemos terminado de manejarla, la borramos para evitar iteraciones innecesarias
-                    newTaskIdStrings.remove(taskEntry.getValue());
+                    newTaskIdStrings.remove(taskEntry.getKey());
                 }
             }
 

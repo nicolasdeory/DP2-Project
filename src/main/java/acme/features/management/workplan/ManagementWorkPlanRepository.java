@@ -7,7 +7,7 @@ import acme.framework.entities.UserAccount;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
