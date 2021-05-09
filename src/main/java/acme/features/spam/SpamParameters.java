@@ -20,8 +20,6 @@ import lombok.Setter;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -38,7 +36,7 @@ public class SpamParameters extends DomainEntity {
 	protected Double threshold;
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	protected List<String> keywords;
+	private List<String> keywords;
 
 	// Derived attributes -----------------------------------------------------
 
