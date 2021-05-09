@@ -5,16 +5,13 @@ import acme.entities.workplan.WorkPlan;
 import acme.features.management.workplan.ManagementWorkPlanRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Request;
-import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
-import java.util.List;
 
 public class WorkPlanValidator {
 
     private static final String START_DATE_TIME = "startDateTime";
     private static final String FINISH_DATE_TIME = "finishDateTime";
-    private static final String WORKLOAD = "workload";
 
     private WorkPlanValidator() { }
 
@@ -29,7 +26,8 @@ public class WorkPlanValidator {
             validateFinishDateAfterStartDate(entity, request, errors);
         }
 
-        validateTasks(entity, request, errors, repository);
+        if (entity.getNewTasksId() != null && !errors.hasErrors())
+            validateTasks(entity, request, errors, repository);
 
     }
 
@@ -79,26 +77,23 @@ public class WorkPlanValidator {
 
     private static void validateTasks(WorkPlan entity, Request<WorkPlan> request, Errors errors, ManagementWorkPlanRepository repository)
     {
-        List<String> newTasksIds = entity.getNewTasksId();
-        if(newTasksIds!=null && !errors.hasErrors()){
-            boolean alreadyHandledStartDateError=false;
-            boolean alreadyHandledFinishDateError=false;
-            boolean alreadyHandledPublicError=false;
-            for (final String taskId : newTasksIds) {
-                final Integer id = Integer.valueOf(taskId);
-                final Task t = repository.findOneTaskById(id);
-                if (!alreadyHandledStartDateError && entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
-                    errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.task");
-                    alreadyHandledStartDateError=true;
-                }
-                if (!alreadyHandledFinishDateError && entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
-                    errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.task");
-                    alreadyHandledFinishDateError=true;
-                }
-                if(!alreadyHandledPublicError && !((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
-                    errors.state(request,false,"isPublic", "management.workplan.error.isPublic");
-                    alreadyHandledPublicError=true;
-                }
+        boolean alreadyHandledStartDateError=false;
+        boolean alreadyHandledFinishDateError=false;
+        boolean alreadyHandledPublicError=false;
+        for (final String taskId : entity.getNewTasksId()) {
+            final Integer id = Integer.valueOf(taskId);
+            final Task t = repository.findOneTaskById(id);
+            if (!alreadyHandledStartDateError && entity.getExecutionPeriod().getStartDateTime().after(t.getExecutionPeriod().getStartDateTime())) {
+                errors.state(request,false,START_DATE_TIME, "management.workplan.error.startDate.task");
+                alreadyHandledStartDateError=true;
+            }
+            if (!alreadyHandledFinishDateError && entity.getExecutionPeriod().getFinishDateTime().before(t.getExecutionPeriod().getFinishDateTime())) {
+                errors.state(request,false,FINISH_DATE_TIME, "management.workplan.error.finishDate.task");
+                alreadyHandledFinishDateError=true;
+            }
+            if(!alreadyHandledPublicError && !((entity.getIsPublic()&& t.getIsPublic()) || !entity.getIsPublic())){
+                errors.state(request,false,"isPublic", "management.workplan.error.isPublic");
+                alreadyHandledPublicError=true;
             }
         }
     }
