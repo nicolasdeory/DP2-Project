@@ -74,7 +74,7 @@ public class WorkPlan extends DomainEntity {
 
     @Valid
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    protected List<Task> tasks;
+    private List<Task> tasks;
 
     @Valid
     @ManyToOne(optional = false)

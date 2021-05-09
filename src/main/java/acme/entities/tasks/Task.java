@@ -4,6 +4,7 @@ package acme.entities.tasks;
 import java.beans.Transient;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -11,14 +12,11 @@ import javax.validation.constraints.*;
 
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 import org.hibernate.validator.constraints.URL;
-
 import acme.datatypes.ExecutionPeriod;
 import acme.entities.workPlan.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import acme.framework.entities.UserAccount;
-import acme.utils.WorkLoadOperations;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -80,5 +78,26 @@ public class Task extends DomainEntity {
 
     @Valid
     @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    protected List<WorkPlan> workPlans;
+    private List<WorkPlan> workPlans;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        if (!super.equals(o)) return false;
+        Task task = (Task) o;
+        return Objects.equals(title, task.title) &&
+                Objects.equals(isPublic, task.isPublic) &&
+                Objects.equals(workload, task.workload) &&
+                Objects.equals(executionPeriod, task.executionPeriod) &&
+                Objects.equals(description, task.description) &&
+                Objects.equals(link, task.link) &&
+                Objects.equals(user, task.user) &&
+                Objects.equals(workPlans, task.workPlans);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), title, isPublic, workload, executionPeriod, description, link, user, workPlans);
+    }
 }
