@@ -75,8 +75,6 @@ public class ManagementWorkPlanDeleteService implements AbstractDeleteService<Ma
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-
-        //TODO
     }
 
     @Override

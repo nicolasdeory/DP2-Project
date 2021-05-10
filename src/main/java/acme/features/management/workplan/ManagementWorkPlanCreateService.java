@@ -110,7 +110,6 @@ public class ManagementWorkPlanCreateService implements AbstractCreateService<Ma
         final UserAccount user = this.repository.findUserById(request.getPrincipal().getAccountId());
         entity.setUser(user);
         entity.setTasks(new ArrayList<>());
-        //ToDo Las tareas privadas no pueden estar en workplan publicos
         if(entity.getNewTasksId()!=null){
             for (final String taskId : entity.getNewTasksId()) {
                 final Integer id = Integer.valueOf(taskId);
