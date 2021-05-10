@@ -26,8 +26,8 @@ management.workplan.button.return=Volver
 management.workplan.label.add=Añadir tarea al plan de trabajo
 management.workplan.label.FinishedWorkplanMessage = Este plan de trabajo está terminada. No la puedes editar ni eliminar.
 
-management.workplan.error.startDate.task=La fecha de inicio de las tareas no debe estar antes de la fecha de incio del plan de trabajo
-management.workplan.error.finishDate.task=La fecha de fin de las tareas no debe estar despues de la fecha de fin del plan de trabajo
+management.workplan.error.startDate.task=La fecha de inicio del plan de trabajo debe ser anterior a la fecha de inicio de las tareas
+management.workplan.error.finishDate.task=La fecha de fin del plan de trabajo debe ser posterior a la fecha de fin de las tareas
 management.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
 management.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
 management.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin

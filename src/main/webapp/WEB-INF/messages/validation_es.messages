@@ -42,8 +42,8 @@ acme.validation.length = La longitud debe ser entre {0} y {1}
 acme.validation.range = Debe estar entre {0} y {1}
 acme.validation.script = El script "{0}" debe devolver true
 
-management.workplan.error.startDate.task=La fecha de inicio del plan de trabajo  no debe estar antes de la fecha de incio de las tareas
-management.workplan.error.finishDate.task=La fecha de fin del plan de trabajo no debe estar despues de la fecha de fin de las tareas
+management.workplan.error.startDate.task=La fecha de inicio del plan de trabajo debe ser anterior a la fecha de inicio de las tareas
+management.workplan.error.finishDate.task=La fecha de fin del plan de trabajo debe ser posterior a la fecha de fin de las tareas
 management.workplan.error.startDate=La fecha de inicio debe ser posterior a la fecha de hoy
 management.workplan.error.finishDate=La fecha de fin debe ser posterior a la fecha de hoy
 management.workplan.error.startDate.after=La fecha de inicio no debe ser posterior a la fecha de fin

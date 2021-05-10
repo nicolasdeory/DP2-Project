@@ -42,8 +42,8 @@ acme.validation.length = Length must be between {0} and {1}
 acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
 
-management.workplan.error.startDate.task=Workplan starter date must not be before task start date
-management.workplan.error.finishDate.task=Workplan starter date must not be after task finish date
+management.workplan.error.startDate.task=Workplan start date must be before task start date
+management.workplan.error.finishDate.task=Workplan start date must be after task finish date
 management.workplan.error.startDate=Start date must not be before now
 management.workplan.error.finishDate=Finish date must not be before now
 management.workplan.error.startDate.after=Starter date must not be after finish date
