@@ -59,7 +59,7 @@ public class UserAccount extends DomainEntity {
 	}
 
 	public void setPassword(final String password) {
-		if (password == null || password.equals("") || !PasswordHelper.isEncoded(password))
+		if (password == null || password.equals("") || PasswordHelper.isEncoded(password))
 			throw new IllegalArgumentException("Provide a valid password");
 
 		this.password = PasswordHelper.encode(password);
@@ -186,13 +186,11 @@ public class UserAccount extends DomainEntity {
 				Objects.equals(username, that.username) &&
 				Objects.equals(password, that.password) &&
 				Objects.equals(identity, that.identity) &&
-				Objects.equals(roles, that.roles) &&
-				Objects.equals(tasks, that.tasks) &&
-				Objects.equals(workPlans, that.workPlans);
+				Objects.equals(roles, that.roles);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), username, password, enabled, identity, roles, tasks, workPlans);
+		return Objects.hash(super.hashCode(), username, password, enabled, identity, roles);
 	}
 }

@@ -82,18 +82,7 @@ public class Task extends DomainEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Task)) return false;
-        if (!super.equals(o)) return false;
-        Task task = (Task) o;
-        return Objects.equals(title, task.title) &&
-                Objects.equals(isPublic, task.isPublic) &&
-                Objects.equals(workload, task.workload) &&
-                Objects.equals(executionPeriod, task.executionPeriod) &&
-                Objects.equals(description, task.description) &&
-                Objects.equals(link, task.link) &&
-                Objects.equals(user, task.user) &&
-                Objects.equals(workPlans, task.workPlans);
+        return this == o || (o instanceof Task && super.equals(o));
     }
 
     @Override
