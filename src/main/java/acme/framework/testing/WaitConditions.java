@@ -1,7 +1,7 @@
 /*
  * ExtraWaitConditions.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -13,6 +13,7 @@
 package acme.framework.testing;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
@@ -27,29 +28,42 @@ public abstract class WaitConditions {
 
 	// Business methods -----------------------------------------------------
 
-	public static ExpectedCondition<Boolean> safeStalenessOf(final WebElement element, final By locator) {
+	public static ExpectedCondition<Boolean> stalenessOf(final WebElement element, final By locator) {
 		assert element instanceof RemoteWebElement;
 		assert locator != null;
 		
 		ExpectedCondition<Boolean> result;
 		
-		result = new ExpectedCondition<Boolean>() {
-			@Override
-			public Boolean apply(final WebDriver driver) {
-				boolean result;
-				WebElement target;
-				
-				target = driver.findElement(locator);
-				assert target instanceof RemoteWebElement;
-				result = !((RemoteWebElement)element).getId().equals(((RemoteWebElement)target).getId());
-				
-				return result;
-			}
+		result = (final WebDriver driver) -> {
+			boolean answer;
+			WebElement target;
+			String oldId, newId, readyState;
+			
+			target = driver.findElement(locator);
+			assert target instanceof RemoteWebElement;
+			oldId = ((RemoteWebElement)element).getId();
+			newId = ((RemoteWebElement)target).getId();
+			readyState = (String)((JavascriptExecutor)driver).executeScript("return document.readyState;");
+			answer = !oldId.equals(newId) && "complete".equals(readyState);
+			
+			return answer;
+		};
+		
+		
+		return result;
+	}
 
-			@Override
-			public String toString() {
-				return String.format("staleness of element \"%s\"", ((RemoteWebElement)element).getId());
-			}
+	public static ExpectedCondition<Boolean> documentComplete() {
+		ExpectedCondition<Boolean> result;
+		
+		result = (final WebDriver driver) -> {
+			boolean answer;
+			String readyState;
+			
+			readyState = (String)((JavascriptExecutor)driver).executeScript("return document.readyState;");
+			answer = "complete".equals(readyState);
+			
+			return answer;		
 		};
 		
 		return result;
