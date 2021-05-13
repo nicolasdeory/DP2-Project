@@ -15,6 +15,7 @@ package acme.features.spam;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,32 +40,32 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 
 	@Override
 	public boolean authorise(final Request<SpamParameters> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<SpamParameters> request, final SpamParameters entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 	}
 
 	@Override
 	public void unbind(final Request<SpamParameters> request, final SpamParameters entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "threshold", "keywords");
 	}
 
 	@Override
 	public SpamParameters findOne(final Request<SpamParameters> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		SpamParameters result;
 		result = this.repository.findAllSpamParameters().stream().collect(Collectors.toList()).get(0);
@@ -74,15 +75,15 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 
 	@Override
 	public void validate(final Request<SpamParameters> request, final SpamParameters entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 	}
 
 	@Override
 	public void update(final Request<SpamParameters> request, final SpamParameters entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		final Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
 		entity.setKeywords(set.stream().sorted().collect(Collectors.toList()));
@@ -92,8 +93,8 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 
 	@Override
 	public void onSuccess(final Request<SpamParameters> request, final Response<SpamParameters> response) {
-		assert request != null;
-		assert response != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertResponseNotNull(response);
 
 		if (request.isMethod(HttpMethod.POST)) {
 			PrincipalHelper.handleUpdate();

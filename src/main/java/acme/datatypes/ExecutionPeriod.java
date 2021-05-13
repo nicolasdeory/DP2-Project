@@ -13,13 +13,10 @@
 package acme.datatypes;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import acme.framework.datatypes.DomainDatatype;
@@ -52,14 +49,26 @@ public class ExecutionPeriod extends DomainDatatype implements Comparable<Execut
 
 	public Double getWorkloadHours() {
 		return (this.finishDateTime.getTime() - this.startDateTime.getTime()) / (1000 * 3600.0);
-		/*LocalDateTime finish=finishDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-		LocalDateTime start=startDateTime.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-		return Duration.between(start, finish).toHours()+Duration.between(start, finish).toMinutes()*0.01;*/
 	}
 
 	@Override
 	public int compareTo(ExecutionPeriod o) {
 		double diff = this.getWorkloadHours() - o.getWorkloadHours();
-		return diff < 0 ? -1 : (diff > 0 ? 1 : 0);
+		int aux = diff > 0 ? 1 : 0;
+		return diff < 0 ? -1 : aux;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof ExecutionPeriod)) return false;
+		ExecutionPeriod that = (ExecutionPeriod) o;
+		return Objects.equals(startDateTime, that.startDateTime) &&
+				Objects.equals(finishDateTime, that.finishDateTime);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(startDateTime, finishDateTime);
 	}
 }

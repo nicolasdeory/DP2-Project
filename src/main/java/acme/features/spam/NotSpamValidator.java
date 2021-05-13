@@ -1,7 +1,6 @@
 package acme.features.spam;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

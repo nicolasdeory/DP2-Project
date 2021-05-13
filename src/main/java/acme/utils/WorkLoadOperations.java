@@ -1,6 +1,6 @@
 package acme.utils;
 
-public class WorkLoadOperations {
+public final class WorkLoadOperations {
     /*
      * Workload Format: X.YYY where: X is the number of hours YYY is the number of
      * minutes
@@ -27,11 +27,13 @@ public class WorkLoadOperations {
         return hours + decimals;
     }
 
-    public static Boolean isFormatedWorkload(Double workload) {
+    public static boolean isFormatedWorkload(Double workload) {
         Long hours = workload.longValue();
         Double decimals = (workload - hours);
         Long minutes =  Math.round(decimals*100);
         return minutes < 60 && minutes>=0;
     }
+
+    private WorkLoadOperations() { }
 
 }

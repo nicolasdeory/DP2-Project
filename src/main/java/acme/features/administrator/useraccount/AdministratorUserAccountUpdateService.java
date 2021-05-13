@@ -1,5 +1,5 @@
 /*
- * AdministratorUserAccountShowService.java
+ * AdministratorUserAccountUpdateService.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -10,45 +10,55 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.userAccount;
+package acme.features.administrator.useraccount;
 
 import java.util.Collection;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Anonymous;
 import acme.framework.entities.UserAccount;
 import acme.framework.entities.UserAccountStatus;
 import acme.framework.entities.UserRole;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorUserAccountShowService implements AbstractShowService<Administrator, UserAccount> {
+public class AdministratorUserAccountUpdateService implements AbstractUpdateService<Administrator, UserAccount> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AdministratorUserAccountRepository repository;
 
-	// AbstractShowService<Administrator, UserAccount> interface --------------
+	// AbstractUpdateService<Administrator, UserAccount> interface -------------
 
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
+	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
+
+		request.bind(entity, errors);
+	}
+
+	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		StringBuilder buffer;
 		Collection<UserRole> roles;
@@ -69,26 +79,40 @@ public class AdministratorUserAccountShowService implements AbstractShowService<
 		} else {
 			model.setAttribute("status", UserAccountStatus.DISABLED);
 		}
-
-		if (entity.hasRole(Administrator.class) || entity.hasRole(Anonymous.class)) {
-			model.setAttribute("canUpdate", false);
-		} else {
-			model.setAttribute("canUpdate", true);
-		}
 	}
 
 	@Override
 	public UserAccount findOne(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		int id;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneUserAccountById(id);
-		result.getRoles().forEach(r -> {;});
 
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
+	}
+
+	@Override
+	public void update(final Request<UserAccount> request, final UserAccount entity) {
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+
+		if (request.getModel().getString("newStatus").equals("ENABLED")) {
+			entity.setEnabled(true);
+		} else if (request.getModel().getString("newStatus").equals("DISABLED")) {
+			entity.setEnabled(false);
+		}
+
+		this.repository.save(entity);
 	}
 
 }

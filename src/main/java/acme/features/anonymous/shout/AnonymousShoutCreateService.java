@@ -14,6 +14,7 @@ package acme.features.anonymous.shout;
 
 import java.util.Date;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,32 +37,33 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
-		assert request != null;
+
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<Shout> request, final Shout entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 	}
 
 	@Override
 	public void unbind(final Request<Shout> request, final Shout entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "author", "text", "info");
 	}
 
 	@Override
 	public Shout instantiate(final Request<Shout> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Shout result;
 		Date moment;
@@ -79,16 +81,16 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 	@Override
 	public void validate(final Request<Shout> request, final Shout entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 	}
 
 	@Override
 	public void create(final Request<Shout> request, final Shout entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		Date moment;
 

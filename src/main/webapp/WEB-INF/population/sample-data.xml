@@ -241,7 +241,7 @@
     </bean>
 
     <!-- WorkPlans -->
-    <bean name="workplan1" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan1" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Acme One"/>
         <property name="description" value="First Deliverable DP2"/>
         <property name="isPublic" value="true"/>
@@ -259,7 +259,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan2" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan2" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Acme Planner"/>
         <property name="description" value="Second Deliverable DP2"/>
         <property name="isPublic" value="true"/>
@@ -277,7 +277,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan3" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan3" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="DP1 project"/>
         <property name="description" value="The best DP1 project"/>
         <property name="isPublic" value="true"/>
@@ -295,7 +295,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan4" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan4" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="ASR pro failed"/>
         <property name="description" value="How to fail"/>
         <property name="isPublic" value="true"/>
@@ -313,7 +313,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan5" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan5" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Juan Project"/>
         <property name="description" value="The best starter 5"/>
         <property name="isPublic" value="true"/>
@@ -331,7 +331,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan6" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan6" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Finish project"/>
         <property name="description" value="The best finish project"/>
         <property name="isPublic" value="true"/>
@@ -343,7 +343,7 @@
         </property>
         <property name="user" ref="juanUserAccount"/>
     </bean>
-    <bean name="workplan7" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan7" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Future project"/>
         <property name="description" value="The best future project"/>
         <property name="isPublic" value="true"/>
@@ -355,7 +355,7 @@
         </property>
         <property name="user" ref="juanUserAccount"/>
     </bean>
-    <bean name="workplan8" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan8" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Counter project"/>
         <property name="description" value="The best starter 8"/>
         <property name="isPublic" value="false"/>
@@ -373,7 +373,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan9" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan9" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Acme One 2.0"/>
         <property name="description" value="The best starter 2.0"/>
         <property name="isPublic" value="false"/>
@@ -391,7 +391,7 @@
             </list>
         </property>
     </bean>
-    <bean name="workplan10" class="acme.entities.workPlan.WorkPlan">
+    <bean name="workplan10" class="acme.entities.workplan.WorkPlan">
         <property name="title" value="Lola workplan"/>
         <property name="description" value="The best starter 2.0"/>
         <property name="isPublic" value="true"/>

@@ -2,6 +2,7 @@ package acme.features.management.task;
 
 import java.util.Date;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +19,15 @@ import acme.framework.services.AbstractUpdateService;
 @Service
 public class ManagementTaskUpdateService implements AbstractUpdateService<Management, Task>{
 
+    private static final String START_DATE_TIME = "startDateTime";
+    private static final String FINISH_DATE_TIME = "finishDateTime";
+
 	@Autowired
 	protected ManagementTaskRepository repository;
 	
 	@Override
 	public boolean authorise(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
         int taskId;
         final Task task;
@@ -34,34 +38,30 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
         task = this.repository.findOneTaskById(taskId);
         userAccount = task.getUser();
         principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAccount.getId() == principal.getAccountId();
 	}
 
 	@Override
 	public void bind(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		final ExecutionPeriod executionPeriod = new ExecutionPeriod();
         request.bind(entity, errors);
-        if(request.getModel().hasAttribute("startDateTime")){
+        if(request.getModel().hasAttribute(START_DATE_TIME)){
             try{
-                executionPeriod.setStartDateTime(request.getModel().getAttribute("startDateTime",Date.class));
+                executionPeriod.setStartDateTime(request.getModel().getAttribute(START_DATE_TIME,Date.class));
             }
             catch(final Exception e){
-                errors.state(request, false,"startDateTime","authenticated.tasks.error.startDateTime.format");
+                errors.state(request, false,START_DATE_TIME,"authenticated.tasks.error.startDateTime.format");
             }
         }
-        if(request.getModel().hasAttribute("finishDateTime")){
+        if(request.getModel().hasAttribute(FINISH_DATE_TIME)){
             try{
-                executionPeriod.setFinishDateTime(request.getModel().getAttribute("finishDateTime",Date.class));
+                executionPeriod.setFinishDateTime(request.getModel().getAttribute(FINISH_DATE_TIME,Date.class));
             }catch(final Exception e){
-                errors.state(request, false, "finishDateTime","authenticated.tasks.error.finishDate.format");
+                errors.state(request, false, FINISH_DATE_TIME,"authenticated.tasks.error.finishDate.format");
             }
 
         }
@@ -72,18 +72,18 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 		
-		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime"); 
+		request.unbind(entity.getExecutionPeriod(), model, START_DATE_TIME, FINISH_DATE_TIME);
 		request.unbind(entity, model, "title","isPublic", "description", "link");
 		
 	}
 
 	@Override
 	public Task findOne(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Task task;
 		int id;
@@ -96,28 +96,28 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;	
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 		
 		final Date now=new Date(System.currentTimeMillis());
         if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
             if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request, false, "startDateTime", "management.tasks.error.startDate");
+                errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate");
             }
             if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request, false, "finishDateTime", "management.tasks.error.finishDate");
+                errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate");
             }
             if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.state(request, false, "startDateTime","management.tasks.error.startDate.after");
-                errors.state(request, false, "finishDateTime","management.tasks.error.finishDate.before");
+                errors.state(request, false, START_DATE_TIME,"management.tasks.error.startDate.after");
+                errors.state(request, false, FINISH_DATE_TIME,"management.tasks.error.finishDate.before");
             }
         }else{
             if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request, false, "startDateTime", "management.tasks.error.startDate.empty");
+                errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.empty");
             }
             if(entity.getExecutionPeriod().getFinishDateTime()==null){
-            	 errors.state(request, false, "finishDateTime", "management.tasks.error.finishDate.empty");
+            	 errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate.empty");
             }
 
         }
@@ -130,8 +130,8 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void update(final Request<Task> request, final Task entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 		
 		this.repository.save(entity);
 		

@@ -1,4 +1,4 @@
-package acme.features.management.workPlan;
+package acme.features.management.workplan;
 
 import javax.annotation.PostConstruct;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.roles.Management;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 

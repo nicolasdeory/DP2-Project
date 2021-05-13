@@ -1,4 +1,5 @@
-package acme.features.anonymous.tasks;
+
+package acme.features.anonymous.workplan;
 
 import java.util.Collection;
 
@@ -6,40 +7,42 @@ import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.tasks.Task;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousPublicTasksListService implements AbstractListService<Anonymous, Task> {
-
-	// Internal state ---------------------------------------------------------
+public class AnonymousPublicWorkPlanListService implements AbstractListService<Anonymous, WorkPlan> {
 
 	@Autowired
-	protected AnonymousTaskRepository repository;
+	protected AnonymousWorkPlanRepository repository;
+
 
 	@Override
-	public boolean authorise(final Request<Task> request) {
+	public boolean authorise(final Request<WorkPlan> request) {
 		AssertUtils.assertRequestNotNull(request);
-
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Task> request, final Task entity, final Model model) {
+	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertModelNotNull(model);
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
-		model.setAttribute("workload", entity.getWorkload());
-		request.unbind(entity, model, "title", "description", "isPublic", "link");
+		request.unbind(entity, model, "title");
+		model.setAttribute("workload", entity.getWorkloadHours());
+
 	}
 
 	@Override
-	public Collection<Task> findMany(final Request<Task> request) {
+	public Collection<WorkPlan> findMany(final Request<WorkPlan> request) {
 		AssertUtils.assertRequestNotNull(request);
-		return this.repository.findNoFinishedAndPublicTasks();
+		Collection<WorkPlan> result;
+		result = this.repository.findAnonymousPublicWorkPlan();
+		return result;
 	}
+
 }

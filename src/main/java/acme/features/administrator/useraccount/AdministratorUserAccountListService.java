@@ -10,10 +10,11 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.administrator.userAccount;
+package acme.features.administrator.useraccount;
 
 import java.util.Collection;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,16 +39,16 @@ public class AdministratorUserAccountListService implements AbstractListService<
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		StringBuilder buffer;
 		Collection<UserRole> roles;
@@ -72,14 +73,11 @@ public class AdministratorUserAccountListService implements AbstractListService<
 
 	@Override
 	public Collection<UserAccount> findMany(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Collection<UserAccount> result;
 
 		result = this.repository.findAllUserAccounts();
-		for (final UserAccount userAccount : result) {
-			userAccount.getRoles().forEach(r -> { ; });
-		}
 
 		return result;
 	}

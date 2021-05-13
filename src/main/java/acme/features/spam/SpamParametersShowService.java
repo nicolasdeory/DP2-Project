@@ -12,15 +12,13 @@
 
 package acme.features.spam;
 
-import acme.features.administrator.userAccount.AdministratorUserAccountRepository;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.*;
 import acme.framework.services.AbstractShowService;
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
 
 @Service
 public class SpamParametersShowService implements AbstractShowService<Administrator, SpamParameters> {
@@ -35,25 +33,25 @@ public class SpamParametersShowService implements AbstractShowService<Administra
 
 	@Override
 	public boolean authorise(final Request<SpamParameters> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 		return true;
 	}
 
 	@Override
 	public void unbind(final Request<SpamParameters> request, final SpamParameters entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "threshold", "keywords");
 	}
 
 	@Override
 	public SpamParameters findOne(final Request<SpamParameters> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		SpamParameters result;
-		result = this.repository.findAllSpamParameters().stream().findFirst().get();
+		result = this.repository.findAllSpamParameters().stream().findFirst().orElseThrow(() -> new IllegalStateException("No spam parameters were found."));
 		return result;
 	}
 

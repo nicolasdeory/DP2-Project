@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.userAccount;
+package acme.features.anonymous.useraccount;
 
 import javax.annotation.PostConstruct;
 

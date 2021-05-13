@@ -1,5 +1,6 @@
 package acme.features.management.task;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ManagementTaskShowService implements AbstractShowService<Management
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		int taskId;
         Task task;
@@ -30,18 +31,14 @@ public class ManagementTaskShowService implements AbstractShowService<Management
         task = this.repository.findOneTaskById(taskId);
         userAccount = task.getUser();
         principal = request.getPrincipal();
-        if (userAccount.getId() == principal.getAccountId()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAccount.getId() == principal.getAccountId();
 	}
 
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		// revisar
 		request.unbind(entity.getExecutionPeriod(), model, "startDateTime", "finishDateTime");
@@ -52,7 +49,7 @@ public class ManagementTaskShowService implements AbstractShowService<Management
 
 	@Override
 	public Task findOne(final Request<Task> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		Task task;
 		int id;

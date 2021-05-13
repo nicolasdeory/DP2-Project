@@ -24,6 +24,8 @@ import acme.datatypes.UserIdentity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Getter
 @Setter
@@ -70,4 +72,17 @@ public abstract class UserRole extends DomainEntity {
 	@ManyToOne
 	protected UserAccount userAccount;
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof UserRole)) return false;
+		if (!super.equals(o)) return false;
+		UserRole userRole = (UserRole) o;
+		return Objects.equals(userAccount, userRole.userAccount);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), userAccount);
+	}
 }

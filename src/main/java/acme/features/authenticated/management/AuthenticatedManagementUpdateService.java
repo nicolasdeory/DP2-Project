@@ -7,6 +7,7 @@ import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,32 +19,32 @@ public class AuthenticatedManagementUpdateService implements AbstractUpdateServi
 
     @Override
     public boolean authorise(Request<Management> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         return true;
     }
 
     @Override
     public void bind(Request<Management> request, Management entity, Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
     }
 
     @Override
     public void unbind(Request<Management> request, Management entity, Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "team");
     }
 
     @Override
     public Management findOne(Request<Management> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         Management result;
         Principal principal;
@@ -59,23 +60,23 @@ public class AuthenticatedManagementUpdateService implements AbstractUpdateServi
 
     @Override
     public void validate(Request<Management> request, Management entity, Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
     }
 
     @Override
     public void update(Request<Management> request, Management entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
 
         this.repository.save(entity);
     }
 
     @Override
     public void onSuccess(final Request<Management> request, final Response<Management> response) {
-        assert request != null;
-        assert response != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertResponseNotNull(response);
 
         if (request.isMethod(HttpMethod.POST)) {
             PrincipalHelper.handleUpdate();

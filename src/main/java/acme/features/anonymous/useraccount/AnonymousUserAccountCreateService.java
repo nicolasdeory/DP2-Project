@@ -10,8 +10,9 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.anonymous.userAccount;
+package acme.features.anonymous.useraccount;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,46 +31,50 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	// Internal state ---------------------------------------------------------
 
+	private static final String PASSWORD = "password";
+	private static final String CONFIRMATION = "confirmation";
+	private static final String ACCEPT = "accept";
+
 	@Autowired
 	protected AnonymousUserAccountRepository repository;
 
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		request.bind(entity, errors);
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
 		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("password", "");
-			model.setAttribute("confirmation", "");
-			model.setAttribute("accept", "false");
+			model.setAttribute(PASSWORD, "");
+			model.setAttribute(CONFIRMATION, "");
+			model.setAttribute(ACCEPT, "false");
 		} else {
-			request.transfer(model, "password", "confirmation", "accept");
+			request.transfer(model, PASSWORD, CONFIRMATION, ACCEPT);
 		}
 	}
 
 	@Override
 	public UserAccount instantiate(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		Authenticated defaultRole;
@@ -85,33 +90,36 @@ public class AnonymousUserAccountCreateService implements AbstractCreateService<
 
 	@Override
 	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
-		boolean isDuplicated, isAccepted, isMatching;
-		String password, confirmation;
+		boolean isDuplicated;
+		boolean isAccepted;
+		boolean isMatching;
+		String password;
+		String confirmation;
 		int passwordLength;
 
 		isDuplicated = this.repository.findOneUserAccountByUsername(entity.getUsername()) != null;
 		errors.state(request, !isDuplicated, "username", "anonymous.user-account.error.duplicated");
 
-		passwordLength = request.getModel().getString("password").length();
-		errors.state(request, passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
+		passwordLength = request.getModel().getString(PASSWORD).length();
+		errors.state(request, passwordLength >= 5 && passwordLength <= 60, PASSWORD, "acme.validation.length", 6, 60);
 
-		isAccepted = request.getModel().getBoolean("accept");
-		errors.state(request, isAccepted, "accept", "anonymous.user-account.error.must-accept");
+		isAccepted = request.getModel().getBoolean(ACCEPT);
+		errors.state(request, isAccepted, ACCEPT, "anonymous.user-account.error.must-accept");
 
-		password = request.getModel().getString("password");
-		confirmation = request.getModel().getString("confirmation");
+		password = request.getModel().getString(PASSWORD);
+		confirmation = request.getModel().getString(CONFIRMATION);
 		isMatching = password.equals(confirmation);
-		errors.state(request, isMatching, "confirmation", "anonymous.user-account.error.confirmation-no-match");
+		errors.state(request, isMatching, CONFIRMATION, "anonymous.user-account.error.confirmation-no-match");
 	}
 
 	@Override
 	public void create(final Request<UserAccount> request, final UserAccount entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		this.repository.save(entity);
 		for (final UserRole role : entity.getRoles()) {

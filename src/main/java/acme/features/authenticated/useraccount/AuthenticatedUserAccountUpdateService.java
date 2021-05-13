@@ -10,8 +10,9 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.userAccount;
+package acme.features.authenticated.useraccount;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,10 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	// Internal state ---------------------------------------------------------
 
+	private static final String PASSWORD = "password";
+	private static final String CONFIRMATION = "confirmation";
+	private static final String MASKED_PASSWORD = "[MASKED-PASWORD]";
+
 	@Autowired
 	protected AuthenticatedUserAccountRepository repository;
 
@@ -40,81 +45,81 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public boolean authorise(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		return true;
 	}
 
 	@Override
 	public void bind(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		String password;
 
-		request.bind(entity, errors, "username", "password");
-		password = request.getModel().getString("password");
-		if (!password.equals("[MASKED-PASWORD]")) {
+		request.bind(entity, errors, "username", PASSWORD);
+		password = request.getModel().getString(PASSWORD);
+		if (!password.equals(MASKED_PASSWORD)) {
 			entity.setPassword(password);
 		}
 	}
 
 	@Override
 	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
-		assert request != null;
-		assert entity != null;
-		assert model != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
 
 		if (request.isMethod(HttpMethod.POST)) {
-			request.transfer(model, "password");
-			request.transfer(model, "confirmation");
+			request.transfer(model, PASSWORD);
+			request.transfer(model, CONFIRMATION);
 		} else {
-			request.unbind(entity, model, "password");
-			model.setAttribute("password", "[MASKED-PASWORD]");
-			model.setAttribute("confirmation", "[MASKED-PASWORD]");
+			request.unbind(entity, model, PASSWORD);
+			model.setAttribute(PASSWORD, MASKED_PASSWORD);
+			model.setAttribute(CONFIRMATION, MASKED_PASSWORD);
 		}
 	}
 
 	@Override
 	public UserAccount findOne(final Request<UserAccount> request) {
-		assert request != null;
+		AssertUtils.assertRequestNotNull(request);
 
 		UserAccount result;
 		Principal principal;
 
 		principal = request.getPrincipal();
 		result = this.repository.findOneUserAccountById(principal.getAccountId());
-		result.getRoles().forEach(r -> {;});
 
 		return result;
 	}
 
 	@Override
 	public void validate(final Request<UserAccount> request, final UserAccount entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
+		AssertUtils.assertErrorsNotNull(errors);
 
 		int passwordLength;
-		String password, confirmation;
+		String password;
+		String confirmation;
 		boolean isMatching;
 
-		passwordLength = request.getModel().getString("password").length();
-		errors.state(request, passwordLength >= 5 && passwordLength <= 60, "password", "acme.validation.length", 6, 60);
+		passwordLength = request.getModel().getString(PASSWORD).length();
+		errors.state(request, passwordLength >= 5 && passwordLength <= 60, PASSWORD, "acme.validation.length", 6, 60);
 
-		password = request.getModel().getString("password");
-		confirmation = request.getModel().getString("confirmation");
+		password = request.getModel().getString(PASSWORD);
+		confirmation = request.getModel().getString(CONFIRMATION);
 		isMatching = password.equals(confirmation);
-		errors.state(request, isMatching, "confirmation", "anonymous.user-account.error.confirmation-no-match");
+		errors.state(request, isMatching, CONFIRMATION, "anonymous.user-account.error.confirmation-no-match");
 	}
 
 	@Override
 	public void update(final Request<UserAccount> request, final UserAccount entity) {
-		assert request != null;
-		assert entity != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertEntityNotNull(entity);
 
 		this.repository.save(entity);
 		for (final UserRole role : entity.getRoles()) {
@@ -124,8 +129,8 @@ public class AuthenticatedUserAccountUpdateService implements AbstractUpdateServ
 
 	@Override
 	public void onSuccess(final Request<UserAccount> request, final Response<UserAccount> response) {
-		assert request != null;
-		assert response != null;
+		AssertUtils.assertRequestNotNull(request);
+		AssertUtils.assertResponseNotNull(response);
 
 		if (request.isMethod(HttpMethod.POST)) {
 			PrincipalHelper.handleUpdate();

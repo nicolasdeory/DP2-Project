@@ -1,5 +1,5 @@
 /*
- * AuthenticatedUserAccountController.java
+ * AdministratorUserAccountController.java
  *
  * Copyright (c) 2012-2021 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.userAccount;
+package acme.features.administrator.useraccount;
 
 import javax.annotation.PostConstruct;
 
@@ -20,23 +20,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
+import acme.framework.entities.Administrator;
 import acme.framework.entities.UserAccount;
 
 @Controller
-@RequestMapping("/authenticated/user-account/")
-public class AuthenticatedUserAccountController extends AbstractController<Authenticated, UserAccount> {
+@RequestMapping("/administrator/user-account/")
+public class AdministratorUserAccountController extends AbstractController<Administrator, UserAccount> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedUserAccountUpdateService updateService;
+	protected AdministratorUserAccountListService	listService;
+
+	@Autowired
+	protected AdministratorUserAccountShowService	showService;
+
+	@Autowired
+	protected AdministratorUserAccountUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 

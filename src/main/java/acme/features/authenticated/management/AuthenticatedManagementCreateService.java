@@ -1,5 +1,6 @@
 package acme.features.authenticated.management;
 
+import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,25 +25,25 @@ public class AuthenticatedManagementCreateService implements AbstractCreateServi
 
     @Override
     public boolean authorise(final Request<Management> request) {
-        assert request != null;
+        AssertUtils.assertRequestNotNull(request);
 
         return true;
     }
 
     @Override
     public void bind(final Request<Management> request, final Management entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
     }
 
     @Override
     public void unbind(final Request<Management> request, final Management entity, final Model model) {
-        assert request != null;
-        assert entity != null;
-        assert model != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "team");
     }
@@ -66,21 +67,21 @@ public class AuthenticatedManagementCreateService implements AbstractCreateServi
 
     @Override
     public void validate(final Request<Management> request, final Management entity, final Errors errors) {
-        assert request != null;
-        assert entity != null;
-        assert errors != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
     }
 
     @Override
     public void create(final Request<Management> request, final Management entity) {
-        assert request != null;
-        assert entity != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
         this.repository.save(entity);
     }
     @Override
     public void onSuccess(final Request<Management> request, final Response<Management> response) {
-        assert request != null;
-        assert response != null;
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertResponseNotNull(response);
 
         if (request.isMethod(HttpMethod.POST)) {
             PrincipalHelper.handleUpdate();

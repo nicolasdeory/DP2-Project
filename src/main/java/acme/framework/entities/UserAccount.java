@@ -12,10 +12,7 @@
 
 package acme.framework.entities;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +22,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.NonNull;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.UserIdentity;
 import acme.entities.tasks.Task;
-import acme.entities.workPlan.WorkPlan;
+import acme.entities.workplan.WorkPlan;
 import acme.framework.helpers.PasswordHelper;
 import acme.framework.helpers.StringHelper;
 import lombok.Getter;
@@ -61,11 +59,10 @@ public class UserAccount extends DomainEntity {
 	}
 
 	public void setPassword(final String password) {
-		assert password == null || password.equals("") || !PasswordHelper.isEncoded(password);
+		if (password == null || password.equals("") || PasswordHelper.isEncoded(password))
+			throw new IllegalArgumentException("Provide a valid password");
 
-		if (!StringHelper.isBlank(password)) {
-			this.password = PasswordHelper.encode(password);
-		}
+		this.password = PasswordHelper.encode(password);
 	}
 
 
@@ -91,40 +88,31 @@ public class UserAccount extends DomainEntity {
 
 	@NotEmpty
 	@OneToMany(mappedBy = "userAccount")
-	protected Collection<@Valid UserRole> roles;
+	private Collection<@Valid UserRole> roles;
 	
 	@Valid
 	@OneToMany
-	protected List<Task> tasks;
+	private List<Task> tasks;
 	
 	@Valid
 	@OneToMany
-	protected List<WorkPlan> workPlans;
+	private List<WorkPlan> workPlans;
 
 	@Transient
-	public boolean hasRole(final UserRole role) {
-		assert role != null;
-
-		boolean result;
-
-		result = this.roles != null && this.roles.contains(role);
-
-		return result;
+	public boolean hasRole(@NonNull final UserRole role) {
+		return this.roles.contains(role);
 	}
 
 	@Transient
 	public boolean hasRole(final Class<? extends UserRole> clazz) {
-		boolean result;
-
-		result = this.roles != null && this.getRole(clazz) != null;
-
-		return result;
+		return this.roles != null && this.getRole(clazz) != null;
 	}
 
 	@Transient
 	@SuppressWarnings("unchecked")
 	public <T extends UserRole> T getRole(final Class<? extends UserRole> clazz) {
-		assert clazz != null;
+		if (clazz == null)
+			throw new IllegalArgumentException("class cannot be null");
 
 		T result;
 		Iterator<UserRole> iterator;
@@ -145,7 +133,8 @@ public class UserAccount extends DomainEntity {
 	@Transient
 	@SuppressWarnings("unchecked")
 	public <T extends UserRole> T getRole(final String name) {
-		assert !StringHelper.isBlank(name);
+		if (StringHelper.isBlank(name))
+			throw new IllegalArgumentException("name cannot be blank");
 
 		T result;
 		Iterator<UserRole> iterator;
@@ -164,29 +153,44 @@ public class UserAccount extends DomainEntity {
 	}
 
 	public void addRole(final UserRole role) {
-		assert role != null;
-		assert !this.hasRole(role.getClass());
+		if (role == null)
+			throw new IllegalArgumentException("role cannot be null");
+		if (!this.hasRole(role.getClass()))
+			throw new IllegalArgumentException("user doesn't have role");
 
 		if (this.roles == null) {
-			this.roles = new ArrayList<UserRole>();
+			this.roles = new ArrayList<>();
 		}
 
 		this.roles.add(role);
 	}
 
 	public void removeRole(final UserRole role) {
-		assert role != null;
-		assert this.hasRole(role);
+		if (role == null)
+			throw new IllegalArgumentException("Role can't be null");
+		if (this.hasRole(role))
+			throw new IllegalArgumentException("User doesnt have role");
 
 		this.roles.remove(role);
 	}
 
 	// Other methods ----------------------------------------------------------
 
-	
-	
-	//RELATIONS
-	
-	@OneToMany
-	protected List<WorkPlan> workplans;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof UserAccount)) return false;
+		if (!super.equals(o)) return false;
+		UserAccount that = (UserAccount) o;
+		return enabled == that.enabled &&
+				Objects.equals(username, that.username) &&
+				Objects.equals(password, that.password) &&
+				Objects.equals(identity, that.identity) &&
+				Objects.equals(roles, that.roles);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), username, password, enabled, identity, roles);
+	}
 }
