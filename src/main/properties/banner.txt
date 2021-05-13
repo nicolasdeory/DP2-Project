@@ -8,4 +8,4 @@
 
 ${Ansi.DEFAULT}
 Powered by Spring Boot ${spring-boot.version}
-Powered by Starter-Project 21.3
+Powered by Starter-Project 21.4
