@@ -22,7 +22,7 @@ import acme.framework.testing.AbstractTest;
 
 class SignUpTest extends AbstractTest {
 
-	// Internal state ---------------------------------------------------------
+	/*// Internal state ---------------------------------------------------------
 
 	// Lifecycle management ---------------------------------------------------
 
@@ -79,5 +79,5 @@ class SignUpTest extends AbstractTest {
 		super.fill(By.id("identity.email"), email);
 		super.click(By.id("accept$proxy"));
 		super.submit(By.className("btn-primary"));
-	}
-
+	}*/
+}
