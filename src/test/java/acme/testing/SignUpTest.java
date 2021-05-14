@@ -1,7 +1,7 @@
 /*
  * SignUpTest.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -11,7 +11,6 @@
  */
 
 package acme.testing;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -23,7 +22,7 @@ import acme.framework.testing.AbstractTest;
 
 public abstract class SignUpTest extends AbstractTest {
 
-	// Internal state ---------------------------------------------------------
+	/*// Internal state ---------------------------------------------------------
 
 	// Lifecycle management ---------------------------------------------------
 
@@ -80,6 +79,5 @@ public abstract class SignUpTest extends AbstractTest {
 		super.fill(By.id("identity.email"), email);
 		super.click(By.id("accept$proxy"));
 		super.submit(By.className("btn-primary"));
-	}
-
+	}*/
 }

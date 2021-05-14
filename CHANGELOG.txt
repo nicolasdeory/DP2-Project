@@ -26,3 +26,5 @@ Year 2020
 Year 2021
 
 21.1   The version scheme was changed. Many improvements to profiles, population, launcher, error handling, and testing support.
+21.3 Fixed some bugs that prevented the populator from working well when deployed to Clever Cloud.
+21.4   The testing framework has been greatly simplified and enhanced.

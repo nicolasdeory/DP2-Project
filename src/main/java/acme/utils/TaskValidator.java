@@ -81,7 +81,7 @@ public final class TaskValidator {
 
     private static boolean validateWorkload(Task entity, Request<Task> request, Errors errors)
     {
-        if (!WorkLoadOperations.isFormatedWorkload(entity.getWorkload())) {
+        if (entity.getWorkload()==null||!WorkLoadOperations.isFormatedWorkload(entity.getWorkload())) {
             errors.state(request, false, WORKLOAD, "management.tasks.workload.error.format");
             return false;
         }

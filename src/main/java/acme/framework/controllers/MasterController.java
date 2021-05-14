@@ -1,7 +1,7 @@
 /*
  * MasterController.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -24,12 +24,12 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import acme.framework.entities.Administrator;
+import acme.framework.helpers.Assert;
 import acme.framework.helpers.FactoryHelper;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.utilities.DatabasePopulator;
