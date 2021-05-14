@@ -20,7 +20,6 @@ public class AnonymousCreateShoutTest extends AcmeTest {
 
     }
     // Test cases -------------------------------------------------------------
-    // Ancillary methods ------------------------------------------------------
     
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -43,4 +42,23 @@ public class AnonymousCreateShoutTest extends AcmeTest {
         super.clickOnListingRecord(recordIndex);
         
     }
+    
+    @ParameterizedTest
+    @CsvFileSource(resources = "/anonymous/shout/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void CreateNegative(final int recordIndex, final String author, final String info,final String moment,
+    	final String text) {
+        super.clickOnMenu("Anonymous", "Shout!");        
+        
+
+        super.fillInputBoxIn("author", author);
+        super.fillInputBoxIn("text", text);
+        super.fillInputBoxIn("info", info);
+        super.clickOnSubmitButton("Shout!");
+        
+        super.checkErrorsExist();
+        
+    }
+    
+    // Ancillary methods ------------------------------------------------------
 }
