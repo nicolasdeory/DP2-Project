@@ -21,7 +21,7 @@ import org.openqa.selenium.By;
 
 import acme.framework.testing.AbstractTest;
 
-class SignUpTest extends AbstractTest {
+public abstract class SignUpTest extends AbstractTest {
 
 	// Internal state ---------------------------------------------------------
 
