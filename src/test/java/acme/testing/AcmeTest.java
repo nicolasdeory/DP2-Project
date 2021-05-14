@@ -337,4 +337,8 @@ public abstract class AcmeTest extends AbstractTest {
 		return result;
 	}
 
+	@Override
+	protected void shortSleep() {
+		this.sleep(1, false);
+	}
 }

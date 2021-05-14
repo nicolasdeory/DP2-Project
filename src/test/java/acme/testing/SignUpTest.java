@@ -35,8 +35,9 @@ class SignUpTest extends AbstractTest {
 		super.setAutoPausing(true);
 
 		this.signIn("administrator", "administrator");
-		super.click(By.linkText("Administrator"));
-		super.submit(By.linkText("Populate DB (initial)"));
+		super.clickAndGo(By.linkText("Administrator"));
+		super.clickAndGo(By.linkText("Populate DB (initial)"));
+		super.checkAlertExists(true);
 		this.signOut();
 	}
 
