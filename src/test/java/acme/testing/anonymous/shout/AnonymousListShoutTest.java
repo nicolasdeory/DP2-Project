@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmeTest;
 
-public class AnonymousCreateShoutTest extends AcmeTest {
+public class AnonymousListShoutTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
