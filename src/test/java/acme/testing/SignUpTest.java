@@ -37,6 +37,7 @@ class SignUpTest extends AcmeTest {
 		this.signIn("administrator", "administrator");
 		super.clickAndGo(By.linkText("Administrator"));
 		super.clickAndGo(By.linkText("Populate DB (initial)"));
+		super.checkAlertExists(true);
 		this.signOut();
 	}
 
@@ -56,4 +57,3 @@ class SignUpTest extends AcmeTest {
 
 
 }
-
