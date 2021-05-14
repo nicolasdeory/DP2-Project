@@ -155,8 +155,8 @@ public class UserAccount extends DomainEntity {
 	public void addRole(final UserRole role) {
 		if (role == null)
 			throw new IllegalArgumentException("role cannot be null");
-		if (!this.hasRole(role.getClass()))
-			throw new IllegalArgumentException("user doesn't have role");
+		if (this.hasRole(role.getClass()))
+			throw new IllegalArgumentException("user already has role");
 
 		if (this.roles == null) {
 			this.roles = new ArrayList<>();
@@ -168,8 +168,8 @@ public class UserAccount extends DomainEntity {
 	public void removeRole(final UserRole role) {
 		if (role == null)
 			throw new IllegalArgumentException("Role can't be null");
-		if (this.hasRole(role))
-			throw new IllegalArgumentException("User doesnt have role");
+		if (!this.hasRole(role))
+			throw new IllegalArgumentException("User doesn't have role");
 
 		this.roles.remove(role);
 	}
@@ -183,14 +183,11 @@ public class UserAccount extends DomainEntity {
 		if (!super.equals(o)) return false;
 		UserAccount that = (UserAccount) o;
 		return enabled == that.enabled &&
-				Objects.equals(username, that.username) &&
-				Objects.equals(password, that.password) &&
-				Objects.equals(identity, that.identity) &&
-				Objects.equals(roles, that.roles);
+				Objects.equals(username, that.username);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), username, password, enabled, identity, roles);
+		return Objects.hash(super.hashCode(), username);
 	}
 }

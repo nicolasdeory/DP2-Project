@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 <<<<<<< HEAD
 INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 99308 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
@@ -2641,3 +2642,154 @@ ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.fra
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Acceso no autorizado
 
 >>>>>>> master
+=======
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.base/java.net.PlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+WARN [com.zaxxer.hikari.pool.HikariPool] {} - Thread starvation or clock leap detected (housekeeper delta={}).
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.entities.UserAccount.addRole(UserAccount.java:159): user doesn't have role
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
+WARN [org.apache.catalina.util.SessionIdGeneratorBase] Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
+WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] SQL Error: 1146, SQLState: 42S02
+ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] SQL Error: 1146, SQLState: 42S02
+ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at acme.framework.services.AuthenticationService.loadUserByUsername(AuthenticationService.java:51): anonymous
+WARN [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] SQL Error: 1146, SQLState: 42S02
+ERROR [org.hibernate.engine.jdbc.spi.SqlExceptionHelper] Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:259): could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63): could not extract ResultSet
+com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120): Table 'acme-one.user_account' doesn't exist
+>>>>>>> Stashed changes
