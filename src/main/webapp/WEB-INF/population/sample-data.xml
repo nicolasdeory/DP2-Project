@@ -76,6 +76,34 @@
         <property name="team" value="DPTEAM 2" />
 
     </bean>
+    <bean name="rosaUserAccount" class="acme.framework.entities.UserAccount">
+        <property name="username" value="rosa21"/>
+        <property name="password" value="1234"/>
+        <property name="enabled" value="true"/>
+        <property name="identity">
+            <bean class="acme.datatypes.UserIdentity">
+                <property name="name" value="Rosa"/>
+                <property name="surname" value="Torres"/>
+                <property name="email" value="rosa.doe@acme.com"/>
+            </bean>
+        </property>
+        <property name="roles">
+            <list>
+                <ref bean="rosaAuthenticated"/>
+            </list>
+        </property>
+    </bean>
+    <bean class="acme.framework.entities.Authenticated" name="rosaAuthenticated">
+
+        <property name="userAccount" ref="rosaUserAccount"/>
+
+    </bean>
+    <bean class="acme.entities.roles.Management" name="rosaManagement">
+
+        <property name="userAccount" ref="rosaUserAccount"/>
+        <property name="team" value="DPTEAM 3" />
+
+    </bean>
 
     <!-- Tasks -->
     <bean name="task1" class="acme.entities.tasks.Task">
@@ -238,6 +266,20 @@
             </bean>
         </property>
         <property name="user" ref="lolaUserAccount"/>
+    </bean>
+    <bean name="task11" class="acme.entities.tasks.Task">
+        <property name="title" value="Rosa Task"/>
+        <property name="workload" value="1.30"/>
+        <property name="description" value="Never before was this easy to test your tasks"/>
+        <property name="isPublic" value="true"/>
+        <property name="link" value="http://example.org"/>
+        <property name="executionPeriod">
+            <bean class="acme.datatypes.ExecutionPeriod">
+                <property name="startDateTime" value="2022/09/01 23:59"/>
+                <property name="finishDateTime" value="2022/10/01 23:59"/>
+            </bean>
+        </property>
+        <property name="user" ref="rosaUserAccount"/>
     </bean>
 
     <!-- WorkPlans -->
