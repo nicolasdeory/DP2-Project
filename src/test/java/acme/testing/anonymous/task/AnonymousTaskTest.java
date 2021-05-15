@@ -38,5 +38,23 @@ public class AnonymousTaskTest extends AcmeTest {
         super.clickOnReturnButton("Return");
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "/anonymous/task/show.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void ShowDetails(final int recordIndex, final String title, final String description, final String start,
+            final String finish, final String workload, final String link) {
+        super.clickOnMenu("Anonymous", "Public Tasks");
+        super.clickOnListingRecord(recordIndex);
+
+        super.checkInputBoxHasValue("Title", title);
+        super.checkInputBoxHasValue("Description", description);
+        super.checkInputBoxHasValue("Workload", workload);
+        super.checkInputBoxHasValue("Start", start);
+        super.checkInputBoxHasValue("Finish", finish);
+        super.checkInputBoxHasValue("Link", link);
+
+        super.clickOnReturnButton("Return");
+    }
+
     // Ancillary methods ------------------------------------------------------
 }
