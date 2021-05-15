@@ -64,7 +64,7 @@
                     <c:out value="${task.isPublic}"/>
                 </td>
                 <td>
-                    <input type="checkbox" name="newTasksId" value="${task.id}" checked="true">
+                    <input type="checkbox" id="${task.title}" name="newTasksId" value="${task.id}" checked="true">
                 </td>
             </tr>
         </c:forEach>
@@ -84,7 +84,7 @@
                     <c:out value="${task.isPublic}"/>
                 </td>
                 <td>
-                    <input type="checkbox" name="newTasksId" value="${task.id}">
+                    <input type="checkbox" id="${task.title}" name="newTasksId" value="${task.id}">
                 </td>
             </tr>
         </c:forEach>

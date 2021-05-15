@@ -4,6 +4,7 @@ import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
@@ -32,7 +33,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/managament/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void createPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate) {
+    public void createPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");
 
         super.clickOnMenu("Management", "Create new Workplan");
@@ -40,7 +41,11 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
         if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
-        super.clickAndGo(By.name("newTasksId"));
+        String s[]=tasks.split(";");
+        for(String task:s){
+            super.clickAndGo(By.id(task));
+        }
+
         super.fill(By.id("startDateTime"), startDate);
         super.fill(By.id("finishDateTime"), finishDate);
         super.clickOnSubmitButton("Create");
@@ -65,7 +70,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/managament/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void createNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate) {
+    public void createNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");
 
         super.clickOnMenu("Management", "Create new Workplan");
@@ -73,7 +78,10 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
         if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
-        super.clickAndGo(By.name("newTasksId"));
+        String s[]=tasks.split(";");
+        for(String task:s){
+            super.clickAndGo(By.id(task));
+        }
         super.fill(By.id("startDateTime"), startDate);
         super.fill(By.id("finishDateTime"), finishDate);
         super.clickOnSubmitButton("Create");
