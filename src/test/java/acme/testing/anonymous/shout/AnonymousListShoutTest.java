@@ -34,8 +34,6 @@ public class AnonymousListShoutTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 2, text);    
         super.checkColumnHasValue(recordIndex, 3, info);
         
-        super.clickOnListingRecord(recordIndex);
-        
 
     }
 }
