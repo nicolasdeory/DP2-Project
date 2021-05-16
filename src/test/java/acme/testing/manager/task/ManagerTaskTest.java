@@ -3,6 +3,7 @@ package acme.testing.manager.task;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.openqa.selenium.By;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmeTest;
@@ -17,6 +18,14 @@ public class ManagerTaskTest extends AcmeTest {
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
         super.setAutoPausing(true);
+
+        this.signIn("administrator", "administrator");
+        super.clickAndGo(By.linkText("Administrator"));
+        super.clickAndGo(By.linkText("Populate DB (initial)"));
+        super.checkAlertExists(true);
+        super.clickAndGo(By.linkText("Administrator"));
+        super.clickAndGo(By.linkText("Populate DB (samples)"));
+        super.checkAlertExists(true);
     }
 
     // Test cases -------------------------------------------------------------
