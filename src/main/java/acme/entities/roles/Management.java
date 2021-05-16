@@ -4,6 +4,7 @@ import acme.features.spam.NotSpamConstraint;
 import acme.framework.entities.UserRole;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
@@ -39,7 +40,7 @@ public class Management extends UserRole {
     }
 
     @NotBlank
-    @Size(min = 1, max = 50)
+    @Length(min = 1, max = 50)
     @NotSpamConstraint
     protected String team;
 
