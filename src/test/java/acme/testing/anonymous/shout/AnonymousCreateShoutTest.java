@@ -1,5 +1,8 @@
 package acme.testing.anonymous.shout;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +27,7 @@ public class AnonymousCreateShoutTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void CreatePositive(final int recordIndex, final String author, final String info,final String moment,
+    public void CreatePositive(final int recordIndex, final String author, final String info,
     	final String text) {
         super.clickOnMenu("Anonymous", "Shout!");        
         
@@ -34,12 +37,18 @@ public class AnonymousCreateShoutTest extends AcmeTest {
         super.fillInputBoxIn("info", info);
         super.clickOnSubmitButton("Shout!");
         
-        super.checkColumnHasValue(recordIndex, 0, moment);
+        final LocalDateTime fecha = LocalDateTime.now();
+        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
+        final String fechaparseada = fecha.format(formatter);
+        
+        super.clickOnMenu("Anonymous", "List shouts"); 
+        
+        
+        super.checkColumnHasValue(recordIndex, 0, fechaparseada);
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);    
         super.checkColumnHasValue(recordIndex, 3, info);
         
-        super.clickOnListingRecord(recordIndex);
         
     }
     
