@@ -29,7 +29,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.checkAlertExists(true);
 
     }
-
+    /*
     @ParameterizedTest
     @CsvFileSource(resources = "/managament/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
@@ -66,7 +66,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.checkInputBoxHasValue("finishDateTime", finishDate);
 
         super.signOut();
-    }
+    }*/
     @ParameterizedTest
     @CsvFileSource(resources = "/managament/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
