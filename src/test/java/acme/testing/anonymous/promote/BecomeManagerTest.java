@@ -1,13 +1,11 @@
 package acme.testing.anonymous.promote;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import acme.framework.testing.AbstractTest;
 import acme.testing.AcmeTest;
 
 public class BecomeManagerTest extends AcmeTest {
