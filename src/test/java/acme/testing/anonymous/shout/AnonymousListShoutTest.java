@@ -24,40 +24,44 @@ public class AnonymousListShoutTest extends AcmeTest {
     @BeforeAll
     public void beforeAll() {
         super.beforeAll();
-
-//        MockitoAnnotations.initMocks(this);
+        
         
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(true);
+        super.setAutoPausing(false);
         
-//        final List<Shout> shouts = new ArrayList<>();
-//        final Shout s = new Shout();
-//        final Calendar c = Calendar.getInstance();
-//        c.set(2021, 4, 1);
-//        s.setAuthor("Fernandoedasredw");
-//        s.setMoment(c.getTime());
-//        s.setId(1);
-//        s.setText("Let's goos");
-//        shouts.add(s);
-////        Mockito.when(this.sv.findMany(ArgumentMatchers.<Request<Shout>>any())).thenReturn(shouts);
-//        Mockito.when(this.sv.findMany(ArgumentMatchers.any(Date.class))).thenReturn(shouts);
 
     }
     // Test cases -------------------------------------------------------------
-    // Ancillary methods ------------------------------------------------------
+    
+    // El test recibe una lista de shouts, en este caso es especial puesto que como solo muestra los que tienen menos de un mes de antiguedad
+    // se ha decidido poblar dentro del test con uno de prueba para que sea cual sea el momento, funcione sin ningun problema
+    // Primero creamos el shout, y tras ello vamos a la vista de listado y comprobamos que está el shout
     
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void list(final int recordIndex, final String author, final String info,final String moment,
+    public void list(final int recordIndex, final String author, final String info,
     	final String text) {
+    	
+        //creamos un shout ya que si no no funciona
+     	super.clickOnMenu("Anonymous", "Shout!");        
+         
+
+         super.fillInputBoxIn("author", "Ignacio");
+         super.fillInputBoxIn("text", "This is a test");
+         super.fillInputBoxIn("info", "");
+         super.clickOnSubmitButton("Shout!");
+    	
         super.clickOnMenu("Anonymous", "List shouts");        
         
-        super.checkColumnHasValue(recordIndex, 0, moment);
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);    
         super.checkColumnHasValue(recordIndex, 3, info);
         
 
     }
+    
+    // Ancillary methods ------------------------------------------------------
+    
+
 }
