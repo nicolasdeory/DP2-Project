@@ -15,6 +15,7 @@ package acme.features.spam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,7 +48,7 @@ public class SpamService {
 
 		SpamParameters spamParameters = spamParametersRepository.findAllSpamParameters()
 				.stream().findFirst().orElseThrow(() -> new IllegalStateException("No spam parameters were found."));
-		List<String> spamWords = spamParameters.getKeywords();
+		Collection<String> spamWords = spamParameters.getKeywords();
 		List<String> tokenized = tokenizeString(str);
 		// very naive O(n2) spam filter algorithm
 		int spamCounter = 0;
