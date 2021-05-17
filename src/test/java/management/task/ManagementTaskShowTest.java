@@ -14,7 +14,7 @@ public class ManagementTaskShowTest extends AcmeTest {
         super.beforeAll();
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(true);
+        super.setAutoPausing(false);
 
     }
     // Test cases -------------------------------------------------------------
