@@ -1,0 +1,4 @@
+recordIndex,title,workload,description,isPublic,start,finish,link
+0,Testing 2341234,1.30,Never before was this easy to test your tasks,true,2021/02/10 23:59,2021/03/12 23:59,http://example.org
+1,Testing task,1.30,Never before was this easy to test your tasks,true,2021/03/10 23:59,2021/04/13 23:59,http://example.org
+2,BackEnd,1.30,The best backend,false,2021/06/10 23:59,2021/07/18 23:59,https://www.xlstudios.eu/
