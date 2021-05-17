@@ -1,8 +1,5 @@
 package acme.testing.anonymous.shout;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -37,19 +34,18 @@ public class AnonymousCreateShoutTest extends AcmeTest {
         super.fillInputBoxIn("info", info);
         super.clickOnSubmitButton("Shout!");
         
-        final LocalDateTime fecha = LocalDateTime.now();
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
-        final String fechaparseada = fecha.format(formatter);
+//        final LocalDateTime fecha = LocalDateTime.now();
+//        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
+//        final String fechaparseada = fecha.format(formatter);
         
-        super.sleep(2, true);
+
         
         super.clickOnMenu("Anonymous", "List shouts"); 
         
         
-        super.checkColumnHasValue(recordIndex, 0, fechaparseada);
-        super.checkColumnHasValue(recordIndex, 1, author);
-        super.checkColumnHasValue(recordIndex, 2, text);    
-        super.checkColumnHasValue(recordIndex, 3, info);
+        super.checkColumnHasValue(0, 1, author);
+        super.checkColumnHasValue(0, 2, text);    
+        super.checkColumnHasValue(0, 3, info);
         
         
     }
