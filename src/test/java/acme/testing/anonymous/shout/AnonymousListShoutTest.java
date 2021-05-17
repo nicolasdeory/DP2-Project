@@ -54,9 +54,9 @@ public class AnonymousListShoutTest extends AcmeTest {
     	
         super.clickOnMenu("Anonymous", "List shouts");        
         
-        super.checkColumnHasValue(recordIndex, 1, author);
-        super.checkColumnHasValue(recordIndex, 2, text);    
-        super.checkColumnHasValue(recordIndex, 3, info);
+        super.checkColumnHasValue(0, 1, author);
+        super.checkColumnHasValue(0, 2, text);    
+        super.checkColumnHasValue(0, 3, info);
         
 
     }
