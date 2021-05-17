@@ -24,10 +24,11 @@ public class ManagementTaskUpdateTest extends AcmeTest {
         super.clickAndGo(By.linkText("Administrator"));
         super.clickAndGo(By.linkText("Populate DB (samples)"));
         super.checkAlertExists(true);
+        sleep(10,true);
 
     }
     // Test cases -------------------------------------------------------------
-    /*
+
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -70,7 +71,7 @@ public class ManagementTaskUpdateTest extends AcmeTest {
         super.checkInputBoxHasValue("link",link);
 
         super.signOut();
-    }*/
+    }
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
