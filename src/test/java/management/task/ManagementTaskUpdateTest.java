@@ -27,10 +27,11 @@ public class ManagementTaskUpdateTest extends AcmeTest {
 
     }
     // Test cases -------------------------------------------------------------
+    /*
     @ParameterizedTest
-    @CsvFileSource(resources = "/management/task/update.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShow(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    public void updatePositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                             final String link) {
         super.signIn("rosa21", "1234");
         super.clickOnMenu("Management", "My tasks");
@@ -67,6 +68,31 @@ public class ManagementTaskUpdateTest extends AcmeTest {
         super.checkInputBoxHasValue("finishDateTime", finish);
         super.checkInputBoxHasValue("workload",workload);
         super.checkInputBoxHasValue("link",link);
+
+        super.signOut();
+    }*/
+    @ParameterizedTest
+    @CsvFileSource(resources = "/management/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void updateNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+                               final String link){
+        super.signIn("rosa21", "1234");
+        super.clickOnMenu("Management", "My tasks");
+
+        super.clickOnListingRecord(recordIndex);
+
+        super.fillInputBoxIn("title", title);
+        super.fillInputBoxIn("description", description);
+        Boolean selected=super.driver.findElement(By.id("isPublic$proxy")).isSelected();
+        Boolean isPublicBool=Boolean.valueOf(isPublic);
+        if(!isPublicBool.equals(selected))super.clickAndGo(By.id("isPublic$proxy"));
+        super.fillInputBoxIn("workload",workload);
+        super.fillInputBoxIn("startDateTime", start);
+        super.fillInputBoxIn("finishDateTime", finish);
+        super.fillInputBoxIn("link",link);
+
+        super.clickOnSubmitButton("Update");
+        super.checkErrorsExist();
 
         super.signOut();
     }
