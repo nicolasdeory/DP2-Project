@@ -24,7 +24,8 @@ public class AdministratorDashboardShowTest extends AcmeTest {
         super.checkAlertExists(true); 
         super.clickAndGo(By.linkText("Administrator")); 
         super.clickAndGo(By.linkText("Populate DB (samples)")); 
-        super.checkAlertExists(true); 
+        super.checkAlertExists(true);
+        sleep(10, true);
         this.signOut();
 	}
 	@ParameterizedTest
