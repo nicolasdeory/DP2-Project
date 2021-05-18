@@ -17,7 +17,7 @@ public class ManagerTaskTest extends AcmeTest {
         super.beforeAll();
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(true);
+        super.setAutoPausing(false);
 
         this.signIn("administrator", "administrator");
         super.clickAndGo(By.linkText("Administrator"));
@@ -26,6 +26,7 @@ public class ManagerTaskTest extends AcmeTest {
         super.clickAndGo(By.linkText("Administrator"));
         super.clickAndGo(By.linkText("Populate DB (samples)"));
         super.checkAlertExists(true);
+        super.sleep(10,true);
     }
 
     // Test cases -------------------------------------------------------------
