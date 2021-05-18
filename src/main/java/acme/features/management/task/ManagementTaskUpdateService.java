@@ -3,6 +3,7 @@ package acme.features.management.task;
 import java.util.Date;
 
 import acme.utils.AssertUtils;
+import acme.utils.TaskValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,14 +55,14 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
                 executionPeriod.setStartDateTime(request.getModel().getAttribute(START_DATE_TIME,Date.class));
             }
             catch(final Exception e){
-                errors.state(request, false,START_DATE_TIME,"authenticated.tasks.error.startDateTime.format");
+                errors.state(request, false,START_DATE_TIME,"management.tasks.error.startDateTime.format");
             }
         }
         if(request.getModel().hasAttribute(FINISH_DATE_TIME)){
             try{
                 executionPeriod.setFinishDateTime(request.getModel().getAttribute(FINISH_DATE_TIME,Date.class));
             }catch(final Exception e){
-                errors.state(request, false, FINISH_DATE_TIME,"authenticated.tasks.error.finishDate.format");
+                errors.state(request, false, FINISH_DATE_TIME,"management.tasks.error.finishDate.format");
             }
 
         }
@@ -96,35 +97,10 @@ public class ManagementTaskUpdateService implements AbstractUpdateService<Manage
 
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
-		AssertUtils.assertRequestNotNull(request);
-		AssertUtils.assertEntityNotNull(entity);
-		AssertUtils.assertErrorsNotNull(errors);
-		
-		final Date now=new Date(System.currentTimeMillis());
-        if(entity.getExecutionPeriod().getStartDateTime()!=null&&entity.getExecutionPeriod().getFinishDateTime()!=null){
-            if(entity.getExecutionPeriod().getStartDateTime().before(now) ){
-                errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate");
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime().before(now)){
-                errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate");
-            }
-            if(entity.getExecutionPeriod().getStartDateTime().after(entity.getExecutionPeriod().getFinishDateTime())){
-                errors.state(request, false, START_DATE_TIME,"management.tasks.error.startDate.after");
-                errors.state(request, false, FINISH_DATE_TIME,"management.tasks.error.finishDate.before");
-            }
-        }else{
-            if(entity.getExecutionPeriod().getStartDateTime()==null){
-                errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.empty");
-            }
-            if(entity.getExecutionPeriod().getFinishDateTime()==null){
-            	 errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate.empty");
-            }
-
-        }
-
-        if(errors.hasErrors()){
-            this.unbind(request,entity,request.getModel());
-        }
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
+        TaskValidator.validateTask(entity, request, errors);
 		
 	}
 
