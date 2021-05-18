@@ -2,8 +2,7 @@ package acme.testing.administrator.dashboard;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
@@ -28,10 +27,17 @@ public class AdministratorDashboardShowTest extends AcmeTest {
         sleep(10, true);
         this.signOut();
 	}
-	@ParameterizedTest
-	@CsvFileSource(resources = "/administrator/dashboard/show.csv", encoding = "utf-8", numLinesToSkip = 1) 
+
+	/**
+	 * Test para comprobar la funcionalidad para Administrador del Dashboard.
+	 * El Dashboard muestra información al administrador sobre una gran cantidad de datos obtenidos
+	 * a través de distintas queries y funciones de
+	 * distintos elementos del proyecto.
+	 * En este test se comprobará que exactamente el dato del dashboard se corresponde al indicado en el test.
+	 */
+	@Test
 	@Order(10)
-	public void show(int recordIndex) {
+	void show() {
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");		
 		
