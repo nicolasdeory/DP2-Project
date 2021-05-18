@@ -31,6 +31,7 @@
 					<option value="${kw}">${kw}</option>
 				</jslt:forEach>
 			</select>
+			<acme:form-errors path="keywords"/>
 		</div>
 		<button class="btn btn-primary mb-4" id="remove-keyword"><acme:message code="administrator.spam.form.button.removeKeyword" /></button>
 		<br>
