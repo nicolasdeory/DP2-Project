@@ -27,7 +27,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.clickAndGo(By.linkText("Administrator"));
         super.clickAndGo(By.linkText("Populate DB (samples)"));
         super.checkAlertExists(true);
-
+        super.sleep(10, true);
     }
 
     @ParameterizedTest
