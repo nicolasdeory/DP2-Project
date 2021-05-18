@@ -27,15 +27,17 @@ public class AdministratorDashboardShowTest extends AcmeTest {
         sleep(10, true);
         this.signOut();
 	}
-	
-	//Test para comprobar la funcionalidad para Administrador del Dashboard.
-	//El Dashboard muestra información al administrador sobre una gran cantidad de datos obtenidos a través de distintas queries y funciones de 
-	//distintos elementos del proyecto.
-	//En este test se comprobará que exactamente el dato del dashboard se corresponde al indicado en el test.
-	
+
+	/**
+	 * Test para comprobar la funcionalidad para Administrador del Dashboard.
+	 * El Dashboard muestra información al administrador sobre una gran cantidad de datos obtenidos
+	 * a través de distintas queries y funciones de
+	 * distintos elementos del proyecto.
+	 * En este test se comprobará que exactamente el dato del dashboard se corresponde al indicado en el test.
+	 */
 	@Test
 	@Order(10)
-	public void show() {
+	void show() {
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");		
 		
