@@ -65,6 +65,7 @@ management.tasks.error.finishDate.before = Finish date can not be before start d
 management.tasks.error.startDate.after = Start date can not be after finish date
 management.tasks.workload.error.workloadMax = Workload should fit within the task execution period
 management.tasks.workload.error.format= Workload minutes should be between 0 and 59
+management.tasks.error.isPublic=The task cannot be private if it belongs to a public workplan
 
 management.tasks.error.startDate = Start date must not be before now
 management.tasks.error.finishDate = Finish date must not be before now
