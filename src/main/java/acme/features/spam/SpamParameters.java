@@ -15,6 +15,8 @@ package acme.features.spam;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,6 +34,7 @@ public class SpamParameters extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Range(min = 0, max = 1)
 	protected Double threshold;
 
 	@ElementCollection(fetch = FetchType.EAGER)
