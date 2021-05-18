@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.By;
 
 public class ManagementTaskShowTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
@@ -15,6 +16,15 @@ public class ManagementTaskShowTest extends AcmeTest {
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
         super.setAutoPausing(false);
+
+        this.signIn("administrator", "administrator");
+        super.clickAndGo(By.linkText("Administrator"));
+        super.clickAndGo(By.linkText("Populate DB (initial)"));
+        super.checkAlertExists(true);
+        super.clickAndGo(By.linkText("Administrator"));
+        super.clickAndGo(By.linkText("Populate DB (samples)"));
+        super.checkAlertExists(true);
+        super.sleep(10,true);
 
     }
     // Test cases -------------------------------------------------------------

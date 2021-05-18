@@ -24,7 +24,7 @@ public class BecomeManagerTest extends AcmeTest {
         super.beforeAll();
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(true);
+        super.setAutoPausing(false);
 
         this.signIn("administrator", "administrator");
         super.clickAndGo(By.linkText("Administrator"));
