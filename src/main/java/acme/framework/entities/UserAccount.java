@@ -14,15 +14,14 @@ package acme.framework.entities;
 
 import java.util.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.NonNull;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
 
 import acme.datatypes.UserIdentity;
@@ -87,7 +86,8 @@ public class UserAccount extends DomainEntity {
 
 
 	@NotEmpty
-	@OneToMany(mappedBy = "userAccount")
+	@OneToMany(mappedBy = "userAccount", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private Collection<@Valid UserRole> roles;
 	
 	@Valid

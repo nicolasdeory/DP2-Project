@@ -38,7 +38,8 @@ public final class TaskValidator {
     private static boolean validateStartDateNotNull(Task entity, Request<Task> request, Errors errors)
     {
         if (entity.getExecutionPeriod().getStartDateTime() == null) {
-            errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.empty");
+            if(!errors.hasErrors(START_DATE_TIME))
+                errors.state(request, false, START_DATE_TIME, "management.tasks.error.startDate.empty");
             return false;
         }
         return true;
@@ -47,7 +48,8 @@ public final class TaskValidator {
     private static boolean validateFinishDateNotNull(Task entity, Request<Task> request, Errors errors)
     {
         if (entity.getExecutionPeriod().getFinishDateTime() == null) {
-            errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate.empty");
+            if(!errors.hasErrors(FINISH_DATE_TIME))
+                errors.state(request, false, FINISH_DATE_TIME, "management.tasks.error.finishDate.empty");
             return false;
         }
         return true;

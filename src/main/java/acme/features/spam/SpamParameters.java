@@ -15,9 +15,13 @@ package acme.features.spam;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -35,7 +39,8 @@ public class SpamParameters extends DomainEntity {
 	protected Double threshold;
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> keywords;
+	@Fetch(value = FetchMode.SUBSELECT)
+	private Collection<String> keywords;
 
 	// Derived attributes -----------------------------------------------------
 
