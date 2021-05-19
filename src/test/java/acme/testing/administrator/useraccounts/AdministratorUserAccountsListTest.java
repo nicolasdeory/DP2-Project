@@ -1,7 +1,9 @@
 package acme.testing.administrator.useraccounts;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.By;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.springframework.core.annotation.Order;
 
 import acme.testing.AcmeTest;
 
@@ -12,26 +14,25 @@ public class AdministratorUserAccountsListTest extends AcmeTest{
     @BeforeAll
     public void beforeAll() {
         super.beforeAll();
-
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(true);
-
-        this.signIn("administrator", "administrator");
-        super.clickAndGo(By.linkText("Administrator"));
-        super.clickAndGo(By.linkText("Populate DB (initial)"));
-        super.checkAlertExists(true);
-        this.signOut();
+        super.setAutoPausing(false);
+        
     }
     // Test cases -------------------------------------------------------------
     // Ancillary methods ------------------------------------------------------
     
-//    @ParameterizedTest
-//    @CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
-//    @Order(10)
-//    public void list(final int recordIndex, final String author, final String info,final String moment,
-//    	final String text) {
-//        super.clickOnMenu("Administrator", "User accounts");        
-//
-//    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "/administrator/useraccount/listPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void list(final int recordIndex, final String username, final String identity_name,
+    	final String identity_surname) {
+    	this.signIn("administrator", "administrator");
+        super.clickOnMenu("Administrator", "User accounts");        
+        
+        super.checkColumnHasValue(recordIndex,0 , username); 
+		super.checkColumnHasValue(recordIndex,1 , identity_name); 
+		super.checkColumnHasValue(recordIndex,2 , identity_surname); 
+    }
+    
 	
 }
