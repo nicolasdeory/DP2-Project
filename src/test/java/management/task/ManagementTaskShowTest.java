@@ -31,7 +31,7 @@ public class ManagementTaskShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShow(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    public void listAndShowPositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                              final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");
@@ -52,6 +52,27 @@ public class ManagementTaskShowTest extends AcmeTest {
         super.checkInputBoxHasValue("finishDateTime", finish);
         super.checkInputBoxHasValue("workload",workload);
         super.checkInputBoxHasValue("link",link);
+
+        super.signOut();
+    }
+    @ParameterizedTest
+    @CsvFileSource(resources = "/management/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void listAndShowNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+                            final String link) {
+        super.signIn("juan21", "1234");
+        super.clickOnMenu("Management", "My tasks");
+
+        super.clickOnListingRecord(recordIndex);
+
+        String path=super.getSimplePath();
+        String query=super.getContextQuery();
+
+        super.signOut();
+        super.signIn("lola21","1234");
+
+        super.navigate(path,query);
+        super.checkErrorsExist();
 
         super.signOut();
     }
