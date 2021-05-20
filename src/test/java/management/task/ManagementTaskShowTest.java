@@ -29,9 +29,9 @@ public class ManagementTaskShowTest extends AcmeTest {
     }
     // Test cases -------------------------------------------------------------
     @ParameterizedTest
-    @CsvFileSource(resources = "/management/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/task/listMyTasks.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShow(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    public void listAndShowMyTasks(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                              final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");
@@ -42,6 +42,34 @@ public class ManagementTaskShowTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 3, finish);
         super.checkColumnHasValue(recordIndex, 4, workload);
         super.checkColumnHasValue(recordIndex, 5, link);
+
+        super.clickOnListingRecord(recordIndex);
+
+        super.checkInputBoxHasValue("title", title);
+        super.checkInputBoxHasValue("description", description);
+        super.checkInputBoxHasValue("isPublic", isPublic);
+        super.checkInputBoxHasValue("startDateTime", start);
+        super.checkInputBoxHasValue("finishDateTime", finish);
+        super.checkInputBoxHasValue("workload",workload);
+        super.checkInputBoxHasValue("link",link);
+
+        super.signOut();
+    }
+
+    // Test cases -------------------------------------------------------------
+    @ParameterizedTest
+    @CsvFileSource(resources = "/management/task/listFinished.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void listAndShowFinished(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+                            final String link) {
+        super.signIn("juan21", "1234");
+        super.clickOnMenu("Authenticated", "Finished Tasks");
+
+        super.checkColumnHasValue(recordIndex, 0, title);
+        super.checkColumnHasValue(recordIndex, 1, start);
+        super.checkColumnHasValue(recordIndex, 2, finish);
+        super.checkColumnHasValue(recordIndex, 3, workload);
+        super.checkColumnHasValue(recordIndex, 4, link);
 
         super.clickOnListingRecord(recordIndex);
 
