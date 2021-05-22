@@ -41,16 +41,16 @@ public class AdministratorDashboardShowTest extends AcmeTest {
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");		
 		
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[1]/td[normalize-space(text()) = '8']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[2]/td[normalize-space(text()) = '2']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[1]/td[normalize-space(text()) = '11']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[2]/td[normalize-space(text()) = '3']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[normalize-space(text()) = '2']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[normalize-space(text()) = '8']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[5]/td[normalize-space(text()) = '1,588.12']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[6]/td[normalize-space(text()) = '834.11']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[normalize-space(text()) = '12']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[5]/td[normalize-space(text()) = '1,341.55']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[6]/td[normalize-space(text()) = '715.46']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[7]/td[normalize-space(text()) = '2.13']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[8]/td[normalize-space(text()) = '2,803.52']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[9]/td[normalize-space(text()) = '1.50']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[10]/td[normalize-space(text()) = '0.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[9]/td[normalize-space(text()) = '1.55']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[10]/td[normalize-space(text()) = '0.26']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[11]/td[normalize-space(text()) = '192.00']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[12]/td[normalize-space(text()) = '9,355.00']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[13]/td[normalize-space(text()) = '10']"));
