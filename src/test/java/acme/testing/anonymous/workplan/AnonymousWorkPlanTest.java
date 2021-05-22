@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
@@ -49,12 +50,12 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 		 super.checkInputBoxHasValue("workload", workload);
 		 super.checkInputBoxHasValue("startDateTime", start);
 		 super.checkInputBoxHasValue("finishDateTime", finish);
-//		 if(tasks!=null){
-//	            final String s[]=tasks.split(";");
-//	            for(final String task:s){
-//	                assert super.driver.findElement(By.linkText(task)).isSelected();
-//	            }
-//		 }
+		 if(tasks!=null){
+	            final String s[]=tasks.split(";");
+	            for(final String task:s){
+	                assert super.driver.findElement(By.id(task)).getText().equals(task);
+	            }
+		 }
 		 super.clickOnReturnButton("Return");
 	 }
 	 
