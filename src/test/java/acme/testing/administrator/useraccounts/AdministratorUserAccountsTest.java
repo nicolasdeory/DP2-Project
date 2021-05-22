@@ -53,5 +53,25 @@ public class AdministratorUserAccountsTest extends AcmeTest{
         super.checkInputBoxHasValue("status",enabled); 
     }
     
+    
+    @ParameterizedTest
+    @CsvFileSource(resources = "/administrator/useraccount/showPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(3)
+	public void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+    	this.signIn("administrator", "administrator");
+        super.clickOnMenu("Administrator", "User accounts");  
+        super.clickOnListingRecord(recordIndex);
+
+	    final String path=super.getSimplePath();
+	    final String query=super.getContextQuery();
+
+	    super.signIn("juan21","1234");
+
+	    super.navigate(path,query);
+	    super.checkErrorsExist();
+
+	    super.signOut();
+    }
+    
 	
 }
