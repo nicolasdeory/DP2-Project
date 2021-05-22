@@ -1,4 +1,4 @@
-package management.task;
+package acme.testing.management.task;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;

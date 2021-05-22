@@ -1,4 +1,4 @@
-package acme.testing.manager.task;
+package acme.testing.management.task;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmeTest;
 
-public class ManagerTaskTest extends AcmeTest {
+public class ManagementTaskCreateTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -31,7 +31,7 @@ public class ManagerTaskTest extends AcmeTest {
 
     // Test cases -------------------------------------------------------------
     @ParameterizedTest
-    @CsvFileSource(resources = "/manager/task/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/task/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     public void CreatePositive(final int recordIndex, final String title, final String description,
             final String workload, final String start, final String end, final String link) {
@@ -61,7 +61,7 @@ public class ManagerTaskTest extends AcmeTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/manager/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     public void CreateNegative(final int recordIndex, final String title, final String description,
             final String workload, final String start, final String end, final String link) {
