@@ -14,3 +14,6 @@ administrator.spam.form.label.addKeyword = Add Keyword
 administrator.spam.form.button.addKeyword = Add Keyword
 administrator.spam.form.button.removeKeyword = Remove selected keyword
 administrator.spam.form.button.update = Update
+
+administrator.spam.form.error.wordTooShort = Keyword "{0}" is too short. Delete it
+administrator.spam.form.error.wordTooLong = There is a keyword that is too long. Delete it

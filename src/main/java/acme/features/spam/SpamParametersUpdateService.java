@@ -12,6 +12,7 @@
 
 package acme.features.spam;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -78,6 +79,17 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
+
+		Optional<String> tooShort = entity.getKeywords().stream().filter(x -> x.length() < 2).findFirst();
+		Optional<String> tooLong = entity.getKeywords().stream().filter(x -> x.length() > 100).findFirst();
+		if (tooShort.isPresent())
+			errors.state(request, false, "keywords", "administrator.spam.form.error.wordTooShort", tooShort.get());
+		if (tooLong.isPresent())
+			errors.state(request, false, "keywords", "administrator.spam.form.error.wordTooLong");
+
+		if(errors.hasErrors()){
+			this.unbind(request,entity,request.getModel());
+		}
 	}
 
 	@Override

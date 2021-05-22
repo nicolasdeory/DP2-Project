@@ -1,8 +1,12 @@
 $("#add-keyword").click(function(e) {
     e.preventDefault();
     const newkw = $("#newKeyword").val().replace(/,/g, '');
-    $("#keywords").append(`<option value="${newkw}">${newkw}</option>`);
-    $("#newKeyword").val("");
+    if (newkw.length > 0)
+    {
+        $("#keywords").append(`<option value="${newkw}">${newkw}</option>`);
+        $("#newKeyword").val("");
+    }
+
 });
 
 $("#remove-keyword").click(function(e) {
