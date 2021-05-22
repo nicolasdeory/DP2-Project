@@ -26,9 +26,10 @@ public class AnonymousWorkPlanTest extends AcmeTest{
      super.clickOnMenu("Anonymous", "Public Workplans list");
 
      super.checkColumnHasValue(recordIndex, 0, title);
-     super.checkColumnHasValue(recordIndex, 1, start);
-     super.checkColumnHasValue(recordIndex, 2, finish);
-     super.checkColumnHasValue(recordIndex, 3, workload);
+     super.checkColumnHasValue(recordIndex, 1, workload);
+     super.checkColumnHasValue(recordIndex, 2, start);
+     super.checkColumnHasValue(recordIndex, 3, finish);
+     
 
      super.clickOnListingRecord(recordIndex);
      super.clickOnReturnButton("Return");
