@@ -41,10 +41,13 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
         if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
-        String s[]=tasks.split(";");
-        for(String task:s){
-            super.clickAndGo(By.id(task));
+        if(tasks!=null){
+            String s[]=tasks.split(";");
+            for(String task:s){
+                super.clickAndGo(By.id(task));
+            }
         }
+
 
         super.fill(By.id("startDateTime"), startDate);
         super.fill(By.id("finishDateTime"), finishDate);
@@ -64,6 +67,12 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.checkInputBoxHasValue("isPublic", isPublic);
         super.checkInputBoxHasValue("startDateTime", startDate);
         super.checkInputBoxHasValue("finishDateTime", finishDate);
+        if(tasks!=null){
+            String s[]=tasks.split(";");
+            for(String task:s){
+                assert super.driver.findElement(By.id(task)).isSelected();
+            }
+        }
 
         super.signOut();
     }
@@ -79,9 +88,11 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
         if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
-        String s[]=tasks.split(";");
-        for(String task:s){
-            super.clickAndGo(By.id(task));
+        if(tasks!=null){
+            String s[]=tasks.split(";");
+            for(String task:s){
+                super.clickAndGo(By.id(task));
+            }
         }
         super.fill(By.id("startDateTime"), startDate);
         super.fill(By.id("finishDateTime"), finishDate);
