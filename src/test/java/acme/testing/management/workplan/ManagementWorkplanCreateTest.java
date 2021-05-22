@@ -1,14 +1,11 @@
-package management.workplan;
+package acme.testing.management.workplan;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.converter.ConvertWith;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
-
-import java.util.List;
 
 class ManagementWorkplanCreateTest extends AcmeTest {
 
@@ -31,7 +28,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/managament/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
     public void createPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");
@@ -78,7 +75,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/managament/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/management/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
     public void createNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");

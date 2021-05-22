@@ -1,4 +1,4 @@
-package management.workplan;
+package acme.testing.management.workplan;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;

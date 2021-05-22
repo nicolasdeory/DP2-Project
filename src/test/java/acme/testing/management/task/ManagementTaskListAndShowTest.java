@@ -1,4 +1,4 @@
-package management.task;
+package acme.testing.management.task;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-public class ManagementTaskShowTest extends AcmeTest {
+public class ManagementTaskListAndShowTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
     @Override
     @BeforeAll

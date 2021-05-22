@@ -1,4 +1,4 @@
-package management.task;
+package acme.testing.management.task;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,7 +15,7 @@ public class ManagementTaskUpdateTest extends AcmeTest {
         super.beforeAll();
 
         super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-        super.setAutoPausing(false);
+        super.setAutoPausing(true);
 
         this.signIn("administrator", "administrator");
         super.clickAndGo(By.linkText("Administrator"));
