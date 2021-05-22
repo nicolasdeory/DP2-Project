@@ -67,7 +67,9 @@ management.tasks.error.finishDate.before = La fecha de fin no puede ser antes qu
 management.tasks.error.startDate.after = La fecha de inicio no puede ser después de la de fin
 management.tasks.workload.error.workloadMax =Workload deberia ajustarse al periodo de ejecucion de la tarea
 management.tasks.workload.error.format=Los minutos de un workload deberian estar entre 0 y 59
+management.tasks.error.isPublic=La tarea no puede ser privada si pertenece a un workplan publico
 
 acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reescribirlo
 
 management.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
+
