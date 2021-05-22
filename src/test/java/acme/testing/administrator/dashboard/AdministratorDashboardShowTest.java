@@ -24,7 +24,7 @@ public class AdministratorDashboardShowTest extends AcmeTest {
         super.clickAndGo(By.linkText("Administrator")); 
         super.clickAndGo(By.linkText("Populate DB (samples)")); 
         super.checkAlertExists(true);
-        sleep(10, true);
+        this.sleep(10, true);
         this.signOut();
 	}
 
@@ -36,7 +36,7 @@ public class AdministratorDashboardShowTest extends AcmeTest {
 	 * En este test se comprobará que exactamente el dato del dashboard se corresponde al indicado en el test.
 	 */
 	@Test
-	@Order(10)
+	@Order(20)
 	void show() {
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");		
@@ -70,4 +70,18 @@ public class AdministratorDashboardShowTest extends AcmeTest {
 		this.signOut();
 	
 	}
+	
+	@Test
+	@Order(10)
+	void showNegativeCase() {
+		 super.signIn("administrator", "administrator"); 
+		 super.clickOnMenu("Administrator", "Dashboard");			 
+	 
+	     String path=super.getSimplePath(); 
+	     String query=super.getContextQuery(); 
+	 
+	     super.signOut();  
+	     super.navigate(path,query); 
+	     super.checkErrorsExist(); 
+	    } 
 }
