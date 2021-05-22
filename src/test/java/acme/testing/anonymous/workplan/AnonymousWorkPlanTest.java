@@ -40,7 +40,7 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(10)
 	 public void ShowDetails(final int recordIndex, final String title, final String description, final String workload, final String start,
-		 final String finish) {
+		 final String finish, final String tasks) {
 		 super.clickOnMenu("Anonymous", "Public Workplans list");
 		 super.clickOnListingRecord(recordIndex);
 
@@ -49,8 +49,32 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 		 super.checkInputBoxHasValue("workload", workload);
 		 super.checkInputBoxHasValue("startDateTime", start);
 		 super.checkInputBoxHasValue("finishDateTime", finish);
-
+//		 if(tasks!=null){
+//	            final String s[]=tasks.split(";");
+//	            for(final String task:s){
+//	                assert super.driver.findElement(By.linkText(task)).isSelected();
+//	            }
+//		 }
 		 super.clickOnReturnButton("Return");
 	 }
+	 
+	 
+	 @ParameterizedTest
+	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
+	 @Order(3)
+	 public void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+		 	super.clickOnMenu("Anonymous", "Public Workplans list");
+		 	super.clickOnListingRecord(recordIndex);
+
+	        final String path=super.getSimplePath();
+	        final String query=super.getContextQuery();
+
+	        super.signIn("lola21","1234");
+
+	        super.navigate(path,query);
+	        super.checkErrorsExist();
+
+	        super.signOut();
+	    }
 
 }
