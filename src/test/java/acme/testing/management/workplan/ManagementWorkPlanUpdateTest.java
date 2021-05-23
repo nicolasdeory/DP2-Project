@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-public class ManagementWorkPlanUpdateTest extends AcmeTest{
+class ManagementWorkPlanUpdateTest extends AcmeTest{
 	@Override
     @BeforeAll
     public void beforeAll() {
@@ -36,7 +36,7 @@ public class ManagementWorkPlanUpdateTest extends AcmeTest{
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void updatePositive(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+    void updatePositive(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
         super.signIn("juan21", "1234");
 
         super.clickOnMenu("Management", "My Workplans List");
@@ -95,7 +95,7 @@ public class ManagementWorkPlanUpdateTest extends AcmeTest{
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void updateNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+    void updateNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
         super.signIn("juan21", "1234");
 
         super.clickOnMenu("Management", "My Workplans List");

@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-public class ManagementTaskListAndShowTest extends AcmeTest {
+class ManagementTaskListAndShowTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
     @Override
     @BeforeAll
@@ -31,7 +31,7 @@ public class ManagementTaskListAndShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listMyTasks.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShowMyTasksPositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    void listAndShowMyTasksPositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                              final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");
@@ -60,7 +60,7 @@ public class ManagementTaskListAndShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listFinished.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShowFinishedPositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    void listAndShowFinishedPositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                             final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Authenticated", "Finished Tasks");
@@ -87,7 +87,7 @@ public class ManagementTaskListAndShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listMyTasks.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShowMyTasksNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    void listAndShowMyTasksNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                             final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");

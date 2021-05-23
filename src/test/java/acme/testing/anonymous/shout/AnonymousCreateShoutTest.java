@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmeTest;
 
-public class AnonymousCreateShoutTest extends AcmeTest {
+class AnonymousCreateShoutTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -24,7 +24,7 @@ public class AnonymousCreateShoutTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void CreatePositive(final int recordIndex, final String author, final String info,
+    void CreatePositive(final int recordIndex, final String author, final String info,
     	final String text) {
         super.clickOnMenu("Anonymous", "Shout!");        
         
@@ -53,7 +53,7 @@ public class AnonymousCreateShoutTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void CreateNegative(final int recordIndex, final String author, final String info,
+    void CreateNegative(final int recordIndex, final String author, final String info,
     	final String text) {
     	super.clickOnMenu("Anonymous", "Shout!");        
         

@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmeTest;
 
-public class ManagementTaskCreateTest extends AcmeTest {
+class ManagementTaskCreateTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -33,7 +33,7 @@ public class ManagementTaskCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void CreatePositive(final int recordIndex, final String title, final String description,
+    void CreatePositive(final int recordIndex, final String title, final String description,
             final String workload, final String start, final String end, final String link) {
 
         super.signIn("Lola21", "1234");
@@ -63,7 +63,7 @@ public class ManagementTaskCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void CreateNegative(final int recordIndex, final String title, final String description,
+    void CreateNegative(final int recordIndex, final String title, final String description,
             final String workload, final String start, final String end, final String link) {
 
         super.signIn("Juan21", "1234");

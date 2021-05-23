@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-public class AnonymousWorkPlanTest extends AcmeTest{
+class AnonymousWorkPlanTest extends AcmeTest{
 
 	 @Override
 	    @BeforeAll
@@ -32,7 +32,7 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(10)
-	 public void listAndShow(final int recordIndex, final String title, final String workload, final String start, final String finish) {
+	 void listAndShow(final int recordIndex, final String title, final String workload, final String start, final String finish) {
      super.clickOnMenu("Anonymous", "Public Workplans list");
 
      super.checkColumnHasValue(recordIndex, 0, title);
@@ -49,7 +49,7 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(10)
-	 public void ShowDetails(final int recordIndex, final String title, final String description, final String workload, final String start,
+	 void ShowDetails(final int recordIndex, final String title, final String description, final String workload, final String start,
 		 final String finish, final String tasks) {
 		 super.clickOnMenu("Anonymous", "Public Workplans list");
 		 super.clickOnListingRecord(recordIndex);
@@ -72,7 +72,7 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(3)
-	 public void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+	 void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
 		 	super.clickOnMenu("Anonymous", "Public Workplans list");
 		 	super.clickOnListingRecord(recordIndex);
 

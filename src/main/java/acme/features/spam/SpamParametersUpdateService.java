@@ -33,6 +33,8 @@ import acme.framework.services.AbstractUpdateService;
 @Service
 public class SpamParametersUpdateService implements AbstractUpdateService<Administrator, SpamParameters> {
 
+	private static final String KEYWORDS = "keywords";
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -62,7 +64,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertModelNotNull(model);
 
-		request.unbind(entity, model, "threshold", "keywords");
+		request.unbind(entity, model, "threshold", KEYWORDS);
 	}
 
 	@Override
@@ -84,9 +86,9 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		Optional<String> tooShort = entity.getKeywords().stream().filter(x -> x.length() < 2).findFirst();
 		Optional<String> tooLong = entity.getKeywords().stream().filter(x -> x.length() > 100).findFirst();
 		if (tooShort.isPresent())
-			errors.state(request, false, "keywords", "administrator.spam.form.error.wordTooShort", tooShort.get());
+			errors.state(request, false, KEYWORDS, "administrator.spam.form.error.wordTooShort", tooShort.get());
 		if (tooLong.isPresent())
-			errors.state(request, false, "keywords", "administrator.spam.form.error.wordTooLong");
+			errors.state(request, false, KEYWORDS, "administrator.spam.form.error.wordTooLong");
 
 		if(errors.hasErrors()){
 			this.unbind(request,entity,request.getModel());

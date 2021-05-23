@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-public class ManagementTaskDeleteTest extends AcmeTest {
+class ManagementTaskDeleteTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
     @Override
     @BeforeAll
@@ -33,7 +33,7 @@ public class ManagementTaskDeleteTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void deletePositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    void deletePositive(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                                            final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");
@@ -65,7 +65,7 @@ public class ManagementTaskDeleteTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void deleteNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
+    void deleteNegative(final int recordIndex, final String title,final String workload,final String description,final String isPublic, final String start, final String finish,
                                final String link) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My tasks");

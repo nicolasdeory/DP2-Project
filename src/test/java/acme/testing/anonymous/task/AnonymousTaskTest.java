@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-public class AnonymousTaskTest extends AcmeTest {
+class AnonymousTaskTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -34,7 +34,7 @@ public class AnonymousTaskTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShow(final int recordIndex, final String title, final String start, final String finish,
+    void listAndShow(final int recordIndex, final String title, final String start, final String finish,
             final String workload, final String link) {
         super.clickOnMenu("Anonymous", "Public Tasks");
 
@@ -51,7 +51,7 @@ public class AnonymousTaskTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/show.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void ShowDetails(final int recordIndex, final String title, final String description, final String start,
+    void ShowDetails(final int recordIndex, final String title, final String description, final String start,
             final String finish, final String workload, final String link) {
         super.clickOnMenu("Anonymous", "Public Tasks");
         super.clickOnListingRecord(recordIndex);

@@ -8,7 +8,7 @@ import org.springframework.core.annotation.Order;
 
 import acme.testing.AcmeTest;
 
-public class AdministratorUserAccountsTest extends AcmeTest{
+class AdministratorUserAccountsTest extends AcmeTest{
 
 	 // Lifecycle management ---------------------------------------------------
 	@Override
@@ -35,7 +35,7 @@ public class AdministratorUserAccountsTest extends AcmeTest{
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/listPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listPositive(final int recordIndex, final String username, final String identity_name,
+    void listPositive(final int recordIndex, final String username, final String identity_name,
     	final String identity_surname) {
     	this.signIn("administrator", "administrator");
         super.clickOnMenu("Administrator", "User accounts");        
@@ -49,7 +49,7 @@ public class AdministratorUserAccountsTest extends AcmeTest{
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/showPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void showPositive(final int recordIndex, final String username, final String identity_name,
+    void showPositive(final int recordIndex, final String username, final String identity_name,
     	final String identity_surname, final String identity_email, final String role, final String enabled) {
     	this.signIn("administrator", "administrator");
         super.clickOnMenu("Administrator", "User accounts");        
@@ -68,7 +68,7 @@ public class AdministratorUserAccountsTest extends AcmeTest{
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/showPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(3)
-	public void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
+	void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
     	this.signIn("administrator", "administrator");
         super.clickOnMenu("Administrator", "User accounts");  
         super.clickOnListingRecord(recordIndex);

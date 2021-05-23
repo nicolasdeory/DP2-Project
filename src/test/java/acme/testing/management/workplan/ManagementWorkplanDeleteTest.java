@@ -30,7 +30,7 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void deletePositive(final int recordIndex, String title, String description, String isPublic,
+    void deletePositive(final int recordIndex, String title, String description, String isPublic,
             String startDate, String finishDate) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My Workplans List");
@@ -56,7 +56,7 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void deleteNegative(final int recordIndex, String title, String description, String isPublic,
+    void deleteNegative(final int recordIndex, String title, String description, String isPublic,
             String startDate, String finishDate) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My Workplans List");

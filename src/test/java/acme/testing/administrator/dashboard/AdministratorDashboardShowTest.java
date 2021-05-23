@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-public class AdministratorDashboardShowTest extends AcmeTest {
+class AdministratorDashboardShowTest extends AcmeTest {
 	
 	@Override
 	@BeforeAll

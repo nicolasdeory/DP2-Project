@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-public class ManagementWorkPlanListAndShowTest extends AcmeTest {
+class ManagementWorkPlanListAndShowTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -32,7 +32,7 @@ public class ManagementWorkPlanListAndShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/listAndShow.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void listAndShowPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
+    void listAndShowPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("juan21", "1234");
 
         super.clickOnMenu("Management", "My Workplans List");
@@ -62,7 +62,7 @@ public class ManagementWorkPlanListAndShowTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/listAndShow.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void listAndShowNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
+    void listAndShowNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My Workplans List");
 

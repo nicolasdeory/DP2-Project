@@ -32,7 +32,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void createPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
+    void createPositive(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");
 
         super.clickOnMenu("Management", "Create new Workplan");
@@ -79,7 +79,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    public void createNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
+    void createNegative(final int recordIndex, String title, String description, String isPublic, String startDate, String finishDate,String tasks) {
         super.signIn("rosa21", "1234");
 
         super.clickOnMenu("Management", "Create new Workplan");

@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-public class AnonymousListShoutTest extends AcmeTest {
+class AnonymousListShoutTest extends AcmeTest {
 
 	
 //	@Mock
@@ -40,7 +40,7 @@ public class AnonymousListShoutTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void list(final int recordIndex, final String author, final String info,
+    void list(final int recordIndex, final String author, final String info,
     	final String text) {
     	
         //creamos un shout ya que si no no funciona

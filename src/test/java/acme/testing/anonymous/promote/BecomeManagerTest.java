@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-public class BecomeManagerTest extends AcmeTest {
+class BecomeManagerTest extends AcmeTest {
     // Internal state ---------------------------------------------------------
     String username = "elocorch";
     String name = "Elo";
