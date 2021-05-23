@@ -71,14 +71,18 @@ class AdministratorDashboardShowTest extends AcmeTest {
 	
 	}
 	
+	//Este test es el caso negativo de show y para ello vamos a intentar entrar como usuario anónimo.
+	//Primero iniciamos sesión como administrador y entramos en la dashboard
+	//Tras ello guardamos la ruta y la query
+	//Nos desloagueamos e intentamos acceder como anonimo y comprobamos que saltan errores.
 	@Test
 	@Order(10)
 	void showNegativeCase() {
 		 super.signIn("administrator", "administrator"); 
 		 super.clickOnMenu("Administrator", "Dashboard");			 
 	 
-	     String path=super.getSimplePath(); 
-	     String query=super.getContextQuery(); 
+	     final String path=super.getSimplePath(); 
+	     final String query=super.getContextQuery(); 
 	 
 	     super.signOut();  
 	     super.navigate(path,query); 

@@ -18,8 +18,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import acme.framework.testing.AbstractTest;
-
 class SignUpTest extends AcmeTest {
 
 	// Internal state ---------------------------------------------------------
@@ -43,6 +41,10 @@ class SignUpTest extends AcmeTest {
 
 	// Test cases -------------------------------------------------------------
 
+	//En este test recibimos una lista de usuarios que registrar con los datos de usuario, contraseña, nombre, apellido y email.
+	//Primero llamamos a la función signUp para que registre a nuestro usuario y tras ello nos logueamos con los mismos datos
+	//Si todo va bien, veremos que estamos logueados.
+	//Nos deslogueamos y volvemos a hacerlo con todos los usuarios de la lista.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/sign-up/positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)

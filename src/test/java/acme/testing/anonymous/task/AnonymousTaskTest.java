@@ -31,6 +31,9 @@ class AnonymousTaskTest extends AcmeTest {
     }
 
     // Test cases -------------------------------------------------------------
+    
+    //Para este test comprobaremos que la lista es correcta.
+    //Primero entraremos en la pestaña de tareas publicas, e iremos comprobando una a una los valores de las columnas
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -47,7 +50,9 @@ class AnonymousTaskTest extends AcmeTest {
         super.clickOnListingRecord(recordIndex);
         super.clickOnReturnButton("Return");
     }
-
+    //En este caso comprobaremos que todos los valores de la lista dada corresponden con los inputs de la task en cuestión
+    //Para ello, entraremos a la vista de public task e iremos clicando en cada una de ellas para ir a la vista del show
+    //En esta, iremos comprobando que los inputs se corresponden y son correctos
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/show.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)

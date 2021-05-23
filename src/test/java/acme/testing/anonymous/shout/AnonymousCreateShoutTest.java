@@ -20,7 +20,9 @@ class AnonymousCreateShoutTest extends AcmeTest {
 
     }
     // Test cases -------------------------------------------------------------
-    
+    //Para este test vamos a comprobar que los shouts se crean bien
+    //Primero vamos a la pestaña de crear shout y rellenamos con los datos del csv
+    //Vamos a la pestaña de listado de shouts y comprobamos que se ha creado correctamente
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -34,11 +36,6 @@ class AnonymousCreateShoutTest extends AcmeTest {
         super.fillInputBoxIn("info", info);
         super.clickOnSubmitButton("Shout!");
         
-//        final LocalDateTime fecha = LocalDateTime.now();
-//        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");  
-//        final String fechaparseada = fecha.format(formatter);
-        
-
         
         super.clickOnMenu("Anonymous", "List shouts"); 
         
@@ -50,6 +47,10 @@ class AnonymousCreateShoutTest extends AcmeTest {
         
     }
     
+    //Para este test vamos a comprobar que los shouts con errores no se crean
+    //Primero vamos a la pestaña de crear shout y rellenamos con los datos del csv, que contienen errores 
+    //como pueden ser campos vacíos, demasiado cortos, demasiado largos, con mal formato...
+    //Tras ello comprueba la existencia de errores
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/shout/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)

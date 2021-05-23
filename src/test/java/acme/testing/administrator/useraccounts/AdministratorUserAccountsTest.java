@@ -30,8 +30,10 @@ class AdministratorUserAccountsTest extends AcmeTest{
         
     }
     // Test cases -------------------------------------------------------------
-    // Ancillary methods ------------------------------------------------------
-    
+   
+    //En este test vamos a comprobar que el listado de usuarios sea correcto al dado
+	//Para ello iniciamos sesión como administrador y vamos a la pestaña de cuentas de usuario
+	//Y comprobamos que el listado sea correcto en usuario, nombre y apellido
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/listPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -45,6 +47,9 @@ class AdministratorUserAccountsTest extends AcmeTest{
 		super.checkColumnHasValue(recordIndex,2 , identity_surname); 
     }
     
+    //En este test vamos a comprobar que el show  de usuarios sea correcto al dado
+	//Para ello iniciamos sesión como administrador y vamos a la pestaña de cuentas de usuario
+	//Hacemos click y vamos comprobando los valores de los inputs frente a los que vienen en la tabla
     
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/showPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -64,7 +69,10 @@ class AdministratorUserAccountsTest extends AcmeTest{
         super.checkInputBoxHasValue("status",enabled); 
     }
     
-    
+    //En este test vamos a comprobar que el listado de usuarios y el show no sean accesibles sin tener el rol concreto
+	//Para ello iniciamos sesión como administrador y vamos a la pestaña de cuentas de usuario
+	//Hacemos clic en la fila de la tabla correspondiente y guardamos la ruta y la query
+    //Nos deslogueamos e intentamos entrar, lo que nos llevaría a error
     @ParameterizedTest
     @CsvFileSource(resources = "/administrator/useraccount/showPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(3)
@@ -84,5 +92,7 @@ class AdministratorUserAccountsTest extends AcmeTest{
 	    super.signOut();
     }
     
+    
+    // Ancillary methods ------------------------------------------------------
 	
 }

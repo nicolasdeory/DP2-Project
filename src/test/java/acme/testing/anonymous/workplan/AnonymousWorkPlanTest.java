@@ -29,6 +29,10 @@ class AnonymousWorkPlanTest extends AcmeTest{
 	    }
 	 
 	 // Test cases -------------------------------------------------------------
+	 
+	 //Vamos a comprobar el listado correcto de los workplans
+	 //Para ello, vamos a la pestaña de workplans publicos
+	 //Comprobamos fila a fila los valores de sus columnas, respecto al csv dado y volvemos
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(10)
@@ -45,7 +49,10 @@ class AnonymousWorkPlanTest extends AcmeTest{
      super.clickOnReturnButton("Return");
  }
 	 
-	 
+	 //Vamos a comprobar el shot correcto de los workplans
+	 //Para ello, vamos a la pestaña de workplans publicos 
+	 //Vamos entrando en cada uno de los workpans, y comprobamos que los inputs son correctos
+	 //También, comprobamos las tasks asociadas a este mediante un parseo y un findbyelement
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(10)
@@ -68,7 +75,10 @@ class AnonymousWorkPlanTest extends AcmeTest{
 		 super.clickOnReturnButton("Return");
 	 }
 	 
-	 
+	 //Para este test comprobamos que solo podemos acceder al workplan como anonimo
+	 //para ello, vamos a la pestaña de workplans publicos, y copiamos la query y el path
+	 //Hacemos login como usuario (manager) y copiamos la ruta
+	 //Comprobamos que existen errores y nos deslogueamos
 	 @ParameterizedTest
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(3)
