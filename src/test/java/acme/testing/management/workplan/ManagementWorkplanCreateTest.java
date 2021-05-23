@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 
 class ManagementWorkplanCreateTest extends AcmeTest {
 
+    // Lifecycle management ---------------------------------------------------
     @Override
     @BeforeAll
     public void beforeAll() {
@@ -27,6 +28,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
         super.sleep(10, true);
     }
 
+    // Test cases -------------------------------------------------------------
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)

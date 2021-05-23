@@ -8,6 +8,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
 public class ManagementWorkPlanListAndShowTest extends AcmeTest {
+
+    // Lifecycle management ---------------------------------------------------
     @Override
     @BeforeAll
     public void beforeAll() {
@@ -26,6 +28,7 @@ public class ManagementWorkPlanListAndShowTest extends AcmeTest {
         super.sleep(10, true);
     }
 
+    // Test cases -------------------------------------------------------------
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/listAndShow.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
