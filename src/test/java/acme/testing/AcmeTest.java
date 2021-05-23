@@ -42,6 +42,15 @@ public abstract class AcmeTest extends AbstractTest {
 		assert super.exists(locator) : String.format("Cannot find button '%s'", label);
 	}
 
+	protected void checkButtonDoesNotExist(final String label) {
+		assert !StringHelper.isBlank(label);
+
+		By locator;
+
+		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
+		assert !super.exists(locator) : String.format("button '%s' found", label);
+	}
+
 	protected void checkAlertExists(final boolean success) {
 		By locator;
 		String className;
@@ -113,36 +122,38 @@ public abstract class AcmeTest extends AbstractTest {
 		inputBox = super.locateOne(inputLocator);
 		inputTag = inputBox.getTagName();
 		switch (inputTag) {
-		case "textarea":
-			contents = inputBox.getAttribute("value");
-			break;
-		case "input":
-			inputType = inputBox.getAttribute("type");
-			switch (inputType) {
-			case "text":
-			case "password":
-			case "hidden":
+			case "textarea":
 				contents = inputBox.getAttribute("value");
+				break;
+			case "input":
+				inputType = inputBox.getAttribute("type");
+				switch (inputType) {
+					case "text":
+					case "password":
+					case "hidden":
+						contents = inputBox.getAttribute("value");
+						break;
+					default:
+						contents = null;
+						assert false : String.format("Cannot check an input box of type '%s/%s'", inputTag, inputType);
+				}
+				break;
+			case "select":
+				optionLocator = By.xpath(String.format("//select[@name='%s']/option[@selected]", name));
+				assert super.exists(optionLocator)
+						: String.format("Cannot find selected option in input box '%s'", name);
+				option = super.locateOne(optionLocator);
+				contents = option.getText();
 				break;
 			default:
 				contents = null;
-				assert false : String.format("Cannot check an input box of type '%s/%s'", inputTag, inputType);
-			}
-			break;
-		case "select":
-			optionLocator = By.xpath(String.format("//select[@name='%s']/option[@selected]", name));
-			assert super.exists(optionLocator) : String.format("Cannot find selected option in input box '%s'", name);
-			option = super.locateOne(optionLocator);
-			contents = option.getText();
-			break;
-		default:
-			contents = null;
-			assert false : String.format("Cannot check an input box of type '%s'", inputTag);
+				assert false : String.format("Cannot check an input box of type '%s'", inputTag);
 		}
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
-		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found", expectedValue, name, value);
+		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found",
+				expectedValue, name, value);
 	}
 
 	protected void checkColumnHasValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
@@ -155,7 +166,8 @@ public abstract class AcmeTest extends AbstractTest {
 		String contents, value;
 
 		row = this.getListingRecord(recordIndex);
-		assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+		assert attributeIndex + 1 < row.size()
+				: String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
 		attribute = row.get(attributeIndex + 1);
 		if (attribute.isDisplayed())
 			contents = attribute.getText();
@@ -169,7 +181,40 @@ public abstract class AcmeTest extends AbstractTest {
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
 
-		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '%s'", expectedValue, attributeIndex, recordIndex, value);
+		assert contents.equals(value)
+				: String.format("Expected value '%s' in attribute %d of record %d, but found '%s'", expectedValue,
+						attributeIndex, recordIndex, value);
+	}
+
+	protected void checkColumnDoesNotHaveValue(final int recordIndex, final int attributeIndex,
+			final String expectedValue) {
+		assert recordIndex >= 0;
+		assert attributeIndex >= 0;
+		// expectedValue is nullable
+
+		List<WebElement> row;
+		WebElement attribute, toggle;
+		String contents, value;
+
+		row = this.getListingRecord(recordIndex);
+		assert attributeIndex + 1 < row.size()
+				: String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+		attribute = row.get(attributeIndex + 1);
+		if (attribute.isDisplayed())
+			contents = attribute.getText();
+		else {
+			toggle = row.get(0);
+			toggle.click();
+			contents = (String) this.executor.executeScript("return arguments[0].innerText;", attribute);
+			toggle.click();
+		}
+
+		contents = (contents == null ? "" : contents.trim());
+		value = (expectedValue != null ? expectedValue.trim() : "");
+
+		assert !contents.equals(value)
+				: String.format("Not expected value '%s' in attribute %d of record %d, found '%s'", expectedValue,
+						attributeIndex, recordIndex, value);
 	}
 
 	// Form-filling methods ---------------------------------------------------
@@ -186,39 +231,41 @@ public abstract class AcmeTest extends AbstractTest {
 		inputBox = super.locateOne(inputLocator);
 		inputTag = inputBox.getTagName();
 		switch (inputTag) {
-		case "textarea":
-			super.fill(inputLocator, value);
-			break;
-		case "input":
-			inputType = inputBox.getAttribute("type");
-			switch (inputType) {
-			case "text":
-			case "password":
+			case "textarea":
 				super.fill(inputLocator, value);
 				break;
-			case "hidden":
-				proxyXpath = String.format("//input[@name='%s$proxy' and @type='checkbox']", name);
-				proxyLocator = By.xpath(proxyXpath);
-				assert value == null || value == "true" || value == "false" : String.format("Input box '%s' cannot be set to '%s'", name, value);
-				assert super.exists(proxyLocator) : String.format("Cannot find proxy for input box '%s'", name);
-				inputProxy = super.locateOne(proxyLocator);
-				if (inputProxy.getAttribute("checked") != null && (value == null || value == "false"))
-					inputProxy.click();
-				else if (inputProxy.getAttribute("checked") == null && value == "true")
-					inputProxy.click();
+			case "input":
+				inputType = inputBox.getAttribute("type");
+				switch (inputType) {
+					case "text":
+					case "password":
+						super.fill(inputLocator, value);
+						break;
+					case "hidden":
+						proxyXpath = String.format("//input[@name='%s$proxy' and @type='checkbox']", name);
+						proxyLocator = By.xpath(proxyXpath);
+						assert value == null || value == "true" || value == "false"
+								: String.format("Input box '%s' cannot be set to '%s'", name, value);
+						assert super.exists(proxyLocator) : String.format("Cannot find proxy for input box '%s'", name);
+						inputProxy = super.locateOne(proxyLocator);
+						if (inputProxy.getAttribute("checked") != null && (value == null || value == "false"))
+							inputProxy.click();
+						else if (inputProxy.getAttribute("checked") == null && value == "true")
+							inputProxy.click();
+						break;
+					default:
+						assert false : String.format("Cannot fill input box '%s/%s' in", name, inputType);
+				}
+				break;
+			case "select":
+				optionLocator = By.xpath(
+						String.format("//select[@name='%s']/option[@value='%s']", name, value == null ? "" : value));
+				assert super.exists(optionLocator) : "Cannot find option with requested value in select";
+				option = super.locateOne(optionLocator);
+				option.click();
 				break;
 			default:
-				assert false : String.format("Cannot fill input box '%s/%s' in", name, inputType);
-			}
-			break;
-		case "select":
-			optionLocator = By.xpath(String.format("//select[@name='%s']/option[@value='%s']", name, value == null ? "" : value));
-			assert super.exists(optionLocator) : "Cannot find option with requested value in select";
-			option = super.locateOne(optionLocator);
-			option.click();
-			break;
-		default:
-			assert false : String.format("Cannot fill input box '%s' in", name);
+				assert false : String.format("Cannot fill input box '%s' in", name);
 		}
 	}
 
@@ -255,8 +302,10 @@ public abstract class AcmeTest extends AbstractTest {
 				// INFO: Can silently ignore the exception here.
 				// INFO+ Sometimes, the toggle get's unexpectedly stale
 				// INFO+ and that has an impact on the main menu.
-			} 
-			optionLocator = By.xpath(String.format("//div[@id='mainMenu']/ul/li[a[normalize-space()='%s']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='%s']", header, option));
+			}
+			optionLocator = By.xpath(String.format(
+					"//div[@id='mainMenu']/ul/li[a[normalize-space()='%s']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='%s']",
+					header, option));
 			super.clickAndWait(optionLocator);
 		}
 	}
@@ -336,6 +385,7 @@ public abstract class AcmeTest extends AbstractTest {
 
 		return result;
 	}
+
 	protected void signIn(final String username, final String password) {
 		super.navigateHome();
 		super.clickAndGo(By.linkText("Sign in"));
@@ -350,7 +400,8 @@ public abstract class AcmeTest extends AbstractTest {
 		super.clickAndGo(By.linkText("Sign out"));
 	}
 
-	protected void signUp(final String username, final String password, final String name, final String surname, final String email) {
+	protected void signUp(final String username, final String password, final String name, final String surname,
+			final String email) {
 		super.navigateHome();
 		super.clickAndGo(By.linkText("Sign up"));
 		super.fill(By.id("username"), username);
