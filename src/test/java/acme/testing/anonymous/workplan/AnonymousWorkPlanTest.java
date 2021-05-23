@@ -13,10 +13,19 @@ public class AnonymousWorkPlanTest extends AcmeTest{
 	 @Override
 	    @BeforeAll
 	    public void beforeAll() {
-	        super.beforeAll();
+		 super.beforeAll();
 
-	        super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
-	        super.setAutoPausing(false);
+		 super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
+		 super.setAutoPausing(false);
+
+		 this.signIn("administrator", "administrator");
+		 super.clickAndGo(By.linkText("Administrator"));
+		 super.clickAndGo(By.linkText("Populate DB (initial)"));
+		 super.checkAlertExists(true);
+		 super.clickAndGo(By.linkText("Administrator"));
+		 super.clickAndGo(By.linkText("Populate DB (samples)"));
+		 super.checkAlertExists(true);
+		 super.sleep(10, true);
 	    }
 	 
 	 // Test cases -------------------------------------------------------------
