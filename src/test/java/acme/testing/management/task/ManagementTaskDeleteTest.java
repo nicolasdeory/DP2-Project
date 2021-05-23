@@ -59,7 +59,9 @@ public class ManagementTaskDeleteTest extends AcmeTest {
 
         super.signOut();
     }
-
+    
+    //En este test se prueba a eliminar una task finalizada y comprobar que esta no se puede eliminar
+    //Se espera que la task no se elimine
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
