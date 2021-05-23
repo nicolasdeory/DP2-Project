@@ -40,7 +40,7 @@
 			</tr>
 			<c:forEach items="${tasks}" var="task">
 				<tr>
-					<td>
+					<td id="${task.title}">
 						<c:out value="${task.title}"/>
 					</td>
 					<td>
