@@ -12,6 +12,7 @@
 
 package acme.features.spam;
 
+import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -98,7 +99,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertEntityNotNull(entity);
 
 		final Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
-		entity.setKeywords(set.stream().sorted().collect(Collectors.toList()));
+		entity.setKeywords(set.stream().sorted().collect(Collectors.toCollection(LinkedHashSet::new)));
 
 		this.repository.save(entity);
 	}
