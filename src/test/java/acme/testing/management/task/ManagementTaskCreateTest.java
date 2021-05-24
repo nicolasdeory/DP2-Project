@@ -3,8 +3,8 @@ package acme.testing.management.task;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.openqa.selenium.By;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
@@ -30,6 +30,11 @@ class ManagementTaskCreateTest extends AcmeTest {
     }
 
     // Test cases -------------------------------------------------------------
+    
+    //Para este test vamos a crear tareas de manera positiva
+    //Entramos como manager y vamos a la sección de crear tarea
+    //Añadimos los datos en los inputs sacados del csv y pulsamos el boton de crear
+    //Entramos a mis tareas y comprobamos que aparezca en la lista
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -60,6 +65,11 @@ class ManagementTaskCreateTest extends AcmeTest {
         super.clickOnListingRecord(0);
     }
 
+    
+    //Para este test vamos a crear tareas de manera positiva
+    //Entramos como manager y vamos a la sección de crear tarea
+    //Añadimos los datos en los inputs sacados del csv y pulsamos el boton de crear
+    //Comprobamos que existen errores ( se prueba que titulo vacio, descripción vacia, formato de fecha erroneo, formato link erróneo, workload excesivo...)
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)

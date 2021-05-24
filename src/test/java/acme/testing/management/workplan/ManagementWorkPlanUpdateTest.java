@@ -32,7 +32,10 @@ class ManagementWorkPlanUpdateTest extends AcmeTest{
         super.clickAndGo(By.xpath("//*[@id=\"list\"]/thead/tr/th[2]"));
 
     }
-
+	//En este test vamos a comprobar que podemos actualizar un workplan de manera correcta
+	//Nos logueamos como manager, entramos a la pestaña del listado y clicamos en uno
+	//Si no está finalizado podremos editarlo con los datos del csv y pulsamos en actualizar
+	//De nuevo comprobamos que los valores sean los correctos tanto en el listado como en la vista y nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
@@ -92,6 +95,11 @@ class ManagementWorkPlanUpdateTest extends AcmeTest{
         super.signOut();
     }
 
+    
+	//En este test vamos a comprobar que podemos actualizar un workplan de manera incorrecta
+	//Nos logueamos como manager, entramos a la pestaña del listado y clicamos en uno
+	//Comprobamos si está finalizado, y si no, actualizamos con valores erroneos e intentamos actualizar
+	//Comprobamos que hay errores y nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)

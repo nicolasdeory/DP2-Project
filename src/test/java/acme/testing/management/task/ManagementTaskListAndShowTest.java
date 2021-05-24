@@ -1,11 +1,12 @@
 package acme.testing.management.task;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
+
+import acme.testing.AcmeTest;
 
 class ManagementTaskListAndShowTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
@@ -28,6 +29,11 @@ class ManagementTaskListAndShowTest extends AcmeTest {
 
     }
     // Test cases -------------------------------------------------------------
+    //Para este test comprobamos que el listado sea identico al dado
+    //Entramos como administrador y vamos a la pantalla de mis tareas
+    //Comprobamos cada elemento de la tabla y clicamos en cada uno comprobando asi los inputs de la vista de show
+    //Nos deslogeamos
+    
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listMyTasks.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -57,6 +63,10 @@ class ManagementTaskListAndShowTest extends AcmeTest {
     }
 
     // Test cases -------------------------------------------------------------
+    //Para este test comprobamos que el listado sea identico al dado
+    //Entramos como administrador y vamos a la pantalla de tareas finalizadas
+    //Comprobamos cada elemento de la tabla y clicamos en cada uno comprobando asi los inputs de la vista de show
+    //Nos deslogeamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listFinished.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -84,6 +94,10 @@ class ManagementTaskListAndShowTest extends AcmeTest {
         super.signOut();
     }
     
+    
+    //Para este test hacemos login como administrador y clicamos en una tarea
+    //Copiamos la ruta y la query realizada, nos deslogueamos
+    //intentamos entrar como otro usuario y comprobamos si saltan errores
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/listMyTasks.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -94,8 +108,8 @@ class ManagementTaskListAndShowTest extends AcmeTest {
 
         super.clickOnListingRecord(recordIndex);
 
-        String path=super.getSimplePath();
-        String query=super.getContextQuery();
+        final String path=super.getSimplePath();
+        final String query=super.getContextQuery();
 
         super.signOut();
         super.signIn("lola21","1234");

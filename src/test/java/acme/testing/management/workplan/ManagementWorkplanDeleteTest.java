@@ -1,11 +1,12 @@
 package acme.testing.management.workplan;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
+
+import acme.testing.AcmeTest;
 
 class ManagementWorkplanDeleteTest extends AcmeTest {
 
@@ -27,11 +28,15 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
         super.sleep(10, true);
     }
 
+    //En este test vamos a comprobar que podemos borrar un workplan de manera correcta
+    //Para ello vamos a iniciar sesion como manager y vamos al listado, clicamos en una y y pulsamos en el boton borrar
+    //tras ello intentamos acceder de nuevo con la ruta y comprobamos que haya errores
+    //Nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/delete-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    void deletePositive(final int recordIndex, String title, String description, String isPublic,
-            String startDate, String finishDate) {
+    void deletePositive(final int recordIndex, final String title, final String description, final String isPublic,
+            final String startDate, final String finishDate) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My Workplans List");
 
@@ -40,8 +45,8 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
         super.checkColumnHasValue(1, 3, finishDate);
 
         super.clickOnListingRecord(1);
-        String path=super.getSimplePath();
-        String query=super.getContextQuery();
+        final String path=super.getSimplePath();
+        final String query=super.getContextQuery();
         super.checkButtonExists("Delete");
         super.clickOnReturnButton("Delete");
 
@@ -53,11 +58,16 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
         super.signOut();
     }
 
+    
+    //En este test vamos a comprobar que podemos borrar un workplan de manera incorrecta
+    //Para ello vamos a iniciar sesion como manager y vamos al listado, clicamos en una QUE ESTÉ FINALIZADA y y buscamos el boton borrar
+    //Ese boton no existe por lo que pulsaremos en volver y comprobaremos que sigue en la lista
+    //Nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/workplan/delete-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(3)
-    void deleteNegative(final int recordIndex, String title, String description, String isPublic,
-            String startDate, String finishDate) {
+    void deleteNegative(final int recordIndex, final String title, final String description, final String isPublic,
+            final String startDate, final String finishDate) {
         super.signIn("juan21", "1234");
         super.clickOnMenu("Management", "My Workplans List");
 

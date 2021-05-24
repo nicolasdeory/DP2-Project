@@ -1,11 +1,12 @@
 package acme.testing.management.task;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
+
+import acme.testing.AcmeTest;
 
 class ManagementTaskUpdateTest extends AcmeTest {
     // Lifecycle management ---------------------------------------------------
@@ -24,11 +25,16 @@ class ManagementTaskUpdateTest extends AcmeTest {
         super.clickAndGo(By.linkText("Administrator"));
         super.clickAndGo(By.linkText("Populate DB (samples)"));
         super.checkAlertExists(true);
-        sleep(10,true);
+        this.sleep(10,true);
 
     }
     // Test cases -------------------------------------------------------------
 
+    //Para este test vamos a intentar actualizar task de manera correcta
+    //Para ello entramos como manager, a la vista de mis tareas
+    //Entramos en una haciendo clic y rellenamos los campos con los datos recibidos
+    //Pulsamos el boton y comprobamos que se ha actualizado correctamente
+    //Nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -43,8 +49,8 @@ class ManagementTaskUpdateTest extends AcmeTest {
 
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
-        Boolean selected=super.driver.findElement(By.id("isPublic$proxy")).isSelected();
-        Boolean isPublicBool=Boolean.valueOf(isPublic);
+        final Boolean selected=super.driver.findElement(By.id("isPublic$proxy")).isSelected();
+        final Boolean isPublicBool=Boolean.valueOf(isPublic);
         if(!isPublicBool.equals(selected))super.clickAndGo(By.id("isPublic$proxy"));
         super.fillInputBoxIn("workload",workload);
         super.fillInputBoxIn("startDateTime", start);
@@ -72,6 +78,13 @@ class ManagementTaskUpdateTest extends AcmeTest {
 
         super.signOut();
     }
+    
+    //Para este test vamos a intentar actualizar task de manera incorrecta
+    //Para ello entramos como manager, a la vista de mis tareas
+    //Entramos en una haciendo clic y rellenamos los campos con los datos recibidos que serán rellenados con datos erroneos
+    //como (inputs vacios, formatos erroneos...)
+    //Pulsamos el boton y comprobamos que han saltado errores
+    //Nos deslogueamos
     @ParameterizedTest
     @CsvFileSource(resources = "/management/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -84,8 +97,8 @@ class ManagementTaskUpdateTest extends AcmeTest {
 
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
-        Boolean selected=super.driver.findElement(By.id("isPublic$proxy")).isSelected();
-        Boolean isPublicBool=Boolean.valueOf(isPublic);
+        final Boolean selected=super.driver.findElement(By.id("isPublic$proxy")).isSelected();
+        final Boolean isPublicBool=Boolean.valueOf(isPublic);
         if(!isPublicBool.equals(selected))super.clickAndGo(By.id("isPublic$proxy"));
         super.fillInputBoxIn("workload",workload);
         super.fillInputBoxIn("startDateTime", start);
