@@ -1,0 +1,7 @@
+username,password,confirmation,name,surname,email,company,sector
+,,,,,,,
+juan21,johnny,johnny,Johnny,López,john@mail.com,"Cash & Carry, Co",Retailer
+lola21,lorraine,lorraine,Lorraine,Williams,lorraine@yellow-house.com,"Cash & Carry, Co",Retailer
+notvalid,12345,12345,juan,dfonew,lorraine@yellow-house.com,"Cash & Carry, Co",Retailer
+notvalid,123456,1234567,&$%&·$%,$·%&·$&,lorraine@yellow-house.com,"Cash & Carry, Co",Retailer
+notvalid,&$%&·$%,&$%&·$%,$·%&·$&,yellow-house.com,"Cash & Carry, Co",Retailer
