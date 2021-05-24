@@ -45,7 +45,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
 
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
-        if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
+        if(isPublic!=null&&isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
         if(tasks!=null){
             final String s[]=tasks.split(";");
             for(final String task:s){
@@ -96,7 +96,7 @@ class ManagementWorkplanCreateTest extends AcmeTest {
 
         super.fillInputBoxIn("title", title);
         super.fillInputBoxIn("description", description);
-        if(isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
+        if(isPublic!=null&&isPublic.equals("true"))super.clickAndGo(By.id("isPublic$proxy"));
         if(tasks!=null){
             final String s[]=tasks.split(";");
             for(final String task:s){
