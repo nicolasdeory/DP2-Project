@@ -31,9 +31,10 @@ class AnonymousTaskTest extends AcmeTest {
     }
 
     // Test cases -------------------------------------------------------------
-    
-    //Para este test comprobaremos que la lista es correcta.
-    //Primero entraremos en la pestaña de tareas publicas, e iremos comprobando una a una los valores de las columnas
+
+    // Para este test comprobaremos que la lista es correcta.
+    // Primero entraremos en la pestaña de tareas publicas, e iremos comprobando una
+    // a una los valores de las columnas
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -50,9 +51,12 @@ class AnonymousTaskTest extends AcmeTest {
         super.clickOnListingRecord(recordIndex);
         super.clickOnReturnButton("Return");
     }
-    //En este caso comprobaremos que todos los valores de la lista dada corresponden con los inputs de la task en cuestión
-    //Para ello, entraremos a la vista de public task e iremos clicando en cada una de ellas para ir a la vista del show
-    //En esta, iremos comprobando que los inputs se corresponden y son correctos
+
+    // En este caso comprobaremos que todos los valores de la lista dada
+    // corresponden con los inputs de la task en cuestión
+    // Para ello, entraremos a la vista de public task e iremos clicando en cada una
+    // de ellas para ir a la vista del show
+    // En esta, iremos comprobando que los inputs se corresponden y son correctos
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/show.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
@@ -70,6 +74,27 @@ class AnonymousTaskTest extends AcmeTest {
         super.checkInputBoxHasValue("link", link);
 
         super.clickOnReturnButton("Return");
+    }
+
+    /*
+     * CSV: ids de tareas públicas terminadas
+     * 
+     * Test: 1: obtener la url base de show public open task, 2: usar dicha url para
+     * intentar mostrar tareas públicas terminadas y tareas privadas, 3: comprobar
+     * que llegamos a un error
+     */
+    @ParameterizedTest
+    @CsvFileSource(resources = "/anonymous/task/list-show-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @Order(10)
+    public void listAndShowNegative(final int id) {
+        super.clickOnMenu("Anonymous", "Public Tasks");
+        super.clickOnListingRecord(0);
+
+        final String path = super.getSimplePath();
+
+        super.navigate(path, "id=" + id);
+        super.checkErrorsExist();
+
     }
 
     // Ancillary methods ------------------------------------------------------
