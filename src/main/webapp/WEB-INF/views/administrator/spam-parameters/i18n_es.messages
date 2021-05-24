@@ -14,3 +14,6 @@ administrator.spam.form.label.addKeyword = Añadir palabra clave
 administrator.spam.form.button.addKeyword = Añadir palabra clave
 administrator.spam.form.button.removeKeyword = Eliminar pal. clave seleccionada
 administrator.spam.form.button.update = Actualizar
+
+administrator.spam.form.error.wordTooShort = La palabra "{0}" es muy corta. Elimínela
+administrator.spam.form.error.wordTooLong = Hay una palabra demasiado larga. Debe eliminarla

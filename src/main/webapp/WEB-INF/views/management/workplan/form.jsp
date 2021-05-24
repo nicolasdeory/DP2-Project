@@ -64,7 +64,7 @@
                     <c:out value="${task.isPublic}"/>
                 </td>
                 <td>
-                    <input type="checkbox" name="newTasksId" value="${task.id}" checked="true">
+                    <input type="checkbox" id="${task.title}" name="newTasksId" value="${task.id}" checked="true">
                 </td>
             </tr>
         </c:forEach>
@@ -84,7 +84,7 @@
                     <c:out value="${task.isPublic}"/>
                 </td>
                 <td>
-                    <input type="checkbox" name="newTasksId" value="${task.id}">
+                    <input type="checkbox" id="${task.title}" name="newTasksId" value="${task.id}">
                 </td>
             </tr>
         </c:forEach>
@@ -92,7 +92,9 @@
     </table>
     </div>
     <jstl:if test="${isFinished == 'true'}">
-            <acme:message code="management.workplan.label.FinishedWorkplanMessage"/>
+    <div id="WorkPlanFinished">
+    		<acme:message code="anonymous.workplan.label.FinishedTaskMessage"/>
+    	</div>
     </jstl:if>
     <br>
     <acme:form-submit test="${command == 'show' && isFinished == 'false'}" code="management.workplan.button.update"

@@ -12,6 +12,8 @@
 
 package acme.features.spam;
 
+import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,6 +32,8 @@ import acme.framework.services.AbstractUpdateService;
 
 @Service
 public class SpamParametersUpdateService implements AbstractUpdateService<Administrator, SpamParameters> {
+
+	private static final String KEYWORDS = "keywords";
 
 	// Internal state ---------------------------------------------------------
 
@@ -60,7 +64,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertModelNotNull(model);
 
-		request.unbind(entity, model, "threshold", "keywords");
+		request.unbind(entity, model, "threshold", KEYWORDS);
 	}
 
 	@Override
@@ -78,6 +82,17 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
+
+		Optional<String> tooShort = entity.getKeywords().stream().filter(x -> x.length() < 2).findFirst();
+		Optional<String> tooLong = entity.getKeywords().stream().filter(x -> x.length() > 100).findFirst();
+		if (tooShort.isPresent())
+			errors.state(request, false, KEYWORDS, "administrator.spam.form.error.wordTooShort", tooShort.get());
+		if (tooLong.isPresent())
+			errors.state(request, false, KEYWORDS, "administrator.spam.form.error.wordTooLong");
+
+		if(errors.hasErrors()){
+			this.unbind(request,entity,request.getModel());
+		}
 	}
 
 	@Override
@@ -86,7 +101,7 @@ public class SpamParametersUpdateService implements AbstractUpdateService<Admini
 		AssertUtils.assertEntityNotNull(entity);
 
 		final Set<String> set = entity.getKeywords().stream().collect(Collectors.toSet());
-		entity.setKeywords(set.stream().sorted().collect(Collectors.toList()));
+		entity.setKeywords(set.stream().sorted().collect(Collectors.toCollection(LinkedHashSet::new)));
 
 		this.repository.save(entity);
 	}

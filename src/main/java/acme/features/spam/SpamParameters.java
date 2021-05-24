@@ -12,18 +12,20 @@
 
 package acme.features.spam;
 
-import acme.framework.entities.DomainEntity;
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import java.util.Collection;
+import java.util.Objects;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.Range;
+
+import acme.framework.entities.DomainEntity;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
@@ -36,6 +38,7 @@ public class SpamParameters extends DomainEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@Range(min = 0, max = 1)
 	protected Double threshold;
 
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -48,18 +51,18 @@ public class SpamParameters extends DomainEntity {
 
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (!(o instanceof SpamParameters)) return false;
 		if (!super.equals(o)) return false;
-		SpamParameters that = (SpamParameters) o;
-		return Objects.equals(threshold, that.threshold) &&
-				Objects.equals(keywords, that.keywords);
+		final SpamParameters that = (SpamParameters) o;
+		return Objects.equals(this.threshold, that.threshold) &&
+				Objects.equals(this.keywords, that.keywords);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), threshold, keywords);
+		return Objects.hash(super.hashCode(), this.threshold, this.keywords);
 	}
 
 
