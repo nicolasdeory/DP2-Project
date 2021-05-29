@@ -1,7 +1,7 @@
 /*
  * ExtendedMessageSource.java
  *
- * Copyright (c) 2012-2021 Rafael Corchuelo.
+ * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -14,7 +14,7 @@
 // HINT+ saves a lot of work and mistakes when specifying the i18n message bundles. The
 // HINT+ default extension of the bundles was changed to ".messages", which seems more
 // HINT+ intuitive than the generic ".properties" extension. The ".xml" extension is not
-// HINT+ supports at all. The changes are marked with RC+ or RC- blocks in the source code.
+// HINT+ supported at all. The changes are marked with RC+ or RC- blocks in the source code.
 
 package acme.framework.patches;
 

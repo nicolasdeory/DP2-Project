@@ -1,6 +1,6 @@
 # CHANGELOG.txt
 #
-# Copyright (c) 2012-2021 Rafael Corchuelo.
+# Copyright (C) 2012-2021 Rafael Corchuelo.
 #
 # In keeping with the traditional purpose of furthering education and research, it is
 # the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -8,9 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+Year 2021
+
+21.1   The version scheme was changed. Many improvements to profiles, population, launcher, error handling, and testing support.
+21.2   Fixed minor bugs with tags acme:form-select and acme:form-checkbox.
+21.3   Fixed some bugs that prevented the populator from working well when deployed to Clever Cloud.
+21.4   The testing framework has been greatly simplified and enhanced.
+21.5   Minor corrections and improvements to the testing framework, which now supports performance testing.
+
 Year 2020
 
-2.19   A brand-new framework is available!  The change log is restarted since this version is totally new.
+2.19.0 A brand-new framework is available!
 2.19.1 Fixed many minor problems with Clever-Cloud deployment.
 2.19.2 Fixed problem when signing out in a Clever-Cloud deployment.
 2.19.3 Fixed bug: the delete workflow didn't invoke the validate method.
@@ -23,8 +31,44 @@ Year 2020
 2.19.a Fixed minor problem to allow for testing via JUnit.
 2.19.b Improved database connection strings. Apps now accept a "debug" param to show debugging info even if the request didn't originate from localhost.
 
-Year 2021
+Year 2019
 
-21.1   The version scheme was changed. Many improvements to profiles, population, launcher, error handling, and testing support.
-21.3 Fixed some bugs that prevented the populator from working well when deployed to Clever Cloud.
-21.4   The testing framework has been greatly simplified and enhanced.
+2.18.0 Many improvements to the populator to find the topological order to save objects.
+2.18.1 Fixed minor bugs with the input tags.
+2.18.2 Internal version not distributed to the students
+2.18.3 The framework includes some basic support for functional testing building on mocks.
+
+Year 2018
+
+2.17.0 Many improvements to improve validation and error reporting during validation.
+2.17.1 Fixed some bugs regarding functional testing.
+
+Year 2017
+
+5.0 Most configuration files are not generated automatically.
+5.1 First attempt to create a full testing framework.
+
+Year 2016
+
+4.0 The populator's been enhanced. Support to deploy to Clever Cloud. 
+4.1 Fixed minor bugs.
+
+Year 2015
+
+3.0 Fixed many minor bugs.
+3.1 Added support for custom tags. 
+
+Year 2014
+
+2.0 Added an automatic populator.
+2.1 The populator now validates the entities automatically.
+
+Year 2013
+
+1.0 Added support for explicit transaction management.
+1.1 Apache Tiles was integrated into the framework.  
+
+Year 2012
+
+0.0 A new WIS developement framework is out!
+
