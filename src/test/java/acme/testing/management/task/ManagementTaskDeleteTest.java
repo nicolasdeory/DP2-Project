@@ -47,14 +47,13 @@ class ManagementTaskDeleteTest extends AcmeTest {
 
         super.clickOnListingRecord(recordIndex);
 
-        String path=super.getSimplePath();
-        String query=super.getContextQuery();
+        String url=super.driver.getCurrentUrl();
         super.checkButtonExists("Delete");
         super.clickOnReturnButton("Delete");
 
         super.checkColumnDoesNotHaveValue(1, 0, title);
 
-        super.navigate(path,query);
+        driver.navigate().to(url);
         super.checkErrorsExist();
 
         super.signOut();

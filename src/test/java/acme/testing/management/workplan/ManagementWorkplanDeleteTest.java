@@ -45,14 +45,16 @@ class ManagementWorkplanDeleteTest extends AcmeTest {
         super.checkColumnHasValue(1, 3, finishDate);
 
         super.clickOnListingRecord(1);
-        final String path=super.getSimplePath();
-        final String query=super.getContextQuery();
+
+        String url=super.driver.getCurrentUrl();
+
         super.checkButtonExists("Delete");
         super.clickOnReturnButton("Delete");
 
         super.checkColumnDoesNotHaveValue(1, 0, title);
 
-        super.navigate(path,query);
+        super.driver.navigate().to(url);
+
         super.checkErrorsExist();
 
         super.signOut();
