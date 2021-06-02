@@ -86,12 +86,12 @@ class AnonymousWorkPlanTest extends AcmeTest{
 		 	super.clickOnMenu("Anonymous", "Public Workplans list");
 		 	super.clickOnListingRecord(recordIndex);
 
-	        final String path=super.getSimplePath();
-	        final String query=super.getContextQuery();
+		 	final String url=super.driver.getCurrentUrl();
 
 	        super.signIn("lola21","1234");
 
-	        super.navigate(path,query);
+	        super.driver.navigate().to(url);
+	        
 	        super.checkErrorsExist();
 
 	        super.signOut();
