@@ -81,12 +81,12 @@ class AdministratorUserAccountsTest extends AcmeTest{
         super.clickOnMenu("Administrator", "User accounts");  
         super.clickOnListingRecord(recordIndex);
 
-	    final String path=super.getSimplePath();
-	    final String query=super.getContextQuery();
+        String url=super.driver.getCurrentUrl();
+
         super.signOut();
 	    super.signIn("juan21","1234");
 
-	    super.navigate(path,query);
+	    super.driver.navigate().to(url);
 	    super.checkErrorsExist();
 
 	    super.signOut();

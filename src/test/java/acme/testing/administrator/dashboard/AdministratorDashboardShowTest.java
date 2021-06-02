@@ -79,13 +79,12 @@ class AdministratorDashboardShowTest extends AcmeTest {
 	@Order(10)
 	void showNegativeCase() {
 		 super.signIn("administrator", "administrator"); 
-		 super.clickOnMenu("Administrator", "Dashboard");			 
-	 
-	     final String path=super.getSimplePath(); 
-	     final String query=super.getContextQuery(); 
+		 super.clickOnMenu("Administrator", "Dashboard");
+
+		String url=super.driver.getCurrentUrl();
 	 
 	     super.signOut();  
-	     super.navigate(path,query); 
+	     super.driver.navigate().to(url);
 	     super.checkErrorsExist(); 
 	    } 
 }
