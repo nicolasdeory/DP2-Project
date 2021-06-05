@@ -10,7 +10,57 @@
 <table class="table table-sm">
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
-	</caption>	
+	</caption>
+
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${XXXFlaggedAsXXX}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${shoutXXXRateInXXX}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${XXX_XXCurrencyAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${XXX_XXCurrencyDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${XXX_YYCurrencyAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+		</th>
+		<td>
+			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>
+		</td>
+	</tr>
+
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>

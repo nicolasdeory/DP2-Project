@@ -39,7 +39,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks","numberOfPublicWorkPlans","numberOfPrivateWorkPlans",
 			"numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","numberOfWorkPlans","averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriods","minOfTaskExecutionPeriods","maxOfTaskExecutionPeriods",
 			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods","averageOfTaskWorkloads","deviationOfTaskWorkloads",
-			"minOfTaskWorkloads","maxOfTaskWorkloads","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads","minOfWorkplanWorkloads","maxOfWorkplanWorkloads");
+			"minOfTaskWorkloads","maxOfTaskWorkloads","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads","minOfWorkplanWorkloads","maxOfWorkplanWorkloads",
+				"XXXFlaggedAsXXX","shoutXXXRateInXXX","XXX_XXCurrencyAverage","XXX_XXCurrencyDeviation","XXX_YYCurrencyAverage","XXX_YYCurrencyDeviationYY");
 	}
 
 	@Override
@@ -78,8 +79,13 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double deviationOfWorkplanWorkloads;
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
-		
 
+		Double XXXFlaggedAsXXX;
+		Double shoutXXXRateInXXX;
+		Double XXX_XXCurrencyAverage;
+		Double XXX_XXCurrencyDeviation;
+		Double XXX_YYCurrencyAverage;
+		Double XXX_YYCurrencyDeviationYY;
 		
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -112,6 +118,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().getAsDouble();
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().getAsDouble();
 
+		XXXFlaggedAsXXX=this.repository.getXXXFlaggedAsXXX();
+		shoutXXXRateInXXX=this.service.getShoutXXXRateInXXX();
+		XXX_XXCurrencyAverage=this.repository.getXXX_XXCurrencyAverage();
+		XXX_XXCurrencyDeviation=this.repository.getXXX_XXCurrencyDeviation();
+		XXX_YYCurrencyAverage=this.repository.getXXX_YYCurrencyAverage();
+		XXX_YYCurrencyDeviationYY=this.repository.getXXX_YYCurrencyDeviationYY();
 		
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -144,6 +156,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDeviationOfWorkplanWorkloads(deviationOfWorkplanWorkloads);
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
+
+		result.setXXXFlaggedAsXXX(XXXFlaggedAsXXX);
+		result.setShoutXXXRateInXXX(shoutXXXRateInXXX);
+		result.setXXX_XXCurrencyAverage(XXX_XXCurrencyAverage);
+		result.setXXX_XXCurrencyDeviation(XXX_XXCurrencyDeviation);
+		result.setXXX_YYCurrencyAverage(XXX_YYCurrencyAverage);
+		result.setXXX_YYCurrencyDeviationYY(XXX_YYCurrencyDeviationYY);
+
 
 		return result;
 	}

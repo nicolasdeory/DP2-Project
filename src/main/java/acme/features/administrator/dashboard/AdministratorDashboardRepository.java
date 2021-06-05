@@ -2,6 +2,7 @@ package acme.features.administrator.dashboard;
 
 import java.util.List;
 
+import acme.entities.shouts.Shout;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +33,9 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	
 	@Query("select t from Task t")
 	List<Task> getAllTasks();
+
+	@Query("select s from Shout s")
+	List<Shout> getAllShouts();
 	
 	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
 	Double deviationOfTaskExecutionPeriods();
@@ -92,6 +96,17 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Double maxOfWorkplanWorkloads();
+
+	@Query("select count (x) from XXX x where x.XXXflag=TRUE")
+	Double getXXXFlaggedAsXXX();
+	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= \"XX\" ")
+	Double getXXX_XXCurrencyAverage();
+	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= \"XX\" ")
+	Double getXXX_XXCurrencyDeviation();
+	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= \"YY\" ")
+	Double getXXX_YYCurrencyAverage();
+	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= \"YY\" ")
+	Double getXXX_YYCurrencyDeviationYY();
 
 	/////////////////////////////////////////////////
 	

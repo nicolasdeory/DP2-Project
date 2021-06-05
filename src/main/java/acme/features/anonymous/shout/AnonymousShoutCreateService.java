@@ -12,6 +12,7 @@
 
 package acme.features.anonymous.shout;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import acme.entities.XXX.XXX;
@@ -90,7 +91,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
+		String currency=entity.getXxx().getCurrency().getCurrency();
+		if(!(currency.equals("XX")||currency.equals("YY"))){
+			errors.state(request,false,"currency","anonymous.shout.XXX.error.currency.format");
+		}
 
+		java.sql.Date date=new java.sql.Date(entity.getXxx().getXdate().getTime());
+		Boolean isDuplicated = this.repository.findXXX(date).orElse(null) != null;
+		errors.state(request,!isDuplicated,"Xdate","anonymous.shout.XXX.error.Xdate.duplicated");
 	}
 
 	@Override
@@ -103,8 +111,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 		entity.getXxx().setShoutMoment(moment);
+		entity.getXxx().setShout(entity);
 		this.repository.save(entity);
-		this.repository.save(entity.getXxx());
+		this.repository.flush();
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import acme.entities.shouts.Shout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,7 +66,6 @@ public class AdministratorDashboardService {
 		}
 		return formattedWorkloads;
 	}
-	
 
 	
 	public static Double sd (List<Double> table)	{
@@ -81,5 +81,12 @@ public class AdministratorDashboardService {
 	    double meanOfDiffs = temp / (table.size());
 
 	    return Math.sqrt(meanOfDiffs);
+	}
+
+	@Transactional
+	public Double getShoutXXXRateInXXX(){
+		List<Shout> shouts=dashRepo.getAllShouts();
+		return  Double.valueOf(shouts.stream().filter(x->x.getXxx()!=null&&x.getXxx().getCurrency()!=null).count())/shouts.size();
+
 	}
 }

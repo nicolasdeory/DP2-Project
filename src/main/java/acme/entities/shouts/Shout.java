@@ -4,10 +4,7 @@ package acme.entities.shouts;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -71,7 +68,7 @@ public class Shout extends DomainEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	@OneToOne(optional = true)
+	@OneToOne(optional = true,cascade = CascadeType.ALL)
 	protected XXX xxx;
 
 }

@@ -8,10 +8,9 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import java.util.Currency;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -24,9 +23,8 @@ public class XXX extends DomainEntity {
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Column(name = "Xdate", unique = true)
+    @Column(unique = true)
     @NotNull
-    @DateTimeFormat(pattern = "dd-MM-YYYY")
     protected Date Xdate;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -46,6 +44,6 @@ public class XXX extends DomainEntity {
 
 
     // Relationships ----------------------------------------------------------
-    @OneToOne(optional = false)
+    @OneToOne(optional = false,cascade = CascadeType.ALL)
     protected Shout shout;
 }

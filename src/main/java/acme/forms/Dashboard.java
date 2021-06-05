@@ -43,6 +43,13 @@ public class Dashboard implements Serializable {
 	Double deviationOfWorkplanWorkloads;
 	Double minOfWorkplanWorkloads;
 	Double maxOfWorkplanWorkloads;
+
+	Double XXXFlaggedAsXXX;
+	Double shoutXXXRateInXXX;
+	Double XXX_XXCurrencyAverage;
+	Double XXX_XXCurrencyDeviation;
+	Double XXX_YYCurrencyAverage;
+	Double XXX_YYCurrencyDeviationYY;
 	
 
 
