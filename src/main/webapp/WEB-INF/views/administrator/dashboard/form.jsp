@@ -14,7 +14,7 @@
 
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.XXXFlaggedAsXXX"/>
 		</th>
 		<td>
 			<acme:print value="${XXXFlaggedAsXXX}"/>
@@ -22,7 +22,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.shoutXXXRateInXXX"/>
 		</th>
 		<td>
 			<acme:print value="${shoutXXXRateInXXX}"/>
@@ -30,7 +30,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyAverage"/>
 		</th>
 		<td>
 			<acme:print value="${XXX_XXCurrencyAverage}"/>
@@ -38,7 +38,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyDeviation"/>
 		</th>
 		<td>
 			<acme:print value="${XXX_XXCurrencyDeviation}"/>
@@ -46,7 +46,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyAverage"/>
 		</th>
 		<td>
 			<acme:print value="${XXX_YYCurrencyAverage}"/>
@@ -54,7 +54,7 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
+			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY"/>
 		</th>
 		<td>
 			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>

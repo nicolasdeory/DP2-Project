@@ -1,6 +1,7 @@
 package acme.features.administrator.dashboard;
 
 import java.util.List;
+import java.util.Optional;
 
 import acme.entities.shouts.Shout;
 import org.springframework.data.jpa.repository.Query;
@@ -38,25 +39,25 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	List<Shout> getAllShouts();
 	
 	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
-	Double deviationOfTaskExecutionPeriods();
+	Optional<Double> deviationOfTaskExecutionPeriods();
 	
 	@Query("select (min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
-	Double minOfTaskExecutionPeriods();
+	Optional<Double> minOfTaskExecutionPeriods();
 	
 	@Query("select (max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(60000*60) from Task t")
-	Double maxOfTaskExecutionPeriods();
+	Optional<Double> maxOfTaskExecutionPeriods();
 	
 	@Query("select (avg((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
-	Double averageOfTaskWorkloads();
+	Optional<Double> averageOfTaskWorkloads();
 
 	@Query("select (stddev((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
-	Double deviationOfTaskWorkloads();
+	Optional<Double> deviationOfTaskWorkloads();
 	
 	@Query("select (min((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
-	Double minOfTaskWorkloads();
+	Optional<Double> minOfTaskWorkloads();
 	
 	@Query("select (max((t.executionPeriod.finishDateTime)-(t.executionPeriod.startDateTime)))/(1000*3600.0) from Task t")
-	Double maxOfTaskWorkloads();
+	Optional<Double> maxOfTaskWorkloads();
 
 	@Query("select count(w) from WorkPlan w")
 	Integer numberOfWorkPlans();
@@ -74,39 +75,39 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	Integer numberOfNonFinishedWorkPlans();
 	
 	@Query("select (avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
-	Double averageOfWorkPlanExecutionPeriods();
+	Optional<Double> averageOfWorkPlanExecutionPeriods();
 	
 	@Query("select (stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
-	Double deviationOfWorkPlanExecutionPeriods();
+	Optional<Double> deviationOfWorkPlanExecutionPeriods();
 	
 	@Query("select (min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
-	Double minOfWorkPlanExecutionPeriods();
+	Optional<Double> minOfWorkPlanExecutionPeriods();
 	
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(60000*60) from WorkPlan w")
-	Double maxOfWorkPlanExecutionPeriods();
+	Optional<Double> maxOfWorkPlanExecutionPeriods();
 	
 	@Query("select (avg((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
-	Double averageOfWorkplanWorkloads();
+	Optional<Double> averageOfWorkplanWorkloads();
 	
 	@Query("select (stddev((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
-	Double deviationOfWorkplanWorkloads();
+	Optional<Double> deviationOfWorkplanWorkloads();
 	
 	@Query("select (min((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
-	Double minOfWorkplanWorkloads();
+	Optional<Double> minOfWorkplanWorkloads();
 	
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
-	Double maxOfWorkplanWorkloads();
+	Optional<Double> maxOfWorkplanWorkloads();
 
 	@Query("select count (x) from XXX x where x.XXXflag=TRUE")
 	Double getXXXFlaggedAsXXX();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= \"XX\" ")
-	Double getXXX_XXCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= \"XX\" ")
-	Double getXXX_XXCurrencyDeviation();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= \"YY\" ")
-	Double getXXX_YYCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= \"YY\" ")
-	Double getXXX_YYCurrencyDeviationYY();
+	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'XX' ")
+	Optional<Double> getXXX_XXCurrencyAverage();
+	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'XX'  ")
+	Optional<Double> getXXX_XXCurrencyDeviation();
+	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
+	Optional<Double> getXXX_YYCurrencyAverage();
+	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
+	Optional<Double> getXXX_YYCurrencyDeviationYY();
 
 	/////////////////////////////////////////////////
 	

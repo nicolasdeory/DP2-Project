@@ -12,11 +12,15 @@
 
 package acme.features.anonymous.shout;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import acme.entities.XXX.XXX;
 import acme.utils.AssertUtils;
+import com.fasterxml.jackson.datatype.jsr310.deser.key.LocalDateKeyDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +57,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
 		request.bind(entity, errors);
 		request.bind(entity.getXxx(),errors);
+
 	}
 
 	@Override
@@ -62,7 +67,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "author", "text", "info");
-		request.unbind(entity.getXxx(),model,"Xdate","currency","XXXflag");
+		request.unbind(entity.getXxx(),model,"XdateString","currency","XXXflag");
 	}
 
 	@Override
@@ -80,7 +85,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
 		result.setXxx(new XXX());
-
+		result.getXxx().setXdateString("");
 
 
 		return result;
@@ -91,14 +96,28 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		AssertUtils.assertRequestNotNull(request);
 		AssertUtils.assertEntityNotNull(entity);
 		AssertUtils.assertErrorsNotNull(errors);
-		String currency=entity.getXxx().getCurrency().getCurrency();
-		if(!(currency.equals("XX")||currency.equals("YY"))){
+		XXX xxx=entity.getXxx();
+		if(xxx.getCurrency()!=null&&(!(xxx.getCurrency().getCurrency().equals("XX")||xxx.getCurrency().getCurrency().equals("YY")))){
 			errors.state(request,false,"currency","anonymous.shout.XXX.error.currency.format");
 		}
 
-		java.sql.Date date=new java.sql.Date(entity.getXxx().getXdate().getTime());
-		Boolean isDuplicated = this.repository.findXXX(date).orElse(null) != null;
-		errors.state(request,!isDuplicated,"Xdate","anonymous.shout.XXX.error.Xdate.duplicated");
+		if(xxx.getXdateString()!=null){
+			Date date=null;
+			SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy");
+			try{
+				date=format.parse(xxx.getXdateString());
+				xxx.setXdate(date);
+			}catch (Exception e){
+				errors.state(request,false,"XdateString","anonymous.shout.XXX.error.Xdate.format");
+			}
+			if(date!=null){
+				java.sql.Date dateSQL=new java.sql.Date(xxx.getXdate().getTime());
+				Boolean isDuplicated = this.repository.findXXX(dateSQL).orElse(null) != null;
+				errors.state(request,!isDuplicated,"XdateString","anonymous.shout.XXX.error.Xdate.duplicated");
+			}
+
+		}
+
 	}
 
 	@Override

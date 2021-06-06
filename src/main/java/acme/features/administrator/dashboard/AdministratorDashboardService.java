@@ -26,7 +26,7 @@ public class AdministratorDashboardService {
 	public Double averageOfTaskWorkload() {
 		List<Double> baseWorkloads = this.dashRepo.findAllTaskWorkload();
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(baseWorkloads);
-		return formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
+		return formattedWorkloads.stream().mapToDouble(a->a).average().orElse(-1);
 	
 		
 		
@@ -45,7 +45,7 @@ public class AdministratorDashboardService {
 		List<WorkPlan> baseWorkloads = this.dashRepo.findAllWorkPlans();
 		List<Double> workloads = baseWorkloads.stream().map(WorkPlan::getWorkloadHours).collect(Collectors.toList());
 		List<Double> formattedWorkloads = AdministratorDashboardService.formatTime(workloads);
-		return formattedWorkloads.stream().mapToDouble(a->a).average().getAsDouble();
+		return formattedWorkloads.stream().mapToDouble(a->a).average().orElse(-1);
 		
 	}
 	
@@ -69,8 +69,10 @@ public class AdministratorDashboardService {
 
 	
 	public static Double sd (List<Double> table)	{
-	  
-	    double mean = table.stream().mapToDouble(a->a).average().getAsDouble();
+
+		if (table.size() == 0)
+			return -1.;
+	    double mean = table.stream().mapToDouble(a->a).average().orElse(-1);
 	    double temp = 0;
 
 	    for (int i = 0; i < table.size(); i++) {
@@ -86,7 +88,7 @@ public class AdministratorDashboardService {
 	@Transactional
 	public Double getShoutXXXRateInXXX(){
 		List<Shout> shouts=dashRepo.getAllShouts();
-		return  Double.valueOf(shouts.stream().filter(x->x.getXxx()!=null&&x.getXxx().getCurrency()!=null).count())/shouts.size();
+		return (double) shouts.stream().filter(x -> x.getXxx() != null && x.getXxx().getCurrency() != null).count() /shouts.size();
 
 	}
 }

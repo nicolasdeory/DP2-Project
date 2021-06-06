@@ -24,12 +24,10 @@ public class XXX extends DomainEntity {
 
     // Attributes -------------------------------------------------------------
     @Column(unique = true)
-    @NotNull
     protected Date Xdate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Past
-    @NotNull
     protected Date shoutMoment;
 
 
@@ -41,7 +39,8 @@ public class XXX extends DomainEntity {
 
 
     // Derived attributes -----------------------------------------------------
-
+    @Transient
+    protected String XdateString;
 
     // Relationships ----------------------------------------------------------
     @OneToOne(optional = false,cascade = CascadeType.ALL)
