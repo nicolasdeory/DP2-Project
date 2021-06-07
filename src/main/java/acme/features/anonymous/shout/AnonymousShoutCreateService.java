@@ -115,10 +115,12 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         entity.setMoment(moment);
         entity.getXxx().setXXXMoment(moment);
         entity.getXxx().setShout(entity);
+
+        entity.getXxx()
+                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day);
         this.repository.save(entity);
         this.repository.flush();
-        entity.getXxx().setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "")
-                + day + entity.getId());
+        entity.getXxx().setXidentifier(entity.getXxx().getXidentifier() + entity.getId());
         this.repository.save(entity);
     }
 
