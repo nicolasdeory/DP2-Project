@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 
 import acme.entities.XXX.XXX;
@@ -113,11 +114,15 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         moment = new Date(System.currentTimeMillis() - 1);
         entity.setMoment(moment);
-        entity.getXxx().setXXXMoment(moment);
+        Date Xdate = new Date(System.currentTimeMillis() - 1);
+        Calendar c = Calendar.getInstance();
+        c.setTime(Xdate);
+        c.add(Calendar.MONTH, -1);
+        entity.getXxx().setXXXMoment(c.getTime());
         entity.getXxx().setShout(entity);
 
         entity.getXxx()
-                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day);
+                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "0");
         this.repository.save(entity);
         this.repository.flush();
         entity.getXxx().setXidentifier(entity.getXxx().getXidentifier() + entity.getId());

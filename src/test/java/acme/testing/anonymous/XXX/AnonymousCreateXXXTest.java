@@ -60,14 +60,14 @@ class AnonymousCreateXXXTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info,
-    	final String text,String date,String currency,String flag) {
+    	final String text,String identifier,String currency,String flag) {
     	super.clickOnMenu("Anonymous", "Shout!");        
         
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("XdateString",date);
+        super.fillInputBoxIn("XdateString",identifier);
         super.fillInputBoxIn("currency",currency);
         super.fillInputBoxIn("flag",flag);
         super.clickOnSubmitButton("Shout!");

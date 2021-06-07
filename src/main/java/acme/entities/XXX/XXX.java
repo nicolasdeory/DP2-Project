@@ -23,10 +23,10 @@ public class XXX extends DomainEntity {
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})$")
+    @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})(\\d*)$")
+    @Column(unique = true)
     protected String Xidentifier;
 
-    @Past
     protected Date XXXMoment;
 
     protected Money currency;
