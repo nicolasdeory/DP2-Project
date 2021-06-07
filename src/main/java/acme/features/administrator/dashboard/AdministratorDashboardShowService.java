@@ -86,15 +86,15 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		numberOfFinishedTasks = this.repository.numberOfFinishedTasks();
 		numberOfNonFinishedTasks = this.repository.numberOfNonFinishedTasks();
 		
-		averageOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).average().getAsDouble());
-		deviationOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfTaskExecutionPeriods());
-		minOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfTaskExecutionPeriods());
-		maxOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfTaskExecutionPeriods());
+		averageOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).average().orElse(0));
+		deviationOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfTaskExecutionPeriods().orElse(-1.));
+		minOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfTaskExecutionPeriods().orElse(-1.));
+		maxOfTaskExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfTaskExecutionPeriods().orElse(-1.));
 		
 		averageOfTaskWorkloads = this.service.averageOfTaskWorkload();
 		deviationOfTaskWorkloads = this.service.deviationOfTaskWorkload();
-		minOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().getAsDouble();
-		maxOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().getAsDouble();
+		minOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().orElse(-1);
+		maxOfTaskWorkloads = this.repository.getAllTasks().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 		
 		numberOfPublicWorkPlans = this.repository.numberOfPublicWorkPlans();
 		numberOfPrivateWorkPlans = this.repository.numberOfPrivateWorkPlans();
@@ -102,15 +102,15 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		numberOfNonFinishedWorkPlans = this.repository.numberOfNonFinishedWorkPlans();
 		numberOfWorkPlans = this.repository.numberOfWorkPlans();
 		
-		averageOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.averageOfWorkPlanExecutionPeriods());
-		deviationOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfWorkPlanExecutionPeriods());
-		minOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfWorkPlanExecutionPeriods());
-		maxOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfWorkPlanExecutionPeriods());
+		averageOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.averageOfWorkPlanExecutionPeriods().orElse(-1.));
+		deviationOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.deviationOfWorkPlanExecutionPeriods().orElse(-1.));
+		minOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.minOfWorkPlanExecutionPeriods().orElse(-1.));
+		maxOfWorkPlanExecutionPeriods = WorkLoadOperations.formatWorkload(this.repository.maxOfWorkPlanExecutionPeriods().orElse(-1.));
 		
 		averageOfWorkplanWorkloads = this.service.averageOfWorkPlanWorkload();
 		deviationOfWorkplanWorkloads = this.service.deviationOfWorkPlanWorkload();
-		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().getAsDouble();
-		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().getAsDouble();
+		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().orElse(-1);
+		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
 		
 		result = new Dashboard();
