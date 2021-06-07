@@ -23,7 +23,7 @@
 	<acme:list-column code="anonymous.shout.label.XXXidentifier" path="Xidentifier" width="20%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.label.currency" path="currency" width="30%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.label.XXXflag" path="XXXflag" width="30%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.label.XXXmoment" path="XXXmoment" width="20%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.label.XXXmoment" path="XXXMoment" width="20%" sortable="false"/>
 
 	
 
