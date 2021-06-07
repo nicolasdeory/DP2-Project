@@ -1,3 +1,4 @@
-recordIndex,author,info,text,date,currency,flag
-0,Joselu,,Prueba el omori, ,10-12-2000 , 20 XX,true
-1,Pedro,,¿un valorant?,12-12-2000 , 20 YY,false
+recordIndex,author,info,text,currency,flag
+0,Joselu,,Prueba el omori,XX 20.00,true
+0,Pedro,,¿un valorant?,YY 20.00, false
+0,Jose M,,*trabajando*,XX 10.00, true
