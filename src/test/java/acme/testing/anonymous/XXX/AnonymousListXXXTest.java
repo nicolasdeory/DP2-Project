@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.openqa.selenium.By;
 
 @ExtendWith(MockitoExtension.class)
 class AnonymousListXXXTest extends AcmeTest {
@@ -40,7 +41,7 @@ class AnonymousListXXXTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info,
-    	final String text,String date,String currency,String flag) {
+    	final String text,String currency,String flag) {
     	
         //creamos un shout ya que si no no funciona
      	super.clickOnMenu("Anonymous", "Shout!");
@@ -49,9 +50,8 @@ class AnonymousListXXXTest extends AcmeTest {
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("XdateString",date);
         super.fillInputBoxIn("currency",currency);
-        super.fillInputBoxIn("Xflag",flag);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
         super.clickOnSubmitButton("Shout!");
     	
         super.clickOnMenu("Anonymous", "List shouts");        
@@ -59,7 +59,6 @@ class AnonymousListXXXTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex,4,date);
         super.checkColumnHasValue(recordIndex,5,currency);
         super.checkColumnHasValue(recordIndex,6,flag);
         
