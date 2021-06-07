@@ -22,3 +22,8 @@ anonymous.shout.form.label.XXXidentifier = Id
 anonymous.shout.form.label.currency = Cantidad
 anonymous.shout.form.label.XXXflag = Flag
 anonymous.shout.form.label.XXXmoment = Momento
+
+anonymous.shout.label.XXXidentifier	= Id
+anonymous.shout.label.currency  = Cantidad
+anonymous.shout.label.XXXflag	= Flag
+anonymous.shout.label.XXXmoment = Momento
