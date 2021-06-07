@@ -70,7 +70,7 @@ public class AdministratorDashboardService {
 	
 	public static Double sd (List<Double> table)	{
 
-		if (table.size() == 0)
+		if (table.isEmpty())
 			return -1.;
 	    double mean = table.stream().mapToDouble(a->a).average().orElse(-1);
 	    double temp = 0;

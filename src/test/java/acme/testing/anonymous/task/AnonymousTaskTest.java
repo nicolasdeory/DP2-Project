@@ -86,7 +86,7 @@ class AnonymousTaskTest extends AcmeTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/anonymous/task/list-show-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    public void listAndShowNegative(final int id) {
+    void listAndShowNegative(final int id) {
         super.clickOnMenu("Anonymous", "Public Tasks");
         super.clickOnListingRecord(0);
 
