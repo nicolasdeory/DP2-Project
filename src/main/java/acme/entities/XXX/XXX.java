@@ -27,7 +27,6 @@ public class XXX extends DomainEntity {
     @Column(unique = true)
     protected String Xidentifier;
 
-    @Past
     protected Date XXXMoment;
 
     protected Money currency;
