@@ -98,6 +98,11 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
             errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
         }
 
+        if (xxx.getCurrency() != null && xxx.getCurrency().getAmount() <= 0)
+        {
+            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.negative");
+        }
+
     }
 
     @Override
