@@ -34,105 +34,91 @@ import acme.framework.services.AbstractCreateService;
 @Service
 public class AnonymousShoutCreateService implements AbstractCreateService<Anonymous, Shout> {
 
-	// Internal state ---------------------------------------------------------
+    // Internal state ---------------------------------------------------------
 
-	@Autowired
-	protected AnonymousShoutRepository repository;
+    @Autowired
+    protected AnonymousShoutRepository repository;
 
-	// AbstractCreateService<Administrator, Shout> interface --------------
+    // AbstractCreateService<Administrator, Shout> interface --------------
 
-	@Override
-	public boolean authorise(final Request<Shout> request) {
+    @Override
+    public boolean authorise(final Request<Shout> request) {
 
-		AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertRequestNotNull(request);
 
-		return true;
-	}
+        return true;
+    }
 
-	@Override
-	public void bind(final Request<Shout> request, final Shout entity, final Errors errors) {
-		AssertUtils.assertRequestNotNull(request);
-		AssertUtils.assertEntityNotNull(entity);
-		AssertUtils.assertErrorsNotNull(errors);
+    @Override
+    public void bind(final Request<Shout> request, final Shout entity, final Errors errors) {
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
 
-		request.bind(entity, errors);
-		request.bind(entity.getXxx(),errors);
+        request.bind(entity, errors);
+        request.bind(entity.getXxx(), errors);
 
-	}
+    }
 
-	@Override
-	public void unbind(final Request<Shout> request, final Shout entity, final Model model) {
-		AssertUtils.assertRequestNotNull(request);
-		AssertUtils.assertEntityNotNull(entity);
-		AssertUtils.assertModelNotNull(model);
+    @Override
+    public void unbind(final Request<Shout> request, final Shout entity, final Model model) {
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertModelNotNull(model);
 
-		request.unbind(entity, model, "author", "text", "info");
-		request.unbind(entity.getXxx(),model,"XdateString","currency","XXXflag");
-	}
+        request.unbind(entity, model, "author", "text", "info");
+        request.unbind(entity.getXxx(), model, "XdateString", "currency", "XXXflag");
+    }
 
-	@Override
-	public Shout instantiate(final Request<Shout> request) {
-		AssertUtils.assertRequestNotNull(request);
+    @Override
+    public Shout instantiate(final Request<Shout> request) {
+        AssertUtils.assertRequestNotNull(request);
 
-		Shout result;
-		Date moment;
+        Shout result;
+        Date moment;
 
-		moment = new Date(System.currentTimeMillis() - 1);
+        moment = new Date(System.currentTimeMillis() - 1);
 
-		result = new Shout();
-		result.setAuthor("John Doe");
-		result.setText("Lorem ipsum!");
-		result.setMoment(moment);
-		result.setInfo("http://example.org");
-		result.setXxx(new XXX());
-		result.getXxx().setXdateString("");
+        result = new Shout();
+        result.setMoment(moment);
+        result.setXxx(new XXX());
+
+        return result;
+    }
+
+    @Override
+    public void validate(final Request<Shout> request, final Shout entity, final Errors errors) {
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+        AssertUtils.assertErrorsNotNull(errors);
+        XXX xxx = entity.getXxx();
+        if (xxx.getCurrency() != null && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
+            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
+        }
+
+    }
+
+    @Override
+    public void create(final Request<Shout> request, final Shout entity) {
+        AssertUtils.assertRequestNotNull(request);
+        AssertUtils.assertEntityNotNull(entity);
+
+		LocalDate now = LocalDate.now();
+		String year = String.valueOf(now.getYear());
+		String month = String.valueOf(now.getMonthValue());
+		String day = String.valueOf(now.getDayOfMonth());
 
 
-		return result;
-	}
+        Date moment;
 
-	@Override
-	public void validate(final Request<Shout> request, final Shout entity, final Errors errors) {
-		AssertUtils.assertRequestNotNull(request);
-		AssertUtils.assertEntityNotNull(entity);
-		AssertUtils.assertErrorsNotNull(errors);
-		XXX xxx=entity.getXxx();
-		if(xxx.getCurrency()!=null&&(!(xxx.getCurrency().getCurrency().equals("XX")||xxx.getCurrency().getCurrency().equals("YY")))){
-			errors.state(request,false,"currency","anonymous.shout.XXX.error.currency.format");
-		}
-
-		if(xxx.getXdateString()!=null){
-			Date date=null;
-			SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy");
-			try{
-				date=format.parse(xxx.getXdateString());
-				xxx.setXdate(date);
-			}catch (Exception e){
-				errors.state(request,false,"XdateString","anonymous.shout.XXX.error.Xdate.format");
-			}
-			if(date!=null){
-				java.sql.Date dateSQL=new java.sql.Date(xxx.getXdate().getTime());
-				Boolean isDuplicated = this.repository.findXXX(dateSQL).orElse(null) != null;
-				errors.state(request,!isDuplicated,"XdateString","anonymous.shout.XXX.error.Xdate.duplicated");
-			}
-
-		}
-
-	}
-
-	@Override
-	public void create(final Request<Shout> request, final Shout entity) {
-		AssertUtils.assertRequestNotNull(request);
-		AssertUtils.assertEntityNotNull(entity);
-
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
-		entity.getXxx().setShoutMoment(moment);
-		entity.getXxx().setShout(entity);
+        moment = new Date(System.currentTimeMillis() - 1);
+        entity.setMoment(moment);
+        entity.getXxx().setShoutMoment(moment);
+        entity.getXxx().setShout(entity);
+        this.repository.save(entity);
+        this.repository.flush();
+		entity.getXxx().setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day+entity.getId());
 		this.repository.save(entity);
-		this.repository.flush();
-	}
+    }
 
 }

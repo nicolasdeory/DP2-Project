@@ -20,7 +20,7 @@
 	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="20%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="30%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.list.label.info" path="info" width="30%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.form.label.Xdate" path="Xdate" width="20%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.form.label.Xdate" path="Xidentifier" width="20%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.form.label.currency" path="currency" width="30%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.form.label.XXXflag" path="XXXflag" width="30%" sortable="false"/>
 

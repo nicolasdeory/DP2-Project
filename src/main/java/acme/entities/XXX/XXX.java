@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -23,8 +24,8 @@ public class XXX extends DomainEntity {
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Column(unique = true)
-    protected Date Xdate;
+    @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})$")
+    protected String Xidentifier;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Past
@@ -39,8 +40,7 @@ public class XXX extends DomainEntity {
 
 
     // Derived attributes -----------------------------------------------------
-    @Transient
-    protected String XdateString;
+
 
     // Relationships ----------------------------------------------------------
     @OneToOne(optional = false,cascade = CascadeType.ALL)
