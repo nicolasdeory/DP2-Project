@@ -493,29 +493,71 @@
         </property>
     </bean>
     <bean id="Shout00" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/02/13 19:39"/>
+        <property name="moment" value="2021/06/05 19:39"/>
         <property name="author" value="John Doe"/>
         <property name="text" value="I'm happy!"/>
         <property name="info">
             <null/>
         </property>
+        <property name="xxx">
+            <ref bean="XXX01"/>
+        </property>
     </bean>
 
     <bean id="Shout01" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/04/13 11:11"/>
+        <property name="moment" value="2021/06/05 11:11"/>
         <property name="author" value="Ignacio"/>
         <property name="text" value="Funciona!!"/>
         <property name="info">
             <null/>
         </property>
+        <property name="xxx">
+            <ref bean="XXX02"/>
+        </property>
     </bean>
 
     <bean id="Shout02" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/05/01 02:22"/>
+        <property name="moment" value="2021/06/01 02:22"/>
         <property name="author" value="Fernando"/>
         <property name="text" value="Let's goo"/>
         <property name="info">
             <null/>
         </property>
+        <property name="xxx">
+            <ref bean="XXX03"/>
+        </property>
+    </bean>
+    <!-- WorkPlans -->
+    
+    <bean id="XXX01" class ="acme.entities.XXX.XXX">
+    	<property name="Xidentifier" value="20210613014"></property>
+    	<property name="XXXMoment" value="2021/06/05 19:39"></property>
+    	<property name="currency" value="5.12 XX"></property>
+    	<property name="XXXflag" value="true"></property>
+    	
+    	 <property name="shout">
+            <ref bean="Shout00"/>
+        </property>	
+    </bean>
+    
+    <bean id="XXX02" class ="acme.entities.XXX.XXX">
+    	<property name="Xidentifier" value="20210613015"></property>
+    	<property name="XXXMoment" value="2021/06/05 11:11"></property>
+    	<property name="currency" value="6.12 XX"></property>
+    	<property name="XXXflag" value="true"></property>	
+    	
+    	 <property name="shout">
+            <ref bean="Shout01"/>
+        </property>	
+    </bean>
+    
+    <bean id="XXX03" class ="acme.entities.XXX.XXX">
+    	<property name="Xidentifier" value="20210613016"></property>
+    	<property name="XXXMoment" value="2021/06/01 02:22"></property>
+    	<property name="currency" value="7.12 XX"></property>
+    	<property name="XXXflag" value="false"></property>
+    	 <property name="shout">
+            <ref bean="Shout02"/>
+        </property>		
     </bean>
 </beans>
