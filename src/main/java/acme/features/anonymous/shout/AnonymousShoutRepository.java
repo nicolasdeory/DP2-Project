@@ -29,7 +29,4 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 	@Query("select s from Shout s where s.moment >= ?1 order by s.moment desc")
 	Collection<Shout> findMany(Date d);
 
-	@Query("SELECT x from  XXX x where x.Xdate=?1")
-	Optional<XXX> findXXX(Date d);
-
 }
