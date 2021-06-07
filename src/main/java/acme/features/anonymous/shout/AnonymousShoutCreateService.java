@@ -67,7 +67,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getXxx(), model, "XdateString", "currency", "XXXflag");
+        request.unbind(entity.getXxx(), model, "Xidentifier", "currency", "XXXflag");
     }
 
     @Override
@@ -92,7 +92,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
         XXX xxx = entity.getXxx();
-        if (xxx.getCurrency() != null && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
+        if (xxx.getCurrency() != null
+                && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
             errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
         }
 
@@ -103,22 +104,22 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
 
-		LocalDate now = LocalDate.now();
-		String year = String.valueOf(now.getYear());
-		String month = String.valueOf(now.getMonthValue());
-		String day = String.valueOf(now.getDayOfMonth());
-
+        LocalDate now = LocalDate.now();
+        String year = String.valueOf(now.getYear());
+        String month = String.valueOf(now.getMonthValue());
+        String day = String.valueOf(now.getDayOfMonth());
 
         Date moment;
 
         moment = new Date(System.currentTimeMillis() - 1);
         entity.setMoment(moment);
-        entity.getXxx().setShoutMoment(moment);
+        entity.getXxx().setXXXMoment(moment);
         entity.getXxx().setShout(entity);
         this.repository.save(entity);
         this.repository.flush();
-		entity.getXxx().setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day+entity.getId());
-		this.repository.save(entity);
+        entity.getXxx().setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "")
+                + day + entity.getId());
+        this.repository.save(entity);
     }
 
 }

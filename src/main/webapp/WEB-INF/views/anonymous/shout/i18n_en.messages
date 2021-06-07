@@ -17,3 +17,8 @@ anonymous.shout.list.label.info = URL
 anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
+
+anonymous.shout.form.label.XXXidentifier = Id
+anonymous.shout.form.label.currency = Amount
+anonymous.shout.form.label.XXXflag = Flag
+anonymous.shout.form.label.XXXmoment = Moment

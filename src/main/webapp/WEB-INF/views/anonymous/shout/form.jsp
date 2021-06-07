@@ -21,7 +21,6 @@
 	<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
 	<acme:form-money code="anonymous.shout.form.label.currency" path="currency"/>
 	<acme:form-checkbox code="anonymous.shout.form.label.XXXflag" path="XXXflag" />
-	<acme:form-checkbox code="anonymous.shout.form.label.XXXflag" path="shoutMoment"/>
 
 	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
   	<acme:form-return code="anonymous.shout.form.button.return"/>

@@ -34,7 +34,6 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 	@Autowired
 	protected AnonymousShoutRepository repository;
 
-
 	// AbstractListService<Administrator, Shout> interface --------------
 
 	@Override
@@ -51,7 +50,7 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "author", "text", "moment", "info");
-		request.unbind(entity.getXxx(),model,"Xdate","currency","XXXflag");
+		request.unbind(entity.getXxx(), model, "XIdentifier", "currency", "XXXflag", "XXXMoment'");
 	}
 
 	@Override
@@ -59,14 +58,12 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		AssertUtils.assertRequestNotNull(request);
 
 		Collection<Shout> result;
-		
+
 		final Date noOlderThanOneMonth = Date.valueOf(LocalDate.now().minusMonths(1));
-		
+
 		result = this.repository.findMany(noOlderThanOneMonth);
 
-		
 		return result;
 	}
 
-	
 }

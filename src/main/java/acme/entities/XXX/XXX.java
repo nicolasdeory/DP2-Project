@@ -14,7 +14,6 @@ import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.Date;
 
-
 @Entity
 @Getter
 @Setter
@@ -27,22 +26,17 @@ public class XXX extends DomainEntity {
     @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})$")
     protected String Xidentifier;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Past
-    protected Date shoutMoment;
-
+    protected Date XXXMoment;
 
     protected Money currency;
 
     @NotNull
     protected Boolean XXXflag;
 
-
-
     // Derived attributes -----------------------------------------------------
 
-
     // Relationships ----------------------------------------------------------
-    @OneToOne(optional = false,cascade = CascadeType.ALL)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     protected Shout shout;
 }
