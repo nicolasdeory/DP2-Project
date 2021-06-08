@@ -1,13 +1,15 @@
 package acme.testing.anonymous.XXX;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.openqa.selenium.By;
+
+import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
 class AnonymousListXXXTest extends AcmeTest {
@@ -41,7 +43,7 @@ class AnonymousListXXXTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info,
-    	final String text,String currency,String flag) {
+    	final String text,final String currency,final String flag) {
     	
         //creamos un shout ya que si no no funciona
      	super.clickOnMenu("Anonymous", "Shout!");
@@ -64,6 +66,22 @@ class AnonymousListXXXTest extends AcmeTest {
         
 
     }
+    
+	@Test
+	@Order(10)
+	void ListNegativeCase() {
+
+     		super.clickOnMenu("Anonymous", "Shout!");
+     		final String url=super.driver.getCurrentUrl();
+	 
+			super.signIn("administrator", "administrator"); 
+			super.clickOnMenu("Administrator", "Dashboard");
+		
+	     
+	    	super.driver.navigate().to(url);
+	    	super.checkErrorsExist();
+	    	super.signOut();  
+	    } 
     
     // Ancillary methods ------------------------------------------------------
     
