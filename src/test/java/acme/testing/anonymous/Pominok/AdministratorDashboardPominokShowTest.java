@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Pominok;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AdministratorDashboardXXXShowTest extends AcmeTest {
+class AdministratorDashboardPominokShowTest extends AcmeTest {
 	
 	@Override
 	@BeforeAll

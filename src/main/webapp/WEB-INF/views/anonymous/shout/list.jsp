@@ -20,10 +20,10 @@
 	<acme:list-column code="anonymous.shout.list.label.author" path="author" width="20%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.list.label.text" path="text" width="30%" sortable="false"/>
 	<acme:list-column code="anonymous.shout.list.label.info" path="info" width="30%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.label.XXXidentifier" path="Xidentifier" width="20%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.label.currency" path="currency" width="30%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.label.XXXflag" path="XXXflag" width="30%" sortable="false"/>
-	<acme:list-column code="anonymous.shout.label.XXXmoment" path="XXXMoment" width="20%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.label.marker" path="marker" width="20%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.label.budget" path="budget" width="30%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.label.important" path="important" width="30%" sortable="false"/>
+	<acme:list-column code="anonymous.shout.label.deadline" path="deadline" width="20%" sortable="false"/>
 
 	
 

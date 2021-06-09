@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Pominok;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-class AnonymousListXXXTest extends AcmeTest {
+class AnonymousListPominokTest extends AcmeTest {
 
 	
 //	@Mock
@@ -52,7 +52,7 @@ class AnonymousListXXXTest extends AcmeTest {
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
+        super.fillInputBoxIn("budget",currency);
         if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
         super.clickOnSubmitButton("Shout!");
     	

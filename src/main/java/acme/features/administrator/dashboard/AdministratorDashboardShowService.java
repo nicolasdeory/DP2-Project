@@ -1,6 +1,5 @@
 package acme.features.administrator.dashboard;
 
-import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +8,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractShowService;
+import acme.utils.AssertUtils;
 import acme.utils.WorkLoadOperations;
 
 @Service
@@ -80,7 +80,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double XXXFlaggedAsXXX;
+		Double PominokFlaggedAsTrue;
 		Double shoutXXXRateInXXX;
 		Double XXX_XXCurrencyAverage;
 		Double XXX_XXCurrencyDeviation;
@@ -118,7 +118,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().orElse(-1);
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		XXXFlaggedAsXXX=this.repository.getXXXFlaggedAsXXX();
+		PominokFlaggedAsTrue=this.repository.getXXXFlaggedAsXXX();
 		shoutXXXRateInXXX=this.service.getShoutXXXRateInXXX();
 		XXX_XXCurrencyAverage=this.repository.getXXX_XXCurrencyAverage().orElse(-1.);
 		XXX_XXCurrencyDeviation=this.repository.getXXX_XXCurrencyDeviation().orElse(-1.);
@@ -157,7 +157,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setXXXFlaggedAsXXX(XXXFlaggedAsXXX);
+		result.setXXXFlaggedAsXXX(PominokFlaggedAsTrue);
 		result.setShoutXXXRateInXXX(shoutXXXRateInXXX);
 		result.setXXX_XXCurrencyAverage(XXX_XXCurrencyAverage);
 		result.setXXX_XXCurrencyDeviation(XXX_XXCurrencyDeviation);

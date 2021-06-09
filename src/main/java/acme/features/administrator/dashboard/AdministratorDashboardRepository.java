@@ -3,10 +3,10 @@ package acme.features.administrator.dashboard;
 import java.util.List;
 import java.util.Optional;
 
-import acme.entities.shouts.Shout;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.shouts.Shout;
 import acme.entities.tasks.Task;
 import acme.entities.workplan.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
@@ -98,15 +98,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from XXX x where x.XXXflag=TRUE")
+	@Query("select count (x) from Pominok x where x.important=TRUE")
 	Double getXXXFlaggedAsXXX();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'XX' ")
+	
+	@Query("select avg(x.budget.amount) from Pominok x where x.budget.currency= 'EUR' ")
 	Optional<Double> getXXX_XXCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'XX'  ")
+	@Query("select stddev(x.budget.amount) from Pominok x where x.budget.currency= 'EUR'  ")
 	Optional<Double> getXXX_XXCurrencyDeviation();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
+	@Query("select avg(x.budget.amount) from Pominok x where x.budget.currency= 'USD' ")
 	Optional<Double> getXXX_YYCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
+	@Query("select stddev(x.budget.amount) from Pominok x where x.budget.currency= 'USD' ")
 	Optional<Double> getXXX_YYCurrencyDeviationYY();
 
 	/////////////////////////////////////////////////

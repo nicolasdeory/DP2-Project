@@ -16,10 +16,10 @@ import java.sql.Date;
 import java.util.Collection;
 import java.util.Optional;
 
-import acme.entities.XXX.XXX;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.pominok.Pominok;
 import acme.entities.shouts.Shout;
 import acme.framework.repositories.AbstractRepository;
 

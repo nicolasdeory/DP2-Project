@@ -1,13 +1,14 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Pominok;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-class AnonymousCreateXXXTest extends AcmeTest {
+import acme.testing.AcmeTest;
+
+class AnonymousCreatePominokTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -31,14 +32,14 @@ class AnonymousCreateXXXTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info,
-    	final String text,String currency,String flag) {
+    	final String text,final String currency,final String flag) {
         super.clickOnMenu("Anonymous", "Shout!");        
         
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
+        super.fillInputBoxIn("budget",currency);
         if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
         super.clickOnSubmitButton("Shout!");
         
@@ -63,7 +64,7 @@ class AnonymousCreateXXXTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info,
-    	final String text,String currency,String flag) {
+    	final String text,final String currency,final String flag) {
     	super.clickOnMenu("Anonymous", "Shout!");        
         
 
