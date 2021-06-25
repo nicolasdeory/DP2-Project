@@ -43,7 +43,7 @@ class AnonymousListPominokTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info,
-    	final String text,final String currency,final String flag) {
+    	final String text,final String currency,final String flag, final String deadline) {
     	
         //creamos un shout ya que si no no funciona
      	super.clickOnMenu("Anonymous", "Shout!");
@@ -53,7 +53,8 @@ class AnonymousListPominokTest extends AcmeTest {
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
         super.fillInputBoxIn("budget",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("deadline",deadline);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
     	
         super.clickOnMenu("Anonymous", "List shouts");        
@@ -63,7 +64,7 @@ class AnonymousListPominokTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 3, info);
         super.checkColumnHasValue(recordIndex,5,currency);
         super.checkColumnHasValue(recordIndex,6,flag);
-        
+        super.checkColumnHasValue(recordIndex, 7, deadline);
 
     }
     

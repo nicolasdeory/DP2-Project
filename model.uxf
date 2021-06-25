@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-XXX
+Pominok
 --
-+     : String {Unique}
-+     : Date {}
-+     : Money 
-+     : boolean {NotNull}
++ marker : String {Unique}
++ deadline : Date {}
++ budget : Money 
++ important: boolean {NotNull}
 
 
 

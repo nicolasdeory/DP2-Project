@@ -499,8 +499,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX01"/>
+        <property name="pominok">
+            <ref bean="Pominok01"/>
         </property>
     </bean>
 
@@ -511,8 +511,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX02"/>
+        <property name="pominok">
+            <ref bean="Pominok02"/>
         </property>
     </bean>
 
@@ -523,13 +523,13 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX03"/>
+        <property name="pominok">
+            <ref bean="Pominok03"/>
         </property>
     </bean>
     <!-- WorkPlans -->
     
-    <bean id="XXX01" class ="acme.entities.XXX.XXX">
+    <bean id="Pominok01" class ="acme.entities.pominok.Pominok">
     	<property name="marker" value="210613/11/ac"></property>
     	<property name="deadline" value="2021/06/05 19:39"></property>
     	<property name="budget" value="5.12 EUR"></property>
@@ -540,7 +540,7 @@
         </property>	
     </bean>
     
-    <bean id="XXX02" class ="acme.entities.XXX.XXX">
+    <bean id="Pominok02" class ="acme.entities.pominok.Pominok">
     	<property name="marker" value="210613/11/aa"></property>
     	<property name="deadline" value="2021/06/05 11:11"></property>
     	<property name="budget" value="6.12 EUR"></property>
@@ -551,7 +551,7 @@
         </property>	
     </bean>
     
-    <bean id="XXX03" class ="acme.entities.XXX.XXX">
+    <bean id="Pominok03" class ="acme.entities.pominok.Pominok">
     	<property name="marker" value="210613/11/ab"></property>
     	<property name="deadline" value="2021/06/01 02:22"></property>
     	<property name="budget" value="7.12 EUR"></property>

@@ -32,7 +32,7 @@ class AnonymousCreatePominokTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info,
-    	final String text,final String currency,final String flag) {
+    	final String text,final String currency,final String flag, final String deadline) {
         super.clickOnMenu("Anonymous", "Shout!");        
         
 
@@ -40,7 +40,8 @@ class AnonymousCreatePominokTest extends AcmeTest {
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
         super.fillInputBoxIn("budget",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("deadline",deadline);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
         
         
@@ -52,6 +53,7 @@ class AnonymousCreatePominokTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 3, info);
         super.checkColumnHasValue(recordIndex,5,currency);
         super.checkColumnHasValue(recordIndex,6,flag);
+        super.checkColumnHasValue(recordIndex, 7, deadline);
         
         
     }
@@ -64,7 +66,7 @@ class AnonymousCreatePominokTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/XXX/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info,
-    	final String text,final String currency,final String flag) {
+    	final String text,final String currency,final String flag, final String deadline) {
     	super.clickOnMenu("Anonymous", "Shout!");        
         
 
@@ -72,7 +74,8 @@ class AnonymousCreatePominokTest extends AcmeTest {
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
         super.fillInputBoxIn("currency",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("deadline",deadline);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
         
         super.checkErrorsExist();
