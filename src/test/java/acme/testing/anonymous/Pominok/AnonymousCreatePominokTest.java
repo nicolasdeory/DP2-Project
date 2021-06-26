@@ -73,7 +73,7 @@ class AnonymousCreatePominokTest extends AcmeTest {
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
+        super.fillInputBoxIn("budget",currency);
         super.fillInputBoxIn("deadline",deadline);
         if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
