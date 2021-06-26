@@ -16,7 +16,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +24,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
+import acme.utils.AssertUtils;
 
 @Service
 public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout> {
@@ -50,7 +50,7 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "author", "text", "moment", "info");
-		request.unbind(entity.getXxx(), model, "Xidentifier", "currency", "XXXflag", "XXXMoment");
+		request.unbind(entity.getDeolet(), model, "tracker", "budget", "important", "deadline");
 	}
 
 	@Override

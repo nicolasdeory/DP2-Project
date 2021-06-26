@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.deolet;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AdministratorDashboardXXXShowTest extends AcmeTest {
+class AdministratorDashboardDeoletShowTest extends AcmeTest {
 	
 	@Override
 	@BeforeAll
@@ -62,7 +62,7 @@ class AdministratorDashboardXXXShowTest extends AcmeTest {
 		 super.signIn("administrator", "administrator"); 
 		 super.clickOnMenu("Administrator", "Dashboard");
 
-		String url=super.driver.getCurrentUrl();
+		final String url=super.driver.getCurrentUrl();
 	 
 	     super.signOut();  
 	     super.driver.navigate().to(url);

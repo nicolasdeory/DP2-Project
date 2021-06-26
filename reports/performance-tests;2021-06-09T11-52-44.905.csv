@@ -1,0 +1,7 @@
+timestamp,test-class,test-method,time,description,result
+2021-06-09 11:53:15.251,acme.testing.anonymous.deolet.AdministratorDashboardDeoletShowTest,showNegativeCase,1761,"showNegativeCase()",OK
+2021-06-09 11:53:46.708,acme.testing.anonymous.deolet.AdministratorDashboardDeoletShowTest,show,31249,"show()",Element 'By.xpath: /html/body/div[2]/div/table/tbody/tr[1]/td[normalize-space(text()) = '2.00']' is expected
+2021-06-09 11:54:22.467,acme.testing.anonymous.deolet.AnonymousListDeoletTest,list,31257,"[1] recordIndex=0, author=Joselu, info=null, text=Prueba el omori, budget=EUR 20.00, flag=true",Cannot find 'By.id: XXXflag$proxy'
+2021-06-09 11:54:25.815,acme.testing.anonymous.deolet.AnonymousListDeoletTest,list,3140,"[2] recordIndex=0, author=Pedro, info=null, text=¿un valorant?, budget=USD 20.00, flag=false",OK
+2021-06-09 11:54:56.688,acme.testing.anonymous.deolet.AnonymousListDeoletTest,list,30688,"[3] recordIndex=0, author=Jose M, info=null, text=*trabajando*, budget=EUR 10.00, flag=true",Cannot find 'By.id: XXXflag$proxy'
+2021-06-09 11:54:59.134,acme.testing.anonymous.deolet.AnonymousListDeoletTest,ListNegativeCase,2231,"ListNegativeCase()",OK

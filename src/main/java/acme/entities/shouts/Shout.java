@@ -4,16 +4,20 @@ package acme.entities.shouts;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import acme.entities.XXX.XXX;
-import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.deolet.Deolet;
+import acme.features.spam.NotSpamConstraint;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,26 +53,26 @@ public class Shout extends DomainEntity {
 	protected String			info;
 
 	@Override
-	public boolean equals(Object o) {
+	public boolean equals(final Object o) {
 		if (this == o) return true;
 		if (!(o instanceof Shout)) return false;
 		if (!super.equals(o)) return false;
-		Shout shout = (Shout) o;
-		return Objects.equals(moment, shout.moment) &&
-				Objects.equals(author, shout.author) &&
-				Objects.equals(text, shout.text) &&
-				Objects.equals(info, shout.info);
+		final Shout shout = (Shout) o;
+		return Objects.equals(this.moment, shout.moment) &&
+				Objects.equals(this.author, shout.author) &&
+				Objects.equals(this.text, shout.text) &&
+				Objects.equals(this.info, shout.info);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode(), moment, author, text, info);
+		return Objects.hash(super.hashCode(), this.moment, this.author, this.text, this.info);
 	}
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
 	@OneToOne(optional = true,cascade = CascadeType.ALL)
-	protected XXX xxx;
+	protected Deolet deolet;
 
 }

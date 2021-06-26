@@ -50,9 +50,9 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Máximo de carga de 
 administrator.dashboard.form.title.chart-workplans = Desglose de workplans por visibilidad
 
 
-administrator.dashboard.form.label.XXXFlaggedAsXXX	= Cantidad de Shouts con Flag XX marcado
-administrator.dashboard.form.label.shoutXXXRateInXXX	= Ratio de shouts con XXX que tienen XX
-administrator.dashboard.form.label.XXX_XXCurrencyAverage	= Valor medio de la divisa XX
-administrator.dashboard.form.label.XXX_XXCurrencyDeviation	= Desviación del total de la divisa XX
-administrator.dashboard.form.label.XXX_YYCurrencyAverage	= Valor medio de la divisa YY
-administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY	= Desviación del total de la divisa YY
+administrator.dashboard.form.label.numimportant	= Cantidad de Shouts con etiqueta importante marcado
+administrator.dashboard.form.label.ShoutDeoletRateInDeolet	= Ratio de shouts con Deolet que tienen 0 cantidad de dinero
+administrator.dashboard.form.label.Deolet_EURCurrencyAverage	= Valor medio de la divisa EUR
+administrator.dashboard.form.label.Deolet_EURCurrencyDeviation	= Desviación del total de la divisa EUR
+administrator.dashboard.form.label.Deolet_USDCurrencyAverage	= Valor medio de la divisa USD
+administrator.dashboard.form.label.Deolet_USDCurrencyDeviation	= Desviación del total de la divisa USD

@@ -75,5 +75,5 @@ acme.features.spam.isSpam = This text has been detected to contain spam. Try rep
 management.tasks.label.FinishedWorkplanMessage = This task is finished. You can not update nor delete it.
 
 
-anonymous.shout.XXX.error.currency.negative = Amount can not be negative.
-anonymous.shout.XXX.error.currency.format = Please check currency format.
+anonymous.shout.deolet.error.budget.negative = Amount can not be negative
+anonymous.shout.deolet.error.budget.format = Please check currency format

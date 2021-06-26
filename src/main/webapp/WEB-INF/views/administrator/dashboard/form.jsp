@@ -14,50 +14,50 @@
 
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXXFlaggedAsXXX"/>
+			<acme:message code="administrator.dashboard.form.label.numimportant"/>
 		</th>
 		<td>
-			<acme:print value="${XXXFlaggedAsXXX}"/>
+			<acme:print value="${NumDeoletFlaggedAsImportant}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.shoutXXXRateInXXX"/>
+			<acme:message code="administrator.dashboard.form.label.ShoutDeoletRateInDeolet"/>
 		</th>
 		<td>
-			<acme:print value="${shoutXXXRateInXXX}"/>
+			<acme:print value="${ShoutDeoletRateInDeolet}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.Deolet_EURCurrencyAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyAverage}"/>
+			<acme:print value="${Deolet_EURCurrencyAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.Deolet_EURCurrencyDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyDeviation}"/>
+			<acme:print value="${Deolet_EURCurrencyDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.Deolet_USDCurrencyAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyAverage}"/>
+			<acme:print value="${Deolet_USDCurrencyAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY"/>
+			<acme:message code="administrator.dashboard.form.label.Deolet_USDCurrencyDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>
+			<acme:print value="${Deolet_USDCurrencyDeviation}"/>
 		</td>
 	</tr>
 
