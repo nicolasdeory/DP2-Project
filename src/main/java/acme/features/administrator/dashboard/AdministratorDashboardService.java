@@ -91,7 +91,7 @@ public class AdministratorDashboardService {
 		if (shouts.isEmpty())
 			return -1.;
 		else
-			return (double) shouts.stream().filter(x -> x.getDeolet() != null && x.getDeolet().getBudget().getCurrency() != null).count() /shouts.size();
+			return (double) shouts.stream().filter(x -> x.getDeolet() != null && x.getDeolet().getBudget().getCurrency() == null).count() /shouts.size();
 
 	}
 }

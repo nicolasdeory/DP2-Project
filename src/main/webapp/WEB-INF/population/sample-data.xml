@@ -529,8 +529,8 @@
     </bean>
     <!-- WorkPlans -->
     
-    <bean id="deolet01" class ="acme.entities.shouts.Deolet">
-    	<property name="tracker" value="20210613014"></property>
+    <bean id="deolet01" class ="acme.entities.deolet.Deolet">
+    	<property name="tracker" value="jlsavr:0621:28"></property>
     	<property name="deadline" value="2021/06/05 19:39"></property>
     	<property name="budget" value="5.12 EUR"></property>
     	<property name="important" value="true"></property>
@@ -540,8 +540,8 @@
         </property>	
     </bean>
     
-    <bean id="deolet02" class ="acme.entities.shouts.Deolet">
-    	<property name="tracker" value="20210613015"></property>
+    <bean id="deolet02" class ="acme.entities.deolet.Deolet">
+    	<property name="tracker" value="jatnvr:0621:28"></property>
     	<property name="deadline" value="2021/06/05 11:11"></property>
     	<property name="budget" value="6.12 EUR"></property>
     	<property name="important" value="true"></property>	
@@ -551,8 +551,8 @@
         </property>	
     </bean>
     
-    <bean id="deolet03" class ="acme.entities.shouts.Deolet">
-    	<property name="tracker" value="20210613016"></property>
+    <bean id="deolet03" class ="acme.entities.deolet.Deolet">
+    	<property name="tracker" value="jltnvr:0621:28"></property>
     	<property name="deadline" value="2021/06/01 02:22"></property>
     	<property name="budget" value="7.12 EUR"></property>
     	<property name="important" value="false"></property>

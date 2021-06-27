@@ -100,6 +100,8 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 
 	@Query("select count (d) from Deolet d where d.important=TRUE")
 	Double getNumDeoletFlaggedAsImportant();
+	
+	
 	@Query("select avg(d.budget.amount) from Deolet d where d.budget.currency= 'EUR' ")
 	Optional<Double> getDeolet_EURCurrencyAverage();
 	@Query("select stddev(d.budget.amount) from Deolet d where d.budget.currency= 'EUR'  ")

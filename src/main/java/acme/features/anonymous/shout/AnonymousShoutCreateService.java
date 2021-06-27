@@ -15,6 +15,7 @@ package acme.features.anonymous.shout;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -108,6 +109,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         final LocalDate now = LocalDate.now();
         final String year = String.valueOf(now.getYear());
+        final String year2 = year.substring(year.length() -2);
+        
         final String month = String.valueOf(now.getMonthValue());
         final String day = String.valueOf(now.getDayOfMonth());
 
@@ -121,12 +124,19 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.add(Calendar.MONTH, +1);
         entity.getDeolet().setDeadline(c.getTime());
         entity.getDeolet().setShout(entity);
-
+        
+        String str = "";
+        for (int i=0; i<6; i++) {
+        	final Random r = new Random();
+        	final char charr = (char)(r.nextInt(26) + 'a');
+            str = str+charr;
+        }
+        final String tracker = (str+":" + (month.length() == 1 ? "0" : "")+ month + year2 +":"+ (day.length() == 1 ? "0" : "") + day);
         entity.getDeolet()
-                .setTracker(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "0");
+        .setTracker(tracker);
         this.repository.save(entity);
         this.repository.flush();
-        entity.getDeolet().setTracker(entity.getDeolet().getTracker() + entity.getId());
+        //entity.getDeolet().setTracker(entity.getDeolet().getTracker() + entity.getId());
         this.repository.save(entity);
     }
 

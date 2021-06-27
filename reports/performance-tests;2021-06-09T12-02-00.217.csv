@@ -1,5 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-06-09 12:02:47.188,acme.testing.anonymous.deolet.AnonymousCreateDeoletTest,CreatePositive,30780,"[1] recordIndex=0, author=Joselu, info=null, text=Prueba el omori, currency=EUR 20.00, flag=true",Cannot find 'By.name: currency'
-2021-06-09 12:03:18.101,acme.testing.anonymous.deolet.AnonymousCreateDeoletTest,CreatePositive,30694,"[2] recordIndex=0, author=Pedro, info=null, text=¿un valorant?, currency=USD 20.00, flag=false",Cannot find 'By.name: currency'
-2021-06-09 12:03:49.007,acme.testing.anonymous.deolet.AnonymousCreateDeoletTest,CreatePositive,30674,"[3] recordIndex=0, author=Jose M, info=null, text=*trabajando*, currency=EUR 10.00, flag=true",Cannot find 'By.name: currency'
-2021-06-09 12:04:01.338,acme.testing.anonymous.deolet.AnonymousCreateDeoletTest,CreateNegative,12109,"[1] recordIndex=0, author=null, info=null, text=null, currency=null, flag=null",Cannot find 'By.name: currency'

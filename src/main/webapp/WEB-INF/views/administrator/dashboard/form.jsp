@@ -25,7 +25,7 @@
 			<acme:message code="administrator.dashboard.form.label.ShoutDeoletRateInDeolet"/>
 		</th>
 		<td>
-			<acme:print value="${ShoutDeoletRateInDeolet}"/>
+			<acme:print value="${ShoutDeoletBudget0RateInDeolet}"/>
 		</td>
 	</tr>
 	<tr>
