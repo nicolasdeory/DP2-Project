@@ -50,9 +50,9 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Máximo de carga de 
 administrator.dashboard.form.title.chart-workplans = Desglose de workplans por visibilidad
 
 
-administrator.dashboard.form.label.XXXFlaggedAsXXX	= Cantidad de Shouts con Flag XX marcado
-administrator.dashboard.form.label.shoutXXXRateInXXX	= Ratio de shouts con XXX que tienen XX
-administrator.dashboard.form.label.XXX_XXCurrencyAverage	= Valor medio de la divisa XX
-administrator.dashboard.form.label.XXX_XXCurrencyDeviation	= Desviación del total de la divisa XX
-administrator.dashboard.form.label.XXX_YYCurrencyAverage	= Valor medio de la divisa YY
-administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY	= Desviación del total de la divisa YY
+administrator.dashboard.form.label.IoweFlaggedAsImportant	= Número de Shouts con bandera 'importante'
+administrator.dashboard.form.label.IoweRate	= Razón de shouts con Iowe con presupuesto cero
+administrator.dashboard.form.label.IoweEURAvg	= Valor medio del presupuesto en EUR
+administrator.dashboard.form.label.IoweEURStd	= Desviación del total del presupuesto en EUR
+administrator.dashboard.form.label.IoweUSDAvg	= Valor medio del presupuesto en USD
+administrator.dashboard.form.label.IoweUSDStd	= Desviación del total del presupuesto en USD

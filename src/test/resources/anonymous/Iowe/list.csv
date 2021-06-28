@@ -1,0 +1,4 @@
+recordIndex,author,info,text,currency,flag
+0,John Doe,,I'm happy!,USD 5.12,true
+1,Ignacio,,Funciona!!,EUR 6.12, true
+2,Fernando,,Let's goo,EUR 7.12, false

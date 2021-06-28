@@ -86,12 +86,12 @@ public class AdministratorDashboardService {
 	}
 
 	@Transactional
-	public Double getShoutXXXRateInXXX(){
+	public Double getShoutBudgetZeroRatio(){
 		List<Shout> shouts=dashRepo.getAllShouts();
 		if (shouts.isEmpty())
 			return -1.;
 		else
-			return (double) shouts.stream().filter(x -> x.getXxx() != null && x.getXxx().getCurrency() != null).count() /shouts.size();
+			return (double) shouts.stream().filter(x -> x.getIowe() != null && x.getIowe().getBudget() != null && x.getIowe().getBudget().getAmount() == 0).count() /shouts.size();
 
 	}
 }

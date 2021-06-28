@@ -12,16 +12,12 @@
 
 package acme.features.anonymous.shout;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
-import acme.entities.XXX.XXX;
+import acme.entities.Iowe.Iowe;
 import acme.utils.AssertUtils;
-import com.fasterxml.jackson.datatype.jsr310.deser.key.LocalDateKeyDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +53,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getXxx(), errors);
+        request.bind(entity.getIowe(), errors);
 
     }
 
@@ -68,7 +64,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getXxx(), model, "Xidentifier", "currency", "XXXflag");
+        request.unbind(entity.getIowe(), model, "deadline", "budget", "important");
     }
 
     @Override
@@ -82,7 +78,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setXxx(new XXX());
+        result.setIowe(new Iowe());
 
         return result;
     }
@@ -92,15 +88,27 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        XXX xxx = entity.getXxx();
-        if (xxx.getCurrency() != null
-                && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
+        Iowe iowe = entity.getIowe();
+        if (iowe.getBudget() != null
+                && (!(iowe.getBudget().getCurrency().equals("EUR") || iowe.getBudget().getCurrency().equals("USD")))) {
+            errors.state(request, false, "budget", "anonymous.shout.Iowe.error.budget.format");
         }
 
-        if (xxx.getCurrency() != null && xxx.getCurrency().getAmount() <= 0)
+        if (iowe.getBudget() != null && iowe.getBudget().getAmount() < 0)
         {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.negative");
+            errors.state(request, false, "budget", "anonymous.shout.Iowe.error.budget.negative");
+        }
+
+
+        if (iowe.getDeadline() != null)
+        {
+            Date today = new Date(System.currentTimeMillis() - 1);
+            Calendar c = Calendar.getInstance();
+            c.setTime(today);
+            c.add(Calendar.WEEK_OF_MONTH, 1);
+
+            if (!iowe.getDeadline().after(c.getTime()))
+                errors.state(request, false, "deadline", "anonymous.shout.Iowe.error.deadline.tooearly");
         }
 
     }
@@ -119,19 +127,35 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         moment = new Date(System.currentTimeMillis() - 1);
         entity.setMoment(moment);
-        Date Xdate = new Date(System.currentTimeMillis() - 1);
-        Calendar c = Calendar.getInstance();
-        c.setTime(Xdate);
-        c.add(Calendar.MONTH, -1);
-        entity.getXxx().setXXXMoment(c.getTime());
-        entity.getXxx().setShout(entity);
+//        Date Xdate = new Date(System.currentTimeMillis() - 1);
+//        Calendar c = Calendar.getInstance();
+//        c.setTime(Xdate);
+//        c.add(Calendar.MONTH, -1);
+//        entity.getIowe().setDeadline(c.getTime());
+        entity.getIowe().setShout(entity);
 
-        entity.getXxx()
-                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "0");
+        entity.getIowe()
+                .setIdentifier(year.substring(2,4) + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "#000");
         this.repository.save(entity);
         this.repository.flush();
-        entity.getXxx().setXidentifier(entity.getXxx().getXidentifier() + entity.getId());
+        Integer id = entity.getId();
+        if (id > 999)
+            id = 999;
+        entity.getIowe().setIdentifier(entity.getIowe().getIdentifier().substring(0, entity.getIowe().getIdentifier().length() - 3) + padLeftZeros(id.toString(),3));
         this.repository.save(entity);
+    }
+
+    String padLeftZeros(String inputString, int length) {
+        if (inputString.length() >= length) {
+            return inputString;
+        }
+        StringBuilder sb = new StringBuilder();
+        while (sb.length() < length - inputString.length()) {
+            sb.append('0');
+        }
+        sb.append(inputString);
+
+        return sb.toString();
     }
 
 }

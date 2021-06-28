@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-XXX
+Iowe
 --
-+     : String {Unique}
-+     : Date {}
-+     : Money 
-+     : boolean {NotNull}
++     identifier: String {Unique, Pattern(^(\d{2})(\d{2})(\d{2})#\w{3}$)}
++     deadline: Date {NotNull}
++     budget: Money {NotNull}
++     important: boolean {NotNull}
 
 
 

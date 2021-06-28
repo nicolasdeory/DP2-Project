@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Iowe;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AdministratorDashboardXXXShowTest extends AcmeTest {
+class AdministratorDashboardIoweShowTest extends AcmeTest {
 	
 	@Override
 	@BeforeAll
@@ -42,11 +42,11 @@ class AdministratorDashboardXXXShowTest extends AcmeTest {
 		super.clickOnMenu("Administrator", "Dashboard");		
 		
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[1]/td[normalize-space(text()) = '2.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[2]/td[normalize-space(text()) = '1.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[normalize-space(text()) = '6.12']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[normalize-space(text()) = '0.82']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[5]/td[normalize-space(text()) = '-1.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[6]/td[normalize-space(text()) = '-1.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[2]/td[normalize-space(text()) = '0.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[normalize-space(text()) = '6.62']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[normalize-space(text()) = '0.50']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[5]/td[normalize-space(text()) = '5.12']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[6]/td[normalize-space(text()) = '0.00']"));
 	
 		this.signOut();
 	

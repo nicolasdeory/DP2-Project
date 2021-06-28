@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Iowe;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-class AnonymousListXXXTest extends AcmeTest {
+class AnonymousListIoweTest extends AcmeTest {
 
 	
 //	@Mock
@@ -40,23 +40,23 @@ class AnonymousListXXXTest extends AcmeTest {
     // Primero creamos el shout, y tras ello vamos a la vista de listado y comprobamos que está el shout
     
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/XXX/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/Iowe/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info,
     	final String text,final String currency,final String flag) {
     	
-        //creamos un shout ya que si no no funciona
-     	super.clickOnMenu("Anonymous", "Shout!");
-
-
-        super.fillInputBoxIn("author", author);
-        super.fillInputBoxIn("text", text);
-        super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
-        super.clickOnSubmitButton("Shout!");
-    	
-        super.clickOnMenu("Anonymous", "List shouts");        
+//        //creamos un shout ya que si no no funciona
+//     	super.clickOnMenu("Anonymous", "Shout!");
+//
+//
+//        super.fillInputBoxIn("author", author);
+//        super.fillInputBoxIn("text", text);
+//        super.fillInputBoxIn("info", info);
+//        super.fillInputBoxIn("budget",currency);
+//        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("Ioweflag$proxy"));
+//        super.clickOnSubmitButton("Shout!");
+//
+        super.clickOnMenu("Anonymous", "List shouts");
         
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);

@@ -48,10 +48,10 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.XXXFlaggedAsXXX	= Number of Shouts with Flag XX checked
-administrator.dashboard.form.label.shoutXXXRateInXXX	= Rate of Shouts with XXX that have XX
-administrator.dashboard.form.label.XXX_XXCurrencyAverage	= Average value of XX currency
-administrator.dashboard.form.label.XXX_XXCurrencyDeviation	= Deviation of the total XX currency
-administrator.dashboard.form.label.XXX_YYCurrencyAverage	= Average value of YY currency
-administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY	= Deviation of the total YY currency
+administrator.dashboard.form.label.IoweFlaggedAsImportant	= Number of Shouts with flag 'important' checked
+administrator.dashboard.form.label.IoweRate	= Rate of Shouts with Iowe with budget zero
+administrator.dashboard.form.label.IoweEURAvg	= Average value of EUR budget
+administrator.dashboard.form.label.IoweEURStd	= Deviation of the total EUR budget
+administrator.dashboard.form.label.IoweUSDAvg	= Average value of USD budget
+administrator.dashboard.form.label.IoweUSDStd	= Deviation of the total USD budget
 

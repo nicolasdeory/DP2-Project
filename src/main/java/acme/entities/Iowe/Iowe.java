@@ -1,4 +1,4 @@
-package acme.entities.XXX;
+package acme.entities.Iowe;
 
 import acme.entities.shouts.Shout;
 import acme.framework.datatypes.Money;
@@ -17,22 +17,24 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-public class XXX extends DomainEntity {
+public class Iowe extends DomainEntity {
     // Serialisation identifier -----------------------------------------------
 
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})(\\d*)$")
+    @Pattern(regexp = "^(\\d{2})(\\d{2})(\\d{2})#\\w{3}$")
     @Column(unique = true)
-    protected String Xidentifier;
-
-    protected Date XXXMoment;
-
-    protected Money currency;
+    protected String identifier;
 
     @NotNull
-    protected Boolean XXXflag;
+    protected Date deadline;
+
+    @NotNull
+    protected Money budget;
+
+    @NotNull
+    protected Boolean important;
 
     // Derived attributes -----------------------------------------------------
 

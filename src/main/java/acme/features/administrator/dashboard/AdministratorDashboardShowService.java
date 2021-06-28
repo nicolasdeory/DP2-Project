@@ -40,7 +40,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			"numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","numberOfWorkPlans","averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriods","minOfTaskExecutionPeriods","maxOfTaskExecutionPeriods",
 			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods","averageOfTaskWorkloads","deviationOfTaskWorkloads",
 			"minOfTaskWorkloads","maxOfTaskWorkloads","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads","minOfWorkplanWorkloads","maxOfWorkplanWorkloads",
-				"XXXFlaggedAsXXX","shoutXXXRateInXXX","XXX_XXCurrencyAverage","XXX_XXCurrencyDeviation","XXX_YYCurrencyAverage","XXX_YYCurrencyDeviationYY");
+				"IoweFlaggedAsImportant","IoweRate","IoweEURAvg","IoweEURStd","IoweUSDAvg","IoweUSDStd");
 	}
 
 	@Override
@@ -80,12 +80,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double XXXFlaggedAsXXX;
-		Double shoutXXXRateInXXX;
-		Double XXX_XXCurrencyAverage;
-		Double XXX_XXCurrencyDeviation;
-		Double XXX_YYCurrencyAverage;
-		Double XXX_YYCurrencyDeviationYY;
+		Double ioweFlaggedImportant;
+		Double ioweRate;
+		Double ioweEurAvg;
+		Double ioweEurStd;
+		Double ioweUSDAvg;
+		Double ioweUSDStd;
 		
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -118,12 +118,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().orElse(-1);
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		XXXFlaggedAsXXX=this.repository.getXXXFlaggedAsXXX();
-		shoutXXXRateInXXX=this.service.getShoutXXXRateInXXX();
-		XXX_XXCurrencyAverage=this.repository.getXXX_XXCurrencyAverage().orElse(-1.);
-		XXX_XXCurrencyDeviation=this.repository.getXXX_XXCurrencyDeviation().orElse(-1.);
-		XXX_YYCurrencyAverage=this.repository.getXXX_YYCurrencyAverage().orElse(-1.);
-		XXX_YYCurrencyDeviationYY=this.repository.getXXX_YYCurrencyDeviationYY().orElse(-1.);
+		ioweFlaggedImportant=this.repository.getIowesFlaggedAsImportant();
+		ioweRate=this.service.getShoutBudgetZeroRatio();
+		ioweEurAvg=this.repository.getIowe_EURBudgetAverage().orElse(-1.);
+		ioweEurStd=this.repository.getIowe_EURBudgetDeviation().orElse(-1.);
+		ioweUSDAvg=this.repository.getIowe_USDCurrencyAverage().orElse(-1.);
+		ioweUSDStd=this.repository.getIowe_USDCurrencyDeviation().orElse(-1.);
 		
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -157,12 +157,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setXXXFlaggedAsXXX(XXXFlaggedAsXXX);
-		result.setShoutXXXRateInXXX(shoutXXXRateInXXX);
-		result.setXXX_XXCurrencyAverage(XXX_XXCurrencyAverage);
-		result.setXXX_XXCurrencyDeviation(XXX_XXCurrencyDeviation);
-		result.setXXX_YYCurrencyAverage(XXX_YYCurrencyAverage);
-		result.setXXX_YYCurrencyDeviationYY(XXX_YYCurrencyDeviationYY);
+		result.setIoweFlaggedAsImportant(ioweFlaggedImportant);
+		result.setIoweRate(ioweRate);
+		result.setIoweEURAvg(ioweEurAvg);
+		result.setIoweEURStd(ioweEurStd);
+		result.setIoweUSDAvg(ioweUSDAvg);
+		result.setIoweUSDStd(ioweUSDStd);
 
 
 		return result;

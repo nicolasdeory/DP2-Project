@@ -44,12 +44,12 @@ public class Dashboard implements Serializable {
 	Double minOfWorkplanWorkloads;
 	Double maxOfWorkplanWorkloads;
 
-	Double XXXFlaggedAsXXX;
-	Double shoutXXXRateInXXX;
-	Double XXX_XXCurrencyAverage;
-	Double XXX_XXCurrencyDeviation;
-	Double XXX_YYCurrencyAverage;
-	Double XXX_YYCurrencyDeviationYY;
+	Double IoweFlaggedAsImportant;
+	Double IoweRate;
+	Double IoweEURAvg;
+	Double IoweEURStd;
+	Double IoweUSDAvg;
+	Double IoweUSDStd;
 	
 
 

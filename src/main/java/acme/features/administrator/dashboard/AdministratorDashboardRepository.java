@@ -98,16 +98,17 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from XXX x where x.XXXflag=TRUE")
-	Double getXXXFlaggedAsXXX();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'XX' ")
-	Optional<Double> getXXX_XXCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'XX'  ")
-	Optional<Double> getXXX_XXCurrencyDeviation();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
-	Optional<Double> getXXX_YYCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
-	Optional<Double> getXXX_YYCurrencyDeviationYY();
+	@Query("select count (x) from Iowe x where x.important=TRUE")
+	Double getIowesFlaggedAsImportant();
+
+	@Query("select avg(x.budget.amount) from Iowe x where x.budget.currency= 'EUR' ")
+	Optional<Double> getIowe_EURBudgetAverage();
+	@Query("select stddev(x.budget.amount) from Iowe x where x.budget.currency= 'EUR'  ")
+	Optional<Double> getIowe_EURBudgetDeviation();
+	@Query("select avg(x.budget.amount) from Iowe x where x.budget.currency= 'USD' ")
+	Optional<Double> getIowe_USDCurrencyAverage();
+	@Query("select stddev(x.budget.amount) from Iowe x where x.budget.currency= 'USD' ")
+	Optional<Double> getIowe_USDCurrencyDeviation();
 
 	/////////////////////////////////////////////////
 	

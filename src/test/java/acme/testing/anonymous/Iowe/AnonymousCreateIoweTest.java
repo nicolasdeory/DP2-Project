@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.Iowe;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-class AnonymousCreateXXXTest extends AcmeTest {
+class AnonymousCreateIoweTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -28,18 +28,19 @@ class AnonymousCreateXXXTest extends AcmeTest {
     //Primero vamos a la pestaña de crear shout y rellenamos con los datos del csv
     //Vamos a la pestaña de listado de shouts y comprobamos que se ha creado correctamente
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/XXX/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/Iowe/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info,
-    	final String text,String currency,String flag) {
+    	final String text,String deadline,String currency,String flag) {
         super.clickOnMenu("Anonymous", "Shout!");        
         
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("deadline",deadline);
+        super.fillInputBoxIn("budget",currency);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
         
         
@@ -51,8 +52,9 @@ class AnonymousCreateXXXTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 3, info);
         super.checkColumnHasValue(recordIndex,5,currency);
         super.checkColumnHasValue(recordIndex,6,flag);
-        
-        
+        super.checkColumnHasValue(recordIndex,7,deadline);
+
+
     }
     
     //Para este test vamos a comprobar que los shouts con errores no se crean
@@ -60,18 +62,19 @@ class AnonymousCreateXXXTest extends AcmeTest {
     //como pueden ser campos vacíos, demasiado cortos, demasiado largos, con mal formato...
     //Tras ello comprueba la existencia de errores
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/XXX/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/Iowe/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info,
-    	final String text,String currency,String flag) {
+    	final String text,String deadline,String currency,String flag) {
     	super.clickOnMenu("Anonymous", "Shout!");        
         
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("deadline",deadline);
+        super.fillInputBoxIn("budget",currency);
+        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
         
         super.checkErrorsExist();

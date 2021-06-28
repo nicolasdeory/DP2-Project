@@ -16,7 +16,7 @@ import java.sql.Date;
 import java.util.Collection;
 import java.util.Optional;
 
-import acme.entities.XXX.XXX;
+import acme.entities.Iowe.Iowe;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 

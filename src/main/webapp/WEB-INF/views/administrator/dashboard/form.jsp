@@ -14,50 +14,50 @@
 
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXXFlaggedAsXXX"/>
+			<acme:message code="administrator.dashboard.form.label.IoweFlaggedAsImportant"/>
 		</th>
 		<td>
-			<acme:print value="${XXXFlaggedAsXXX}"/>
+			<acme:print value="${IoweFlaggedAsImportant}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.shoutXXXRateInXXX"/>
+			<acme:message code="administrator.dashboard.form.label.IoweRate"/>
 		</th>
 		<td>
-			<acme:print value="${shoutXXXRateInXXX}"/>
+			<acme:print value="${IoweRate}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.IoweEURAvg"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyAverage}"/>
+			<acme:print value="${IoweEURAvg}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.IoweEURStd"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyDeviation}"/>
+			<acme:print value="${IoweEURStd}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.IoweUSDAvg"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyAverage}"/>
+			<acme:print value="${IoweUSDAvg}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY"/>
+			<acme:message code="administrator.dashboard.form.label.IoweUSDStd"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>
+			<acme:print value="${IoweUSDStd}"/>
 		</td>
 	</tr>
 

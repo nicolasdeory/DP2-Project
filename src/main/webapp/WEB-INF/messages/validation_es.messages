@@ -73,6 +73,7 @@ acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reesc
 
 management.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
 
-anonymous.shout.XXX.error.currency.negative = La cantidad no puede ser negativa.
-anonymous.shout.XXX.error.currency.format = Comprueba el formato de la divisa.
+anonymous.shout.Iowe.error.budget.negative = La cantidad no puede ser negativa
+anonymous.shout.Iowe.error.budget.format = Compruebe por favor el formato de la divisa
+anonymous.shout.Iowe.error.deadline.tooearly = El deadline debe estar situado al menos una semana posterior a la fecha de hoy
 
