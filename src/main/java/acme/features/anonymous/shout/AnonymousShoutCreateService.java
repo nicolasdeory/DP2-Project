@@ -101,6 +101,10 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         {
             errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.negative");
         }
+        
+        if(xxx.getDeadline()== null) {
+        	errors.state(request, false, "deadline", "anonymous.shout.XXX.error.deadline.null");
+        }else {
 
         //Si es mas tarde de una semana, error
         final long theFuture = System.currentTimeMillis() + (86400 * 7 * 1000);
@@ -109,6 +113,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         if(xxx.getDeadline().before(nextWeek)) {
         	errors.state(request, false, "deadline", "anonymous.shout.XXX.error.deadline.before");
         }
+        }
+        
         
         
         
