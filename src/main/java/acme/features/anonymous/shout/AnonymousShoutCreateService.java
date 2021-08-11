@@ -93,7 +93,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
         final Pominok xxx = entity.getPominok();
         if (xxx.getBudget() != null
-                && (!(xxx.getBudget().getCurrency().equals("EUR") || xxx.getBudget().getCurrency().equals("USD")))) {
+                && (!(xxx.getBudget().getCurrency().equals("EUR") || xxx.getBudget().getCurrency().equals("USD")
+                	|| xxx.getBudget().getCurrency().equals("GBP")))) {
             errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
         }
 
