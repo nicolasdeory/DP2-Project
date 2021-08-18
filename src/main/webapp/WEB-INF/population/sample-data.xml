@@ -493,71 +493,157 @@
         </property>
     </bean>
     <bean id="Shout00" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/06/05 19:39"/>
+        <property name="moment" value="2021/08/01 02:22"/>
         <property name="author" value="John Doe"/>
         <property name="text" value="I'm happy!"/>
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX01"/>
+        <property name="huston">
+            <ref bean="XXX00"/>
         </property>
     </bean>
 
     <bean id="Shout01" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/06/05 11:11"/>
+        <property name="moment" value="2021/08/01 02:22"/>
         <property name="author" value="Ignacio"/>
         <property name="text" value="Funciona!!"/>
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX02"/>
+        <property name="huston">
+            <ref bean="XXX01"/>
         </property>
     </bean>
 
     <bean id="Shout02" class="acme.entities.shouts.Shout">
-        <property name="moment" value="2021/06/01 02:22"/>
+        <property name="moment" value="2021/08/01 02:22"/>
         <property name="author" value="Fernando"/>
         <property name="text" value="Let's goo"/>
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
+        <property name="huston">
+            <ref bean="XXX02"/>
+        </property>
+    </bean>
+    <bean id="Shout03" class="acme.entities.shouts.Shout">
+        <property name="moment" value="2021/08/01 02:22"/>
+        <property name="author" value="Francisco"/>
+        <property name="text" value="framework"/>
+        <property name="info">
+            <null/>
+        </property>
+        <property name="huston">
             <ref bean="XXX03"/>
         </property>
     </bean>
-    <!-- WorkPlans -->
+
+    <bean id="Shout04" class="acme.entities.shouts.Shout">
+        <property name="moment" value="2021/08/01 02:22"/>
+        <property name="author" value="Juanito"/>
+        <property name="text" value="Falla!!"/>
+        <property name="info">
+            <null/>
+        </property>
+        <property name="huston">
+            <ref bean="XXX04"/>
+        </property>
+    </bean>
+    <bean id="Shout05" class="acme.entities.shouts.Shout">
+        <property name="moment" value="2021/08/01 02:22"/>
+        <property name="author" value="Luismi"/>
+        <property name="text" value="Flamenco"/>
+        <property name="info">
+            <null/>
+        </property>
+        <property name="huston">
+            <ref bean="XXX05"/>
+        </property>
+    </bean>
+    <bean id="Shout06" class="acme.entities.shouts.Shout">
+        <property name="moment" value="2021/08/01 02:22"/>
+        <property name="author" value="Nerea"/>
+        <property name="text" value="Animals"/>
+        <property name="info">
+            <null/>
+        </property>
+        <property name="huston">
+            <ref bean="XXX06"/>
+        </property>
+    </bean>
+    <!-- Huston -->
     
-    <bean id="XXX01" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613014"></property>
-    	<property name="XXXMoment" value="2021/06/05 19:39"></property>
-    	<property name="currency" value="5.12 XX"></property>
-    	<property name="XXXflag" value="true"></property>
+    <bean id="XXX00" class ="acme.entities.huston.Huston">
+    	<property name="identifier" value="123458:21:08:06"></property>
+    	<property name="deadline" value="2021/06/05 19:39"></property>
+    	<property name="budget" value="5.12 EUR"></property>
+    	<property name="important" value="true"></property>
     	
     	 <property name="shout">
             <ref bean="Shout00"/>
         </property>	
     </bean>
     
-    <bean id="XXX02" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613015"></property>
-    	<property name="XXXMoment" value="2021/06/05 11:11"></property>
-    	<property name="currency" value="6.12 XX"></property>
-    	<property name="XXXflag" value="true"></property>	
+    <bean id="XXX01" class ="acme.entities.huston.Huston">
+    	<property name="identifier" value="123457:21:08:06"></property>
+    	<property name="deadline" value="2021/06/05 11:11"></property>
+    	<property name="budget" value="6.12 USD"></property>
+    	<property name="important" value="true"></property>
     	
     	 <property name="shout">
             <ref bean="Shout01"/>
         </property>	
     </bean>
     
-    <bean id="XXX03" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613016"></property>
-    	<property name="XXXMoment" value="2021/06/01 02:22"></property>
-    	<property name="currency" value="7.12 XX"></property>
-    	<property name="XXXflag" value="false"></property>
+    <bean id="XXX02" class ="acme.entities.huston.Huston">
+    	<property name="identifier" value="123456:21:08:06"></property>
+    	<property name="deadline" value="2021/06/01 02:22"></property>
+    	<property name="budget" value="7.12 GBP"></property>
+    	<property name="important" value="false"></property>
     	 <property name="shout">
             <ref bean="Shout02"/>
         </property>		
+    </bean>
+
+    <bean id="XXX03" class ="acme.entities.huston.Huston">
+        <property name="identifier" value="123458:21:08:06"></property>
+        <property name="deadline" value="2021/06/05 19:39"></property>
+        <property name="budget" value="20.12 EUR"></property>
+        <property name="important" value="true"></property>
+
+        <property name="shout">
+            <ref bean="Shout03"/>
+        </property>
+    </bean>
+
+    <bean id="XXX04" class ="acme.entities.huston.Huston">
+        <property name="identifier" value="123457:21:08:06"></property>
+        <property name="deadline" value="2021/06/05 11:11"></property>
+        <property name="budget" value="6.90 USD"></property>
+        <property name="important" value="true"></property>
+
+        <property name="shout">
+            <ref bean="Shout04"/>
+        </property>
+    </bean>
+
+    <bean id="XXX05" class ="acme.entities.huston.Huston">
+        <property name="identifier" value="123456:21:08:06"></property>
+        <property name="deadline" value="2021/06/01 02:22"></property>
+        <property name="budget" value="40.0 GBP"></property>
+        <property name="important" value="false"></property>
+        <property name="shout">
+            <ref bean="Shout05"/>
+        </property>
+    </bean>
+    <bean id="XXX06" class ="acme.entities.huston.Huston">
+        <property name="identifier" value="123456:21:08:06"></property>
+        <property name="deadline" value="2021/06/01 02:22"></property>
+        <property name="budget" value="0.0 GBP"></property>
+        <property name="important" value="false"></property>
+        <property name="shout">
+            <ref bean="Shout06"/>
+        </property>
     </bean>
 </beans>

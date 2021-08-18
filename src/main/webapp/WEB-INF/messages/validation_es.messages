@@ -73,6 +73,10 @@ acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reesc
 
 management.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
 
-anonymous.shout.XXX.error.currency.negative = La cantidad no puede ser negativa.
-anonymous.shout.XXX.error.currency.format = Comprueba el formato de la divisa.
+anonymous.shout.huston.error.budget.negative = La cantidad no puede ser negativa.
+anonymous.shout.huston.error.budget.format = Comprueba el formato de la divisa.
+anonymous.shout.huston.error.identifier.duplicated=Ya hay un huston con ese identificador pruebe otro.
+anonymous.shout.huston.error.identifier.date=La fecha debe ser la de hoy
+anonymous.shout.huston.error.deadline.week=La fecha limite debe ser al menos una semana posterior a la de creacion de la shout
+anonymous.shout.huston.error.deadline.mandatory=La fecha limite es obligatoria
 

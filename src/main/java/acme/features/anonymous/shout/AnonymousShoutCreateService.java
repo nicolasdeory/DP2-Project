@@ -12,16 +12,14 @@
 
 package acme.features.anonymous.shout;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Formatter;
+import java.util.Random;
 
-import acme.entities.XXX.XXX;
+import acme.entities.huston.Huston;
 import acme.utils.AssertUtils;
-import com.fasterxml.jackson.datatype.jsr310.deser.key.LocalDateKeyDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,7 +55,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getXxx(), errors);
+        request.bind(entity.getHuston(), errors);
 
     }
 
@@ -68,7 +66,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getXxx(), model, "Xidentifier", "currency", "XXXflag");
+        request.unbind(entity.getHuston(), model, "identifier", "budget", "important","deadline");
     }
 
     @Override
@@ -82,7 +80,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setXxx(new XXX());
+        result.setHuston(new Huston());
 
         return result;
     }
@@ -92,16 +90,26 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        XXX xxx = entity.getXxx();
-        if (xxx.getCurrency() != null
-                && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
+        Huston huston = entity.getHuston();
+        if (huston.getBudget() != null
+                && (!(huston.getBudget().getCurrency().equals("EUR") || huston.getBudget().getCurrency().equals("USD")|| huston.getBudget().getCurrency().equals("GBP")))) {
+            errors.state(request, false, "budget", "anonymous.shout.huston.error.budget.format");
         }
 
-        if (xxx.getCurrency() != null && xxx.getCurrency().getAmount() <= 0)
+        if (huston.getBudget() != null && huston.getBudget().getAmount() <= 0)
         {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.negative");
+            errors.state(request, false, "budget", "anonymous.shout.huston.error.budget.negative");
         }
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date(System.currentTimeMillis()));
+        c.add(Calendar.WEEK_OF_YEAR, +1);
+        if(huston.getDeadline()!=null&&huston.getDeadline().before(c.getTime())){
+            errors.state(request, false, "deadline", "anonymous.shout.huston.error.deadline.week");
+
+        }
+
+
 
     }
 
@@ -110,27 +118,27 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
 
+        Date moment;
+
+        Random random = new Random();
         LocalDate now = LocalDate.now();
-        String year = String.valueOf(now.getYear());
+        String year = String.valueOf(now.getYear()).substring(2);
         String month = String.valueOf(now.getMonthValue());
         String day = String.valueOf(now.getDayOfMonth());
-
-        Date moment;
+        if(day.length()==1) day="0"+day;
+        if(month.length()==1) month="0"+month;
+        Boolean hustonDuplicated=true;
+        while (hustonDuplicated){
+            String identifier=random.nextInt(999999)+":"+year+":"+month+":"+day;
+            entity.getHuston().setIdentifier(identifier);
+            hustonDuplicated=repository.hasDuplicatedIdentifier(entity.getHuston().getIdentifier())!=null;
+        }
 
         moment = new Date(System.currentTimeMillis() - 1);
         entity.setMoment(moment);
-        Date Xdate = new Date(System.currentTimeMillis() - 1);
-        Calendar c = Calendar.getInstance();
-        c.setTime(Xdate);
-        c.add(Calendar.MONTH, -1);
-        entity.getXxx().setXXXMoment(c.getTime());
-        entity.getXxx().setShout(entity);
+        entity.getHuston().setShout(entity);
 
-        entity.getXxx()
-                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "0");
-        this.repository.save(entity);
-        this.repository.flush();
-        entity.getXxx().setXidentifier(entity.getXxx().getXidentifier() + entity.getId());
+
         this.repository.save(entity);
     }
 

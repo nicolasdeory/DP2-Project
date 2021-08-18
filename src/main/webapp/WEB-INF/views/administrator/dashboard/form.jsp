@@ -14,50 +14,66 @@
 
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXXFlaggedAsXXX"/>
+			<acme:message code="administrator.dashboard.form.label.hustonFlaggedAsImportant"/>
 		</th>
 		<td>
-			<acme:print value="${XXXFlaggedAsXXX}"/>
+			<acme:print value="${hustonFlaggedAsImportant}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.shoutXXXRateInXXX"/>
+			<acme:message code="administrator.dashboard.form.label.hustonWhitAmount0"/>
 		</th>
 		<td>
-			<acme:print value="${shoutXXXRateInXXX}"/>
+			<acme:print value="${hustonWhitAmount0}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.hustonEURCurrencyAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyAverage}"/>
+			<acme:print value="${hustonEURCurrencyAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.hustonEURCurrencyDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyDeviation}"/>
+			<acme:print value="${hustonEURCurrencyDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.hustonUSDCurrencyAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyAverage}"/>
+			<acme:print value="${hustonUSDCurrencyAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY"/>
+			<acme:message code="administrator.dashboard.form.label.hustonUSDCurrencyDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>
+			<acme:print value="${hustonUSDCurrencyDeviation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.hustonGBPCurrencyAverage"/>
+		</th>
+		<td>
+			<acme:print value="${hustonGBPCurrencyAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.hustonGBPCurrencyDeviation"/>
+		</th>
+		<td>
+			<acme:print value="${hustonGBPCurrencyDeviation}"/>
 		</td>
 	</tr>
 

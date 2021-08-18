@@ -44,12 +44,14 @@ public class Dashboard implements Serializable {
 	Double minOfWorkplanWorkloads;
 	Double maxOfWorkplanWorkloads;
 
-	Double XXXFlaggedAsXXX;
-	Double shoutXXXRateInXXX;
-	Double XXX_XXCurrencyAverage;
-	Double XXX_XXCurrencyDeviation;
-	Double XXX_YYCurrencyAverage;
-	Double XXX_YYCurrencyDeviationYY;
+	Double hustonFlaggedAsImportant;
+	Double hustonWhitAmount0;
+	Double hustonEURCurrencyAverage;
+	Double hustonEURCurrencyDeviation;
+	Double hustonUSDCurrencyAverage;
+	Double hustonUSDCurrencyDeviation;
+	Double hustonGBPCurrencyAverage;
+	Double hustonGBPCurrencyDeviation;
 	
 
 

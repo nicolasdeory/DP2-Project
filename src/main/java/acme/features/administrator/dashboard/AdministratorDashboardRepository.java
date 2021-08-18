@@ -98,16 +98,24 @@ public interface AdministratorDashboardRepository extends AbstractRepository{
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from XXX x where x.XXXflag=TRUE")
-	Double getXXXFlaggedAsXXX();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'XX' ")
-	Optional<Double> getXXX_XXCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'XX'  ")
-	Optional<Double> getXXX_XXCurrencyDeviation();
-	@Query("select avg(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
-	Optional<Double> getXXX_YYCurrencyAverage();
-	@Query("select stddev(x.currency.amount) from XXX x where x.currency.currency= 'YY' ")
-	Optional<Double> getXXX_YYCurrencyDeviationYY();
+	@Query("select count (h) from Huston h where h.important=TRUE")
+	Optional<Double>  hustonFlaggedAsImportant();
+	@Query("select count (h) from Huston h where h.budget.amount=0")
+	Optional<Double>  hustonWhitAmount0();
+
+	@Query("select avg(h.budget.amount) from Huston h where h.budget.currency='EUR'")
+	Optional<Double>  getHustonEURCurrencyAverage();
+	@Query("select stddev(h.budget.amount) from Huston h where h.budget.currency='EUR'")
+	Optional<Double>  getHustonEURCurrencyDeviation();
+	@Query("select avg(h.budget.amount) from Huston h where h.budget.currency= 'USD' ")
+	Optional<Double>  getHustonUSDCurrencyAverage();
+	@Query("select stddev(h.budget.amount) from Huston h where h.budget.currency= 'USD' ")
+	Optional<Double>  getHustonUSDCurrencyDeviation();
+
+	@Query("select avg(h.budget.amount) from Huston h where h.budget.currency= 'GBP' ")
+	Optional<Double>  getHustonGBPCurrencyAverage();
+	@Query("select stddev(h.budget.amount) from Huston h where h.budget.currency= 'GBP' ")
+	Optional<Double>  getHustonGBPCurrencyDeviation();
 
 	/////////////////////////////////////////////////
 	

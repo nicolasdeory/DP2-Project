@@ -2,6 +2,7 @@ package acme.features.administrator.dashboard;
 
 import acme.utils.AssertUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import acme.forms.Dashboard;
@@ -10,6 +11,8 @@ import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractShowService;
 import acme.utils.WorkLoadOperations;
+
+import java.util.Optional;
 
 @Service
 public class AdministratorDashboardShowService implements AbstractShowService<Administrator, Dashboard> {
@@ -39,8 +42,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, "numberOfPublicTasks","numberOfPrivateTasks","numberOfFinishedTasks","numberOfNonFinishedTasks","numberOfPublicWorkPlans","numberOfPrivateWorkPlans",
 			"numberOfFinishedWorkPlans","numberOfNonFinishedWorkPlans","numberOfWorkPlans","averageOfTaskExecutionPeriods","deviationOfTaskExecutionPeriods","minOfTaskExecutionPeriods","maxOfTaskExecutionPeriods",
 			"averageOfWorkPlanExecutionPeriods","deviationOfWorkPlanExecutionPeriods","minOfWorkPlanExecutionPeriods","maxOfWorkPlanExecutionPeriods","averageOfTaskWorkloads","deviationOfTaskWorkloads",
-			"minOfTaskWorkloads","maxOfTaskWorkloads","averageOfWorkplanWorkloads","deviationOfWorkplanWorkloads","minOfWorkplanWorkloads","maxOfWorkplanWorkloads",
-				"XXXFlaggedAsXXX","shoutXXXRateInXXX","XXX_XXCurrencyAverage","XXX_XXCurrencyDeviation","XXX_YYCurrencyAverage","XXX_YYCurrencyDeviationYY");
+			"minOfTaskWorkloads","maxOfTaskWorkloads","hustonFlaggedAsImportant", "hustonWhitAmount0","hustonEURCurrencyAverage","hustonEURCurrencyDeviation" ,"hustonUSDCurrencyAverage","hustonUSDCurrencyDeviation","hustonGBPCurrencyAverage","hustonGBPCurrencyDeviation");
 	}
 
 	@Override
@@ -80,12 +82,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double XXXFlaggedAsXXX;
-		Double shoutXXXRateInXXX;
-		Double XXX_XXCurrencyAverage;
-		Double XXX_XXCurrencyDeviation;
-		Double XXX_YYCurrencyAverage;
-		Double XXX_YYCurrencyDeviationYY;
+		Double hustonFlaggedAsImportant;
+		Double hustonWhitAmount0;
+		Double hustonEURCurrencyAverage;
+		Double hustonEURCurrencyDeviation;
+		Double hustonUSDCurrencyAverage;
+		Double hustonUSDCurrencyDeviation;
+		Double hustonGBPCurrencyAverage;
+		Double hustonGBPCurrencyDeviation;
 		
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -118,12 +122,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		minOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).min().orElse(-1);
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream().mapToDouble(x->x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		XXXFlaggedAsXXX=this.repository.getXXXFlaggedAsXXX();
-		shoutXXXRateInXXX=this.service.getShoutXXXRateInXXX();
-		XXX_XXCurrencyAverage=this.repository.getXXX_XXCurrencyAverage().orElse(-1.);
-		XXX_XXCurrencyDeviation=this.repository.getXXX_XXCurrencyDeviation().orElse(-1.);
-		XXX_YYCurrencyAverage=this.repository.getXXX_YYCurrencyAverage().orElse(-1.);
-		XXX_YYCurrencyDeviationYY=this.repository.getXXX_YYCurrencyDeviationYY().orElse(-1.);
+		hustonFlaggedAsImportant=this.repository.hustonFlaggedAsImportant().orElse(-1.);
+		hustonWhitAmount0=this.repository.hustonWhitAmount0().orElse(-1.);
+		hustonEURCurrencyAverage=this.repository.getHustonEURCurrencyAverage().orElse(-1.);
+		hustonEURCurrencyDeviation=this.repository.getHustonEURCurrencyDeviation().orElse(-1.);
+		hustonUSDCurrencyAverage=this.repository.getHustonUSDCurrencyAverage().orElse(-1.);
+		hustonUSDCurrencyDeviation=this.repository.getHustonUSDCurrencyDeviation().orElse(-1.);
+		hustonGBPCurrencyAverage=this.repository.getHustonGBPCurrencyAverage().orElse(-1.);
+		hustonGBPCurrencyDeviation=this.repository.getHustonGBPCurrencyDeviation().orElse(-1.);
 		
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -157,13 +163,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setXXXFlaggedAsXXX(XXXFlaggedAsXXX);
-		result.setShoutXXXRateInXXX(shoutXXXRateInXXX);
-		result.setXXX_XXCurrencyAverage(XXX_XXCurrencyAverage);
-		result.setXXX_XXCurrencyDeviation(XXX_XXCurrencyDeviation);
-		result.setXXX_YYCurrencyAverage(XXX_YYCurrencyAverage);
-		result.setXXX_YYCurrencyDeviationYY(XXX_YYCurrencyDeviationYY);
-
+		result.setHustonFlaggedAsImportant(hustonFlaggedAsImportant);
+		result.setHustonWhitAmount0(hustonWhitAmount0);
+		result.setHustonEURCurrencyAverage(hustonEURCurrencyAverage);
+		result.setHustonEURCurrencyDeviation(hustonEURCurrencyDeviation);
+		result.setHustonUSDCurrencyAverage(hustonUSDCurrencyAverage);
+		result.setHustonUSDCurrencyDeviation(hustonUSDCurrencyDeviation);
+		result.setHustonGBPCurrencyAverage(hustonGBPCurrencyAverage);
+		result.setHustonGBPCurrencyDeviation(hustonGBPCurrencyDeviation);
 
 		return result;
 	}

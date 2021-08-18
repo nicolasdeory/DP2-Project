@@ -14,9 +14,8 @@ package acme.features.anonymous.shout;
 
 import java.sql.Date;
 import java.util.Collection;
-import java.util.Optional;
 
-import acme.entities.XXX.XXX;
+import acme.entities.huston.Huston;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -29,4 +28,6 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 	@Query("select s from Shout s where s.moment >= ?1 order by s.moment desc")
 	Collection<Shout> findMany(Date d);
 
+	@Query("select x from Huston x where x.identifier=?1")
+	Huston hasDuplicatedIdentifier(String identifier);
 }

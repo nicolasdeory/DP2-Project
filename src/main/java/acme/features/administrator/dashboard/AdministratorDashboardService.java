@@ -85,13 +85,4 @@ public class AdministratorDashboardService {
 	    return Math.sqrt(meanOfDiffs);
 	}
 
-	@Transactional
-	public Double getShoutXXXRateInXXX(){
-		List<Shout> shouts=dashRepo.getAllShouts();
-		if (shouts.isEmpty())
-			return -1.;
-		else
-			return (double) shouts.stream().filter(x -> x.getXxx() != null && x.getXxx().getCurrency() != null).count() /shouts.size();
-
-	}
 }

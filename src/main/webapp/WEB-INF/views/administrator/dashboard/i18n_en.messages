@@ -48,10 +48,12 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.XXXFlaggedAsXXX	= Number of Shouts with Flag XX checked
-administrator.dashboard.form.label.shoutXXXRateInXXX	= Rate of Shouts with XXX that have XX
-administrator.dashboard.form.label.XXX_XXCurrencyAverage	= Average value of XX currency
-administrator.dashboard.form.label.XXX_XXCurrencyDeviation	= Deviation of the total XX currency
-administrator.dashboard.form.label.XXX_YYCurrencyAverage	= Average value of YY currency
-administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY	= Deviation of the total YY currency
+administrator.dashboard.form.label.hustonFlaggedAsImportant	= Number of hustons were flagged as important
+administrator.dashboard.form.label.hustonWhitAmount0	= Ratio of shouts whose hustons have budget zero
+administrator.dashboard.form.label.hustonEURCurrencyAverage	= Average value of EUR currency
+administrator.dashboard.form.label.hustonEURCurrencyDeviation	= Deviation of the total EUR currency
+administrator.dashboard.form.label.hustonUSDCurrencyAverage	= Average value of USD currency
+administrator.dashboard.form.label.hustonUSDCurrencyDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.hustonGBPCurrencyAverage = Average value of GBP currency
+administrator.dashboard.form.label.hustonGBPCurrencyDeviation = Deviation of the total GBP currency
 

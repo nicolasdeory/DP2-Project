@@ -1,4 +1,4 @@
-package acme.testing.anonymous.XXX;
+package acme.testing.anonymous.huston;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-class AnonymousListXXXTest extends AcmeTest {
+class AnonymousListHustonTest extends AcmeTest {
 
 	
 //	@Mock
@@ -40,30 +40,32 @@ class AnonymousListXXXTest extends AcmeTest {
     // Primero creamos el shout, y tras ello vamos a la vista de listado y comprobamos que está el shout
     
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/XXX/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/huston/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info,
-    	final String text,final String currency,final String flag) {
-    	
-        //creamos un shout ya que si no no funciona
-     	super.clickOnMenu("Anonymous", "Shout!");
+              final String text,String budget,String deadline,String important) {
+        super.clickOnMenu("Anonymous", "Shout!");
 
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("currency",currency);
-        if(flag!=null&&flag.equals("true"))super.clickAndGo(By.id("XXXflag$proxy"));
+        super.fillInputBoxIn("budget",budget);
+        super.fillInputBoxIn("deadline",deadline);
+        if(important!=null&&important.equals("true"))super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
-    	
-        super.clickOnMenu("Anonymous", "List shouts");        
-        
+
+
+        super.clickOnMenu("Anonymous", "List shouts");
+
+
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex,5,currency);
-        super.checkColumnHasValue(recordIndex,6,flag);
-        
+        super.checkColumnHasValue(recordIndex,5,budget);
+        super.checkColumnHasValue(recordIndex,6,important);
+        super.checkColumnHasValue(recordIndex,7,deadline);
+
 
     }
     
