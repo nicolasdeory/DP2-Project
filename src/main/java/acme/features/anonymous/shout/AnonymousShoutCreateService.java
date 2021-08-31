@@ -129,9 +129,16 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         if(month.length()==1) month="0"+month;
         Boolean hustonDuplicated=true;
         while (hustonDuplicated){
-            String identifier=random.nextInt(999999)+":"+year+":"+month+":"+day;
+            String randomInt=String.valueOf(random.nextInt(999999));
+            if(randomInt.length()<6){
+                int i=0;
+                while (i<(6-randomInt.length())){
+                    randomInt=0+randomInt;
+                }
+            }
+            String identifier=randomInt+":"+year+":"+month+":"+day;
             entity.getHuston().setIdentifier(identifier);
-            hustonDuplicated=repository.hasDuplicatedIdentifier(entity.getHuston().getIdentifier())!=null;
+            hustonDuplicated=repository.hasDuplicatedIdentifier(identifier)!=null;
         }
 
         moment = new Date(System.currentTimeMillis() - 1);
