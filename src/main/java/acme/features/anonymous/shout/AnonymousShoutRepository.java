@@ -14,9 +14,7 @@ package acme.features.anonymous.shout;
 
 import java.sql.Date;
 import java.util.Collection;
-import java.util.Optional;
 
-import acme.entities.XXX.XXX;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 

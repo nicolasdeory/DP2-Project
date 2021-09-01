@@ -11,53 +11,52 @@
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
 	</caption>
-
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXXFlaggedAsXXX"/>
+			<acme:message code="culpFlaggedAsImportant"/>
 		</th>
 		<td>
-			<acme:print value="${XXXFlaggedAsXXX}"/>
+			<acme:print value="${culpFlaggedAsImportant}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.shoutXXXRateInXXX"/>
+			<acme:message code="administrator.dashboard.form.label.shoutsZeroBugdetRate"/>
 		</th>
 		<td>
-			<acme:print value="${shoutXXXRateInXXX}"/>
+			<acme:print value="${shoutsZeroBugdetRate}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.culp_EURBudgetAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyAverage}"/>
+			<acme:print value="${culp_EURBudgetAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_XXCurrencyDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.culp_EURBudgetDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_XXCurrencyDeviation}"/>
+			<acme:print value="${culp_EURBudgetDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyAverage"/>
+			<acme:message code="administrator.dashboard.form.label.culp_DollarBudgetAverage"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyAverage}"/>
+			<acme:print value="${culp_DollarBudgetAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.XXX_YYCurrencyDeviationYY"/>
+			<acme:message code="administrator.dashboard.form.label.culp_DollarBudgetDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${XXX_YYCurrencyDeviationYY}"/>
+			<acme:print value="${culp_DollarBudgetDeviation}"/>
 		</td>
 	</tr>
 

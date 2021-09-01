@@ -12,25 +12,21 @@
 
 package acme.features.anonymous.shout;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
-import acme.entities.XXX.XXX;
-import acme.utils.AssertUtils;
-import com.fasterxml.jackson.datatype.jsr310.deser.key.LocalDateKeyDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.culp.Culp;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractCreateService;
+import acme.utils.AssertUtils;
 
 @Service
 public class AnonymousShoutCreateService implements AbstractCreateService<Anonymous, Shout> {
@@ -57,7 +53,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getXxx(), errors);
+        request.bind(entity.getCulp(), errors);
 
     }
 
@@ -68,7 +64,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getXxx(), model, "Xidentifier", "currency", "XXXflag");
+        request.unbind(entity.getCulp(), model, "insignia", "budget", "important");
     }
 
     @Override
@@ -82,7 +78,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setXxx(new XXX());
+        result.setCulp(new Culp());
 
         return result;
     }
@@ -92,15 +88,14 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        XXX xxx = entity.getXxx();
-        if (xxx.getCurrency() != null
-                && (!(xxx.getCurrency().getCurrency().equals("XX") || xxx.getCurrency().getCurrency().equals("YY")))) {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.format");
+        final Culp culp = entity.getCulp();
+        if (culp.getBudget() != null
+                && (!(culp.getBudget().getCurrency().equals("EUR") || culp.getBudget().getCurrency().equals("USD")))) {
+            errors.state(request, false, "budget", "anonymous.shout.culp.error.budget.format");
         }
 
-        if (xxx.getCurrency() != null && xxx.getCurrency().getAmount() <= 0)
-        {
-            errors.state(request, false, "currency", "anonymous.shout.XXX.error.currency.negative");
+        if (culp.getBudget() != null && culp.getBudget().getAmount() <= 0) {
+            errors.state(request, false, "budget", "anonymous.shout.culp.error.budget.negative");
         }
 
     }
@@ -110,28 +105,28 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
 
-        LocalDate now = LocalDate.now();
-        String year = String.valueOf(now.getYear());
-        String month = String.valueOf(now.getMonthValue());
-        String day = String.valueOf(now.getDayOfMonth());
+        final LocalDate now = LocalDate.now();
+        final String year = String.valueOf(now.getYear());
+        final String month = String.valueOf(now.getMonthValue());
+        final String day = String.valueOf(now.getDayOfMonth());
 
         Date moment;
 
         moment = new Date(System.currentTimeMillis() - 1);
         entity.setMoment(moment);
-        Date Xdate = new Date(System.currentTimeMillis() - 1);
-        Calendar c = Calendar.getInstance();
-        c.setTime(Xdate);
-        c.add(Calendar.MONTH, -1);
-        entity.getXxx().setXXXMoment(c.getTime());
-        entity.getXxx().setShout(entity);
+        final Date date = new Date(System.currentTimeMillis() - 1);
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getXxx()
-                .setXidentifier(year + (month.length() == 1 ? "0" : "") + month + (day.length() == 1 ? "0" : "") + day + "0");
+        entity.getCulp().setShout(entity);
+        entity.getCulp().setDeadline(c.getTime());
+        final String randInt = String.valueOf(System.currentTimeMillis());
+
+        entity.getCulp().setInsignia(randInt.substring(randInt.length() - 6) + ":" + year + ":"
+                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
         this.repository.save(entity);
-        this.repository.flush();
-        entity.getXxx().setXidentifier(entity.getXxx().getXidentifier() + entity.getId());
-        this.repository.save(entity);
+
     }
 
 }

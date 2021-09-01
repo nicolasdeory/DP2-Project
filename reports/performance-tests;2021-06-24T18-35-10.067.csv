@@ -1,0 +1,9 @@
+timestamp,test-class,test-method,time,description,result
+2021-06-24 18:35:47.506,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreatePositive,31477,"[1] recordIndex=0, author=Joselu, info=null, text=Prueba el omori, currency=EUR 20.00, flag=true",Cannot find 'By.name: currency'
+2021-06-24 18:36:18.572,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreatePositive,30755,"[2] recordIndex=0, author=Pedro, info=null, text=¿un valorant?, currency=USD 20.00, flag=false",Cannot find 'By.name: currency'
+2021-06-24 18:36:49.801,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreatePositive,30903,"[3] recordIndex=0, author=Jose M, info=null, text=*trabajando*, currency=EUR 10.00, flag=true",Cannot find 'By.name: currency'
+2021-06-24 18:36:51.548,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreateNegative,1456,"[1] recordIndex=0, author=null, info=null, text=null, budget=null, flag=null",OK
+2021-06-24 18:36:53.237,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreateNegative,1401,"[2] recordIndex=0, author=null, info=null, text=autor vacio, budget=null, flag=null",OK
+2021-06-24 18:36:54.944,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreateNegative,1458,"[3] recordIndex=0, author=texto vacio, info=null, text=null, budget=null, flag=null",OK
+2021-06-24 18:36:56.621,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreateNegative,1444,"[4] recordIndex=0, author=Nicol, info=nolink, text=link mal, budget=null, flag=null",OK
+2021-06-24 18:36:58.323,acme.testing.anonymous.culp.AnonymousCreateCulpTest,CreateNegative,1470,"[5] recordIndex=0, author=Jose, info=null, text=autor menor de 5, budget=null, flag=null",OK

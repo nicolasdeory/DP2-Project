@@ -499,8 +499,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX01"/>
+        <property name="culp">
+            <ref bean="culp01"/>
         </property>
     </bean>
 
@@ -511,8 +511,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX02"/>
+        <property name="culp">
+            <ref bean="culp02"/>
         </property>
     </bean>
 
@@ -523,39 +523,38 @@
         <property name="info">
             <null/>
         </property>
-        <property name="xxx">
-            <ref bean="XXX03"/>
+        <property name="culp">
+            <ref bean="culp03"/>
         </property>
     </bean>
-    <!-- WorkPlans -->
     
-    <bean id="XXX01" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613014"></property>
-    	<property name="XXXMoment" value="2021/06/05 19:39"></property>
-    	<property name="currency" value="5.12 XX"></property>
-    	<property name="XXXflag" value="true"></property>
+    <bean id="culp01" class ="acme.entities.culp.Culp">
+    	<property name="insignia" value="122312:2021:05:05"></property>
+    	<property name="deadline" value="2021/06/05 19:39"></property>
+    	<property name="budget" value="5.12 EUR"></property>
+    	<property name="important" value="true"></property>
     	
     	 <property name="shout">
             <ref bean="Shout00"/>
         </property>	
     </bean>
     
-    <bean id="XXX02" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613015"></property>
-    	<property name="XXXMoment" value="2021/06/05 11:11"></property>
-    	<property name="currency" value="6.12 XX"></property>
-    	<property name="XXXflag" value="true"></property>	
+    <bean id="culp02" class ="acme.entities.culp.Culp">
+    	<property name="insignia" value="121212:2021:05:13"></property>
+    	<property name="deadline" value="2021/06/05 11:11"></property>
+    	<property name="budget" value="6.12 EUR"></property>
+    	<property name="important" value="true"></property>	
     	
     	 <property name="shout">
             <ref bean="Shout01"/>
         </property>	
     </bean>
     
-    <bean id="XXX03" class ="acme.entities.XXX.XXX">
-    	<property name="Xidentifier" value="20210613016"></property>
-    	<property name="XXXMoment" value="2021/06/01 02:22"></property>
-    	<property name="currency" value="7.12 XX"></property>
-    	<property name="XXXflag" value="false"></property>
+    <bean id="culp03" class ="acme.entities.culp.Culp">
+    	<property name="insignia" value="122317:2021:05:01"></property>
+    	<property name="deadline" value="2021/06/01 02:22"></property>
+    	<property name="budget" value="7.12 EUR"></property>
+    	<property name="important" value="false"></property>
     	 <property name="shout">
             <ref bean="Shout02"/>
         </property>		

@@ -1,6 +1,5 @@
 package acme.entities.shouts;
 
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import acme.entities.XXX.XXX;
+import acme.entities.culp.Culp;
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -25,39 +24,40 @@ public class Shout extends DomainEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	@NotNull
-	protected Date				moment;
+	protected Date moment;
 
 	@NotBlank
 	@NotSpamConstraint
 	@Length(min = 5, max = 25)
-	protected String			author;
+	protected String author;
 
 	@NotBlank
 	@Length(min = 1, max = 100)
 	@NotSpamConstraint
-	protected String			text;
-	
+	protected String text;
+
 	@URL
 	@NotSpamConstraint
-	protected String			info;
+	protected String info;
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof Shout)) return false;
-		if (!super.equals(o)) return false;
+		if (this == o)
+			return true;
+		if (!(o instanceof Shout))
+			return false;
+		if (!super.equals(o))
+			return false;
 		Shout shout = (Shout) o;
-		return Objects.equals(moment, shout.moment) &&
-				Objects.equals(author, shout.author) &&
-				Objects.equals(text, shout.text) &&
-				Objects.equals(info, shout.info);
+		return Objects.equals(moment, shout.moment) && Objects.equals(author, shout.author)
+				&& Objects.equals(text, shout.text) && Objects.equals(info, shout.info);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class Shout extends DomainEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	@OneToOne(optional = true,cascade = CascadeType.ALL)
-	protected XXX xxx;
+	@OneToOne(optional = true, cascade = CascadeType.ALL)
+	protected Culp culp;
 
 }

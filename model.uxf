@@ -156,7 +156,7 @@ layer=4</panel_attributes>
     <coordinates>
       <x>759</x>
       <y>682</y>
-      <w>99</w>
+      <w>110</w>
       <h>176</h>
     </coordinates>
     <panel_attributes>lt=-
@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-XXX
+Culp
 --
-+     : String {Unique}
-+     : Date {}
-+     : Money 
-+     : boolean {NotNull}
++    insignia : String {Unique}
++    deadline : Date {}
++    budget : Money 
++    important : boolean {NotNull}
 
 
 

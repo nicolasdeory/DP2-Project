@@ -1,38 +1,39 @@
-package acme.entities.XXX;
+package acme.entities.culp;
+
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import acme.entities.shouts.Shout;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
-import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Getter
 @Setter
-public class XXX extends DomainEntity {
+public class Culp extends DomainEntity {
     // Serialisation identifier -----------------------------------------------
 
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Pattern(regexp = "^(\\d{4})(\\d{2})(\\d{2})(\\d*)$")
+    @Pattern(regexp = "^(\\d{6}):(\\d{4}):(\\d{2}):(\\d{2})$")
     @Column(unique = true)
-    protected String Xidentifier;
+    protected String insignia;
 
-    protected Date XXXMoment;
+    protected Date deadline;
 
-    protected Money currency;
+    protected Money budget;
 
     @NotNull
-    protected Boolean XXXflag;
+    protected Boolean important;
 
     // Derived attributes -----------------------------------------------------
 
