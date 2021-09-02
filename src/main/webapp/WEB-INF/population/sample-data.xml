@@ -260,7 +260,7 @@
         </property>
     </bean>
     <bean name="workplan2" class="acme.entities.workPlan.WorkPlan">
-        <property name="title" value="Acme Planner"/>
+        <property name="title" value="Acme Work-Plans"/>
         <property name="description" value="Second Deliverable DP2"/>
         <property name="isPublic" value="true"/>
         <property name="executionPeriod">

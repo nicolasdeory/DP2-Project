@@ -16,7 +16,7 @@ master.banner.background = linear-gradient(90deg, rgba(255,233,127,1) 0%, rgba(1
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Acme Planner! Your first project in D&T
+	Welcome to Acme Work-Plans! Your first project in D&T
 
 # master.menu #################################################################
 
@@ -82,7 +82,7 @@ master.company.text = \
 	Starter Project, Inc. is a fictitious fictitious company that provides a \
 	starter project for the students of the Design and Testing subject of the \
 	Software Engineering Curriculum of the University of Sevilla.
-master.company.name = Acme Planner, Inc.
+master.company.name = Acme Work-Plans, Inc.
 master.company.address = Number Street, City, State, Country
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
