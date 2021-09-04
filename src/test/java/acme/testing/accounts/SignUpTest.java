@@ -20,7 +20,7 @@ class SignUpTest extends AcmeTest {
 	public void beforeAll() {
 		super.beforeAll();
 
-		super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
+		super.setBaseCamp("http", "localhost", "8080", "/Acme-WorkPlans", "/master/welcome", "?language=en&debug=true");
 		super.setAutoPausing(false);
 
 		this.signIn("administrator", "administrator");

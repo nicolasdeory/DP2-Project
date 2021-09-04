@@ -65,6 +65,7 @@ public abstract class AcmeTest extends AbstractTest {
 		locator = By.xpath("//h1[normalize-space() = 'Unexpected error']");
 		assert super.exists(locator) : "Action didn't result in panic";
 	}
+
 	protected void checkNotPanicExists() {
 		By locator;
 		locator = By.xpath("h1[normalize-space() = 'Unexpected error'");
@@ -137,7 +138,8 @@ public abstract class AcmeTest extends AbstractTest {
 				break;
 			case "select":
 				optionLocator = By.xpath(String.format("//select[@name='%s']/option[@selected]", name));
-				assert super.exists(optionLocator) : String.format("Cannot find selected option in input box '%s'", name);
+				assert super.exists(optionLocator)
+						: String.format("Cannot find selected option in input box '%s'", name);
 				option = super.locateOne(optionLocator);
 				contents = option.getText();
 				break;
@@ -147,7 +149,9 @@ public abstract class AcmeTest extends AbstractTest {
 		}
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
-		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found", value, name, contents);
+
+		assert contents.equals(value) : String.format("Expected value '%s' in input box '%s', but '%s' was found",
+				expectedValue, name, contents);
 	}
 
 	protected void checkColumnHasValue(final int recordIndex, final int attributeIndex, final String expectedValue) {
@@ -158,7 +162,8 @@ public abstract class AcmeTest extends AbstractTest {
 		WebElement attribute, toggle;
 		String contents, value;
 		row = this.getListingRecord(recordIndex);
-		assert attributeIndex + 1 < row.size() : String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
+		assert attributeIndex + 1 < row.size()
+				: String.format("Attribute %d in record %d is out of range", attributeIndex, recordIndex);
 		attribute = row.get(attributeIndex + 1);
 		if (attribute.isDisplayed())
 			contents = attribute.getText();
@@ -170,7 +175,10 @@ public abstract class AcmeTest extends AbstractTest {
 		}
 		contents = (contents == null ? "" : contents.trim());
 		value = (expectedValue != null ? expectedValue.trim() : "");
-		assert contents.equals(value) : String.format("Expected value '%s' in attribute %d of record %d, but found '%s'", value, attributeIndex, recordIndex, contents);
+
+		assert contents.equals(value)
+				: String.format("Expected value '%s' in attribute %d of record %d, but found '%s'", expectedValue,
+						attributeIndex, recordIndex, contents);
 	}
 
 	protected void checkColumnDoesNotHaveValue(final int recordIndex, final int attributeIndex,
@@ -229,7 +237,8 @@ public abstract class AcmeTest extends AbstractTest {
 					case "hidden":
 						proxyXpath = String.format("//input[@name='%s$proxy' and @type='checkbox']", name);
 						proxyLocator = By.xpath(proxyXpath);
-						assert value == null || value.equals("true") || value.equals("false") : String.format("Input box '%s' cannot be set to '%s'", name, value);
+						assert value == null || value.equals("true") || value.equals("false")
+								: String.format("Input box '%s' cannot be set to '%s'", name, value);
 						assert super.exists(proxyLocator) : String.format("Cannot find proxy for input box '%s'", name);
 						inputProxy = super.locateOne(proxyLocator);
 						if (inputProxy.getAttribute("checked") != null && (value == null || value.equals("false")))
@@ -242,7 +251,8 @@ public abstract class AcmeTest extends AbstractTest {
 				}
 				break;
 			case "select":
-				optionLocator = By.xpath(String.format("//select[@name='%s']/option[@value='%s']", name, value == null ? "" : value));
+				optionLocator = By.xpath(
+						String.format("//select[@name='%s']/option[@value='%s']", name, value == null ? "" : value));
 				assert super.exists(optionLocator) : "Cannot find option with requested value in select";
 				option = super.locateOne(optionLocator);
 				option.click();
@@ -283,7 +293,9 @@ public abstract class AcmeTest extends AbstractTest {
 				// INFO+ Sometimes, the toggle gets stale unexpectedly
 				// INFO+ and that has an impact on the main menu.
 			}
-			optionLocator = By.xpath(String.format("//div[@id='mainMenu']/ul/li[a[normalize-space()='%s']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='%s']", header, option));
+			optionLocator = By.xpath(String.format(
+					"//div[@id='mainMenu']/ul/li[a[normalize-space()='%s']]/div[contains(@class, 'dropdown-menu')]/a[normalize-space()='%s']",
+					header, option));
 			super.clickAndWait(optionLocator);
 		}
 	}
