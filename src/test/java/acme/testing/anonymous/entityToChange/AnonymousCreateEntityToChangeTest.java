@@ -1,11 +1,12 @@
 package acme.testing.anonymous.entityToChange;
 
-import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
+
+import acme.testing.AcmeTest;
 
 class AnonymousCreateEntityToChangeTest extends AcmeTest {
 
@@ -15,7 +16,7 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     public void beforeAll() {
         super.beforeAll();
 
-        super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
+        super.setBaseCamp("http", "localhost", "8080", "/Acme-WorkPlans", "/master/welcome", "?language=en&debug=true");
         super.setAutoPausing(false);
         this.signIn("administrator", "administrator");
         super.clickAndGo(By.linkText("Administrator"));
@@ -33,7 +34,7 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/entityToChange/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info, final String text,
-            String moneyAttributeToChange, String flag) {
+            final String moneyAttributeToChange, final String flag) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
@@ -64,7 +65,7 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/entityToChange/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info, final String text,
-            String moneyAttributeToChange, String flag) {
+            final String moneyAttributeToChange, final String flag) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);

@@ -14,7 +14,7 @@ class AdministratorDashboardEntityToChangeShowTest extends AcmeTest {
 	public void beforeAll() {
 		super.beforeAll();
 
-		super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
+		super.setBaseCamp("http", "localhost", "8080", "/Acme-WorkPlans", "/master/welcome", "?language=en&debug=true");
 		super.setAutoPausing(false);
 
 		this.signIn("administrator", "administrator");
@@ -64,7 +64,7 @@ class AdministratorDashboardEntityToChangeShowTest extends AcmeTest {
 		super.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Dashboard");
 
-		String url = super.driver.getCurrentUrl();
+		final String url = super.driver.getCurrentUrl();
 
 		super.signOut();
 		super.driver.navigate().to(url);
