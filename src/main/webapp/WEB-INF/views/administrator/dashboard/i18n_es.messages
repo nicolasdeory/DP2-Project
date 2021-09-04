@@ -45,11 +45,7 @@ administrator.dashboard.form.label.deviationOfWorkplanWorkloads = Desviación de
 administrator.dashboard.form.label.minOfWorkplanWorkloads = Mínimo de carga de de trabajo de planes de trabajo (h)
 administrator.dashboard.form.label.maxOfWorkplanWorkloads = Máximo de carga de de trabajo de planes de trabajo (h)
 
-
-
 administrator.dashboard.form.title.chart-workplans = Desglose de workplans por visibilidad
-"culpFlaggedAsImportant", "shoutsZeroBugdetRate", "", "culp_EURBudgetDeviation",
-				"culp_DollarBudgetAverage", "culp_DollarBudgetDeviation"
 
 administrator.dashboard.form.label.culpFlaggedAsImportant	= Cantidad de Shouts importantes
 administrator.dashboard.form.label.shoutsZeroBugdetRate	= Ratio de shouts con Budget = 0

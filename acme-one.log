@@ -1540,3 +1540,70 @@ ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Plan
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
 ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: acme.framework.helpers.Assert.state(Assert.java:45): Access is not authorised
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 11365 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 7.582 seconds (JVM running for 8.03)
+INFO [acme.Launcher] Populating (initial data)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 12145 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 6.648 seconds (JVM running for 7.052)
+INFO [acme.Launcher] Running application (standalone)
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/shout/form.jsp'.
+at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[jsp]] at org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/shout/form.jsp'.
+at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/Acme-Planner].[dispatcherServlet]] at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP GET /Acme-Planner/master/panic HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014): Request processing failed; nested exception is org.apache.tiles.request.render.CannotRenderException: JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.tiles.impl.BasicTilesContainer.render(BasicTilesContainer.java:399): JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.tiles.request.servlet.ServletUtil.wrapServletException(ServletUtil.java:63): JSPException including path '../anonymous/shout/form.jsp'.
+org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:42): /WEB-INF/views/anonymous/shout/form.jsp (line: [24], column: [1]) No tag [form-date] defined in tag library imported with prefix [acme]
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 16322 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 8.643 seconds (JVM running for 9.112)
+INFO [acme.Launcher] Running application (standalone)
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-Planner/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 17629 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 6.514 seconds (JVM running for 6.955)
+INFO [acme.Launcher] Running application (standalone)
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...

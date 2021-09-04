@@ -77,3 +77,4 @@ management.tasks.label.FinishedWorkplanMessage = This task is finished. You can 
 
 anonymous.shout.culp.error.budget.negative = Amount can not be negative.
 anonymous.shout.culp.error.budget.format = Please check currency format.
+anonymous.shout.culp.error.deadline.week = Deadline whould be at least next week. 

@@ -13,7 +13,7 @@
 	</caption>
 	<tr>
 		<th scope="row">
-			<acme:message code="culpFlaggedAsImportant"/>
+			<acme:message code="administrator.dashboard.form.label.culpFlaggedAsImportant"/>
 		</th>
 		<td>
 			<acme:print value="${culpFlaggedAsImportant}"/>

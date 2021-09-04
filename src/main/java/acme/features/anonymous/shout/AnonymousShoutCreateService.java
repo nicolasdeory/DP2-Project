@@ -64,7 +64,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getCulp(), model, "insignia", "budget", "important");
+        request.unbind(entity.getCulp(), model, "insignia", "budget", "important", "deadline");
     }
 
     @Override
@@ -96,6 +96,13 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         if (culp.getBudget() != null && culp.getBudget().getAmount() <= 0) {
             errors.state(request, false, "budget", "anonymous.shout.culp.error.budget.negative");
+        }
+
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date(System.currentTimeMillis()));
+        c.add(Calendar.WEEK_OF_YEAR, +1);
+        if (culp.getDeadline() != null && culp.getDeadline().before(c.getTime())) {
+            errors.state(request, false, "deadline", "anonymous.shout.culp.error.deadline.week");
         }
 
     }
