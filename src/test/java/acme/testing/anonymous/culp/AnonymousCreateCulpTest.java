@@ -1,4 +1,4 @@
-package acme.testing.anonymous.culp;
+package acme.testing.anonymous.entityToChange;
 
 import acme.testing.AcmeTest;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-class AnonymousCreateCulpTest extends AcmeTest {
+class AnonymousCreateEntityToChangeTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -30,18 +30,18 @@ class AnonymousCreateCulpTest extends AcmeTest {
     // Vamos a la pestaña de listado de shouts y comprobamos que se ha creado
     // correctamente
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/culp/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/entityToChange/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    void CreatePositive(final int recordIndex, final String author, final String info, final String text, String budget,
-            String flag) {
+    void CreatePositive(final int recordIndex, final String author, final String info, final String text,
+            String moneyAttributeToChange, String flag) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("budget", budget);
+        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
         if (flag != null && flag.equals("true"))
-            super.clickAndGo(By.id("important$proxy"));
+            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
         super.clickOnSubmitButton("Shout!");
 
         super.clickOnMenu("Anonymous", "List shouts");
@@ -49,7 +49,7 @@ class AnonymousCreateCulpTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex, 5, budget);
+        super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
         super.checkColumnHasValue(recordIndex, 6, flag);
 
     }
@@ -61,18 +61,18 @@ class AnonymousCreateCulpTest extends AcmeTest {
     // formato...
     // Tras ello comprueba la existencia de errores
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/culp/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/entityToChange/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    void CreateNegative(final int recordIndex, final String author, final String info, final String text, String budget,
-            String flag) {
+    void CreateNegative(final int recordIndex, final String author, final String info, final String text,
+            String moneyAttributeToChange, String flag) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("budget", budget);
+        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
         if (flag != null && flag.equals("true"))
-            super.clickAndGo(By.id("important$proxy"));
+            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
         super.clickOnSubmitButton("Shout!");
 
         super.checkErrorsExist();

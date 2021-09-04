@@ -1,4 +1,4 @@
-package acme.entities.culp;
+package acme.entities.entityToChange;
 
 import java.util.Date;
 
@@ -18,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Culp extends DomainEntity {
+public class EntityToChange extends DomainEntity {
     // Serialisation identifier -----------------------------------------------
 
     protected static final long serialVersionUID = 1L;
@@ -26,14 +26,14 @@ public class Culp extends DomainEntity {
     // Attributes -------------------------------------------------------------
     @Pattern(regexp = "^(\\d{6}):(\\d{4}):(\\d{2}):(\\d{2})$")
     @Column(unique = true)
-    protected String insignia;
+    protected String idAttributeToChange;
 
-    protected Date deadline;
+    protected Date dateAttributeToChange;
 
-    protected Money budget;
+    protected Money moneyAttributeToChange;
 
     @NotNull
-    protected Boolean important;
+    protected Boolean flagAttributeToChange;
 
     // Derived attributes -----------------------------------------------------
 

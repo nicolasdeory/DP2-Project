@@ -1,4 +1,4 @@
-package acme.testing.anonymous.culp;
+package acme.testing.anonymous.entityToChange;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-class AnonymousListCulpTest extends AcmeTest {
+class AnonymousListEntityToChangeTest extends AcmeTest {
 
     // @Mock
     // private AnonymousShoutRepository sv;
@@ -40,10 +40,10 @@ class AnonymousListCulpTest extends AcmeTest {
     // comprobamos que está el shout
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/culp/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/entityToChange/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
-    void list(final int recordIndex, final String author, final String info, final String text, final String budget,
-            final String important) {
+    void list(final int recordIndex, final String author, final String info, final String text,
+            final String moneyAttributeToChange, final String flagAttributeToChange) {
 
         // creamos un shout ya que si no no funciona
         super.clickOnMenu("Anonymous", "Shout!");
@@ -51,9 +51,9 @@ class AnonymousListCulpTest extends AcmeTest {
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("budget", budget);
-        if (important != null && important.equals("true"))
-            super.clickAndGo(By.id("important$proxy"));
+        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
+        if (flagAttributeToChange != null && flagAttributeToChange.equals("true"))
+            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
         super.clickOnSubmitButton("Shout!");
 
         super.clickOnMenu("Anonymous", "List shouts");
@@ -61,8 +61,8 @@ class AnonymousListCulpTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex, 5, budget);
-        super.checkColumnHasValue(recordIndex, 6, important);
+        super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
+        super.checkColumnHasValue(recordIndex, 6, flagAttributeToChange);
 
     }
 

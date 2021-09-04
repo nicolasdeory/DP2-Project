@@ -98,20 +98,20 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from Culp x where x.important=TRUE")
-	Double getCulpsFlaggedAsImportant();
+	@Query("select count (x) from EntityToChange x where x.flagAttributeToChange=TRUE")
+	Double getEntityToChangesFlaggedAsFlagAttributeToChange();
 
-	@Query("select avg(x.budget.amount) from Culp x where x.budget.currency= 'EUR' ")
-	Optional<Double> getCulp_EurBudgetAverage();
+	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR' ")
+	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeAverage();
 
-	@Query("select stddev(x.budget.amount) from Culp x where x.budget.currency= 'EUR'  ")
-	Optional<Double> getCulp_EurBudgetDeviation();
+	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR'  ")
+	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeDeviation();
 
-	@Query("select avg(x.budget.amount) from Culp x where x.budget.currency= 'USD' ")
-	Optional<Double> getCulp_DollarBudgetAverage();
+	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
+	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeAverage();
 
-	@Query("select stddev(x.budget.amount) from Culp x where x.budget.currency= 'USD' ")
-	Optional<Double> getCulp_DollarBudgetDeviation();
+	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
+	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
 
 	/////////////////////////////////////////////////
 

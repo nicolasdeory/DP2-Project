@@ -1607,3 +1607,121 @@ INFO [acme.Launcher] The following profiles are active: development,default
 INFO [acme.Launcher] Started Launcher in 6.514 seconds (JVM running for 6.955)
 INFO [acme.Launcher] Running application (standalone)
 INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 17909 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [culp_id] in table [shout]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [culp_id] in table [shout]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [culp_id] in table [shout]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [culp_id] in table [shout]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:136): Schema-validation: missing column [culp_id] in table [shout]
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 17953 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 6.698 seconds (JVM running for 7.155)
+INFO [acme.Launcher] Populating (initial data)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 18006 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 6.747 seconds (JVM running for 7.198)
+INFO [acme.Launcher] Running application (standalone)
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] HTTP POST /Acme-WorkPlans/WEB-INF/views/framework/page.jsp HTTP/1.1
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Status: 500
+ERROR [org.apache.jsp.WEB_002dINF.views.framework.panic_jsp] Exception: org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.handleNoMatch(RequestMappingInfoHandlerMapping.java:250): Request method 'POST' not supported
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 19666 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [entity_to_change]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [entity_to_change]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [entity_to_change]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [entity_to_change]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121): Schema-validation: missing table [entity_to_change]
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 19711 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 6.803 seconds (JVM running for 7.238)
+INFO [acme.Launcher] Populating (initial data)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 19812 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 6.63 seconds (JVM running for 7.06)
+INFO [acme.Launcher] Running application (standalone)
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 20159 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 6.517 seconds (JVM running for 6.927)
+INFO [acme.Launcher] Populating (initial data)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamParameters ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spamParameters.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamParameters = acme.features.spam.SpamParameters{id=6, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on msiGS63 with PID 20213 (/mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project/target/classes started by snow in /mnt/hdd/us/notes/3/2/dp2/practice/Workspace/Workspace-21.1/Projects/DP2-Project)
+INFO [acme.Launcher] The following profiles are active: development,default
+INFO [acme.Launcher] Started Launcher in 6.544 seconds (JVM running for 6.95)
+INFO [acme.Launcher] Running application (standalone)

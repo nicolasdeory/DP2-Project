@@ -48,10 +48,10 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.culpFlaggedAsImportant	= Number of important Shouts  
-administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero Budget 
-administrator.dashboard.form.label.culp_EURBudgetAverage	= Average value of EUR currency
-administrator.dashboard.form.label.culp_EURBudgetDeviation	= Deviation of the total EUR currency
-administrator.dashboard.form.label.culp_DollarBudgetAverage	= Average value of USD currency
-administrator.dashboard.form.label.culp_DollarBudgetDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of flagAttributeToChange Shouts  
+administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero MoneyAttributeToChange 
+administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
+administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
+administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
+administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
 

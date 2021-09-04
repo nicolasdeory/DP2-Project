@@ -43,8 +43,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"minOfWorkPlanExecutionPeriods", "maxOfWorkPlanExecutionPeriods", "averageOfTaskWorkloads",
 				"deviationOfTaskWorkloads", "minOfTaskWorkloads", "maxOfTaskWorkloads", "averageOfWorkplanWorkloads",
 				"deviationOfWorkplanWorkloads", "minOfWorkplanWorkloads", "maxOfWorkplanWorkloads",
-				"culpFlaggedAsImportant", "shoutsZeroBugdetRate", "culp_EURBudgetAverage", "culp_EURBudgetDeviation",
-				"culp_DollarBudgetAverage", "culp_DollarBudgetDeviation");
+				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
+				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
+				"entityToChange_DollarMoneyAttributeToChangeAverage",
+				"entityToChange_DollarMoneyAttributeToChangeDeviation");
 	}
 
 	@Override
@@ -84,12 +86,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double culpFlaggedAsImportant;
+		Double entityToChangeFlaggedAsFlagAttributeToChange;
 		Double shoutsZeroBugdetRate;
-		Double culp_EURBudgetAverage;
-		Double culp_EURBudgetDeviation;
-		Double culp_DollarBudgetAverage;
-		Double culp_DollarBudgetDeviation;
+		Double entityToChange_EURMoneyAttributeToChangeAverage;
+		Double entityToChange_EURMoneyAttributeToChangeDeviation;
+		Double entityToChange_DollarMoneyAttributeToChangeAverage;
+		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -134,13 +136,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream()
 				.mapToDouble(x -> x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		culpFlaggedAsImportant = this.repository.getCulpsFlaggedAsImportant();
+		entityToChangeFlaggedAsFlagAttributeToChange = this.repository
+				.getEntityToChangesFlaggedAsFlagAttributeToChange();
 		shoutsZeroBugdetRate = this.service.getShoutsZeroBugdetRate();
 		// -1 when no data persisted
-		culp_EURBudgetAverage = this.repository.getCulp_EurBudgetAverage().orElse(-1.);
-		culp_EURBudgetDeviation = this.repository.getCulp_EurBudgetDeviation().orElse(-1.);
-		culp_DollarBudgetAverage = this.repository.getCulp_DollarBudgetAverage().orElse(-1.);
-		culp_DollarBudgetDeviation = this.repository.getCulp_DollarBudgetDeviation().orElse(-1.);
+		entityToChange_EURMoneyAttributeToChangeAverage = this.repository
+				.getEntityToChange_EurMoneyAttributeToChangeAverage().orElse(-1.);
+		entityToChange_EURMoneyAttributeToChangeDeviation = this.repository
+				.getEntityToChange_EurMoneyAttributeToChangeDeviation().orElse(-1.);
+		entityToChange_DollarMoneyAttributeToChangeAverage = this.repository
+				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
+		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
+				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -174,12 +181,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setCulpFlaggedAsImportant(culpFlaggedAsImportant);
+		result.setEntityToChangeFlaggedAsFlagAttributeToChange(entityToChangeFlaggedAsFlagAttributeToChange);
 		result.setShoutsZeroBugdetRate(shoutsZeroBugdetRate);
-		result.setCulp_EURBudgetAverage(culp_EURBudgetAverage);
-		result.setCulp_EURBudgetDeviation(culp_EURBudgetDeviation);
-		result.setCulp_DollarBudgetAverage(culp_DollarBudgetAverage);
-		result.setCulp_DollarBudgetDeviation(culp_DollarBudgetDeviation);
+		result.setEntityToChange_EURMoneyAttributeToChangeAverage(entityToChange_EURMoneyAttributeToChangeAverage);
+		result.setEntityToChange_EURMoneyAttributeToChangeDeviation(entityToChange_EURMoneyAttributeToChangeDeviation);
+		result.setEntityToChange_DollarMoneyAttributeToChangeAverage(
+				entityToChange_DollarMoneyAttributeToChangeAverage);
+		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
+				entityToChange_DollarMoneyAttributeToChangeDeviation);
 
 		return result;
 	}

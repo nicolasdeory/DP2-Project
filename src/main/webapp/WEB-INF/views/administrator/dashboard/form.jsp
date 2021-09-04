@@ -13,10 +13,10 @@
 	</caption>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.culpFlaggedAsImportant"/>
+			<acme:message code="administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange"/>
 		</th>
 		<td>
-			<acme:print value="${culpFlaggedAsImportant}"/>
+			<acme:print value="${entityToChangeFlaggedAsFlagAttributeToChange}"/>
 		</td>
 	</tr>
 	<tr>
@@ -29,34 +29,34 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.culp_EURBudgetAverage"/>
+			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage"/>
 		</th>
 		<td>
-			<acme:print value="${culp_EURBudgetAverage}"/>
+			<acme:print value="${entityToChange_EURMoneyAttributeToChangeAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.culp_EURBudgetDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${culp_EURBudgetDeviation}"/>
+			<acme:print value="${entityToChange_EURMoneyAttributeToChangeDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.culp_DollarBudgetAverage"/>
+			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage"/>
 		</th>
 		<td>
-			<acme:print value="${culp_DollarBudgetAverage}"/>
+			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.culp_DollarBudgetDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${culp_DollarBudgetDeviation}"/>
+			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
 		</td>
 	</tr>
 

@@ -1,4 +1,4 @@
-package acme.testing.anonymous.culp;
+package acme.testing.anonymous.entityToChange;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AdministratorDashboardCulpShowTest extends AcmeTest {
+class AdministratorDashboardEntityToChangeShowTest extends AcmeTest {
 
 	@Override
 	@BeforeAll

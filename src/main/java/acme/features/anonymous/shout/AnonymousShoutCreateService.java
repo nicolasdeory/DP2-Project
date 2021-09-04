@@ -19,7 +19,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.culp.Culp;
+import acme.entities.entityToChange.EntityToChange;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,7 +53,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getCulp(), errors);
+        request.bind(entity.getEntityToChange(), errors);
 
     }
 
@@ -64,7 +64,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getCulp(), model, "insignia", "budget", "important", "deadline");
+        request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
+                "flagAttributeToChange", "dateAttributeToChange");
     }
 
     @Override
@@ -78,7 +79,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setCulp(new Culp());
+        result.setEntityToChange(new EntityToChange());
 
         return result;
     }
@@ -88,21 +89,27 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final Culp culp = entity.getCulp();
-        if (culp.getBudget() != null
-                && (!(culp.getBudget().getCurrency().equals("EUR") || culp.getBudget().getCurrency().equals("USD")))) {
-            errors.state(request, false, "budget", "anonymous.shout.culp.error.budget.format");
+        final EntityToChange entityToChange = entity.getEntityToChange();
+        if (entityToChange.getMoneyAttributeToChange() != null
+                && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
+                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")))) {
+            errors.state(request, false, "moneyAttributeToChange",
+                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
         }
 
-        if (culp.getBudget() != null && culp.getBudget().getAmount() <= 0) {
-            errors.state(request, false, "budget", "anonymous.shout.culp.error.budget.negative");
+        if (entityToChange.getMoneyAttributeToChange() != null
+                && entityToChange.getMoneyAttributeToChange().getAmount() <= 0) {
+            errors.state(request, false, "moneyAttributeToChange",
+                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
         }
 
         Calendar c = Calendar.getInstance();
         c.setTime(new Date(System.currentTimeMillis()));
         c.add(Calendar.WEEK_OF_YEAR, +1);
-        if (culp.getDeadline() != null && culp.getDeadline().before(c.getTime())) {
-            errors.state(request, false, "deadline", "anonymous.shout.culp.error.deadline.week");
+        if (entityToChange.getDateAttributeToChange() != null
+                && entityToChange.getDateAttributeToChange().before(c.getTime())) {
+            errors.state(request, false, "dateAttributeToChange",
+                    "anonymous.shout.entityToChange.error.dateAttributeToChange.week");
         }
 
     }
@@ -126,11 +133,11 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.setTime(date);
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getCulp().setShout(entity);
-        entity.getCulp().setDeadline(c.getTime());
+        entity.getEntityToChange().setShout(entity);
+        entity.getEntityToChange().setDateAttributeToChange(c.getTime());
         final String randInt = String.valueOf(System.currentTimeMillis());
 
-        entity.getCulp().setInsignia(randInt.substring(randInt.length() - 6) + ":" + year + ":"
+        entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
                 + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
         this.repository.save(entity);
 

@@ -44,12 +44,12 @@ public class Dashboard implements Serializable {
 	Double minOfWorkplanWorkloads;
 	Double maxOfWorkplanWorkloads;
 
-	Double culpFlaggedAsImportant;
+	Double entityToChangeFlaggedAsFlagAttributeToChange;
 	Double shoutsZeroBugdetRate;
-	Double culp_EURBudgetAverage;
-	Double culp_EURBudgetDeviation;
-	Double culp_DollarBudgetAverage;
-	Double culp_DollarBudgetDeviation;
+	Double entityToChange_EURMoneyAttributeToChangeAverage;
+	Double entityToChange_EURMoneyAttributeToChangeDeviation;
+	Double entityToChange_DollarMoneyAttributeToChangeAverage;
+	Double entityToChange_DollarMoneyAttributeToChangeDeviation;
 
 	// Derived attributes -----------------------------------------------------
 
