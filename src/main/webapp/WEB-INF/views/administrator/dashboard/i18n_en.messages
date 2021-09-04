@@ -54,4 +54,6 @@ administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAvera
 administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
 administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
 administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	= Average value of GBP currency
+administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Deviation of the total GBP currency
 

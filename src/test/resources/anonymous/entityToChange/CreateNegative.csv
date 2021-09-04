@@ -1,0 +1,12 @@
+recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAttributeToChange
+0,,,,,false,
+0,,,autor vacio,,false,
+0,texto vacio,,,,false,
+0,Nicol,nolink,link mal,,false,
+0,Jose,,autor menor de 5,,false,
+0,qwertyuioplkjhgfdsdfghbvfdertgfertgvfdergvferftgvfreftgvfrfgvfrfgrftgfrftgfrthgbvfrtghbvgfrtghbgvftghbvgftghgb,,autor mayor de 25,,false,
+0,texto mayor de cien,,frhjbrehfjbsjhkfdshjgfsdjhbgshbjgfsjhbgfhbjgfhbjgfdjhbgfdjhbgfdhbjfdghbjfdghbjgfdbjhfdgbjhfdvjhbfdvhbjfdvhbjfdhvbjvfdhbjhvfdbjhbgfjvhbjgfdbjhgfbhjgfbhjfdjhbfdvhbjdfvhbjdvfhbjfvhbjvfbhjvfdbhjvfdhbjfvdbjhfvbhjfdhbjfdbjhfdhbjefrdhbjefrdshbjfrdbjhfrbhjfrehbjfrehbjefrhebjfrehbjfrebjhfrbjhfrehbjfrehbjfrehbjfrehbjefrhbjfrebjhfrehbjefrhbjferhbjfrehbjfrehbjferhbjfrehbjfrehbjfrehbjefrhbjefrhbjefrbhjefrhbjefrbjhefrbjhfrejhbfrehbjfrebjhefrbhjefrhbjfrehbjefrhbjfrehbjefrjhbefrbjhefrbjherfhbjfrehbjfrwehbjefrjhbefrhbjefrbjhefrhbjefrhbjefrwbjhefrhbjerfhbjefrhbjefrbhjefrhbjefrhbjefrhbjefrhbjfrebjhfrhbjfrhbjfrhbjfrhbjfrhbjdehbjedhbjdsekjidsijkwsijkwskjedfjrfhjgfjhfrknjedjkefdknjfrknjfrknjfrknjgejegfjhbgfhbjgfrhbjrehbjerghbjfreghbjfreghbjegfdrhbjegfrhbjefrhbjfegrhbjefrhbjegfjhbrdknjhgbedwhwshfbvgedwsvd,,false,
+0,Joselu,,Prueba el omori,Bitcoin 20.00,true,2022/04/09 00:00
+0,Josemari,,Java developer,EUR -20.00,true,2022/04/09 00:00
+0,Veronica,,Aprueba dp,EUR 20.00,true,2021/04/09 00:00
+0,Marta,,Pasando el rato,EUR 20.00,true,asdsdsd

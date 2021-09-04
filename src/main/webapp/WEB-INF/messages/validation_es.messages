@@ -73,7 +73,7 @@ acme.features.spam.isSpam = Este texto se ha detectado como spam. Prueba a reesc
 
 management.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No la puedes editar ni eliminar.
 
-anonymous.shout.entityToChange.error.moneyAttributeToChange.negative = La cantidad no puede ser negativa.
-anonymous.shout.entityToChange.error.moneyAttributeToChange.format = El formato no es válido.
-anonymous.shout.entityToChange.error.moneyAttributeToChange.week = La "dateAttributeToChange" debe ser dentro de una semana como mínimo.
+anonymous.shout.entityToChange.error.moneyAttributeToChange.negative = La cantidad no puede ser negativa
+anonymous.shout.entityToChange.error.moneyAttributeToChange.format = El formato no es válido
+anonymous.shout.entityToChange.error.moneyAttributeToChange.week = La "dateAttributeToChange" debe ser dentro de una semana como mínimo
 

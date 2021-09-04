@@ -1,0 +1,5 @@
+recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAttributeToChange
+0,Joselu,,Prueba el omori,EUR 20.00,true,2022/04/09 00:00
+0,Pedro,,¿un valorant?,USD 20.00, false,2022/05/06 00:00
+0,Jose M,,*trabajando*,GBP 10.00, true,2022/04/14 00:00
+0,Juan Gil,,*descansando*,EUR 0.00, true,2022/05/20 00:00

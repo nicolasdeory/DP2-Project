@@ -58,6 +58,22 @@
 		<td>
 			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
 		</td>
+	</tr
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage"/>
+		</th>
+		<td>
+			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeAverage}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation"/>
+		</th>
+		<td>
+			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeDeviation}"/>
+		</td>
 	</tr>
 
 	<tr>

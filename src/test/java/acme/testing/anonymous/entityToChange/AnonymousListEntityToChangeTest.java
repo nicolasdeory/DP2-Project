@@ -43,7 +43,7 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/entityToChange/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info, final String text,
-            final String moneyAttributeToChange, final String flagAttributeToChange) {
+            final String moneyAttributeToChange, final String flagAttributeToChange, final String dateAttributeToChange) {
 
         // creamos un shout ya que si no no funciona
         super.clickOnMenu("Anonymous", "Shout!");
@@ -54,6 +54,7 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
         super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
         if (flagAttributeToChange != null && flagAttributeToChange.equals("true"))
             super.clickAndGo(By.id("flagAttributeToChange$proxy"));
+        super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
         super.clickOnSubmitButton("Shout!");
 
         super.clickOnMenu("Anonymous", "List shouts");
@@ -63,6 +64,7 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 3, info);
         super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
         super.checkColumnHasValue(recordIndex, 6, flagAttributeToChange);
+        super.checkColumnHasValue(recordIndex, 7, dateAttributeToChange);
 
     }
 

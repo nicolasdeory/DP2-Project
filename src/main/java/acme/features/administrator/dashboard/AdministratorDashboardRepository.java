@@ -113,6 +113,12 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
 	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
 
+	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
+	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeAverage();
+
+	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
+	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeDeviation();
+
 	/////////////////////////////////////////////////
 
 	/////////////////////////////////////////////////

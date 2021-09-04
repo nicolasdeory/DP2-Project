@@ -50,6 +50,8 @@ public class Dashboard implements Serializable {
 	Double entityToChange_EURMoneyAttributeToChangeDeviation;
 	Double entityToChange_DollarMoneyAttributeToChangeAverage;
 	Double entityToChange_DollarMoneyAttributeToChangeDeviation;
+	Double entityToChange_GBPMoneyAttributeToChangeAverage;
+	Double entityToChange_GBPMoneyAttributeToChangeDeviation;
 
 	// Derived attributes -----------------------------------------------------
 

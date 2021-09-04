@@ -92,13 +92,13 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         final EntityToChange entityToChange = entity.getEntityToChange();
         if (entityToChange.getMoneyAttributeToChange() != null
                 && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
-                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")))) {
+                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {
             errors.state(request, false, "moneyAttributeToChange",
                     "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
         }
 
         if (entityToChange.getMoneyAttributeToChange() != null
-                && entityToChange.getMoneyAttributeToChange().getAmount() <= 0) {
+                && entityToChange.getMoneyAttributeToChange().getAmount() < 0) {
             errors.state(request, false, "moneyAttributeToChange",
                     "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
         }
@@ -134,7 +134,6 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
         entity.getEntityToChange().setShout(entity);
-        entity.getEntityToChange().setDateAttributeToChange(c.getTime());
         final String randInt = String.valueOf(System.currentTimeMillis());
 
         entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"

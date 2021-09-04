@@ -46,7 +46,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
 				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
 				"entityToChange_DollarMoneyAttributeToChangeAverage",
-				"entityToChange_DollarMoneyAttributeToChangeDeviation");
+				"entityToChange_DollarMoneyAttributeToChangeDeviation",
+				"entityToChange_GBPMoneyAttributeToChangeAverage",
+				"entityToChange_GBPMoneyAttributeToChangeDeviation");
 	}
 
 	@Override
@@ -92,6 +94,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double entityToChange_EURMoneyAttributeToChangeDeviation;
 		Double entityToChange_DollarMoneyAttributeToChangeAverage;
 		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
+		Double entityToChange_GBPMoneyAttributeToChangeAverage;
+		Double entityToChange_GBPMoneyAttributeToChangeDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -148,6 +152,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
 		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
 				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
+		entityToChange_GBPMoneyAttributeToChangeAverage = this.repository
+				.getEntityToChange_GBPMoneyAttributeToChangeAverage().orElse(-1.);
+		entityToChange_GBPMoneyAttributeToChangeDeviation = this.repository
+				.getEntityToChange_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -189,6 +197,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				entityToChange_DollarMoneyAttributeToChangeAverage);
 		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
 				entityToChange_DollarMoneyAttributeToChangeDeviation);
+		result.setEntityToChange_GBPMoneyAttributeToChangeAverage(
+				entityToChange_GBPMoneyAttributeToChangeAverage);
+		result.setEntityToChange_GBPMoneyAttributeToChangeDeviation(
+				entityToChange_GBPMoneyAttributeToChangeDeviation);
 
 		return result;
 	}
