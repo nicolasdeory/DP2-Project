@@ -53,3 +53,6 @@ administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAvera
 administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Desviación del total de la divisa EUR
 administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Valor medio de la divisa USD
 administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Desviación del total de la divisa USD
+administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	=Valor medio de la divisa GBP 
+administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Desviación del total de la divisa GBP 
+

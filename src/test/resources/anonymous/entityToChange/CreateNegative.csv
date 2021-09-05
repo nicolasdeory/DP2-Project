@@ -2,11 +2,24 @@ recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAt
 0,,,,,false,
 0,,,autor vacio,,false,
 0,texto vacio,,,,false,
-0,Nicol,nolink,link mal,,false,
+0,Nicol,linkmalformado.com,link mal,,false,
 0,Jose,,autor menor de 5,,false,
 0,qwertyuioplkjhgfdsdfghbvfdertgfertgvfdergvferftgvfreftgvfrfgvfrfgrftgfrftgfrthgbvfrtghbvgfrtghbgvftghbvgftghgb,,autor mayor de 25,,false,
 0,texto mayor de cien,,frhjbrehfjbsjhkfdshjgfsdjhbgshbjgfsjhbgfhbjgfhbjgfdjhbgfdjhbgfdhbjfdghbjfdghbjgfdbjhfdgbjhfdvjhbfdvhbjfdvhbjfdhvbjvfdhbjhvfdbjhbgfjvhbjgfdbjhgfbhjgfbhjfdjhbfdvhbjdfvhbjdvfhbjfvhbjvfbhjvfdbhjvfdhbjfvdbjhfvbhjfdhbjfdbjhfdhbjefrdhbjefrdshbjfrdbjhfrbhjfrehbjfrehbjefrhebjfrehbjfrebjhfrbjhfrehbjfrehbjfrehbjfrehbjefrhbjfrebjhfrehbjefrhbjferhbjfrehbjfrehbjferhbjfrehbjfrehbjfrehbjefrhbjefrhbjefrbhjefrhbjefrbjhefrbjhfrejhbfrehbjfrebjhefrbhjefrhbjfrehbjefrhbjfrehbjefrjhbefrbjhefrbjherfhbjfrehbjfrwehbjefrjhbefrhbjefrbjhefrhbjefrhbjefrwbjhefrhbjerfhbjefrhbjefrbhjefrhbjefrhbjefrhbjefrhbjfrebjhfrhbjfrhbjfrhbjfrhbjfrhbjdehbjedhbjdsekjidsijkwsijkwskjedfjrfhjgfjhfrknjedjkefdknjfrknjfrknjfrknjgejegfjhbgfhbjgfrhbjrehbjerghbjfreghbjfreghbjegfdrhbjegfrhbjefrhbjfegrhbjefrhbjegfjhbrdknjhgbedwhwshfbvgedwsvd,,false,
-0,Joselu,,Prueba el omori,Bitcoin 20.00,true,2022/04/09 00:00
-0,Josemari,,Java developer,EUR -20.00,true,2022/04/09 00:00
-0,Veronica,,Aprueba dp,EUR 20.00,true,2021/04/09 00:00
-0,Marta,,Pasando el rato,EUR 20.00,true,asdsdsd
+0,Joselu,,currency no valida (BTC),BTC 20.00,true,2022/04/09 00:00
+0,Josemari,,Dinero negativo,EUR -20.00,true,2022/04/09 00:00
+0,Josemari,,Dinero con texto,dinero con texto,true,2022/04/09 00:00
+0,Juan Gil,,*nosense money amount*,EUR 0.001, true,2021/12/12 09:20
+0,Juan Gil,,*nosense money amount*,EUR 0.00001, true,2021/12/12 09:20
+0,Juan Gil,,*min money amount negative*,EUR -0.01, true,2021/12/12 09:20
+0,Juan Gil,,*nosense money amount negative*,EUR -0.000001, true,2021/12/12 09:20
+0,Juan Gil,,*empty money amount negative*,EUR, true,2021/12/12 09:20
+0,Juan Gil,,*empty money currencty negative*, 20, true,2021/12/12 09:20
+0,Veronica,,fecha pasada,EUR 20.00,true,2021/04/09 00:00
+0,Veronica,,25 horas,EUR 20.00,true,2021/04/09 25:00
+0,Veronica,,61 minutos,EUR 20.00,true,2021/04/09 12:61
+0,Marta,,fecha con texto,EUR 20.00,true,asdsdsd
+0,spam en texto,,spam en el texto sex,EUR 20.00,true,2021/04/09 12:61
+0,spam en titulo sex,,spam en el titulo,EUR 20.00,true,2021/04/09 12:61
+0,spam total sex,,spam sex,EUR 20.00,true,2021/04/09 12:61
+
