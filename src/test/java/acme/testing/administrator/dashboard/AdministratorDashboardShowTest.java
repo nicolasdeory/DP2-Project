@@ -47,31 +47,33 @@ class AdministratorDashboardShowTest extends AcmeTest {
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[normalize-space(text()) = '0.82']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[5]/td[normalize-space(text()) = '-1.00']"));
 		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[6]/td[normalize-space(text()) = '-1.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[7]/td[normalize-space(text()) = '11']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[8]/td[normalize-space(text()) = '3']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[9]/td[normalize-space(text()) = '2']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[10]/td[normalize-space(text()) = '12']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[11]/td[normalize-space(text()) = '1,341.55']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[12]/td[normalize-space(text()) = '715.46']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[13]/td[normalize-space(text()) = '2.13']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[14]/td[normalize-space(text()) = '2,803.52']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[15]/td[normalize-space(text()) = '1.55']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[16]/td[normalize-space(text()) = '0.26']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[17]/td[normalize-space(text()) = '192.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[18]/td[normalize-space(text()) = '9,355.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[19]/td[normalize-space(text()) = '10']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[20]/td[normalize-space(text()) = '8']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[21]/td[normalize-space(text()) = '2']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[22]/td[normalize-space(text()) = '1']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[23]/td[normalize-space(text()) = '9']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[24]/td[normalize-space(text()) = '360.50']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[25]/td[normalize-space(text()) = '835.20']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[26]/td[normalize-space(text()) = '33.03']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[27]/td[normalize-space(text()) = '2,866.23']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[28]/td[normalize-space(text()) = '2.25']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[29]/td[normalize-space(text()) = '1.21']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[30]/td[normalize-space(text()) = '1,128.00']"));
-		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[31]/td[normalize-space(text()) = '11,424.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[7]/td[normalize-space(text()) = '-1.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[8]/td[normalize-space(text()) = '-1.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[9]/td[normalize-space(text()) = '11']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[10]/td[normalize-space(text()) = '3']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[11]/td[normalize-space(text()) = '2']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[12]/td[normalize-space(text()) = '12']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[13]/td[normalize-space(text()) = '1,341.55']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[14]/td[normalize-space(text()) = '715.46']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[15]/td[normalize-space(text()) = '2.13']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[16]/td[normalize-space(text()) = '2,803.52']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[17]/td[normalize-space(text()) = '1.55']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[18]/td[normalize-space(text()) = '0.26']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[19]/td[normalize-space(text()) = '192.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[20]/td[normalize-space(text()) = '9,355.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[21]/td[normalize-space(text()) = '10']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[22]/td[normalize-space(text()) = '8']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[23]/td[normalize-space(text()) = '2']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[24]/td[normalize-space(text()) = '1']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[25]/td[normalize-space(text()) = '9']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[26]/td[normalize-space(text()) = '360.50']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[27]/td[normalize-space(text()) = '835.20']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[28]/td[normalize-space(text()) = '33.03']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[29]/td[normalize-space(text()) = '2,866.23']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[30]/td[normalize-space(text()) = '2.25']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[31]/td[normalize-space(text()) = '1.21']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[32]/td[normalize-space(text()) = '1,128.00']"));
+		super.checkExists(By.xpath("/html/body/div[2]/div/table/tbody/tr[33]/td[normalize-space(text()) = '11,424.00']"));
 	
 		this.signOut();
 	
@@ -87,7 +89,7 @@ class AdministratorDashboardShowTest extends AcmeTest {
 		 super.signIn("administrator", "administrator"); 
 		 super.clickOnMenu("Administrator", "Dashboard");
 
-		String url=super.driver.getCurrentUrl();
+		final String url=super.driver.getCurrentUrl();
 	 
 	     super.signOut();  
 	     super.driver.navigate().to(url);

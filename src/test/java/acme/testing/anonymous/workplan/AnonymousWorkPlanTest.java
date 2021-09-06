@@ -83,18 +83,18 @@ class AnonymousWorkPlanTest extends AcmeTest{
 	 @CsvFileSource(resources = "/anonymous/workplan/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	 @Order(3)
 	 void listAndShowNegative(final int recordIndex, final String title, final String description, final String isPublic, final String startDate, final String finishDate,final String tasks) {
-		 	super.clickOnMenu("Anonymous", "Public Workplans list");
-		 	super.clickOnListingRecord(recordIndex);
+		 super.clickOnMenu("Anonymous", "Public Workplans list"); 
+		 super.clickOnListingRecord(recordIndex); 
 
-	        final String path=super.getSimplePath();
-	        final String query=super.getContextQuery();
+		 final String url=super.driver.getCurrentUrl(); 
 
-	        super.signIn("lola21","1234");
+		 super.signIn("lola21","1234"); 
 
-	        super.navigate(path,query);
-	        super.checkErrorsExist();
+		 super.driver.navigate().to(url); 
 
-	        super.signOut();
+		 super.checkErrorsExist(); 
+
+		 super.signOut(); 
 	    }
 
 }
