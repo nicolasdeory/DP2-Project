@@ -58,7 +58,7 @@
 		<td>
 			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
 		</td>
-	</tr
+	</tr>
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage"/>
