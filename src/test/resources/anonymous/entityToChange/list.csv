@@ -1,8 +1,37 @@
 recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAttributeToChange
-0,Joselu,,Prueba el omori,EUR 20.00,true,2022/04/09 00:00
+0, JoanMir,, "Empty entityToChange", , false,
+0, JoanMir,https://corframework.com, "Empty entityToChange", , false,
+0,Joselu,,Prueba el omori,EUR 20.00, true,2022/04/09 00:00
+0,Joselu,,Sin fecha,EUR 20.00, false,
+0,Joselu,,Sin money,, false,2022/04/09 00:00
 0,Pedro,,¿un valorant?,USD 20.00, false,2022/05/06 00:00
 0,Jose M,,*trabajando*,GBP 10.00, true,2022/04/14 00:00
 0,Juan Gil,,*descansando*,EUR 0.00, true,2022/05/20 00:00
-0, JoanMir,, "Empty entityToChange", , false, 
-0, JoanMir,https://corframework.com, "Empty entityToChange", , false,
-0,Juan Gil,,*min money amount positive*,EUR 0.01, true,2021/12/12 09:20
+0,Andres,,*testing positive*,USD 9.02, true,2021/12/12 09:20
+0,Leiva,,*min money amount positive*,EUR 3.01, true,2021/12/12 09:20
+0,Nicolas,,*programando*,EUR 23.01, false,2023/09/12 10:20
+0,Alberto,,*estudiando*,GBP 40.30, true,2023/03/12 10:20
+0,Nuria,,*Fiesta*,USD 45.30, false,2022/08/20 12:30
+0,Rocio,,*Feria de Sevilla*,GBP 60.20,false ,2022/04/22 20:30
+0,Beatriz,,*Playa*,EUR 7.20, true,2022/03/22 09:30
+0,Jose Antonio,,*Viva la vida*,USD 9.40, false,2022/07/09 10:30
+0,Francisco,,*un buen corazón*,GBP 2.40, false,2022/10/23 13:14
+0,Maria,,*forrado de oro*,GBP 2.40,false ,2022/10/23 04:14
+0,Maialen,,*la acción hacen que las horas parezcan cortas*,EUR 7.62, false,2022/05/03 03:14
+0,Alexander,,Qué maravilloso,EUR 50.20,true ,2022/03/25 09:30
+0,Rosario,,aprendiendo en la escuela,USD 17.40, false,2022/07/04 10:30
+0,Mario,,*La ocasión hay que crearla*,GBP 9.40, false,2022/10/03 13:14
+0,Ada Maria,,No malgastes tu tiempo,EUR 0.20, true,2022/03/25 09:30
+0,Gustavo,,La muerte destroza al hombre,USD 13.00, true,2022/07/04 10:30
+0,Ignasi,,comenzar a mejorar el mundo,GBP 9.55, false,2022/10/03 13:14
+0,Noah Torres,,Quien tiene paciencia,EUR 5.20, true,2022/03/25 09:30
+0,Vanesa,,No busques los errores,USD 19.00, false,2022/07/04 10:30
+0,Gines,,La ocasión hay que crearla,GBP 39.35, false,2022/10/03 13:14
+0,Aritz,,La envidia es una declaración de inferioridad,EUR 23.20, true,2022/03/10 09:30
+0,Teodoro,,no encuentra nada,USD 90.00, false,2022/04/04 10:30
+0,Isaac de la Cruz,,Educación es lo que queda después,GBP 40.35, true,2022/07/03 13:14
+0,Santos,,La inteligencia es la habilidad de adaptarse al cambio,EUR 0.40, true,2022/03/12 09:30
+0,Ioana,,el hombre no se encuentra a sí mismo,USD 19.25, false,2022/03/14 10:30
+0,Lucia,,La gente se rie de mi por que soy diferente,GBP 25.09, false,2022/08/13 13:14
+0,Monica,,la mujer no se encuentra a sí mismo,USD 29.00, false,2022/04/14 10:30
+0,Andrea,,soy diferente,GBP 4.49, false,2022/07/13 13:14

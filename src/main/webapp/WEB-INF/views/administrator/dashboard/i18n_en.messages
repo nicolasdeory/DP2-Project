@@ -48,7 +48,7 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of flagAttributeToChange Shouts  
+administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of Shouts flagged as flagAttributeToChange
 administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero MoneyAttributeToChange 
 administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
 administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency

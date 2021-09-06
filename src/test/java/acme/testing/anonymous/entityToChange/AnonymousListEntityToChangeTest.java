@@ -52,7 +52,7 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
         super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
-        if (flagAttributeToChange != null && flagAttributeToChange.equals("true"))
+        if (flagAttributeToChange != null && flagAttributeToChange.trim().equals("true"))
             super.clickAndGo(By.id("flagAttributeToChange$proxy"));
         super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
         super.clickOnSubmitButton("Shout!");

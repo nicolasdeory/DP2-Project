@@ -34,14 +34,14 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     @CsvFileSource(resources = "/anonymous/entityToChange/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info, final String text,
-            final String moneyAttributeToChange, final String flag, final String dateAttributeToChange) {
+            final String moneyAttributeToChange, final String flagAttributeToChange, final String dateAttributeToChange) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
         super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
-        if (flag != null && flag.equals("true"))
+        if (flagAttributeToChange != null && flagAttributeToChange.trim().equals("true"))
             super.clickAndGo(By.id("flagAttributeToChange$proxy"));
         super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
         super.clickOnSubmitButton("Shout!");
@@ -52,7 +52,7 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
         super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
-        super.checkColumnHasValue(recordIndex, 6, flag);
+        super.checkColumnHasValue(recordIndex, 6, flagAttributeToChange);
         super.checkColumnHasValue(recordIndex, 7, dateAttributeToChange);
 
     }
