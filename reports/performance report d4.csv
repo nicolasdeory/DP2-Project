@@ -1,21 +1,21 @@
-time;time;;;;;;;;;;;;
+time PC1;time PC2;;;;;;;;;;;;
 581;522;;;;;;;;;;;;
 592;535;;IGNA;;;;;;FER;;;;
 586,5;528,5;;time;;;;;;time;;;;
 593;536;;;;;max;MIN;;;;;max;MIN
-594;535;;Media;386,82;Interval;400,95;372,70;;Media;361,059039;Interval;374,60;347,52
-617;533;;Error típico;7,20;Requirement;1000;;;Error típico;6,899349863;Requirement;1000;
-592;550;;Mediana;247,00;Result;:);:);;Mediana;268;Result;:);:)
-591;534;;Moda;594,00;;;;;Moda;535;;;
+594;535;;Media;386,82;Interval;400,95;372,7;;Media;361,059039;Interval;374,6;347,52
+617;533;;Error típico;7,2;Requirement;1000;;;Error típico;6,899349863;Requirement;1000;
+592;550;;Mediana;247;Result;:);:);;Mediana;268;Result;:);:)
+591;534;;Moda;594;;;;;Moda;535;;;
 588;536;;Desviación estándar;228,93;;;;;Desviación estándar;219,3732888;;;
 592;533;;Varianza de la muestra;52406,85;;;;;Varianza de la muestra;48124,63984;;;
 596;533;;Curtosis;29,72;;;;;Curtosis;86,62031336;;;
-594;535;;Coeficiente de asimetría;2,40;;;;;Coeficiente de asimetría;5,158543237;;;
-591;533;;Rango;3296,00;;;;;Rango;4006;;;
-592;536;;Mínimo;154,00;;;;;Mínimo;147;;;
-592;533;;Máximo;3450,00;;;;;Máximo;4153;;;
+594;535;;Coeficiente de asimetría;2,4;;;;;Coeficiente de asimetría;5,158543237;;;
+591;533;;Rango;3296;;;;;Rango;4006;;;
+592;536;;Mínimo;154;;;;;Mínimo;147;;;
+592;533;;Máximo;3450;;;;;Máximo;4153;;;
 596;534;;Suma;391079,58;;;;;Suma;365030,6884;;;
-596;523;;Cuenta;1011,00;;;;;Cuenta;1011;;;
+596;523;;Cuenta;1011;;;;;Cuenta;1011;;;
 591;539;;Nivel de confianza(95,0%);14,13;;;;;Nivel de confianza(95,0%);13,53870143;;;
 585;535;;;;;;;;;;;;
 594;525;;;;;;;;;;;;
