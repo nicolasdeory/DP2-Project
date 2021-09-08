@@ -10,7 +10,10 @@
 <table class="table table-sm">
 	<caption>
 		<acme:message code="administrator.dashboard.form.title.general-indicators"/>
-	</caption>	
+	</caption>
+	<p>
+		<acme:message code="administrator.dashboard.form.description"/>
+	</p>
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.numberOfPublicTasks"/>
