@@ -43,9 +43,12 @@ public class Task extends DomainEntity {
     /*
      * Workload Format: X.YYY where: X is the number of hours YYY is the number of
      * minutes
+     * 
+     * The requested max for hours is 99 and for minutes is 59
      */
     @NotNull
-    @Max(730)
+    @DecimalMax("99.59")
+    @DecimalMin("0.00")
     protected Double workload;
 
     @NotNull
