@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-EntityToChange
+Corchu
 --
-+    idAttributeToChange : String {Unique}
-+    dateAttributeToChange : Date {}
-+    moneyAttributeToChange : Money 
-+    flagAttributeToChange : boolean {NotNull}
++    corchudentifier : String {Unique}
++    evaluationdate : Date {}
++    budget : Money
++    important : boolean {NotNull}
 
 
 

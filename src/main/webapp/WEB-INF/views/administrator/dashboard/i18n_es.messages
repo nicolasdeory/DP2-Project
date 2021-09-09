@@ -48,12 +48,12 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Máximo de carga de 
 
 administrator.dashboard.form.title.chart-workplans = Desglose de workplans por visibilidad
 
-administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Cantidad de Shouts marcados como flagAttributeToChange
-administrator.dashboard.form.label.shoutsZeroBugdetRate	= Ratio de shouts con MoneyAttributeToChange 0
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Valor medio de la divisa EUR
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Desviación del total de la divisa EUR
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Valor medio de la divisa USD
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Desviación del total de la divisa USD
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	=Valor medio de la divisa GBP 
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Desviación del total de la divisa GBP 
+administrator.dashboard.form.label.corchuFlaggedAsImportant	= Cantidad de Shouts marcados como important
+administrator.dashboard.form.label.shoutsZeroBugdetRate	= Ratio de shouts con Budget 0
+administrator.dashboard.form.label.corchu_EURBudgetAverage	= Valor medio de la divisa EUR
+administrator.dashboard.form.label.corchu_EURBudgetDeviation	= Desviación del total de la divisa EUR
+administrator.dashboard.form.label.corchu_DollarBudgetAverage	= Valor medio de la divisa USD
+administrator.dashboard.form.label.corchu_DollarBudgetDeviation	= Desviación del total de la divisa USD
+administrator.dashboard.form.label.corchu_GBPBudgetAverage	=Valor medio de la divisa GBP
+administrator.dashboard.form.label.corchu_GBPBudgetDeviation	= Desviación del total de la divisa GBP
 

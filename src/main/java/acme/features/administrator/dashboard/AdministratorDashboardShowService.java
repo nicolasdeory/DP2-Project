@@ -43,12 +43,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"minOfWorkPlanExecutionPeriods", "maxOfWorkPlanExecutionPeriods", "averageOfTaskWorkloads",
 				"deviationOfTaskWorkloads", "minOfTaskWorkloads", "maxOfTaskWorkloads", "averageOfWorkplanWorkloads",
 				"deviationOfWorkplanWorkloads", "minOfWorkplanWorkloads", "maxOfWorkplanWorkloads",
-				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
-				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
-				"entityToChange_DollarMoneyAttributeToChangeAverage",
-				"entityToChange_DollarMoneyAttributeToChangeDeviation",
-				"entityToChange_GBPMoneyAttributeToChangeAverage",
-				"entityToChange_GBPMoneyAttributeToChangeDeviation");
+				"corchuFlaggedAsImportant", "shoutsZeroBugdetRate",
+				"corchu_EURBudgetAverage", "corchu_EURBudgetDeviation",
+				"corchu_DollarBudgetAverage",
+				"corchu_DollarBudgetDeviation",
+				"corchu_GBPBudgetAverage",
+				"corchu_GBPBudgetDeviation");
 	}
 
 	@Override
@@ -88,14 +88,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double entityToChangeFlaggedAsFlagAttributeToChange;
+		Double corchuFlaggedAsImportant;
 		Double shoutsZeroBugdetRate;
-		Double entityToChange_EURMoneyAttributeToChangeAverage;
-		Double entityToChange_EURMoneyAttributeToChangeDeviation;
-		Double entityToChange_DollarMoneyAttributeToChangeAverage;
-		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
-		Double entityToChange_GBPMoneyAttributeToChangeAverage;
-		Double entityToChange_GBPMoneyAttributeToChangeDeviation;
+		Double corchu_EURBudgetAverage;
+		Double corchu_EURBudgetDeviation;
+		Double corchu_DollarBudgetAverage;
+		Double corchu_DollarBudgetDeviation;
+		Double corchu_GBPBudgetAverage;
+		Double corchu_GBPBudgetDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -140,22 +140,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream()
 				.mapToDouble(x -> x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		entityToChangeFlaggedAsFlagAttributeToChange = this.repository
-				.getEntityToChangesFlaggedAsFlagAttributeToChange();
+		corchuFlaggedAsImportant = this.repository
+				.getCorchusFlaggedAsImportant();
 		shoutsZeroBugdetRate = this.service.getShoutsZeroBugdetRate();
 		// -1 when no data persisted
-		entityToChange_EURMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_EURMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
+		corchu_EURBudgetAverage = this.repository
+				.getCorchu_EurBudgetAverage().orElse(-1.);
+		corchu_EURBudgetDeviation = this.repository
+				.getCorchu_EurBudgetDeviation().orElse(-1.);
+		corchu_DollarBudgetAverage = this.repository
+				.getCorchu_DollarBudgetAverage().orElse(-1.);
+		corchu_DollarBudgetDeviation = this.repository
+				.getCorchu_DollarBudgetDeviation().orElse(-1.);
+		corchu_GBPBudgetAverage = this.repository
+				.getCorchu_GBPBudgetAverage().orElse(-1.);
+		corchu_GBPBudgetDeviation = this.repository
+				.getCorchu_GBPBudgetDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -189,18 +189,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setEntityToChangeFlaggedAsFlagAttributeToChange(entityToChangeFlaggedAsFlagAttributeToChange);
+		result.setCorchuFlaggedAsImportant(corchuFlaggedAsImportant);
 		result.setShoutsZeroBugdetRate(shoutsZeroBugdetRate);
-		result.setEntityToChange_EURMoneyAttributeToChangeAverage(entityToChange_EURMoneyAttributeToChangeAverage);
-		result.setEntityToChange_EURMoneyAttributeToChangeDeviation(entityToChange_EURMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_DollarMoneyAttributeToChangeAverage(
-				entityToChange_DollarMoneyAttributeToChangeAverage);
-		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
-				entityToChange_DollarMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_GBPMoneyAttributeToChangeAverage(
-				entityToChange_GBPMoneyAttributeToChangeAverage);
-		result.setEntityToChange_GBPMoneyAttributeToChangeDeviation(
-				entityToChange_GBPMoneyAttributeToChangeDeviation);
+		result.setCorchu_EURBudgetAverage(corchu_EURBudgetAverage);
+		result.setCorchu_EURBudgetDeviation(corchu_EURBudgetDeviation);
+		result.setCorchu_DollarBudgetAverage(
+				corchu_DollarBudgetAverage);
+		result.setCorchu_DollarBudgetDeviation(
+				corchu_DollarBudgetDeviation);
+		result.setCorchu_GBPBudgetAverage(
+				corchu_GBPBudgetAverage);
+		result.setCorchu_GBPBudgetDeviation(
+				corchu_GBPBudgetDeviation);
 
 		return result;
 	}

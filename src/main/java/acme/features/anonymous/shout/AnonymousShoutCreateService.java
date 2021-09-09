@@ -16,10 +16,10 @@ import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 
+import acme.entities.corchu.Corchu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.entityToChange.EntityToChange;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,7 +53,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getEntityToChange(), errors);
+        request.bind(entity.getCorchu(), errors);
 
     }
 
@@ -64,8 +64,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
-                "flagAttributeToChange", "dateAttributeToChange");
+        request.unbind(entity.getCorchu(), model, "corchudentifier", "budget",
+                "important", "evaluationdate");
     }
 
     @Override
@@ -79,7 +79,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setEntityToChange(new EntityToChange());
+        result.setCorchu(new Corchu());
 
         return result;
     }
@@ -89,27 +89,33 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final EntityToChange entityToChange = entity.getEntityToChange();
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
-                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
+        final Corchu corchu = entity.getCorchu();
+
+        if (corchu.getEvaluationdate() == null)
+        {
+            errors.state(request, false, "evaluationdate", "anonymous.shout.corchu.error.evaluationdate.null");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && entityToChange.getMoneyAttributeToChange().getAmount() < 0) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
+        if (corchu.getBudget() != null
+                && (!(corchu.getBudget().getCurrency().equals("EUR")
+                        || corchu.getBudget().getCurrency().equals("USD")|| corchu.getBudget().getCurrency().equals("GBP")))) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.corchu.error.budget.format");
+        }
+
+        if (corchu.getBudget() != null
+                && corchu.getBudget().getAmount() < 0) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.corchu.error.budget.negative");
         }
 
         Calendar c = Calendar.getInstance();
         c.setTime(new Date(System.currentTimeMillis()));
         c.add(Calendar.WEEK_OF_YEAR, +1);
-        if (entityToChange.getDateAttributeToChange() != null
-                && entityToChange.getDateAttributeToChange().before(c.getTime())) {
-            errors.state(request, false, "dateAttributeToChange",
-                    "anonymous.shout.entityToChange.error.dateAttributeToChange.week");
+        if (corchu.getEvaluationdate() != null
+                && corchu.getEvaluationdate().before(c.getTime())) {
+            errors.state(request, false, "evaluationdate",
+                    "anonymous.shout.corchu.error.evaluationdate.week");
         }
 
     }
@@ -133,23 +139,15 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.setTime(date);
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getEntityToChange().setShout(entity);
+        entity.getCorchu().setShout(entity);
 
         // Estrategia para generar un identificador aleatorio. Escogemos un número aleatorio basado en la hora del sistema
         // y la fecha. Lo adaptamos al patrón que nos piden.
         String randInt = String.valueOf(System.currentTimeMillis());
 
-        // TODO: Borrar esto si no piden generar letras. Acordarse!!!
-        // Transformamos los números a letras para conformarse al patron
-//       final StringBuilder builder = new StringBuilder();
-//       for (int cha : randInt.chars().toArray())
-//       {
-//           builder.append(17 + cha);
-//       }
-//        randInt = builder.toString();
-
-        entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
-                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
+//        entity.getCorchu().setCorchudentifier(randInt.substring(randInt.length() - 6) + ":" + year + ":"
+//                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
+        entity.getCorchu().setCorchudentifier(year.substring(2) + "." + (month.length() == 1 ? "0" : "") + month + "." + (day.length() == 1 ? "0" : "") + day + "$" + randInt.substring(randInt.length() - 3));
         this.repository.save(entity);
 
     }

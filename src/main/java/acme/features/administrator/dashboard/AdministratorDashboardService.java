@@ -88,7 +88,7 @@ public class AdministratorDashboardService {
 		if (shouts.isEmpty())
 			return -1.;
 		else
-			return (double) shouts.stream().filter(x -> x.getEntityToChange() != null && (x.getEntityToChange().getMoneyAttributeToChange() == null || x.getEntityToChange().getMoneyAttributeToChange().getAmount() == 0) ).count() / shouts.size();
+			return (double) shouts.stream().filter(x -> x.getCorchu() != null && (x.getCorchu().getBudget() == null || x.getCorchu().getBudget().getAmount() == 0) ).count() / shouts.size();
 
 	}
 }
