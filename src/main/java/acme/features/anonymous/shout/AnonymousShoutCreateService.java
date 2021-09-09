@@ -134,7 +134,19 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
         entity.getEntityToChange().setShout(entity);
-        final String randInt = String.valueOf(System.currentTimeMillis());
+
+        // Estrategia para generar un identificador aleatorio. Escogemos un número aleatorio basado en la hora del sistema
+        // y la fecha. Lo adaptamos al patrón que nos piden.
+        String randInt = String.valueOf(System.currentTimeMillis());
+
+        // TODO: Borrar esto si no piden generar letras. Acordarse!!!
+        // Transformamos los números a letras para conformarse al patron
+//       final StringBuilder builder = new StringBuilder();
+//       for (int cha : randInt.chars().toArray())
+//       {
+//           builder.append(17 + cha);
+//       }
+//        randInt = builder.toString();
 
         entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
                 + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
