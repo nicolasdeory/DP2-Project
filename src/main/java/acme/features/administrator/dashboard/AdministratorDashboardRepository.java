@@ -98,26 +98,26 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from EntityToChange x where x.flagAttributeToChange=TRUE")
-	Double getEntityToChangesFlaggedAsFlagAttributeToChange();
+	@Query("select count (x) from Nft x where x.ignoreNft=TRUE")
+	Double getNftsFlaggedAsIgnoreNft();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR' ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeAverage();
+	@Query("select avg(x.salary.amount) from Nft x where x.salary.currency= 'EUR' ")
+	Optional<Double> getNft_EurSalaryAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR'  ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.salary.amount) from Nft x where x.salary.currency= 'EUR'  ")
+	Optional<Double> getNft_EurSalaryDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeAverage();
+	@Query("select avg(x.salary.amount) from Nft x where x.salary.currency= 'USD' ")
+	Optional<Double> getNft_DollarSalaryAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.salary.amount) from Nft x where x.salary.currency= 'USD' ")
+	Optional<Double> getNft_DollarSalaryDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeAverage();
+	@Query("select avg(x.salary.amount) from Nft x where x.salary.currency= 'GBP' ")
+	Optional<Double> getNft_GBPSalaryAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.salary.amount) from Nft x where x.salary.currency= 'GBP' ")
+	Optional<Double> getNft_GBPSalaryDeviation();
 
 	/////////////////////////////////////////////////
 

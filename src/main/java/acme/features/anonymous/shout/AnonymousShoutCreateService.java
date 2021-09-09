@@ -15,11 +15,12 @@ package acme.features.anonymous.shout;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.entityToChange.EntityToChange;
+import acme.entities.nft.Nft;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,7 +54,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getEntityToChange(), errors);
+        request.bind(entity.getNft(), errors);
 
     }
 
@@ -64,8 +65,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
-                "flagAttributeToChange", "dateAttributeToChange");
+        request.unbind(entity.getNft(), model, "idNft", "salary",
+                "ignoreNft", "lineDead");
     }
 
     @Override
@@ -79,7 +80,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setEntityToChange(new EntityToChange());
+        result.setNft(new Nft());
 
         return result;
     }
@@ -89,32 +90,32 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final EntityToChange entityToChange = entity.getEntityToChange();
+        final Nft nft = entity.getNft();
 
-        if(entityToChange.getDateAttributeToChange()==null){
-            errors.state(request,false,"dateAttributeToChange","anonymous.shout.entityToChange.error.dateAttributeToChange.null");
+        if(nft.getLineDead()==null){
+            errors.state(request,false,"lineDead","anonymous.shout.nft.error.lineDead.null");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
-                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
+        if (nft.getSalary() != null
+                && (!(nft.getSalary().getCurrency().equals("EUR")
+                        || nft.getSalary().getCurrency().equals("USD")|| nft.getSalary().getCurrency().equals("GBP")))) {
+            errors.state(request, false, "salary",
+                    "anonymous.shout.nft.error.salary.format");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && entityToChange.getMoneyAttributeToChange().getAmount() < 0) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
+        if (nft.getSalary() != null
+                && nft.getSalary().getAmount() < 0) {
+            errors.state(request, false, "salary",
+                    "anonymous.shout.nft.error.salary.negative");
         }
 
         Calendar c = Calendar.getInstance();
         c.setTime(new Date(System.currentTimeMillis()));
         c.add(Calendar.WEEK_OF_YEAR, +1);
-        if (entityToChange.getDateAttributeToChange() != null
-                && entityToChange.getDateAttributeToChange().before(c.getTime())) {
-            errors.state(request, false, "dateAttributeToChange",
-                    "anonymous.shout.entityToChange.error.dateAttributeToChange.week");
+        if (nft.getLineDead() != null
+                && nft.getLineDead().before(c.getTime())) {
+            errors.state(request, false, "lineDead",
+                    "anonymous.shout.nft.error.lineDead.week");
         }
 
     }
@@ -138,7 +139,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.setTime(date);
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getEntityToChange().setShout(entity);
+        entity.getNft().setShout(entity);
 
         // Estrategia para generar un identificador aleatorio. Escogemos un número aleatorio basado en la hora del sistema
         // y la fecha. Lo adaptamos al patrón que nos piden.
@@ -146,15 +147,18 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         // TODO: Borrar esto si no piden generar letras. Acordarse!!!
         // Transformamos los números a letras para conformarse al patron
-//       final StringBuilder builder = new StringBuilder();
-//       for (int cha : randInt.chars().toArray())
-//       {
-//           builder.append(17 + cha);
-//       }
-//        randInt = builder.toString();
 
-        entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
-                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
+        //genero aleatorios para el id
+        final Random r = new Random();
+        final char c1 = (char) (r.nextInt(26) + 'a');
+
+        final Random r2 = new Random();
+        final char c2 = (char) (r2.nextInt(26) + 'a');
+
+
+
+        entity.getNft().setIdNft(year.substring(2)+":"+c1+c2+
+    ":"+ (month.length() == 1 ? "0" : "") + month+":"+randInt.substring(randInt.length() - 5) + ":" +(day.length() == 1 ? "0" : "") + day);
         this.repository.save(entity);
 
     }

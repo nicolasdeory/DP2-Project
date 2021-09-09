@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-EntityToChange
+Nft
 --
-+    idAttributeToChange : String {Unique}
-+    dateAttributeToChange : Date {}
-+    moneyAttributeToChange : Money 
-+    flagAttributeToChange : boolean {NotNull}
++    idNft : String {Unique}
++    lineDead : Date {}
++    salary : Money
++    ignoreNft : boolean {NotNull}
 
 
 

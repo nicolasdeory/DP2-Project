@@ -50,8 +50,8 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		AssertUtils.assertModelNotNull(model);
 
 		request.unbind(entity, model, "author", "text", "moment", "info");
-		request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
-				"flagAttributeToChange", "dateAttributeToChange");
+		request.unbind(entity.getNft(), model, "idNft", "salary",
+				"ignoreNft", "lineDead");
 	}
 
 	@Override

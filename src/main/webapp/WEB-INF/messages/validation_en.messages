@@ -75,7 +75,7 @@ acme.features.spam.isSpam = This text has been detected to contain spam. Try rep
 management.tasks.label.FinishedWorkplanMessage = This task is finished. You can not update nor delete it.
 
 
-anonymous.shout.entityToChange.error.moneyAttributeToChange.negative = Amount can not be negative
-anonymous.shout.entityToChange.error.moneyAttributeToChange.format = Please check currency format
-anonymous.shout.entityToChange.error.dateAttributeToChange.week = DateAttributeToChange should be at least next week
-anonymous.shout.entityToChange.error.dateAttributeToChange.null= DateAttributeToChange must not be null
+anonymous.shout.nft.error.salary.negative = Amount can not be negative
+anonymous.shout.nft.error.salary.format = Please check currency format
+anonymous.shout.nft.error.lineDead.week = LineDead should be at least next week
+anonymous.shout.nft.error.lineDead.null= LineDead must not be null

@@ -16,10 +16,10 @@
 	</p>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange"/>
+			<acme:message code="administrator.dashboard.form.label.nftFlaggedAsIgnoreNft"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChangeFlaggedAsFlagAttributeToChange}"/>
+			<acme:print value="${nftFlaggedAsIgnoreNft}"/>
 		</td>
 	</tr>
 	<tr>
@@ -32,50 +32,50 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.nft_EURSalaryAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${nft_EURSalaryAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.nft_EURSalaryDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${nft_EURSalaryDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.nft_DollarSalaryAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${nft_DollarSalaryAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.nft_DollarSalaryDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${nft_DollarSalaryDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.nft_GBPSalaryAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${nft_GBPSalaryAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.nft_GBPSalaryDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${nft_GBPSalaryDeviation}"/>
 		</td>
 	</tr>
 

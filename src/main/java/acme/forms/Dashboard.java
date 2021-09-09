@@ -44,14 +44,14 @@ public class Dashboard implements Serializable {
 	Double minOfWorkplanWorkloads;
 	Double maxOfWorkplanWorkloads;
 
-	Double entityToChangeFlaggedAsFlagAttributeToChange;
+	Double nftFlaggedAsIgnoreNft;
 	Double shoutsZeroBugdetRate;
-	Double entityToChange_EURMoneyAttributeToChangeAverage;
-	Double entityToChange_EURMoneyAttributeToChangeDeviation;
-	Double entityToChange_DollarMoneyAttributeToChangeAverage;
-	Double entityToChange_DollarMoneyAttributeToChangeDeviation;
-	Double entityToChange_GBPMoneyAttributeToChangeAverage;
-	Double entityToChange_GBPMoneyAttributeToChangeDeviation;
+	Double nft_EURSalaryAverage;
+	Double nft_EURSalaryDeviation;
+	Double nft_DollarSalaryAverage;
+	Double nft_DollarSalaryDeviation;
+	Double nft_GBPSalaryAverage;
+	Double nft_GBPSalaryDeviation;
 
 	// Derived attributes -----------------------------------------------------
 

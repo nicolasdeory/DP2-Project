@@ -49,12 +49,12 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of Shouts flagged as flagAttributeToChange
-administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero MoneyAttributeToChange 
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	= Average value of GBP currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Deviation of the total GBP currency
+administrator.dashboard.form.label.nftFlaggedAsIgnoreNft	= Number of Shouts flagged as ignoreNft
+administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero Salary
+administrator.dashboard.form.label.nft_EURSalaryAverage	= Average value of EUR currency
+administrator.dashboard.form.label.nft_EURSalaryDeviation	= Deviation of the total EUR currency
+administrator.dashboard.form.label.nft_DollarSalaryAverage	= Average value of USD currency
+administrator.dashboard.form.label.nft_DollarSalaryDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.nft_GBPSalaryAverage	= Average value of GBP currency
+administrator.dashboard.form.label.nft_GBPSalaryDeviation	= Deviation of the total GBP currency
 

@@ -18,12 +18,12 @@ anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
 
-anonymous.shout.form.label.idAttributeToChange = Id
-anonymous.shout.form.label.moneyAttributeToChange = MoneyAttributeToChange amount
-anonymous.shout.form.label.flagAttributeToChange = FlagAttributeToChange
-anonymous.shout.form.label.dateAttributeToChange = DateAttributeToChange
+anonymous.shout.form.label.idNft = Id
+anonymous.shout.form.label.salary = Salary amount
+anonymous.shout.form.label.ignoreNft = IgnoreNft
+anonymous.shout.form.label.lineDead = LineDead
 
-anonymous.shout.label.idAttributeToChange	= IdAttributeToChange
-anonymous.shout.label.moneyAttributeToChange  = MoneyAttributeToChange amount
-anonymous.shout.label.flagAttributeToChange	= FlagAttributeToChange
-anonymous.shout.label.dateAttributeToChange = DateAttributeToChange
+anonymous.shout.label.idNft	= IdNft
+anonymous.shout.label.salary  = Salary amount
+anonymous.shout.label.ignoreNft	= IgnoreNft
+anonymous.shout.label.lineDead = LineDead

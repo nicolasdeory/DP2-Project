@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-import acme.entities.entityToChange.EntityToChange;
+import acme.entities.nft.Nft;
 import acme.features.spam.NotSpamConstraint;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -69,6 +69,6 @@ public class Shout extends DomainEntity {
 
 	// Relationships ----------------------------------------------------------
 	@OneToOne(optional = true, cascade = CascadeType.ALL)
-	protected EntityToChange entityToChange;
+	protected Nft nft;
 
 }

@@ -1,4 +1,4 @@
-recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAttributeToChange
+recordIndex,author,info,text,salary,ignoreNft,lineDead
 0,,,,,false,
 0,,,autor vacio,,false,
 0,texto vacio,,,,false,

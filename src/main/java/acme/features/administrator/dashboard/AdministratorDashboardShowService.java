@@ -43,12 +43,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"minOfWorkPlanExecutionPeriods", "maxOfWorkPlanExecutionPeriods", "averageOfTaskWorkloads",
 				"deviationOfTaskWorkloads", "minOfTaskWorkloads", "maxOfTaskWorkloads", "averageOfWorkplanWorkloads",
 				"deviationOfWorkplanWorkloads", "minOfWorkplanWorkloads", "maxOfWorkplanWorkloads",
-				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
-				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
-				"entityToChange_DollarMoneyAttributeToChangeAverage",
-				"entityToChange_DollarMoneyAttributeToChangeDeviation",
-				"entityToChange_GBPMoneyAttributeToChangeAverage",
-				"entityToChange_GBPMoneyAttributeToChangeDeviation");
+				"nftFlaggedAsIgnoreNft", "shoutsZeroBugdetRate",
+				"nft_EURSalaryAverage", "nft_EURSalaryDeviation",
+				"nft_DollarSalaryAverage",
+				"nft_DollarSalaryDeviation",
+				"nft_GBPSalaryAverage",
+				"nft_GBPSalaryDeviation");
 	}
 
 	@Override
@@ -88,14 +88,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double entityToChangeFlaggedAsFlagAttributeToChange;
+		Double nftFlaggedAsIgnoreNft;
 		Double shoutsZeroBugdetRate;
-		Double entityToChange_EURMoneyAttributeToChangeAverage;
-		Double entityToChange_EURMoneyAttributeToChangeDeviation;
-		Double entityToChange_DollarMoneyAttributeToChangeAverage;
-		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
-		Double entityToChange_GBPMoneyAttributeToChangeAverage;
-		Double entityToChange_GBPMoneyAttributeToChangeDeviation;
+		Double nft_EURSalaryAverage;
+		Double nft_EURSalaryDeviation;
+		Double nft_DollarSalaryAverage;
+		Double nft_DollarSalaryDeviation;
+		Double nft_GBPSalaryAverage;
+		Double nft_GBPSalaryDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -140,22 +140,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream()
 				.mapToDouble(x -> x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		entityToChangeFlaggedAsFlagAttributeToChange = this.repository
-				.getEntityToChangesFlaggedAsFlagAttributeToChange();
+		nftFlaggedAsIgnoreNft = this.repository
+				.getNftsFlaggedAsIgnoreNft();
 		shoutsZeroBugdetRate = this.service.getShoutsZeroBugdetRate();
 		// -1 when no data persisted
-		entityToChange_EURMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_EURMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
+		nft_EURSalaryAverage = this.repository
+				.getNft_EurSalaryAverage().orElse(-1.);
+		nft_EURSalaryDeviation = this.repository
+				.getNft_EurSalaryDeviation().orElse(-1.);
+		nft_DollarSalaryAverage = this.repository
+				.getNft_DollarSalaryAverage().orElse(-1.);
+		nft_DollarSalaryDeviation = this.repository
+				.getNft_DollarSalaryDeviation().orElse(-1.);
+		nft_GBPSalaryAverage = this.repository
+				.getNft_GBPSalaryAverage().orElse(-1.);
+		nft_GBPSalaryDeviation = this.repository
+				.getNft_GBPSalaryDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -189,18 +189,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setEntityToChangeFlaggedAsFlagAttributeToChange(entityToChangeFlaggedAsFlagAttributeToChange);
+		result.setNftFlaggedAsIgnoreNft(nftFlaggedAsIgnoreNft);
 		result.setShoutsZeroBugdetRate(shoutsZeroBugdetRate);
-		result.setEntityToChange_EURMoneyAttributeToChangeAverage(entityToChange_EURMoneyAttributeToChangeAverage);
-		result.setEntityToChange_EURMoneyAttributeToChangeDeviation(entityToChange_EURMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_DollarMoneyAttributeToChangeAverage(
-				entityToChange_DollarMoneyAttributeToChangeAverage);
-		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
-				entityToChange_DollarMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_GBPMoneyAttributeToChangeAverage(
-				entityToChange_GBPMoneyAttributeToChangeAverage);
-		result.setEntityToChange_GBPMoneyAttributeToChangeDeviation(
-				entityToChange_GBPMoneyAttributeToChangeDeviation);
+		result.setNft_EURSalaryAverage(nft_EURSalaryAverage);
+		result.setNft_EURSalaryDeviation(nft_EURSalaryDeviation);
+		result.setNft_DollarSalaryAverage(
+				nft_DollarSalaryAverage);
+		result.setNft_DollarSalaryDeviation(
+				nft_DollarSalaryDeviation);
+		result.setNft_GBPSalaryAverage(
+				nft_GBPSalaryAverage);
+		result.setNft_GBPSalaryDeviation(
+				nft_GBPSalaryDeviation);
 
 		return result;
 	}
