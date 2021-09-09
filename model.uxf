@@ -683,7 +683,7 @@ bg=blue</panel_attributes>
 EntityToChange
 --
 +    idAttributeToChange : String {Unique}
-+    dateAttributeToChange : Date {}
++    dateAttributeToChange : Date {NotNull}
 +    moneyAttributeToChange : Money 
 +    flagAttributeToChange : boolean {NotNull}
 
