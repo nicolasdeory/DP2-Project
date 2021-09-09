@@ -1,4 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-05 13:37:27.667,acme.testing.anonymous.entityToChange.AdministratorDashboardEntityToChangeShowTest,showNegativeCase,2616,"showNegativeCase()",OK
-2021-09-05 13:37:29.609,acme.testing.anonymous.entityToChange.AdministratorDashboardEntityToChangeShowTest,show,1721,"show()",OK
-2021-09-05 13:37:41.966,acme.testing.anonymous.entityToChange.AnonymousListEntityToChangeTest,ListNegativeCase,3235,"ListNegativeCase()",OK
