@@ -76,4 +76,5 @@ management.tasks.label.FinishedWorkplanMessage = Esta tarea está terminada. No 
 anonymous.shout.entityToChange.error.moneyAttributeToChange.negative = La cantidad no puede ser negativa
 anonymous.shout.entityToChange.error.moneyAttributeToChange.format = El formato no es válido
 anonymous.shout.entityToChange.error.dateAttributeToChange.week = La "dateAttributeToChange" debe ser dentro de una semana como mínimo
+anonymous.shout.entityToChange.error.dateAttributeToChange.null=La "dateAttributeToChange" no puede estar vacia
 

@@ -90,6 +90,11 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
         final EntityToChange entityToChange = entity.getEntityToChange();
+
+        if(entityToChange.getDateAttributeToChange()==null){
+            errors.state(request,false,"dateAttributeToChange","anonymous.shout.entityToChange.error.dateAttributeToChange.null");
+        }
+
         if (entityToChange.getMoneyAttributeToChange() != null
                 && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
                         || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {

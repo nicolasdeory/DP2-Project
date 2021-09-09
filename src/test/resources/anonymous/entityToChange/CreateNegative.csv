@@ -19,6 +19,7 @@ recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAt
 0,Veronica,,25 horas,EUR 20.00,true,2021/04/09 25:00
 0,Veronica,,61 minutos,EUR 20.00,true,2021/04/09 12:61
 0,Marta,,fecha con texto,EUR 20.00,true,asdsdsd
+0,Marta,,fecha vacia,EUR 20.00,true,
 0,spam en texto,,spam en el texto sex,EUR 20.00,true,2021/04/09 12:61
 0,spam en titulo sex,,spam en el titulo,EUR 20.00,true,2021/04/09 12:61
 0,spam total sex,,spam sex,BTC 20.00,false,2009/04/09 12:61
