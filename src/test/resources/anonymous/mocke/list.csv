@@ -1,6 +1,6 @@
-recordIndex,author,info,text,moneyAttributeToChange,flagAttributeToChange,dateAttributeToChange
-0, JoanMir,, "Empty entityToChange", , false, 2022/04/09 00:00
-0, JoanMir,https://corframework.com, "Empty entityToChange", , false,2022/04/09 00:00
+recordIndex,author,info,text,budget,important,deadline
+0, JoanMir,, "Empty mocke", , false, 2022/04/09 00:00
+0, JoanMir,https://corframework.com, "Empty mocke", , false,2022/04/09 00:00
 0,Joselu,,Prueba el omori,EUR 20.00, true,2022/04/09 00:00
 0,Joselu,,Sin fecha,EUR 20.00, false,2022/04/09 00:00
 0,Joselu,,Sin money,, false,2022/04/09 00:00

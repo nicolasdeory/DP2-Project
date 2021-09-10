@@ -499,8 +499,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="entityToChange">
-            <ref bean="entityToChange01"/>
+        <property name="mocke">
+            <ref bean="mocke01"/>
         </property>
     </bean>
 
@@ -511,8 +511,8 @@
         <property name="info">
             <null/>
         </property>
-        <property name="entityToChange">
-            <ref bean="entityToChange02"/>
+        <property name="mocke">
+            <ref bean="mocke02"/>
         </property>
     </bean>
 
@@ -523,38 +523,38 @@
         <property name="info">
             <null/>
         </property>
-        <property name="entityToChange">
-            <ref bean="entityToChange03"/>
+        <property name="mocke">
+            <ref bean="mocke03"/>
         </property>
     </bean>
     
-    <bean id="entityToChange01" class ="acme.entities.entityToChange.EntityToChange">
-    	<property name="idAttributeToChange" value="122312:2021:05:05"></property>
-    	<property name="dateAttributeToChange" value="2021/06/05 19:39"></property>
-    	<property name="moneyAttributeToChange" value="5.12 EUR"></property>
-    	<property name="flagAttributeToChange" value="true"></property>
+    <bean id="mocke01" class ="acme.entities.mocke.Mocke">
+    	<property name="bow" value="122312:21:05:05"></property>
+    	<property name="deadline" value="2021/06/05 19:39"></property>
+    	<property name="budget" value="5.12 EUR"></property>
+    	<property name="important" value="true"></property>
     	
     	 <property name="shout">
             <ref bean="Shout00"/>
         </property>	
     </bean>
     
-    <bean id="entityToChange02" class ="acme.entities.entityToChange.EntityToChange">
-    	<property name="idAttributeToChange" value="121212:2021:05:13"></property>
-    	<property name="dateAttributeToChange" value="2021/06/05 11:11"></property>
-    	<property name="moneyAttributeToChange" value="6.12 EUR"></property>
-    	<property name="flagAttributeToChange" value="true"></property>	
+    <bean id="mocke02" class ="acme.entities.mocke.Mocke">
+    	<property name="bow" value="122314:21:05:06"></property>
+    	<property name="deadline" value="2021/06/05 11:11"></property>
+    	<property name="budget" value="6.12 EUR"></property>
+    	<property name="important" value="true"></property>
     	
     	 <property name="shout">
             <ref bean="Shout01"/>
         </property>	
     </bean>
     
-    <bean id="entityToChange03" class ="acme.entities.entityToChange.EntityToChange">
-    	<property name="idAttributeToChange" value="122317:2021:05:01"></property>
-    	<property name="dateAttributeToChange" value="2021/06/01 02:22"></property>
-    	<property name="moneyAttributeToChange" value="7.12 EUR"></property>
-    	<property name="flagAttributeToChange" value="false"></property>
+    <bean id="mocke03" class ="acme.entities.mocke.Mocke">
+    	<property name="bow" value="122317:21:05:07"></property>
+    	<property name="deadline" value="2021/06/01 02:22"></property>
+    	<property name="budget" value="7.12 EUR"></property>
+    	<property name="important" value="false"></property>
     	 <property name="shout">
             <ref bean="Shout02"/>
         </property>		

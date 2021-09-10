@@ -49,12 +49,12 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of Shouts flagged as flagAttributeToChange
-administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero MoneyAttributeToChange 
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	= Average value of GBP currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Deviation of the total GBP currency
+administrator.dashboard.form.label.mockeFlaggedAsImportant	= Number of Shouts flagged as important
+administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero Budget
+administrator.dashboard.form.label.mocke_EURBudgetAverage	= Average value of EUR currency
+administrator.dashboard.form.label.mocke_EURBudgetDeviation	= Deviation of the total EUR currency
+administrator.dashboard.form.label.mocke_DollarBudgetAverage	= Average value of USD currency
+administrator.dashboard.form.label.mocke_DollarBudgetDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.mocke_GBPBudgetAverage	= Average value of GBP currency
+administrator.dashboard.form.label.mocke_GBPBudgetDeviation	= Deviation of the total GBP currency
 

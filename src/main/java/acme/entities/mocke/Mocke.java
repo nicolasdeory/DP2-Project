@@ -1,4 +1,4 @@
-package acme.entities.entityToChange;
+package acme.entities.mocke;
 
 import java.util.Date;
 
@@ -18,22 +18,22 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class EntityToChange extends DomainEntity {
+public class Mocke extends DomainEntity {
     // Serialisation identifier -----------------------------------------------
 
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Pattern(regexp = "^(\\d{6}):(\\d{4}):(\\d{2}):(\\d{2})$")
+    @Pattern(regexp = "^\\d{6}:\\d{2}:\\d{2}:\\d{2}$")
     @Column(unique = true)
-    protected String idAttributeToChange;
+    protected String bow;
 
-    protected Date dateAttributeToChange;
+    protected Date deadline;
 
-    protected Money moneyAttributeToChange;
+    protected Money budget;
 
     @NotNull
-    protected Boolean flagAttributeToChange;
+    protected Boolean important;
 
     // Derived attributes -----------------------------------------------------
 

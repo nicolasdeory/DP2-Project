@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-10 09:25:14.465,acme.testing.anonymous.mocke.AnonymousListMockeTest,ListNegativeCase,3125,"ListNegativeCase()",OK

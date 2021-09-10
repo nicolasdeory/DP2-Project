@@ -18,12 +18,12 @@ anonymous.shout.list.label.moment = Moment
 anonymous.shout.list.label.author = Author
 anonymous.shout.list.label.text = Text
 
-anonymous.shout.form.label.idAttributeToChange = Id
-anonymous.shout.form.label.moneyAttributeToChange = MoneyAttributeToChange amount
-anonymous.shout.form.label.flagAttributeToChange = FlagAttributeToChange
-anonymous.shout.form.label.dateAttributeToChange = DateAttributeToChange
+anonymous.shout.form.label.bow = Id
+anonymous.shout.form.label.budget = Budget amount
+anonymous.shout.form.label.important = Important
+anonymous.shout.form.label.deadline = Deadline
 
-anonymous.shout.label.idAttributeToChange	= IdAttributeToChange
-anonymous.shout.label.moneyAttributeToChange  = MoneyAttributeToChange amount
-anonymous.shout.label.flagAttributeToChange	= FlagAttributeToChange
-anonymous.shout.label.dateAttributeToChange = DateAttributeToChange
+anonymous.shout.label.bow	= Bow
+anonymous.shout.label.budget  = Budget amount
+anonymous.shout.label.important	= Important
+anonymous.shout.label.deadline = Deadline

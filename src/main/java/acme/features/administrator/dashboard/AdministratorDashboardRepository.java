@@ -98,26 +98,26 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from EntityToChange x where x.flagAttributeToChange=TRUE")
-	Double getEntityToChangesFlaggedAsFlagAttributeToChange();
+	@Query("select count (x) from Mocke x where x.important=TRUE")
+	Double getMockesFlaggedAsImportant();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR' ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Mocke x where x.budget.currency= 'EUR' ")
+	Optional<Double> getMocke_EurBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR'  ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Mocke x where x.budget.currency= 'EUR'  ")
+	Optional<Double> getMocke_EurBudgetDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Mocke x where x.budget.currency= 'USD' ")
+	Optional<Double> getMocke_DollarBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Mocke x where x.budget.currency= 'USD' ")
+	Optional<Double> getMocke_DollarBudgetDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Mocke x where x.budget.currency= 'GBP' ")
+	Optional<Double> getMocke_GBPBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Mocke x where x.budget.currency= 'GBP' ")
+	Optional<Double> getMocke_GBPBudgetDeviation();
 
 	/////////////////////////////////////////////////
 
