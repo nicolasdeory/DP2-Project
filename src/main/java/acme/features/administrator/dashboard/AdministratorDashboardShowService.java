@@ -43,12 +43,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"minOfWorkPlanExecutionPeriods", "maxOfWorkPlanExecutionPeriods", "averageOfTaskWorkloads",
 				"deviationOfTaskWorkloads", "minOfTaskWorkloads", "maxOfTaskWorkloads", "averageOfWorkplanWorkloads",
 				"deviationOfWorkplanWorkloads", "minOfWorkplanWorkloads", "maxOfWorkplanWorkloads",
-				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
-				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
-				"entityToChange_DollarMoneyAttributeToChangeAverage",
-				"entityToChange_DollarMoneyAttributeToChangeDeviation",
-				"entityToChange_GBPMoneyAttributeToChangeAverage",
-				"entityToChange_GBPMoneyAttributeToChangeDeviation");
+				"gusitFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
+				"gusit_EURMoneyAttributeToChangeAverage", "gusit_EURMoneyAttributeToChangeDeviation",
+				"gusit_DollarMoneyAttributeToChangeAverage",
+				"gusit_DollarMoneyAttributeToChangeDeviation",
+				"gusit_GBPMoneyAttributeToChangeAverage",
+				"gusit_GBPMoneyAttributeToChangeDeviation");
 	}
 
 	@Override
@@ -88,14 +88,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double entityToChangeFlaggedAsFlagAttributeToChange;
+		Double gusitFlaggedAsFlagAttributeToChange;
 		Double shoutsZeroBugdetRate;
-		Double entityToChange_EURMoneyAttributeToChangeAverage;
-		Double entityToChange_EURMoneyAttributeToChangeDeviation;
-		Double entityToChange_DollarMoneyAttributeToChangeAverage;
-		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
-		Double entityToChange_GBPMoneyAttributeToChangeAverage;
-		Double entityToChange_GBPMoneyAttributeToChangeDeviation;
+		Double gusit_EURMoneyAttributeToChangeAverage;
+		Double gusit_EURMoneyAttributeToChangeDeviation;
+		Double gusit_DollarMoneyAttributeToChangeAverage;
+		Double gusit_DollarMoneyAttributeToChangeDeviation;
+		Double gusit_GBPMoneyAttributeToChangeAverage;
+		Double gusit_GBPMoneyAttributeToChangeDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -140,22 +140,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream()
 				.mapToDouble(x -> x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		entityToChangeFlaggedAsFlagAttributeToChange = this.repository
-				.getEntityToChangesFlaggedAsFlagAttributeToChange();
+		gusitFlaggedAsFlagAttributeToChange = this.repository
+				.getGusitsFlaggedAsFlagAttributeToChange();
 		shoutsZeroBugdetRate = this.service.getShoutsZeroBugdetRate();
 		// -1 when no data persisted
-		entityToChange_EURMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_EURMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
+		gusit_EURMoneyAttributeToChangeAverage = this.repository
+				.getGusit_EurMoneyAttributeToChangeAverage().orElse(-1.);
+		gusit_EURMoneyAttributeToChangeDeviation = this.repository
+				.getGusit_EurMoneyAttributeToChangeDeviation().orElse(-1.);
+		gusit_DollarMoneyAttributeToChangeAverage = this.repository
+				.getGusit_DollarMoneyAttributeToChangeAverage().orElse(-1.);
+		gusit_DollarMoneyAttributeToChangeDeviation = this.repository
+				.getGusit_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
+		gusit_GBPMoneyAttributeToChangeAverage = this.repository
+				.getGusit_GBPMoneyAttributeToChangeAverage().orElse(-1.);
+		gusit_GBPMoneyAttributeToChangeDeviation = this.repository
+				.getGusit_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -189,18 +189,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setEntityToChangeFlaggedAsFlagAttributeToChange(entityToChangeFlaggedAsFlagAttributeToChange);
+		result.setGusitFlaggedAsFlagAttributeToChange(gusitFlaggedAsFlagAttributeToChange);
 		result.setShoutsZeroBugdetRate(shoutsZeroBugdetRate);
-		result.setEntityToChange_EURMoneyAttributeToChangeAverage(entityToChange_EURMoneyAttributeToChangeAverage);
-		result.setEntityToChange_EURMoneyAttributeToChangeDeviation(entityToChange_EURMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_DollarMoneyAttributeToChangeAverage(
-				entityToChange_DollarMoneyAttributeToChangeAverage);
-		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
-				entityToChange_DollarMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_GBPMoneyAttributeToChangeAverage(
-				entityToChange_GBPMoneyAttributeToChangeAverage);
-		result.setEntityToChange_GBPMoneyAttributeToChangeDeviation(
-				entityToChange_GBPMoneyAttributeToChangeDeviation);
+		result.setGusit_EURMoneyAttributeToChangeAverage(gusit_EURMoneyAttributeToChangeAverage);
+		result.setGusit_EURMoneyAttributeToChangeDeviation(gusit_EURMoneyAttributeToChangeDeviation);
+		result.setGusit_DollarMoneyAttributeToChangeAverage(
+				gusit_DollarMoneyAttributeToChangeAverage);
+		result.setGusit_DollarMoneyAttributeToChangeDeviation(
+				gusit_DollarMoneyAttributeToChangeDeviation);
+		result.setGusit_GBPMoneyAttributeToChangeAverage(
+				gusit_GBPMoneyAttributeToChangeAverage);
+		result.setGusit_GBPMoneyAttributeToChangeDeviation(
+				gusit_GBPMoneyAttributeToChangeDeviation);
 
 		return result;
 	}

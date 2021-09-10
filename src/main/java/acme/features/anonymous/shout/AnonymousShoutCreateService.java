@@ -15,11 +15,12 @@ package acme.features.anonymous.shout;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.entityToChange.EntityToChange;
+import acme.entities.gusit.Gusit;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,7 +54,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getEntityToChange(), errors);
+        request.bind(entity.getGusit(), errors);
 
     }
 
@@ -64,8 +65,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
-                "flagAttributeToChange", "dateAttributeToChange");
+        request.unbind(entity.getGusit(), model, "identifier", "budget",
+                "important", "deadline");
     }
 
     @Override
@@ -79,7 +80,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setEntityToChange(new EntityToChange());
+        result.setGusit(new Gusit());
 
         return result;
     }
@@ -89,32 +90,32 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final EntityToChange entityToChange = entity.getEntityToChange();
+        final Gusit gusit = entity.getGusit();
 
-        if(entityToChange.getDateAttributeToChange()==null){
-            errors.state(request,false,"dateAttributeToChange","anonymous.shout.entityToChange.error.dateAttributeToChange.null");
+        if(gusit.getDeadline()==null){
+            errors.state(request,false,"deadline","anonymous.shout.gusit.error.deadline.null");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
-                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
+        if (gusit.getBudget() != null
+                && (!(gusit.getBudget().getCurrency().equals("EUR")
+                        || gusit.getBudget().getCurrency().equals("USD")|| gusit.getBudget().getCurrency().equals("GBP")))) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.gusit.error.budget.format");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && entityToChange.getMoneyAttributeToChange().getAmount() < 0) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
+        if (gusit.getBudget()!= null
+                && gusit.getBudget().getAmount() < 0) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.gusit.error.budget.negative");
         }
 
-        Calendar c = Calendar.getInstance();
+        final Calendar c = Calendar.getInstance();
         c.setTime(new Date(System.currentTimeMillis()));
         c.add(Calendar.WEEK_OF_YEAR, +1);
-        if (entityToChange.getDateAttributeToChange() != null
-                && entityToChange.getDateAttributeToChange().before(c.getTime())) {
-            errors.state(request, false, "dateAttributeToChange",
-                    "anonymous.shout.entityToChange.error.dateAttributeToChange.week");
+        if (gusit.getDeadline() != null
+                && gusit.getDeadline().before(c.getTime())) {
+            errors.state(request, false, "deadline",
+                    "anonymous.shout.gusit.error.deadline.week");
         }
 
     }
@@ -138,23 +139,21 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.setTime(date);
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getEntityToChange().setShout(entity);
+        entity.getGusit().setShout(entity);
 
         // Estrategia para generar un identificador aleatorio. Escogemos un número aleatorio basado en la hora del sistema
         // y la fecha. Lo adaptamos al patrón que nos piden.
-        String randInt = String.valueOf(System.currentTimeMillis());
+        final String randInt = String.valueOf(System.currentTimeMillis());
 
-        // TODO: Borrar esto si no piden generar letras. Acordarse!!!
-        // Transformamos los números a letras para conformarse al patron
-//       final StringBuilder builder = new StringBuilder();
-//       for (int cha : randInt.chars().toArray())
-//       {
-//           builder.append(17 + cha);
-//       }
-//        randInt = builder.toString();
+        
+        final Random r = new Random();
+        final char c1 = (char) (r.nextInt(26) + 'a');
 
-        entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
-                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
+        final Random r2 = new Random();
+        final char c2 = (char) (r2.nextInt(26) + 'a');
+        
+        entity.getGusit().setIdentifier((day.length() == 1 ? "0" : "") + day +'-'+ c1 +c2 +'-'+ (month.length() == 1 ? "0" : "") 
+        	+ month +'-'+ randInt.substring(randInt.length() - 2) +'-'+ year.substring(2));
         this.repository.save(entity);
 
     }

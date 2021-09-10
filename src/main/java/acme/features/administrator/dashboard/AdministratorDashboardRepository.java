@@ -98,26 +98,26 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from EntityToChange x where x.flagAttributeToChange=TRUE")
-	Double getEntityToChangesFlaggedAsFlagAttributeToChange();
+	@Query("select count (x) from Gusit x where x.important=TRUE")
+	Double getGusitsFlaggedAsFlagAttributeToChange();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR' ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Gusit x where x.budget.currency= 'EUR' ")
+	Optional<Double> getGusit_EurMoneyAttributeToChangeAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR'  ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Gusit x where x.budget.currency= 'EUR'  ")
+	Optional<Double> getGusit_EurMoneyAttributeToChangeDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Gusit x where x.budget.currency= 'USD' ")
+	Optional<Double> getGusit_DollarMoneyAttributeToChangeAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Gusit x where x.budget.currency= 'USD' ")
+	Optional<Double> getGusit_DollarMoneyAttributeToChangeDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Gusit x where x.budget.currency= 'GBP' ")
+	Optional<Double> getGusit_GBPMoneyAttributeToChangeAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Gusit x where x.budget.currency= 'GBP' ")
+	Optional<Double> getGusit_GBPMoneyAttributeToChangeDeviation();
 
 	/////////////////////////////////////////////////
 

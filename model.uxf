@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-EntityToChange
+Gusit
 --
-+    idAttributeToChange : String {Unique}
-+    dateAttributeToChange : Date {NotNull}
-+    moneyAttributeToChange : Money 
-+    flagAttributeToChange : boolean {NotNull}
++    identifier : String {Unique}
++    deadline : Date {NotNull}
++    budget : Money 
++    important : boolean {NotNull}
 
 
 

@@ -1,4 +1,4 @@
-package acme.testing.anonymous.entityToChange;
+package acme.testing.anonymous.gusit;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -12,7 +12,7 @@ import org.openqa.selenium.By;
 import acme.testing.AcmeTest;
 
 @ExtendWith(MockitoExtension.class)
-class AnonymousListEntityToChangeTest extends AcmeTest {
+class AnonymousListGusitTest extends AcmeTest {
 
     // @Mock
     // private AnonymousShoutRepository sv;
@@ -40,10 +40,10 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
     // comprobamos que está el shout
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/entityToChange/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/gusit/list.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void list(final int recordIndex, final String author, final String info, final String text,
-            final String moneyAttributeToChange, final String flagAttributeToChange, final String dateAttributeToChange) {
+            final String budget, final String important, final String deadline) {
 
         // creamos un shout ya que si no no funciona
         super.clickOnMenu("Anonymous", "Shout!");
@@ -51,10 +51,10 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
-        if (flagAttributeToChange != null && flagAttributeToChange.trim().equals("true"))
-            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
-        super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
+        super.fillInputBoxIn("budget", budget);
+        if (important != null && important.trim().equals("true"))
+            super.clickAndGo(By.id("important$proxy"));
+        super.fillInputBoxIn("deadline", deadline);
         super.clickOnSubmitButton("Shout!");
 
         super.clickOnMenu("Anonymous", "List shouts");
@@ -62,9 +62,9 @@ class AnonymousListEntityToChangeTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
-        super.checkColumnHasValue(recordIndex, 6, flagAttributeToChange);
-        super.checkColumnHasValue(recordIndex, 7, dateAttributeToChange);
+        super.checkColumnHasValue(recordIndex, 5, budget);
+        super.checkColumnHasValue(recordIndex, 6, important);
+        super.checkColumnHasValue(recordIndex, 7, deadline);
 
     }
 

@@ -16,10 +16,10 @@
 	</p>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange"/>
+			<acme:message code="administrator.dashboard.form.label.gusitFlaggedAsFlagAttributeToChange"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChangeFlaggedAsFlagAttributeToChange}"/>
+			<acme:print value="${gusitFlaggedAsFlagAttributeToChange}"/>
 		</td>
 	</tr>
 	<tr>
@@ -32,50 +32,50 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_EURMoneyAttributeToChangeAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${gusit_EURMoneyAttributeToChangeAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_EURMoneyAttributeToChangeDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${gusit_EURMoneyAttributeToChangeDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_DollarMoneyAttributeToChangeAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${gusit_DollarMoneyAttributeToChangeAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_DollarMoneyAttributeToChangeDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${gusit_DollarMoneyAttributeToChangeDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_GBPMoneyAttributeToChangeAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${gusit_GBPMoneyAttributeToChangeAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.gusit_GBPMoneyAttributeToChangeDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${gusit_GBPMoneyAttributeToChangeDeviation}"/>
 		</td>
 	</tr>
 

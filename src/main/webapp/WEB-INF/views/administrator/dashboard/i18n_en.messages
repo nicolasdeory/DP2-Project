@@ -49,12 +49,12 @@ administrator.dashboard.form.label.maxOfWorkplanWorkloads = Maximun of Workplan 
 
 administrator.dashboard.form.title.chart-workplans = Workplans grouped by visibility
 
-administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange	= Number of Shouts flagged as flagAttributeToChange
-administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero MoneyAttributeToChange 
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
-administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
-administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage	= Average value of GBP currency
-administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation	= Deviation of the total GBP currency
+administrator.dashboard.form.label.gusitFlaggedAsFlagAttributeToChange	= Number of Shouts flagged as important
+administrator.dashboard.form.label.shoutsZeroBugdetRate	= Rate of Shouts with Zero Budget 
+administrator.dashboard.form.label.gusit_EURMoneyAttributeToChangeAverage	= Average value of EUR currency
+administrator.dashboard.form.label.gusit_EURMoneyAttributeToChangeDeviation	= Deviation of the total EUR currency
+administrator.dashboard.form.label.gusit_DollarMoneyAttributeToChangeAverage	= Average value of USD currency
+administrator.dashboard.form.label.gusit_DollarMoneyAttributeToChangeDeviation	= Deviation of the total USD currency
+administrator.dashboard.form.label.gusit_GBPMoneyAttributeToChangeAverage	= Average value of GBP currency
+administrator.dashboard.form.label.gusit_GBPMoneyAttributeToChangeDeviation	= Deviation of the total GBP currency
 
