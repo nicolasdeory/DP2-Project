@@ -1,4 +1,4 @@
-package acme.testing.anonymous.entityToChange;
+package acme.testing.anonymous.quart;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AdministratorDashboardEntityToChangeShowTest extends AcmeTest {
+class AdministratorDashboardQuartShowTest extends AcmeTest {
 
 	@Override
 	@BeforeAll

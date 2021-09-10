@@ -1,4 +1,4 @@
-package acme.testing.anonymous.entityToChange;
+package acme.testing.anonymous.quart;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import acme.testing.AcmeTest;
 
-class AnonymousCreateEntityToChangeTest extends AcmeTest {
+class AnonymousCreateQuartTest extends AcmeTest {
 
     // Lifecycle management ---------------------------------------------------
     @Override
@@ -31,19 +31,19 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     // Vamos a la pestaña de listado de shouts y comprobamos que se ha creado
     // correctamente
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/entityToChange/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/quart/CreatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreatePositive(final int recordIndex, final String author, final String info, final String text,
-            final String moneyAttributeToChange, final String flagAttributeToChange, final String dateAttributeToChange) {
+            final String budget, final String important, final String deadLine) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
-        if (flagAttributeToChange != null && flagAttributeToChange.trim().equals("true"))
-            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
-        super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
+        super.fillInputBoxIn("budget", budget);
+        if (important != null && important.trim().equals("true"))
+            super.clickAndGo(By.id("important$proxy"));
+        super.fillInputBoxIn("deadLine", deadLine);
         super.clickOnSubmitButton("Shout!");
 
         super.clickOnMenu("Anonymous", "List shouts");
@@ -51,9 +51,9 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
         super.checkColumnHasValue(recordIndex, 1, author);
         super.checkColumnHasValue(recordIndex, 2, text);
         super.checkColumnHasValue(recordIndex, 3, info);
-        super.checkColumnHasValue(recordIndex, 5, moneyAttributeToChange);
-        super.checkColumnHasValue(recordIndex, 6, flagAttributeToChange);
-        super.checkColumnHasValue(recordIndex, 7, dateAttributeToChange);
+        super.checkColumnHasValue(recordIndex, 5, budget);
+        super.checkColumnHasValue(recordIndex, 6, important);
+        super.checkColumnHasValue(recordIndex, 7, deadLine);
 
     }
 
@@ -64,19 +64,19 @@ class AnonymousCreateEntityToChangeTest extends AcmeTest {
     // formato...
     // Tras ello comprueba la existencia de errores
     @ParameterizedTest
-    @CsvFileSource(resources = "/anonymous/entityToChange/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/anonymous/quart/CreateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
     @Order(10)
     void CreateNegative(final int recordIndex, final String author, final String info, final String text,
-            final String moneyAttributeToChange, final String flag, final String dateAttributeToChange) {
+            final String budget, final String flag, final String deadLine) {
         super.clickOnMenu("Anonymous", "Shout!");
 
         super.fillInputBoxIn("author", author);
         super.fillInputBoxIn("text", text);
         super.fillInputBoxIn("info", info);
-        super.fillInputBoxIn("moneyAttributeToChange", moneyAttributeToChange);
-        super.fillInputBoxIn("dateAttributeToChange", dateAttributeToChange);
+        super.fillInputBoxIn("budget", budget);
+        super.fillInputBoxIn("deadLine", deadLine);
         if (flag != null && flag.equals("true"))
-            super.clickAndGo(By.id("flagAttributeToChange$proxy"));
+            super.clickAndGo(By.id("important$proxy"));
         super.clickOnSubmitButton("Shout!");
 
         super.checkErrorsExist();

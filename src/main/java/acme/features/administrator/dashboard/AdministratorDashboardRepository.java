@@ -98,26 +98,26 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select (max((w.executionPeriod.finishDateTime)-(w.executionPeriod.startDateTime)))/(1000*3600.0) from WorkPlan w")
 	Optional<Double> maxOfWorkplanWorkloads();
 
-	@Query("select count (x) from EntityToChange x where x.flagAttributeToChange=TRUE")
-	Double getEntityToChangesFlaggedAsFlagAttributeToChange();
+	@Query("select count (x) from Quart x where x.important=TRUE")
+	Double getQuartsFlaggedAsImportant();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR' ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Quart x where x.budget.currency= 'EUR' ")
+	Optional<Double> getQuart_EurBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'EUR'  ")
-	Optional<Double> getEntityToChange_EurMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Quart x where x.budget.currency= 'EUR'  ")
+	Optional<Double> getQuart_EurBudgetDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Quart x where x.budget.currency= 'USD' ")
+	Optional<Double> getQuart_DollarBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'USD' ")
-	Optional<Double> getEntityToChange_DollarMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Quart x where x.budget.currency= 'USD' ")
+	Optional<Double> getQuart_DollarBudgetDeviation();
 
-	@Query("select avg(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeAverage();
+	@Query("select avg(x.budget.amount) from Quart x where x.budget.currency= 'GBP' ")
+	Optional<Double> getQuart_GBPBudgetAverage();
 
-	@Query("select stddev(x.moneyAttributeToChange.amount) from EntityToChange x where x.moneyAttributeToChange.currency= 'GBP' ")
-	Optional<Double> getEntityToChange_GBPMoneyAttributeToChangeDeviation();
+	@Query("select stddev(x.budget.amount) from Quart x where x.budget.currency= 'GBP' ")
+	Optional<Double> getQuart_GBPBudgetDeviation();
 
 	/////////////////////////////////////////////////
 

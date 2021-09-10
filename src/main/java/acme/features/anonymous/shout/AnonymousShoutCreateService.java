@@ -19,7 +19,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.entityToChange.EntityToChange;
+import acme.entities.quart.Quart;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,7 +53,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertErrorsNotNull(errors);
 
         request.bind(entity, errors);
-        request.bind(entity.getEntityToChange(), errors);
+        request.bind(entity.getQuart(), errors);
 
     }
 
@@ -64,8 +64,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertModelNotNull(model);
 
         request.unbind(entity, model, "author", "text", "info");
-        request.unbind(entity.getEntityToChange(), model, "idAttributeToChange", "moneyAttributeToChange",
-                "flagAttributeToChange", "dateAttributeToChange");
+        request.unbind(entity.getQuart(), model, "badge", "budget",
+                "important", "deadLine");
     }
 
     @Override
@@ -79,7 +79,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 
         result = new Shout();
         result.setMoment(moment);
-        result.setEntityToChange(new EntityToChange());
+        result.setQuart(new Quart());
 
         return result;
     }
@@ -89,32 +89,32 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         AssertUtils.assertRequestNotNull(request);
         AssertUtils.assertEntityNotNull(entity);
         AssertUtils.assertErrorsNotNull(errors);
-        final EntityToChange entityToChange = entity.getEntityToChange();
+        final Quart quart = entity.getQuart();
 
-        if(entityToChange.getDateAttributeToChange()==null){
-            errors.state(request,false,"dateAttributeToChange","anonymous.shout.entityToChange.error.dateAttributeToChange.null");
+        if(quart.getDeadLine()==null){
+            errors.state(request,false,"deadLine","anonymous.shout.quart.error.deadLine.null");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && (!(entityToChange.getMoneyAttributeToChange().getCurrency().equals("EUR")
-                        || entityToChange.getMoneyAttributeToChange().getCurrency().equals("USD")|| entityToChange.getMoneyAttributeToChange().getCurrency().equals("GBP")))) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.format");
+        if (quart.getBudget() != null
+                && (!(quart.getBudget().getCurrency().equals("EUR")
+                        || quart.getBudget().getCurrency().equals("USD")|| quart.getBudget().getCurrency().equals("GBP")))) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.quart.error.budget.format");
         }
 
-        if (entityToChange.getMoneyAttributeToChange() != null
-                && entityToChange.getMoneyAttributeToChange().getAmount() < 0) {
-            errors.state(request, false, "moneyAttributeToChange",
-                    "anonymous.shout.entityToChange.error.moneyAttributeToChange.negative");
+        if (quart.getBudget() != null
+                && quart.getBudget().getAmount() < 0) {
+            errors.state(request, false, "budget",
+                    "anonymous.shout.quart.error.budget.negative");
         }
 
-        Calendar c = Calendar.getInstance();
+        final Calendar c = Calendar.getInstance();
         c.setTime(new Date(System.currentTimeMillis()));
         c.add(Calendar.WEEK_OF_YEAR, +1);
-        if (entityToChange.getDateAttributeToChange() != null
-                && entityToChange.getDateAttributeToChange().before(c.getTime())) {
-            errors.state(request, false, "dateAttributeToChange",
-                    "anonymous.shout.entityToChange.error.dateAttributeToChange.week");
+        if (quart.getDeadLine() != null
+                && quart.getDeadLine().before(c.getTime())) {
+            errors.state(request, false, "deadLine",
+                    "anonymous.shout.quart.error.deadLine.week");
         }
 
     }
@@ -138,23 +138,16 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
         c.setTime(date);
         c.add(Calendar.WEEK_OF_MONTH, +1);
 
-        entity.getEntityToChange().setShout(entity);
+        entity.getQuart().setShout(entity);
 
         // Estrategia para generar un identificador aleatorio. Escogemos un número aleatorio basado en la hora del sistema
         // y la fecha. Lo adaptamos al patrón que nos piden.
-        String randInt = String.valueOf(System.currentTimeMillis());
+        final String randInt = String.valueOf(System.currentTimeMillis());
 
-        // TODO: Borrar esto si no piden generar letras. Acordarse!!!
-        // Transformamos los números a letras para conformarse al patron
-//       final StringBuilder builder = new StringBuilder();
-//       for (int cha : randInt.chars().toArray())
-//       {
-//           builder.append(17 + cha);
-//       }
-//        randInt = builder.toString();
 
-        entity.getEntityToChange().setIdAttributeToChange(randInt.substring(randInt.length() - 6) + ":" + year + ":"
-                + (month.length() == 1 ? "0" : "") + month + ":" + (day.length() == 1 ? "0" : "") + day);
+
+        entity.getQuart().setBadge(year.substring(2)+":"+randInt.substring(randInt.length() - 2) +
+            ":"+ (month.length() == 1 ? "0" : "") + month+":"+randInt.substring(randInt.length() - 5) + ":" +(day.length() == 1 ? "0" : "") + day);
         this.repository.save(entity);
 
     }

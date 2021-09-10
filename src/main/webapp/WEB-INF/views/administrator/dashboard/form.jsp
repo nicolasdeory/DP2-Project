@@ -16,10 +16,10 @@
 	</p>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChangeFlaggedAsFlagAttributeToChange"/>
+			<acme:message code="administrator.dashboard.form.label.quartFlaggedAsImportant"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChangeFlaggedAsFlagAttributeToChange}"/>
+			<acme:print value="${quartFlaggedAsImportant}"/>
 		</td>
 	</tr>
 	<tr>
@@ -32,50 +32,50 @@
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.quart_EURBudgetAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${quart_EURBudgetAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_EURMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.quart_EURBudgetDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_EURMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${quart_EURBudgetDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.quart_DollarBudgetAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${quart_DollarBudgetAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_DollarMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.quart_DollarBudgetDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_DollarMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${quart_DollarBudgetDeviation}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeAverage"/>
+			<acme:message code="administrator.dashboard.form.label.quart_GBPBudgetAverage"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeAverage}"/>
+			<acme:print value="${quart_GBPBudgetAverage}"/>
 		</td>
 	</tr>
 	<tr>
 		<th scope="row">
-			<acme:message code="administrator.dashboard.form.label.entityToChange_GBPMoneyAttributeToChangeDeviation"/>
+			<acme:message code="administrator.dashboard.form.label.quart_GBPBudgetDeviation"/>
 		</th>
 		<td>
-			<acme:print value="${entityToChange_GBPMoneyAttributeToChangeDeviation}"/>
+			<acme:print value="${quart_GBPBudgetDeviation}"/>
 		</td>
 	</tr>
 

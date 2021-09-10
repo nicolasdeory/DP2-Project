@@ -43,12 +43,12 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 				"minOfWorkPlanExecutionPeriods", "maxOfWorkPlanExecutionPeriods", "averageOfTaskWorkloads",
 				"deviationOfTaskWorkloads", "minOfTaskWorkloads", "maxOfTaskWorkloads", "averageOfWorkplanWorkloads",
 				"deviationOfWorkplanWorkloads", "minOfWorkplanWorkloads", "maxOfWorkplanWorkloads",
-				"entityToChangeFlaggedAsFlagAttributeToChange", "shoutsZeroBugdetRate",
-				"entityToChange_EURMoneyAttributeToChangeAverage", "entityToChange_EURMoneyAttributeToChangeDeviation",
-				"entityToChange_DollarMoneyAttributeToChangeAverage",
-				"entityToChange_DollarMoneyAttributeToChangeDeviation",
-				"entityToChange_GBPMoneyAttributeToChangeAverage",
-				"entityToChange_GBPMoneyAttributeToChangeDeviation");
+				"quartFlaggedAsImportant", "shoutsZeroBugdetRate",
+				"quart_EURBudgetAverage", "quart_EURBudgetDeviation",
+				"quart_DollarBudgetAverage",
+				"quart_DollarBudgetDeviation",
+				"quart_GBPBudgetAverage",
+				"quart_GBPBudgetDeviation");
 	}
 
 	@Override
@@ -88,14 +88,14 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Double minOfWorkplanWorkloads;
 		Double maxOfWorkplanWorkloads;
 
-		Double entityToChangeFlaggedAsFlagAttributeToChange;
+		Double quartFlaggedAsImportant;
 		Double shoutsZeroBugdetRate;
-		Double entityToChange_EURMoneyAttributeToChangeAverage;
-		Double entityToChange_EURMoneyAttributeToChangeDeviation;
-		Double entityToChange_DollarMoneyAttributeToChangeAverage;
-		Double entityToChange_DollarMoneyAttributeToChangeDeviation;
-		Double entityToChange_GBPMoneyAttributeToChangeAverage;
-		Double entityToChange_GBPMoneyAttributeToChangeDeviation;
+		Double quart_EURBudgetAverage;
+		Double quart_EURBudgetDeviation;
+		Double quart_DollarBudgetAverage;
+		Double quart_DollarBudgetDeviation;
+		Double quart_GBPBudgetAverage;
+		Double quart_GBPBudgetDeviation;
 
 		numberOfPublicTasks = this.repository.numberOfPublicTasks();
 		numberOfPrivateTasks = this.repository.numberOfPrivateTasks();
@@ -140,22 +140,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		maxOfWorkplanWorkloads = this.repository.findAllWorkPlans().stream()
 				.mapToDouble(x -> x.getExecutionPeriod().getWorkloadHours()).max().orElse(-1);
 
-		entityToChangeFlaggedAsFlagAttributeToChange = this.repository
-				.getEntityToChangesFlaggedAsFlagAttributeToChange();
+		quartFlaggedAsImportant = this.repository
+				.getQuartsFlaggedAsImportant();
 		shoutsZeroBugdetRate = this.service.getShoutsZeroBugdetRate();
 		// -1 when no data persisted
-		entityToChange_EURMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_EURMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_EurMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_DollarMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_DollarMoneyAttributeToChangeDeviation().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeAverage = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeAverage().orElse(-1.);
-		entityToChange_GBPMoneyAttributeToChangeDeviation = this.repository
-				.getEntityToChange_GBPMoneyAttributeToChangeDeviation().orElse(-1.);
+		quart_EURBudgetAverage = this.repository
+				.getQuart_EurBudgetAverage().orElse(-1.);
+		quart_EURBudgetDeviation = this.repository
+				.getQuart_EurBudgetDeviation().orElse(-1.);
+		quart_DollarBudgetAverage = this.repository
+				.getQuart_DollarBudgetAverage().orElse(-1.);
+		quart_DollarBudgetDeviation = this.repository
+				.getQuart_DollarBudgetDeviation().orElse(-1.);
+		quart_GBPBudgetAverage = this.repository
+				.getQuart_GBPBudgetAverage().orElse(-1.);
+		quart_GBPBudgetDeviation = this.repository
+				.getQuart_GBPBudgetDeviation().orElse(-1.);
 
 		result = new Dashboard();
 		result.setNumberOfPublicTasks(numberOfPublicTasks);
@@ -189,18 +189,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinOfWorkplanWorkloads(minOfWorkplanWorkloads);
 		result.setMaxOfWorkplanWorkloads(maxOfWorkplanWorkloads);
 
-		result.setEntityToChangeFlaggedAsFlagAttributeToChange(entityToChangeFlaggedAsFlagAttributeToChange);
+		result.setQuartFlaggedAsImportant(quartFlaggedAsImportant);
 		result.setShoutsZeroBugdetRate(shoutsZeroBugdetRate);
-		result.setEntityToChange_EURMoneyAttributeToChangeAverage(entityToChange_EURMoneyAttributeToChangeAverage);
-		result.setEntityToChange_EURMoneyAttributeToChangeDeviation(entityToChange_EURMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_DollarMoneyAttributeToChangeAverage(
-				entityToChange_DollarMoneyAttributeToChangeAverage);
-		result.setEntityToChange_DollarMoneyAttributeToChangeDeviation(
-				entityToChange_DollarMoneyAttributeToChangeDeviation);
-		result.setEntityToChange_GBPMoneyAttributeToChangeAverage(
-				entityToChange_GBPMoneyAttributeToChangeAverage);
-		result.setEntityToChange_GBPMoneyAttributeToChangeDeviation(
-				entityToChange_GBPMoneyAttributeToChangeDeviation);
+		result.setQuart_EURBudgetAverage(quart_EURBudgetAverage);
+		result.setQuart_EURBudgetDeviation(quart_EURBudgetDeviation);
+		result.setQuart_DollarBudgetAverage(
+				quart_DollarBudgetAverage);
+		result.setQuart_DollarBudgetDeviation(
+				quart_DollarBudgetDeviation);
+		result.setQuart_GBPBudgetAverage(
+				quart_GBPBudgetAverage);
+		result.setQuart_GBPBudgetDeviation(
+				quart_GBPBudgetDeviation);
 
 		return result;
 	}

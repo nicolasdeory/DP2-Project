@@ -1,4 +1,4 @@
-package acme.entities.entityToChange;
+package acme.entities.quart;
 
 import java.util.Date;
 
@@ -18,22 +18,22 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class EntityToChange extends DomainEntity {
+public class Quart extends DomainEntity {
     // Serialisation identifier -----------------------------------------------
 
     protected static final long serialVersionUID = 1L;
 
     // Attributes -------------------------------------------------------------
-    @Pattern(regexp = "^(\\d{6}):(\\d{4}):(\\d{2}):(\\d{2})$")
+    @Pattern(regexp = "^\\d{2}:\\w{2}:\\d{2}:\\d{5}:\\d{2}$")
     @Column(unique = true)
-    protected String idAttributeToChange;
+    protected String badge;
 
-    protected Date dateAttributeToChange;
+    protected Date deadLine;
 
-    protected Money moneyAttributeToChange;
+    protected Money budget;
 
     @NotNull
-    protected Boolean flagAttributeToChange;
+    protected Boolean important;
 
     // Derived attributes -----------------------------------------------------
 

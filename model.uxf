@@ -680,12 +680,12 @@ bg=blue</panel_attributes>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
-EntityToChange
+Quart
 --
-+    idAttributeToChange : String {Unique}
-+    dateAttributeToChange : Date {NotNull}
-+    moneyAttributeToChange : Money 
-+    flagAttributeToChange : boolean {NotNull}
++    badge : String {Unique}
++    deadLine : Date {NotNull}
++    budget : Money 
++    important : boolean {NotNull}
 
 
 
